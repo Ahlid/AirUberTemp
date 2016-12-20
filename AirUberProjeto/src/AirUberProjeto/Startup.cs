@@ -12,6 +12,7 @@ using Microsoft.Extensions.Logging;
 using AirUberProjeto.Data;
 using AirUberProjeto.Models;
 using AirUberProjeto.Services;
+using Microsoft.AspNetCore.Mvc;
 
 namespace AirUberProjeto
 {
@@ -57,6 +58,11 @@ namespace AirUberProjeto
             // Add application services.
             services.AddTransient<IEmailSender, AuthMessageSender>();
             services.AddTransient<ISmsSender, AuthMessageSender>();
+
+
+         
+            
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

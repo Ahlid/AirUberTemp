@@ -16,6 +16,9 @@ namespace AirUberProjeto.Models
         {
             //context.Database.EnsureDeleted();
             context.Database.EnsureCreated();
+
+        
+
             if (!context.Pais.Any())
             {
 

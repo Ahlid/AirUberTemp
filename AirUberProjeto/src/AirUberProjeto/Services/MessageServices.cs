@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MailKit.Net.Smtp;
+using MailKit.Security;
+using MimeKit;
+
 
 namespace AirUberProjeto.Services
 {
@@ -10,9 +14,25 @@ namespace AirUberProjeto.Services
     // For more details see this link http://go.microsoft.com/fwlink/?LinkID=532713
     public class AuthMessageSender : IEmailSender, ISmsSender
     {
-        public Task SendEmailAsync(string email, string subject, string message)
+        public async Task<Task> SendEmailAsync(string email, string subject, string message)
         {
-            // Plug in your email service here to send an email.
+            var emailMessage = new MimeMessage();
+
+            emailMessage.From.Add(new MailboxAddress("AirUber", "AirUberNoReply@gmail.com"));
+            emailMessage.To.Add(new MailboxAddress("", email));
+            emailMessage.Subject = subject;
+            var bodyBuilder = new BodyBuilder {HtmlBody = @message};
+            emailMessage.Body = bodyBuilder.ToMessageBody();
+
+
+
+            using (var client = new SmtpClient())
+            {
+                client.Connect("smtp.gmail.com", 587, false);
+                client.Authenticate("AirUberNoReply@gmail.com", "ESW123A12");
+                await client.SendAsync(emailMessage).ConfigureAwait(false);
+                await client.DisconnectAsync(true).ConfigureAwait(false);
+            }
             return Task.FromResult(0);
         }
 
