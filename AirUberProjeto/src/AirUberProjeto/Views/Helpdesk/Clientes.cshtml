@@ -1,0 +1,19 @@
+﻿@model System.Linq.IQueryable<AirUberProjeto.Models.ApplicationUser>
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<h2>title</h2>
+
+
+@foreach (var item in Model)
+{
+    if (item is Cliente)
+    {
+        <p>@item.ToString()</p>
+    }
+
+    //TODO artur fazer a apresentação
+}

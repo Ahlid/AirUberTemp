@@ -8,9 +8,10 @@ using AirUberProjeto.Data;
 namespace AirUberProjeto.Data.Migrations
 {
     [DbContext(typeof(AirUberDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20161220185438_companhiaC")]
+    partial class companhiaC
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.1")
@@ -230,27 +231,12 @@ namespace AirUberProjeto.Data.Migrations
                     b.HasDiscriminator().HasValue("Cliente");
                 });
 
-            modelBuilder.Entity("AirUberProjeto.Models.Colaborador", b =>
-                {
-                    b.HasBaseType("AirUberProjeto.Models.ApplicationUser");
-
-                    b.Property<int>("CompanhiaId");
-
-                    b.Property<bool>("IsAdministrador");
-
-                    b.HasIndex("CompanhiaId");
-
-                    b.ToTable("Colaborador");
-
-                    b.HasDiscriminator().HasValue("Colaborador");
-                });
-
             modelBuilder.Entity("AirUberProjeto.Models.Helpdesk", b =>
                 {
                     b.HasBaseType("AirUberProjeto.Models.ApplicationUser");
 
 
-                    b.ToTable("Helpdesk");
+                    b.ToTable("Colaborador");
 
                     b.HasDiscriminator().HasValue("Helpdesk");
                 });
@@ -297,14 +283,6 @@ namespace AirUberProjeto.Data.Migrations
                     b.HasOne("AirUberProjeto.Models.ApplicationUser")
                         .WithMany("Roles")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("AirUberProjeto.Models.Colaborador", b =>
-                {
-                    b.HasOne("AirUberProjeto.Models.Companhia", "Companhia")
-                        .WithMany()
-                        .HasForeignKey("CompanhiaId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
         }

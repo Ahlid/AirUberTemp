@@ -1,0 +1,64 @@
+﻿@model System.Linq.IQueryable<AirUberProjeto.Models.Companhia>
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+<h2>Companhias</h2>
+
+<table class="table">
+
+<thead>
+<tr>
+    <th>
+        @Html.DisplayNameFor(model => (model.Take(1) as Companhia).Nome)
+    </th> 
+    <th>
+        @Html.DisplayNameFor(model => (model.Take(1) as Companhia).Contact)
+    </th> 
+    <th>
+        @Html.DisplayNameFor(model => (model.Take(1) as Companhia).Morada)
+    </th> 
+    <th>
+        @Html.DisplayNameFor(model => (model.Take(1) as Companhia).Pais.Nome)
+    </th> 
+    <th>
+        @Html.DisplayNameFor(model => (model.Take(1) as Companhia).Nif)
+    </th> 
+    <th>
+        @Html.DisplayNameFor(model => (model.Take(1) as Companhia).Jetcash)
+    </th> 
+</tr>
+
+</thead>
+    <tbody>
+    
+        
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Contact)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Morada)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Pais.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nif)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Jetcash)
+                </td>
+            </tr>
+        }
+
+    </tbody>
+
+</table>
+

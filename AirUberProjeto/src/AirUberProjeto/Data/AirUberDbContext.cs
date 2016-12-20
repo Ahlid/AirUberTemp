@@ -23,6 +23,7 @@ namespace AirUberProjeto.Data
             builder.Entity<ApplicationUser>().HasKey(p => p.Id);
             builder.Entity<Cliente>().ToTable("Cliente");
             builder.Entity<Helpdesk>().ToTable("Helpdesk");
+            builder.Entity<Colaborador>().ToTable("Colaborador");
 
             // Customize the ASP.NET Identity model and override the defaults if needed.
             // For example, you can rename the ASP.NET Identity table names and more.
@@ -31,6 +32,7 @@ namespace AirUberProjeto.Data
 
         public DbSet<Pais> Pais { get; set; }
         public DbSet<ApplicationUser> ApplicationUser { get; set; }
+        public DbSet<Companhia> Companhia { get; set; }
 
     }
 

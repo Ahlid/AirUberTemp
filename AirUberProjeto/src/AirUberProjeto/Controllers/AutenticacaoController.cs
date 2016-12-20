@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using AirUberProjeto.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -10,6 +11,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Logging;
 using AirUberProjeto.Models;
 using AirUberProjeto.Models.AccountViewModels;
+using AirUberProjeto.Models.AutenticacaoViewModels;
 using AirUberProjeto.Services;
 using MailKit.Net.Smtp;
 using MimeKit;
@@ -24,20 +26,22 @@ namespace AirUberProjeto.Controllers
         private readonly IEmailSender _emailSender;
         private readonly ISmsSender _smsSender;
         private readonly ILogger _logger;
+        private readonly AirUberDbContext _context;
 
         public AutenticacaoController(
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
             IEmailSender emailSender,
             ISmsSender smsSender,
-            ILoggerFactory loggerFactory)
+            ILoggerFactory loggerFactory,
+            AirUberDbContext context)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _emailSender = emailSender;
             _smsSender = smsSender;
             _logger = loggerFactory.CreateLogger<AutenticacaoController>();
-
+            _context = context;
 
      
 
@@ -110,7 +114,7 @@ namespace AirUberProjeto.Controllers
 
                         if (r.ToString() == Roles.ROLE_HELPDESK)
                         {
-                            return RedirectToAction(nameof(HomeController.HelpdeskLogin), "Home");
+                            return RedirectToAction(nameof(HelpdeskController.Index), "Helpdesk");
 
                         }
 
@@ -205,8 +209,64 @@ namespace AirUberProjeto.Controllers
         public IActionResult RegisterCompanhia(string returnUrl = null)
         {
             ViewData["ReturnUrl"] = returnUrl;
+            ViewData["Paises"] = new SelectList(_context.Set<Pais>(), "PaisId", "Nome");
             return View();
         }
+
+
+        //
+        // POST: /Account/RegisterCompanhia
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> RegisterCompanhia(RegisterCompanhiaViewModel model, string returnUrl = null)
+        {
+            ViewData["ReturnUrl"] = returnUrl;
+            if (ModelState.IsValid)
+            {
+
+                Companhia c = new Companhia
+                {
+                    Contact = model.Contact,
+                    PaisId = model.PaisId,
+                    Morada = model.Morada,
+                    Nif = model.Nif,
+                    Nome = model.Nome,
+                    Jetcash = 0
+
+                };
+
+                
+
+                var user = new Colaborador{ UserName = model.Email, Email = model.Email, IsAdministrador = true, Companhia = c};
+                var result = await _userManager.CreateAsync(user, model.Password);// cria um user com a pw
+                if (result.Succeeded)
+                {
+
+
+                    await _userManager.AddToRoleAsync(user, Roles.ROLE_COLABORADOR_ADMIN);//atribui a role
+                    
+                  
+                   
+                   
+
+                    // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=532713
+                    // Send an email with this link
+                    var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                    var callbackUrl = Url.Action("ConfirmEmail", "Autenticacao", new { userId = user.Id, code = code }, protocol: HttpContext.Request.Scheme);
+                    await _emailSender.SendEmailAsync(model.Email, "Confirm your account",
+                        $"Please confirm your account by clicking this link: <a href='{callbackUrl}'>link</a>");
+                    await _signInManager.SignInAsync(user, isPersistent: false);//para ele depois fazer login, regista-se e fica logo loged-in
+                    _logger.LogInformation(3, "User created a new account with password.");
+                    return RedirectToLocal(returnUrl);// redirecionar para o homeloged in? sim xD
+                }
+                AddErrors(result);
+            }
+
+            // If we got this far, something failed, redisplay form
+            return View(model);
+        }
+
 
 
 
@@ -335,7 +395,34 @@ namespace AirUberProjeto.Controllers
             return View();
         }
 
-    
+
+        // POST: /Manage/ChangePassword
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        
+        public async void ChangePassword(ChangePasswordViewModel model)
+        {
+            //TODO: TIago acabar isto
+            if (!ModelState.IsValid)
+            {
+                //return View(model);
+            }
+            var user = await GetCurrentUserAsync();
+            if (user != null)
+            {
+                var result = await _userManager.ChangePasswordAsync(user, model.OldPassword, model.NewPassword);
+                if (result.Succeeded)
+                {
+                    await _signInManager.SignInAsync(user, isPersistent: false);
+                    _logger.LogInformation(3, "User changed their password successfully.");
+                  //  return RedirectToAction(nameof(Index), new { Message = ManageMessageId.ChangePasswordSuccess });
+                }
+                AddErrors(result);
+                //return View(model);
+            }
+           // return RedirectToAction(nameof(Index), new { Message = ManageMessageId.Error });
+        }
+
 
 
         #region Helpers

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace AirUberProjeto.Models.AccountViewModels
+namespace AirUberProjeto.Models.AutenticacaoViewModels
 {
     public class ExternalLoginConfirmationViewModel
     {
