@@ -8,6 +8,6 @@ namespace AirUberProjeto.Models
     public class Cliente : ApplicationUser
     {
        
-        public int Jetcash { get; set; }
+    
     }
 }

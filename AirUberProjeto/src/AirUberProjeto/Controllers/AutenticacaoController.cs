@@ -24,7 +24,6 @@ namespace AirUberProjeto.Controllers
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly IEmailSender _emailSender;
-        private readonly ISmsSender _smsSender;
         private readonly ILogger _logger;
         private readonly AirUberDbContext _context;
 
@@ -39,13 +38,12 @@ namespace AirUberProjeto.Controllers
             _userManager = userManager;
             _signInManager = signInManager;
             _emailSender = emailSender;
-            _smsSender = smsSender;
             _logger = loggerFactory.CreateLogger<AutenticacaoController>();
             _context = context;
 
      
 
-            var res = _userManager.FindByEmailAsync("helpdesk@airuber.com");
+            var res = this._userManager.FindByEmailAsync("helpdesk@airuber.com");
 
             if (res.Result == null)
             {
@@ -58,16 +56,18 @@ namespace AirUberProjeto.Controllers
                     UserName = "helpdesk@airuber.com"
                 };
 
-                var result = _userManager.CreateAsync(h, "ost:43636/Acc").Result;
+                var result = this._userManager.CreateAsync(h, "ost:43636/Acc").Result;
                 if (result.Succeeded)
                 {
 
 
-                    _userManager.AddToRoleAsync(h, Roles.ROLE_HELPDESK).Wait();
+                    this._userManager.AddToRoleAsync(h, Roles.ROLE_HELPDESK).Wait();
 
                 }
 
             }
+
+            
 
         }
 
@@ -102,29 +102,26 @@ namespace AirUberProjeto.Controllers
                     var user = await _userManager.FindByEmailAsync(model.Email);
                     // Get the roles for the user
                     var roles = await _userManager.GetRolesAsync(user);
-
-                    foreach (var r in roles)
+                    
+                    foreach (var role in roles)
                     {
 
-                        if (r.ToString() == Roles.ROLE_COLABORADOR_ADMIN)
+                        switch (role.ToString())
                         {
-                            return RedirectToAction(nameof(HomeController.ColaboradorLogin), "Home");
+                            case Roles.ROLE_COLABORADOR_ADMIN:
+                                return RedirectToAction(nameof(HomeController.ColaboradorLogin), "Home");
+
+                            case Roles.ROLE_COLABORADOR:
+                                return RedirectToAction(nameof(HomeController.ColaboradorLogin), "Home");
+
+                            case Roles.ROLE_HELPDESK:
+                                return RedirectToAction(nameof(HelpdeskController.Index), "Helpdesk");
+
+                            case Roles.ROLE_CLIENTE:
+                                return RedirectToAction(nameof(HomeController.ClienteLogin), "Home");
 
                         }
-
-                        if (r.ToString() == Roles.ROLE_HELPDESK)
-                        {
-                            return RedirectToAction(nameof(HelpdeskController.Index), "Helpdesk");
-
-                        }
-
-                        if (r.ToString() == Roles.ROLE_CLIENTE)
-                        {
-                            return RedirectToAction(nameof(HomeController.ClienteLogin), "Home");
-
-                        }
-
-
+                        
                     }
 
 
@@ -177,7 +174,7 @@ namespace AirUberProjeto.Controllers
             ViewData["ReturnUrl"] = returnUrl;
             if (ModelState.IsValid)
             {
-                var user = new Cliente { UserName = model.Email, Email = model.Email, Jetcash = 0};
+                Cliente user = new Cliente { UserName = model.Email, Email = model.Email};
                 var result = await _userManager.CreateAsync(user, model.Password);// cria um user com a pw
                 if (result.Succeeded)
                 {
@@ -188,12 +185,18 @@ namespace AirUberProjeto.Controllers
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=532713
                     // Send an email with this link
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+
                     var callbackUrl = Url.Action("ConfirmEmail", "Autenticacao", new { userId = user.Id, code = code }, protocol: HttpContext.Request.Scheme);
+
                     await _emailSender.SendEmailAsync(model.Email, "Confirm your account",
                         $"Please confirm your account by clicking this link: <a href='{callbackUrl}'>link</a>");
+
                     await _signInManager.SignInAsync(user, isPersistent: false);//para ele depois fazer login, regista-se e fica logo loged-in
+
                     _logger.LogInformation(3, "User created a new account with password.");
+
                     return RedirectToLocal(returnUrl);// redirecionar para o homeloged in? sim xD
+                    
                 }
                 AddErrors(result);
             }
@@ -225,20 +228,18 @@ namespace AirUberProjeto.Controllers
             if (ModelState.IsValid)
             {
 
-                Companhia c = new Companhia
+                Companhia companhia = new Companhia
                 {
                     Contact = model.Contact,
                     PaisId = model.PaisId,
                     Morada = model.Morada,
                     Nif = model.Nif,
-                    Nome = model.Nome,
-                    Jetcash = 0
+                    Nome = model.Nome
 
                 };
+                 
 
-                
-
-                var user = new Colaborador{ UserName = model.Email, Email = model.Email, IsAdministrador = true, Companhia = c};
+                Colaborador user = new Colaborador{ UserName = model.Email, Email = model.Email, IsAdministrador = true, Companhia = companhia};
                 var result = await _userManager.CreateAsync(user, model.Password);// cria um user com a pw
                 if (result.Succeeded)
                 {
@@ -407,7 +408,7 @@ namespace AirUberProjeto.Controllers
             {
                 //return View(model);
             }
-            var user = await GetCurrentUserAsync();
+            var user = await GetCurrentUserAsync(); 
             if (user != null)
             {
                 var result = await _userManager.ChangePasswordAsync(user, model.OldPassword, model.NewPassword);

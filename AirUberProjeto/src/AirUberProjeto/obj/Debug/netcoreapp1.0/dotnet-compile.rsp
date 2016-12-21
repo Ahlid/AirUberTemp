@@ -258,6 +258,8 @@ C:\Users\pcts\Desktop\ESW\GIT\AirUberProjeto\src\AirUberProjeto\Data\Migrations\
 C:\Users\pcts\Desktop\ESW\GIT\AirUberProjeto\src\AirUberProjeto\Data\Migrations\20161220185438_companhiaC.Designer.cs
 C:\Users\pcts\Desktop\ESW\GIT\AirUberProjeto\src\AirUberProjeto\Data\Migrations\20161220195005_companhiaLogin.cs
 C:\Users\pcts\Desktop\ESW\GIT\AirUberProjeto\src\AirUberProjeto\Data\Migrations\20161220195005_companhiaLogin.Designer.cs
+C:\Users\pcts\Desktop\ESW\GIT\AirUberProjeto\src\AirUberProjeto\Data\Migrations\20161220233934_removerjetcash.cs
+C:\Users\pcts\Desktop\ESW\GIT\AirUberProjeto\src\AirUberProjeto\Data\Migrations\20161220233934_removerjetcash.Designer.cs
 C:\Users\pcts\Desktop\ESW\GIT\AirUberProjeto\src\AirUberProjeto\Data\Migrations\ApplicationDbContextModelSnapshot.cs
 C:\Users\pcts\Desktop\ESW\GIT\AirUberProjeto\src\AirUberProjeto\Models\ApplicationUser.cs
 C:\Users\pcts\Desktop\ESW\GIT\AirUberProjeto\src\AirUberProjeto\Models\Cliente.cs
@@ -267,6 +269,7 @@ C:\Users\pcts\Desktop\ESW\GIT\AirUberProjeto\src\AirUberProjeto\Models\DbInitial
 C:\Users\pcts\Desktop\ESW\GIT\AirUberProjeto\src\AirUberProjeto\Models\Helpdesk.cs
 C:\Users\pcts\Desktop\ESW\GIT\AirUberProjeto\src\AirUberProjeto\Models\Pais.cs
 C:\Users\pcts\Desktop\ESW\GIT\AirUberProjeto\src\AirUberProjeto\Models\Roles.cs
+C:\Users\pcts\Desktop\ESW\GIT\AirUberProjeto\src\AirUberProjeto\Models\AutenticacaoViewModels\ChangePasswordViewModel.cs
 C:\Users\pcts\Desktop\ESW\GIT\AirUberProjeto\src\AirUberProjeto\Models\AutenticacaoViewModels\ExternalLoginConfirmationViewModel.cs
 C:\Users\pcts\Desktop\ESW\GIT\AirUberProjeto\src\AirUberProjeto\Models\AutenticacaoViewModels\ForgotPasswordViewModel.cs
 C:\Users\pcts\Desktop\ESW\GIT\AirUberProjeto\src\AirUberProjeto\Models\AutenticacaoViewModels\LoginViewModel.cs

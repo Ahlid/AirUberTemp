@@ -15,7 +15,6 @@ namespace AirUberProjeto.Models
         public int PaisId { get; set; }
         public virtual Pais Pais { get; set; }
         public string Nif { get; set; }
-        public int Jetcash { get; set; }
 
     }
 }

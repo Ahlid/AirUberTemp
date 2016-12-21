@@ -32,7 +32,7 @@ s0.parentNode.insertBefore(s1,s0);
 })();
     </script>
     <!--End of Tawk.to Script-->
-<div class="navbar navbar-inverse navbar-fixed-top">
+<div class="navbar navbar-inverse navbar-fixed-top w3-theme-dark">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -41,14 +41,11 @@ s0.parentNode.insertBefore(s1,s0);
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">AirUberProjeto</a>
+            
+            <a style="color: white" asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand btn-lg">AirUber</a>
         </div>
         <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
-            </ul>
+           
             @await Html.PartialAsync("_LoginPartial")
         </div>
     </div>
@@ -56,7 +53,11 @@ s0.parentNode.insertBefore(s1,s0);
 <div class="container body-content">
     @RenderBody()
     <hr/>
-    <footer>
+    <footer style="position:fixed;
+   left:0px;
+   bottom:0px;
+   height:30px;
+   width:100%;">
         <p>&copy; 2016 - AirUberProjeto</p>
     </footer>
 </div>

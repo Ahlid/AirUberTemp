@@ -39,7 +39,7 @@ namespace AirUberProjeto.Models
 
             context.Database.EnsureCreated();
             var roleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
-
+            
 
             if (!await roleManager.RoleExistsAsync(Roles.ROLE_CLIENTE))
             {
