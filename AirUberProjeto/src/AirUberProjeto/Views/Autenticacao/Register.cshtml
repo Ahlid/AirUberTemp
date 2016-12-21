@@ -5,20 +5,28 @@
             <br />
             <h4>AirUber</h4>
             <hr />
-           
-            <div class="col-lg-6">
-                <p>Quero encontrar os melhores jatos</p>
-                <a asp-action="RegisterCliente"> Sign up</a>
-            </div>
-            <div class="col-lg-6">
-                <p>Quero fazer crescer a minha companhia</p>
-                <a asp-action="RegisterCompanhia"> Sign up as an company</a>
+            <div class="w3-row-padding">
+                <div class="w3-col m4 l6">
+                    <div class="w3-hover-shadow w3-center w3-padding-128 w3-theme-light w3-margin">
+                        <p>Quero encontrar os melhores jatos</p>
+                        <a class="w3-text-blue" asp-action="RegisterCliente"> Sign up</a>
+                    </div>
+                </div>
+                    <div class="w3-col m4 l6">
+                        <div class="w3-hover-shadow w3-center w3-padding-128 w3-theme-light w3-margin">
+                            <p>Quero fazer crescer a minha companhia</p>
+                            <a class="w3-text-blue" asp-action="RegisterCompanhia"> Sign up as an company</a>
 
-            </div>
-            <hr/>
-            
-            <p>Já tem conta? <a asp-action="Login">Login</a></p>
-        </section>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <hr />
+
+                <p class="w3-padding-12 w3-col m12 l12">Já tem conta? <a class="w3-text-blue" asp-action="Login">Login</a></p>
+</section>
     </div>
 </div>
 

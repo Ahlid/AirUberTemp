@@ -14,12 +14,9 @@
               asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
-        <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
-       
     </environment>
     @Html.ApplicationInsightsJavaScript(TelemetryConfiguration)
-    <script src="js/jquery-3.1.1.min.js"></script>
-    <link rel="stylesheet" href="~/css/site.css" />
+
 </head>
 <body>
     <!--Start of Tawk.to Script-->
@@ -35,24 +32,41 @@ s0.parentNode.insertBefore(s1,s0);
 })();
     </script>
     <!--End of Tawk.to Script-->
-<div class="navbar navbar-fixed-top w3-text-theme w3-theme-d3" style="box-shadow: 1px 1px 1px 1px #888888;">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            
-            <a  asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand w3-text-white">AirUber</a>
-        </div>
-        <div class="navbar-collapse collapse">
-           
-            @await Html.PartialAsync("_LoginPartial")
+    <div class="navbar navbar-fixed-top w3-text-theme w3-theme-d3" style="box-shadow: 1px 1px 1px 1px #888888;">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand w3-text-white">AirUber</a>
+            </div>
+            <div class="navbar-collapse collapse">
+
+                <ul class="nav navbar-nav">
+
+                    <li><a asp-area="" asp-controller="Helpdesk" asp-action="Clientes" class="w3-hover-white w3-hover-text-indigo w3-text-white">Clientes</a></li>
+                    <li><a asp-area="" asp-controller="Helpdesk" asp-action="Companhias" class="w3-hover-white w3-hover-text-indigo w3-text-white">Companhias</a></li>
+                    <li><a asp-area="" asp-controller="Helpdesk" asp-action="Viagens" class="w3-hover-white w3-hover-text-indigo w3-text-white">Viagens</a></li>
+                </ul>
+
+                <form asp-area="" asp-controller="Autenticacao" asp-action="LogOff" method="post" id="logoutForm" class="navbar-right">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a class="w3-btn w3-theme-d3 w3-hover-white w3-hover-text-indigo w3-text-white w3-padding-12" asp-area="" asp-controller="Autenticacao" asp-action="ChangePassword">Mudar Password  </a>
+                        </li>
+                        <li>
+                            <button type="submit" class="w3-btn w3-theme-d3 w3-hover-white w3-hover-text-indigo w3-text-white w3-padding-12">Sair <i class="glyphicon glyphicon-log-out"></i></button>
+                        </li>
+                    </ul>
+                </form>
+
+            </div>
         </div>
     </div>
-</div>
 <div class="container body-content">
     @RenderBody()
     <hr/>

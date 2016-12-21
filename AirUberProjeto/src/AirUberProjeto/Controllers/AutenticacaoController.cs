@@ -397,16 +397,22 @@ namespace AirUberProjeto.Controllers
         }
 
 
+        [HttpGet]
+        public IActionResult ChangePassword()
+        {
+            return View();
+        }
+
         // POST: /Manage/ChangePassword
         [HttpPost]
         [ValidateAntiForgeryToken]
         
-        public async void ChangePassword(ChangePasswordViewModel model)
+        public async Task<IActionResult> ChangePassword(ChangePasswordViewModel model)
         {
             //TODO: TIago acabar isto
             if (!ModelState.IsValid)
             {
-                //return View(model);
+                return View(model);
             }
             var user = await GetCurrentUserAsync(); 
             if (user != null)
@@ -416,12 +422,33 @@ namespace AirUberProjeto.Controllers
                 {
                     await _signInManager.SignInAsync(user, isPersistent: false);
                     _logger.LogInformation(3, "User changed their password successfully.");
-                  //  return RedirectToAction(nameof(Index), new { Message = ManageMessageId.ChangePasswordSuccess });
+                    var roles = await _userManager.GetRolesAsync(user);
+
+                    foreach (var role in roles)
+                    {
+
+                        switch (role.ToString())
+                        {
+                            case Roles.ROLE_COLABORADOR_ADMIN:
+                                return RedirectToAction(nameof(HomeController.ColaboradorLogin), "Home");
+
+                            case Roles.ROLE_COLABORADOR:
+                                return RedirectToAction(nameof(HomeController.ColaboradorLogin), "Home");
+
+                            case Roles.ROLE_HELPDESK:
+                                return RedirectToAction(nameof(HelpdeskController.Index), "Helpdesk");
+
+                            case Roles.ROLE_CLIENTE:
+                                return RedirectToAction(nameof(HomeController.ClienteLogin), "Home");
+
+                        }
+
+                    }
                 }
                 AddErrors(result);
-                //return View(model);
+                return View(model);
             }
-           // return RedirectToAction(nameof(Index), new { Message = ManageMessageId.Error });
+            return RedirectToAction(nameof(HomeController.Index), "Home");
         }
 
 
