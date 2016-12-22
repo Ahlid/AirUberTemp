@@ -34,6 +34,12 @@ namespace AirUberProjeto.Data
         public DbSet<ApplicationUser> ApplicationUser { get; set; }
         public DbSet<Companhia> Companhia { get; set; }
 
+        //added
+        public DbSet<Cliente> Cliente { get; set; }
+        public DbSet<Cidade> Cidade { get; set; }
+        public DbSet<Aeroporto> Aeroporto { get; set; }
+        public DbSet<Reserva> Reserva { get; set; }
+
     }
 
 

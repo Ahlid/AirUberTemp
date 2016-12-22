@@ -1,10 +1,13 @@
 ﻿@model System.Linq.IQueryable<AirUberProjeto.Models.Companhia>
 
 @{
-    ViewBag.Title = "title";
+    ViewBag.Title_Requests = "Pedidos"; //se existrem companhias pendentes é este valor se não é ""
+    ViewBag.Title = "Companhias";
     Layout = "_LayoutHelpdesk";
 }
-<h2>Companhias</h2>
+<h2>@ViewBag.Title_Requests</h2>
+
+<h2>@ViewBag.Title</h2>
 
 <table class="table">
 
@@ -17,15 +20,23 @@
         @Html.DisplayNameFor(model => (model.Take(1) as Companhia).Contact)
     </th> 
     <th>
-        @Html.DisplayNameFor(model => (model.Take(1) as Companhia).Morada)
+        @Html.DisplayNameFor(model => (model.Take(1) as Companhia).Email)
     </th> 
     <th>
-        @Html.DisplayNameFor(model => (model.Take(1) as Companhia).Pais.Nome)
+        @Html.DisplayNameFor(model => (model.Take(1) as Companhia).Pais)
     </th> 
     <th>
         @Html.DisplayNameFor(model => (model.Take(1) as Companhia).Nif)
     </th> 
-    
+    <th>
+        Viagens
+    </th> 
+    <th>
+        @Html.DisplayNameFor(model => (model.Take(1) as Companhia).JetCashAtual)
+    </th> 
+    <th>
+        @Html.DisplayNameFor(model => (model.Take(1) as Companhia).DataCriacao)
+    </th>
 </tr>
 
 </thead>
@@ -42,7 +53,7 @@
                     @Html.DisplayFor(modelItem => item.Contact)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Morada)
+                    @Html.DisplayFor(modelItem => item.Email)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Pais.Nome)
@@ -50,7 +61,15 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Nif)
                 </td>
-                
+                <th>
+                    Viagens
+                </th>
+                <th>
+                    @Html.DisplayFor(modelItem => item.JetCashAtual)
+                </th> 
+                <th>
+                    @Html.DisplayFor(modelItem => item.DataCriacao)
+                </th>
             </tr>
         }
 

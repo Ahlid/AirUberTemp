@@ -11,8 +11,8 @@ namespace AirUberProjeto.Models
         public int CidadeId { get; set; }
         [Display (Name = "Cidade")]
         public string Nome { get; set; }
-
         public int PaisId { get; set; } 
+
         public virtual Pais Pais { get; set; }
 
     }

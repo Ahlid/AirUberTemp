@@ -1,19 +1,71 @@
-﻿@model System.Linq.IQueryable<AirUberProjeto.Models.ApplicationUser>
+﻿@model System.Linq.IQueryable<AirUberProjeto.Models.Cliente>
 
 @{
-    ViewBag.Title = "title";
+    ViewBag.Title = "Clientes";
     Layout = "_LayoutHelpdesk";
 }
 
-<h2>title</h2>
+<h2>@ViewBag.Title</h2>
 
 
-@foreach (var item in Model)
-{
-    if (item is Cliente)
-    {
-        <p>@item.ToString()</p>
-    }
+<table class="table">
 
-    //TODO artur fazer a apresentação
-}
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => (model.Take(1) as Cliente).Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => (model.Take(1) as Cliente).Contacto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => (model.Take(1) as Cliente).Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => (model.Take(1) as Cliente).JetCashAtual)
+            </th>
+            <th>
+                Viagens
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => (model.Take(1) as Cliente).DataCriacao)
+            </th>
+
+        </tr>
+
+    </thead>
+    <tbody>
+
+
+        @foreach (var item in Model)
+        {
+            if (item is Cliente)
+            {
+                string nomeCompleto = item.Nome + " " + item.Apelido;
+                <tr>
+                    <td>
+                        @nomeCompleto   
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => (item.Contacto))
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => (item.Email))
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => (item.JetCashAtual))
+                    </td>
+                    <td>
+                        Número Viagens
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => (item.DataCriacao))
+                    </td>
+                </tr>
+
+            }
+        }
+
+    </tbody>
+
+</table>

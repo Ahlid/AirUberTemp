@@ -31,20 +31,24 @@ namespace AirUberProjeto.Controllers
         public IActionResult Clientes()
         {
 
-            var clientes = _context.ApplicationUser.Select(p => p);
+            //var clientes = _context.ApplicationUser.Select(p => p);
+            var clientes = _context.Cliente.Select(p => p);
 
+            // Contar aqui depois o nº de viagens de cada cliente e passar uma lista com todos os valores?
             return View(clientes);
         }
 
         public IActionResult Companhias()
         {
-            //TODO arranjar maneira de distinguir companhias validas e por validar
+            //TODO arranjar maneira de distinguir companhias validas e por validar  -> Ver o MR
             var companhias = _context.Companhia.Select(c => c).Include(p => p.Pais);
+
             return View(companhias);
         }
 
         public void Viagens()
         {
+            ViewBag.Title = "Viagens";
             //TODO fazer este metodo
         }
 

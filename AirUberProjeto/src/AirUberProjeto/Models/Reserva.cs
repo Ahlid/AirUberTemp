@@ -12,13 +12,15 @@ namespace AirUberProjeto.Models
         public int ReservaId { get; set; }
         public DateTime DataPartida { get; set; }
         public DateTime DataChegada { get; set; }
-        public int Custo { get; set; }
+
+        public decimal Custo { get; set; }
 
         [Key, Column(Order = 1), ForeignKey("AeroportoPartida")]
         public int AeroportoPartidaId { get; set; }
 
-        [Key, Column(Order = 1), ForeignKey("AeroportoChegada")]
+        [Key, Column(Order = 1), ForeignKey("AeroportoChegada")]    //Before: Column(Order = 1)
         public int AeroportoChegadaId { get; set; }
+
 
         [InverseProperty("AeroportoPartida")]
         public virtual Aeroporto AeroportoPartida { get; set; }

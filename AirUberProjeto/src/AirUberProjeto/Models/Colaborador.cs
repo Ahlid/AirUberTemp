@@ -8,8 +8,9 @@ namespace AirUberProjeto.Models
     public class Colaborador : ApplicationUser
     {
 
-        public int CompanhiaId { get; set; }
+        public int CompanhiaId { get; set; }    
         public bool IsAdministrador { get; set; }
+
         public virtual Companhia Companhia { get; set; }
 
     }

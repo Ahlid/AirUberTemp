@@ -26,6 +26,34 @@ namespace AirUberProjeto.Models
                 context.Pais.Add(new Pais { Nome = "Espanha" });
                 context.Pais.Add(new Pais { Nome = "França" });
                 context.Pais.Add(new Pais { Nome = "USA" });
+
+                context.Cliente.Add(new Cliente
+                {
+                    Nome = "Artur",
+                    Apelido = "Esteves",
+                    Ativo = true,
+                    DataCriacao = DateTime.Now, 
+                    Contacto = "+351...",
+                    Email = "artur@airuber.com"
+                });
+
+                context.ApplicationUser.Add(new Cliente
+                {
+                    Nome = "João",
+                    Apelido = "Rafael",
+                    Ativo = true,
+                    DataCriacao = DateTime.Now,
+                    Contacto = "+351...",
+                    Email = "joao@airuber.com"
+                });
+
+                /*
+                 * Added
+                 *
+                 */
+
+
+
                 context.SaveChanges();
             }
 
