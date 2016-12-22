@@ -64,15 +64,31 @@ namespace AirUberProjeto.Controllers
                 Activada = false,
                 Email = "rayner@airuber.com"
             };
+            listaCompanhias.Add(tap);
+            listaCompanhias.Add(rayner);
+
             var queryable = listaCompanhias.AsQueryable();
 
+            List<Pais> listaPaises = new List<Pais>();
+
+            foreach (var b in _context.Pais)
+            {
+                listaPaises.Add(b);
+            }
+
+            ViewBag.ListaPaises = listaPaises;
+
+
+            // NOT WORKING -> 
             _context.Companhia.Add(tap);
             _context.Companhia.Add(rayner);
 
 
             //TODO arranjar maneira de distinguir companhias validas e por validar  -> Ver o MR
             var companhias = _context.Companhia.Select(c => c).Include(p => p.Pais);
+            //not working -> companhias  -> Não há a tabela Companhia!!!!
 
+            // @Html.DisplayFor(modelItem => item.Pais.Nome)  -> Não está a funcionar porque o _context.Companhia não tem nada!!!
             return View(queryable);
         }
 

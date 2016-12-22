@@ -56,20 +56,28 @@
                     @Html.DisplayFor(modelItem => item.Email)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Pais.Nome)
+                    @foreach (var b in @ViewBag.ListaPaises)
+                {
+                    if (item.PaisId == b.PaisId)
+                    {
+                            <p>@b.Nome</p>
+                            break;
+                        }
+                    }
+                  
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Nif)
                 </td>
-                <th>
+                <td>
                     Viagens
-                </th>
-                <th>
+                </td>
+                <td>
                     @Html.DisplayFor(modelItem => item.JetCashAtual)
-                </th> 
-                <th>
+                </td> 
+                <td>
                     @Html.DisplayFor(modelItem => item.DataCriacao)
-                </th>
+                </td>
             </tr>
         }
 
