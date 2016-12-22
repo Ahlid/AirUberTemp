@@ -40,10 +40,40 @@ namespace AirUberProjeto.Controllers
 
         public IActionResult Companhias()
         {
+            List<Companhia> listaCompanhias = new List<Companhia>();
+            Companhia tap = new Companhia
+            {
+                Nome = "TAP",
+                Contact = "+351 ...",
+                PaisId = 1,
+                Nif = "8712373261287",
+                JetCashAtual = 1000000,
+                DataCriacao = DateTime.Now,
+                Activada = true,
+                Email = "tap@airuber.com"
+            };
+
+            Companhia rayner = new Companhia
+            {
+                Nome = "Rayner",
+                Contact = "+000 ...",
+                PaisId = 2,
+                Nif = "123132231",
+                JetCashAtual = 2000000,
+                DataCriacao = DateTime.Now,
+                Activada = false,
+                Email = "rayner@airuber.com"
+            };
+            var queryable = listaCompanhias.AsQueryable();
+
+            _context.Companhia.Add(tap);
+            _context.Companhia.Add(rayner);
+
+
             //TODO arranjar maneira de distinguir companhias validas e por validar  -> Ver o MR
             var companhias = _context.Companhia.Select(c => c).Include(p => p.Pais);
 
-            return View(companhias);
+            return View(queryable);
         }
 
         public void Viagens()

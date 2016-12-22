@@ -27,6 +27,10 @@ namespace AirUberProjeto.Models
                 context.Pais.Add(new Pais { Nome = "França" });
                 context.Pais.Add(new Pais { Nome = "USA" });
 
+                /*
+                 * Added
+                 *
+                 */
                 context.Cliente.Add(new Cliente
                 {
                     Nome = "Artur",
@@ -37,7 +41,7 @@ namespace AirUberProjeto.Models
                     Email = "artur@airuber.com"
                 });
 
-                context.ApplicationUser.Add(new Cliente
+                context.Cliente.Add(new Cliente
                 {
                     Nome = "João",
                     Apelido = "Rafael",
@@ -46,12 +50,6 @@ namespace AirUberProjeto.Models
                     Contacto = "+351...",
                     Email = "joao@airuber.com"
                 });
-
-                /*
-                 * Added
-                 *
-                 */
-
 
 
                 context.SaveChanges();

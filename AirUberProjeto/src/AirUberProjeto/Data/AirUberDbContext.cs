@@ -31,14 +31,14 @@ namespace AirUberProjeto.Data
         }
 
         public DbSet<Pais> Pais { get; set; }
-        public DbSet<ApplicationUser> ApplicationUser { get; set; }
+        public DbSet<ApplicationUser> ApplicationUser { get; set; } // nao cria esta tabela pq?
         public DbSet<Companhia> Companhia { get; set; }
 
         //added
-        public DbSet<Cliente> Cliente { get; set; }
+        public DbSet<Cliente> Cliente { get; set; } // nao cria esta tabela pq?
         public DbSet<Cidade> Cidade { get; set; }
-        public DbSet<Aeroporto> Aeroporto { get; set; }
-        public DbSet<Reserva> Reserva { get; set; }
+        //public DbSet<Aeroporto> Aeroporto { get; set; }
+       // public DbSet<Reserva> Reserva { get; set; }
 
     }
 
