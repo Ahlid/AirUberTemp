@@ -40,7 +40,7 @@ namespace AirUberProjeto.Controllers
 
         public IActionResult Companhias()
         {
-            List<Companhia> listaCompanhias = new List<Companhia>();
+           /* List<Companhia> listaCompanhias = new List<Companhia>();
             Companhia tap = new Companhia
             {
                 Nome = "TAP",
@@ -68,7 +68,7 @@ namespace AirUberProjeto.Controllers
             listaCompanhias.Add(rayner);
 
             var queryable = listaCompanhias.AsQueryable();
-
+            
             List<Pais> listaPaises = new List<Pais>();
 
             foreach (var b in _context.Pais)
@@ -78,24 +78,27 @@ namespace AirUberProjeto.Controllers
 
             ViewBag.ListaPaises = listaPaises;
 
-
+    
             // NOT WORKING -> 
             _context.Companhia.Add(tap);
             _context.Companhia.Add(rayner);
 
-
+    */
             //TODO arranjar maneira de distinguir companhias validas e por validar  -> Ver o MR
             var companhias = _context.Companhia.Select(c => c).Include(p => p.Pais);
             //not working -> companhias  -> Não há a tabela Companhia!!!!
 
             // @Html.DisplayFor(modelItem => item.Pais.Nome)  -> Não está a funcionar porque o _context.Companhia não tem nada!!!
-            return View(queryable);
+            return View(companhias);
         }
 
-        public void Viagens()
+        public IActionResult Viagens()
         {
-            ViewBag.Title = "Viagens";
+            //ViewBag.Title = "Viagens";
             //TODO fazer este metodo
+            var viagens = _context.Reserva.Select(c => c);
+
+            return View(viagens);
         }
 
 

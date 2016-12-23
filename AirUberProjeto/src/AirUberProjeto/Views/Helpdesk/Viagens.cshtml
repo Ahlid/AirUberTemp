@@ -1,0 +1,49 @@
+@model IEnumerable<AirUberProjeto.Models.Reserva>
+
+@{
+    ViewBag.Title = "Viagens";
+}
+
+<h2>@ViewBag.Title</h2>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ReservaId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataPartida)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataChegada)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Custo)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReservaId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataPartida)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataChegada)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Custo)
+            </td>
+            <td>
+                @Html.ActionLink("Aceitar", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Rejeitar", "Details", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

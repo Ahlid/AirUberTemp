@@ -23,10 +23,15 @@ namespace AirUberProjeto.Models
         [Display(Name = "Data Registo")]
         public DateTime DataCriacao { get; set; }
 
-        // to be changed?
-        public bool Activada { get; set; }
+        // to be changed? Substituido por Estado
+        //public bool Activada { get; set; }
+        public int EstadoId { get; set; }
 
+
+        //Testar com isto
+        //public virtual ICollection<Reserva> Reservas { get; set; }
 
         public virtual Pais Pais { get; set; }
+        public virtual Estado Estado { get; set; }
     }
 }
