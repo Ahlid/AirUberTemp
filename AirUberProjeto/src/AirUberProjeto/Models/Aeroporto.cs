@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -20,5 +21,10 @@ namespace AirUberProjeto.Models
 
         public virtual Cidade Cidade { get; set; }
 
+        [InverseProperty("AeroportoPartida")]
+        public ICollection<Reserva> Partidas { get; set; }
+
+        [InverseProperty("AeroportoDestino")]
+        public ICollection<Reserva> Chegadas { get; set; }
     }
 }

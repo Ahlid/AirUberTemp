@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using AirUberProjeto.Models;
 using NuGet.Protocol.Core.v3;
+using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace AirUberProjeto.Data
 {
@@ -25,7 +26,21 @@ namespace AirUberProjeto.Data
             builder.Entity<Helpdesk>().ToTable("Helpdesk");
             builder.Entity<Colaborador>().ToTable("Colaborador");
 
-            
+
+
+            builder.Entity<Reserva>()
+                .HasOne(v => v.AeroportoPartida)
+                .WithMany(a => a.Partidas)
+                .HasForeignKey(v => v.AeroportoPartidaId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.Entity<Reserva>()
+               .HasOne(v => v.AeroportoDestino)
+               .WithMany(a => a.Chegadas)
+               .HasForeignKey(v => v.AeroportoDestinoId)
+               .OnDelete(DeleteBehavior.Restrict);
+
+
             // Customize the ASP.NET Identity model and override the defaults if needed.
             // For example, you can rename the ASP.NET Identity table names and more.
             // Add your customizations after calling base.OnModelCreating(builder);

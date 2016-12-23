@@ -8,6 +8,8 @@ namespace AirUberProjeto.Models
     public class Jato
     {
         public int JatoId { get; set; }
+
+        public int TipoJatoId { get; set; }
         /*
          * ModeloId
          * CompanhiaId
@@ -15,5 +17,7 @@ namespace AirUberProjeto.Models
          * EmFuncionamento  ->  
          * 
          */
+
+        public virtual TipoJato TipoJato { get; set; }
     }
 }

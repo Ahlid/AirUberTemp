@@ -96,7 +96,9 @@ namespace AirUberProjeto.Controllers
         {
             //ViewBag.Title = "Viagens";
             //TODO fazer este metodo
-            var viagens = _context.Reserva.Select(c => c);
+            //var viagens = _context.Reserva.Select(c => c).Include(u => u.ApplicationUser);
+
+            var viagens = _context.Reserva.Select(c => c).Include(a => a.AeroportoDestino).Include(a => a.AeroportoPartida);
 
             return View(viagens);
         }

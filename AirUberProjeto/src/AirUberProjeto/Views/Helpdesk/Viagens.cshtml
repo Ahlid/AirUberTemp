@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Viagens";
+    Layout = "_LayoutHelpdesk";
 }
 
 <h2>@ViewBag.Title</h2>
@@ -12,6 +13,15 @@
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.ReservaId)
+            </th>
+            <!--<th>
+                Html.DisplayNameFor(model => model.ApplicationUser)
+            </th>-->
+            <th>
+                @Html.DisplayNameFor(model => model.AeroportoPartida)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AeroportoDestino)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.DataPartida)
@@ -31,6 +41,12 @@
                 @Html.DisplayFor(modelItem => item.ReservaId)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.AeroportoPartida.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AeroportoDestino.Nome)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.DataPartida)
             </td>
             <td>
@@ -39,6 +55,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Custo)
             </td>
+            <!--<td>
+                Html.DisplayFor(modelItem => item.ApplicationUser.Nome)
+            </td>-->
             <td>
                 @Html.ActionLink("Aceitar", "Edit", new { /* id=item.PrimaryKey */ }) |
                 @Html.ActionLink("Rejeitar", "Details", new { /* id=item.PrimaryKey */ })

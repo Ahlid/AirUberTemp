@@ -21,7 +21,7 @@ namespace AirUberProjeto.Models
 
             InicializarPaises(context);
             InicializarEstados(context);
-            InicializarClientes(context);
+            InicializarClientes(context);   //desaparecer 
 
             //Comentar daqui para baixo na 1ª vez
 
@@ -29,11 +29,11 @@ namespace AirUberProjeto.Models
             //descomentado em que algum objecto use uma FK
             //Para isso só posso descomentar à 2ª vez
             //E 1º criar os valores para uma tabela e só depois é que volto a correr com código que utiliza os valores já criados
-/*
-            InicializarCompanhias(context);
+
+            InicializarCompanhias(context); //desaparecer 
             InicializarCidades(context);
             InicializarAeroportos(context);
-            InicializarViagens(context);
+            InicializarViagens(context);    //desaparecer 
 // */
             context.SaveChanges();
         }
@@ -104,6 +104,7 @@ namespace AirUberProjeto.Models
                     DataCriacao = DateTime.Now,
                     Contacto = "+351...",
                     Email = "artur@airuber.com"
+                    
                 });
 
                 context.Cliente.Add(new Cliente
@@ -262,8 +263,9 @@ namespace AirUberProjeto.Models
                     DataPartida = DateTime.Now,
                     DataChegada = new DateTime(2016, 12, 31),
                     Custo = 3500.5m,
-                    //AeroportoPartidaId = 1,
-                    //AeroportoChegadaId = 2 
+                ///    ApplicationUserId = "6a9c1b72-530a-4696-acf4-8fe8eeba5b98",
+                    AeroportoPartidaId = 1,
+                    AeroportoDestinoId = 2 
                 });
             }
         }

@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace AirUberProjeto.Models
 {
@@ -18,8 +19,10 @@ namespace AirUberProjeto.Models
 
         //falta avaliação, extras e jatos -> para isto vai ser preciso gerar a view de novo
         // falta o id do Utilizador
+        //guardar id do user que criou a reserva
+        //public string AspNetUsersId { get; set; }
+       // public string ApplicationUserId { get; set; }
 
- 
         public decimal Custo { get; set; }
 
         [Display (Name = "Avaliação")]
@@ -27,14 +30,19 @@ namespace AirUberProjeto.Models
         public int Avaliacao { get; set; }
 
 
+        //getting errrors
+        //public virtual AspNetUsers ApplicationUser { get; set; }
+        ///public virtual IdentityUser ApplicationUser { get; set; }
+
         ////////       [Display(Name = "Partida")]
         //[Key, Column(Order = 1), ForeignKey("AeroportoPartida")]
         //[ForeignKey ("Aeroporto")]
-        ////////       public int AeroportoPartidaId { get; set; }
+        public int AeroportoPartidaId { get; set; }
 
         ////////       [Display(Name = "Chegada")]
         //[Key, Column(Order = 2), ForeignKey("AeroportoChegada")]    //Before: Column(Order = 1)
-        ////////      public int AeroportoChegadaId { get; set; }
+        public int AeroportoDestinoId { get; set; }
+
 
 
 
@@ -42,11 +50,11 @@ namespace AirUberProjeto.Models
         //[InverseProperty("AeroportoPartida")]
         /*     [ForeignKey("AeroportoPartidaId")]
              [InverseProperty("AeroportoPartida")]*/
-        ////////       public virtual Aeroporto AeroportoPartida { get; set; }
+        public virtual Aeroporto AeroportoPartida { get; set; }
         //[InverseProperty("AeroportoChegada")]
         /*[ForeignKey("AeroportoChegadaId")]
         [InverseProperty("AeroportoChegada")]*/
-        ////////       public virtual Aeroporto AeroportoChegada { get; set; }
+        public virtual Aeroporto AeroportoDestino { get; set; }
 
 
     }

@@ -27,11 +27,14 @@ namespace AirUberProjeto.Models
         //public bool Activada { get; set; }
         public int EstadoId { get; set; }
 
+       
 
         //Testar com isto
         //public virtual ICollection<Reserva> Reservas { get; set; }
 
         public virtual Pais Pais { get; set; }
         public virtual Estado Estado { get; set; }
+
+        
     }
 }
