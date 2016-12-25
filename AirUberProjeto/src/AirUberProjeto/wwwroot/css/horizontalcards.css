@@ -1,0 +1,22 @@
+﻿div.scrollcards {
+    
+
+}
+
+div.scrollcards div.w3-container{
+    display: inline-block;
+}
+
+div.out{
+    width: 1000px;
+
+    overflow-x: scroll;
+   
+
+}
+
+div.in{
+    width: 30%;
+    display: inline-block;
+    vertical-align: middle;
+}

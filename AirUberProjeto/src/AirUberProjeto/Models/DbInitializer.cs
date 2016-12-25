@@ -20,8 +20,13 @@ namespace AirUberProjeto.Models
 
 
             InicializarPaises(context);
+            context.SaveChanges();
+
             InicializarEstados(context);
+            context.SaveChanges();
+
             InicializarClientes(context);   //desaparecer 
+            context.SaveChanges();
 
             //Comentar daqui para baixo na 1ª vez
 
@@ -31,11 +36,17 @@ namespace AirUberProjeto.Models
             //E 1º criar os valores para uma tabela e só depois é que volto a correr com código que utiliza os valores já criados
 
             InicializarCompanhias(context); //desaparecer 
-            InicializarCidades(context);
-            InicializarAeroportos(context);
-            InicializarViagens(context);    //desaparecer 
-// */
             context.SaveChanges();
+
+            InicializarCidades(context);
+            context.SaveChanges();
+
+            InicializarAeroportos(context);
+            context.SaveChanges();
+
+            InicializarViagens(context);    //desaparecer 
+            context.SaveChanges();
+
         }
 
         public static async Task AddRoles(IServiceProvider serviceProvider, AirUberDbContext context)
@@ -104,8 +115,7 @@ namespace AirUberProjeto.Models
                     DataCriacao = DateTime.Now,
                     Contacto = "+351...",
                     Email = "artur@airuber.com"
-                    
-                });
+            });
 
                 context.Cliente.Add(new Cliente
                 {
@@ -115,7 +125,7 @@ namespace AirUberProjeto.Models
                     DataCriacao = DateTime.Now,
                     Contacto = "+351...",
                     Email = "joao@airuber.com"
-                });
+        });
                 //var reserva = context.Cliente.Select(p => p.Email == "joao@airuber.com");
                 
             }
@@ -128,7 +138,7 @@ namespace AirUberProjeto.Models
                 context.Companhia.Add(new Companhia
                 {
                     Nome = "Transportes Aéreos Portugueses - TAP",
-                    Contact = "+351 707 205 700",
+                    Contacto = "+351 707 205 700",
                     PaisId = 1,     // Portugal
                     Nif = "506623602",
                     JetCashAtual = 1000000,
@@ -141,7 +151,7 @@ namespace AirUberProjeto.Models
                 context.Companhia.Add(new Companhia
                 {
                     Nome = "Ryanair",
-                    Contact = "+353 1 945 12 12",
+                    Contacto = "+353 1 945 12 12",
                     PaisId = 5,     // República da Irelanda
                     Nif = "980489806",
                     JetCashAtual = 2000000,
@@ -154,13 +164,13 @@ namespace AirUberProjeto.Models
                 context.Companhia.Add(new Companhia
                 {
                     Nome = "EasyJet Airline Company Limited",
-                    Contact = "+351 707 500 176",
+                    Contacto = "+351 707 500 176",
                     PaisId = 6, // Reino Unido
                     Nif = "980467101",
                     JetCashAtual = 3000000,
                     DataCriacao = DateTime.Now,
                     //Activada = false,
-                    EstadoId = 3,
+                    EstadoId = 2,
                     Email = "easyJet@airuber.com"
                 });
             }
@@ -251,6 +261,14 @@ namespace AirUberProjeto.Models
                     Latitude = 40.472222,
                     Longitude = -3.560833
                 });
+
+                context.Aeroporto.Add(new Aeroporto()
+                {
+                    CidadeId = 4, // Lyon
+                    Nome = "Aeroporto de Lyon-Saint-Exupéry",
+                    Latitude = 45.725556,
+                    Longitude = 5.081111
+                });
             }
         }
 
@@ -258,15 +276,88 @@ namespace AirUberProjeto.Models
         {
             if (!context.Reserva.Any())
             {
-                context.Reserva.Add(new Reserva()
+                //novos clientes
+                Cliente Miguel = new Cliente() { Nome = "Miguel", Apelido = "Esteves", Ativo = true,
+                                               DataCriacao = DateTime.Now, Contacto = "2222", Email ="Qualquer"};
+
+                //not working
+                context.Cliente.Add(Miguel);
+                context.SaveChanges();
+                //context.Cliente.c
+                 Reserva reserva1 = new Reserva()
+                 {
+                     DataPartida = DateTime.Now,
+                     DataChegada = new DateTime(2016, 12, 31),
+                     Custo = 3500.5m,
+                     Cliente = Miguel,
+                     AeroportoPartidaId = 1,
+                     AeroportoDestinoId = 2,
+                     CompanhiaId = 1
+                 };
+                context.Reserva.Add(reserva1);
+
+                //ate aqui funciona 
+                Miguel.ListaReservas.Add(reserva1);
+                context.Update(Miguel);
+/*
+ * attempt
+                Reserva reserva;
+                decimal custo = 5000.24m;
+                int ids = 1;
+
+                IList<Cliente> clientList = context.Cliente.ToList();
+                foreach (var c in clientList)
                 {
-                    DataPartida = DateTime.Now,
-                    DataChegada = new DateTime(2016, 12, 31),
-                    Custo = 3500.5m,
-                ///    ApplicationUserId = "6a9c1b72-530a-4696-acf4-8fe8eeba5b98",
-                    AeroportoPartidaId = 1,
-                    AeroportoDestinoId = 2 
-                });
+                    reserva = new Reserva()
+                    {
+                        DataPartida = DateTime.Now,
+                        DataChegada = new DateTime(2016, 12, 31),
+                        Custo = custo,
+                        Cliente = c,
+                        AeroportoPartidaId = ids,
+                        AeroportoDestinoId = ids + 1
+                    };
+      
+                    c.ListaReservas.Add(reserva);
+                    context.Reserva.Add(reserva);
+                    //context.Cliente.Add(c);
+                    context.Update(c);
+                    context.SaveChanges();
+
+                    custo = custo * 2;
+                    ids++;
+                };
+
+*/
+/* other attempt
+                //await context.SaveChangesAsync();
+                
+                // foreach and contex.SaveChangesAsync() Together are a no go! http://stackoverflow.com/questions/2113498/sqlexception-from-entity-framework-new-transaction-is-not-allowed-because-ther
+                /*foreach (var c in context.Cliente)
+                {
+                    reserva = new Reserva()
+                    {
+                        DataPartida = DateTime.Now,
+                        DataChegada = new DateTime(2016, 12, 31),
+                        Custo = custo,
+                        Cliente = c,
+                        AeroportoPartidaId = ids,
+                        AeroportoDestinoId = ids + 1
+                    };
+                    c.ListaReservas.Add(reserva);
+                    context.Reserva.Add(reserva);
+                    //context.Cliente.Add(c);
+                    context.Update(c);
+                    await context.SaveChangesAsync();
+
+                    custo = custo * 2;
+                    ids++;
+                };*/
+
+                //Miguel.ListaReservas.Add(reserva1);
+
+                //context.Cliente.Add(Miguel);
+                //context.Reserva.Add(reserva1);
             }
         }
     }

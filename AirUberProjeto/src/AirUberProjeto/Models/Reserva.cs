@@ -23,6 +23,14 @@ namespace AirUberProjeto.Models
         //public string AspNetUsersId { get; set; }
        // public string ApplicationUserId { get; set; }
 
+        public int CompanhiaId { get; set; }
+        public virtual Companhia Companhia { get; set; }
+
+        public string ApplicationUserId { get; set; }
+        //public string Cliente { get; set; }
+        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public virtual Cliente Cliente { get; set; }
+
         public decimal Custo { get; set; }
 
         [Display (Name = "Avaliação")]

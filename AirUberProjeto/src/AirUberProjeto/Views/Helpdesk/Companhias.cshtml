@@ -5,8 +5,44 @@
     ViewBag.Title = "Companhias";
     Layout = "_LayoutHelpdesk";
 }
-<h2>@ViewBag.Title_Requests</h2>
+@if (@ViewBag.CompanhiasPendentes != null)
+{
+    <h2>@ViewBag.Title_Requests</h2>
+    <div class="w3-col w3 out">
+        @foreach (var companhia in ViewBag.CompanhiasPendentes)
+        {
+            <div class="w3-col w3-card-4 w3-margin w3-container in" >
+                <h2 class="w3-center">@companhia.Nome</h2>
+                <div>
+                    <h4 style="display: inline; ">@Html.DisplayNameFor(model => (model.Take(1) as Companhia).Nif): </h4><span>@companhia.Nif</span>
+                </div>
+                <div>
+                    <h4 style="display: inline; ">@Html.DisplayNameFor(model => (model.Take(1) as Companhia).Pais): </h4><span>@companhia.Pais.Nome</span>
+                </div>
+                <div>
+                    <h4 style="display: inline; ">Número Jatos: </h4><span>5</span>
+                </div>
+                <div>
+                    <h4 style="display: inline; ">Número Colaboradores: </h4><span>2</span>
+                </div>
+                <div>
+                    <h4 style="display: inline; ">@Html.DisplayNameFor(model => (model.Take(1) as Companhia).Morada): </h4><span>@companhia.Morada</span>
+                </div>
+                <div>
+                    <h4 style="display: inline; ">@Html.DisplayNameFor(model => (model.Take(1) as Companhia).Contacto): </h4><span>@companhia.Contacto</span>
+                </div>
+                <div class="w3-padding-24">
+                    <a class="w3-btn w3-indigo" asp-action="Companhias" asp-route-id="@companhia.CompanhiaId" asp-route-estadoId="1">Aceitar</a>
+                    <a class="w3-btn w3-indigo" asp-action="Companhias" asp-route-id="@companhia.CompanhiaId" asp-route-estadoId="3">Recusar</a> 
+                    <!-- <button type="button" class="w3-btn w3-indigo" onclick="">Aceitar</button>
+                    <button type="button" class="w3-btn w3-indigo" onclick="">Recusar</button><!-- vai ao controlador, passando o id -> ver como fazem na view edit-->
+                </div>
+            </div>
+        }
+    </div>
+}
 
+<div style="display:inline-block">
 <h2>@ViewBag.Title</h2>
 
 <table class="table">
@@ -17,7 +53,7 @@
         @Html.DisplayNameFor(model => (model.Take(1) as Companhia).Nome)
     </th> 
     <th>
-        @Html.DisplayNameFor(model => (model.Take(1) as Companhia).Contact)
+        @Html.DisplayNameFor(model => (model.Take(1) as Companhia).Contacto)
     </th> 
     <th>
         @Html.DisplayNameFor(model => (model.Take(1) as Companhia).Email)
@@ -29,7 +65,7 @@
         @Html.DisplayNameFor(model => (model.Take(1) as Companhia).Nif)
     </th> 
     <th>
-        Viagens
+        @Html.DisplayNameFor(model => (model.Take(1) as Companhia).ListaReservas)
     </th> 
     <th>
         @Html.DisplayNameFor(model => (model.Take(1) as Companhia).JetCashAtual)
@@ -40,40 +76,24 @@
 </tr>
 
 </thead>
-    <tbody>
-    
-        
-        @foreach (var item in Model)
-        {
+   <tbody>
+       
+           @foreach (var companhia in ViewBag.CompanhiasAceites)
+           {
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Nome)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Contact)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Email)
-                </td>
-                <td>
-                  @Html.DisplayFor(modelItem => item.Pais.Nome)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Nif)
-                </td>
-                <td>
-                    Viagens
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.JetCashAtual)
-                </td> 
-                <td>
-                    @Html.DisplayFor(modelItem => item.DataCriacao)
-                </td>
+                <td>@companhia.Nome</td>
+                <td>@companhia.Contacto</td>
+                <td>@companhia.Email</td>
+                <td>@companhia.Pais.Nome</td>
+                <td>@companhia.Nif</td>
+                <td>@companhia.ListaReservas.Count</td>
+                <td>@companhia.JetCashAtual</td>
+                <td>@companhia.DataCriacao</td>
             </tr>
-        }
+           }
+            
 
-    </tbody>
+   </tbody>
 
 </table>
-
+    </div>

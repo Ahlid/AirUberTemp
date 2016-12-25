@@ -13,9 +13,10 @@ namespace AirUberProjeto.Models
         public int CompanhiaId { get; set; }
         public string Nome { get; set; }
         public string Morada { get; set; }
-        public string Contact { get; set; } // Mudar para contacto, tava contact
+        public string Contacto { get; set; } // Mudar para contacto, tava contact
 
         public int PaisId { get; set; }
+        [Display(Name = "NIF")]
         public string Nif { get; set; }
         [Display (Name ="Crédito")]
         public decimal JetCashAtual { get; set; }
@@ -27,11 +28,12 @@ namespace AirUberProjeto.Models
         //public bool Activada { get; set; }
         public int EstadoId { get; set; }
 
-       
 
-        //Testar com isto
-        //public virtual ICollection<Reserva> Reservas { get; set; }
 
+        [Display(Name = "Viagens")]
+        public virtual ICollection<Reserva> ListaReservas { get; set; }
+
+        [Display(Name = "País")]
         public virtual Pais Pais { get; set; }
         public virtual Estado Estado { get; set; }
 

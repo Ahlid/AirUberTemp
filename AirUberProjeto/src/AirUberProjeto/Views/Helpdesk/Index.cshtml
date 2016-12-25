@@ -12,17 +12,17 @@
         <div class="w3-col l12 w3-card-4 w3-margin w3-container" style="height: 400px">
             <h2 class="w3-center">Companhias</h2>
             <div class="w3-padding-32 w3-margin-top w3-border w3-border-blue w3-circle w3-center" style="width:33%; display:inline-block">
-                <p id="numeroCompanhias">255</p>
+                <p id="numeroCompanhias">@ViewBag.NumeroCompanhiasAceites</p>
             </div>
             <h3>Companhias no Total</h3>
             <div class="w3-padding-16 w3-margin-top">
                 <div class="w3-padding-16 w3-border w3-border-blue w3-circle w3-container w3-center" style="width:22%; display:inline-block">
-                    <p id="numeroPedidosCompanhias">5</p>
+                    <p id="numeroPedidosCompanhias">@ViewBag.NumeroCompanhiasPendentes</p>
                 </div>
                 <h3  class="w3-margin-left" style="display:inline-block">Pedidos</h3>
             </div>
             <div class="w3-padding-24">
-                <button class="w3-btn w3-indigo">Gerir Companhias</button>
+                <button type="button" class="w3-btn w3-indigo" onclick="location.href='@Url.Action("Companhias", "Helpdesk")'" >Gerir Companhias</button>
             </div>
         </div>
     </div>
@@ -30,17 +30,17 @@
         <div class="w3-col l12 w3-card-4 w3-margin w3-container" style="height: 400px">
             <h2 class="w3-center">Clientes</h2>
             <div class="w3-padding-32 w3-margin-top w3-border w3-border-blue w3-circle w3-center" style="width:33%; display:inline-block">
-                <p id="numeroClientes">255</p>
+                <p id="numeroClientes">@ViewBag.NumeroTotalClientes</p>
             </div>
             <h3>Clientes no Total</h3>
             <div class="w3-padding-16 w3-margin-top">
                 <div class="w3-padding-16 w3-border w3-border-blue w3-circle w3-container w3-center" style="width:22%; display:inline-block">
-                    <p id="numeroClientesRegistados">5</p>
+                    <p id="numeroClientesRegistados">@ViewBag.NumeroClientesRegistadosHoje</p>
                 </div>
                 <h3 class="w3-margin-left" style="display:inline-block">Registados Hoje</h3>
             </div>
             <div class="w3-padding-24">
-                <button class="w3-btn w3-indigo">Gerir Clientes</button>
+                <button type="button" class="w3-btn w3-indigo" onclick="location.href='@Url.Action("Clientes", "Helpdesk")'">Gerir Clientes</button>
             </div>
         </div>
     </div>
@@ -48,17 +48,17 @@
         <div class="w3-col l12 w3-card-4 w3-margin w3-container" style="height: 400px">
             <h2 class="w3-center">Viagens</h2>
             <div class="w3-padding-32 w3-margin-top w3-border w3-border-blue w3-circle w3-center" style="width:33%; display:inline-block">
-                <p id="numeroViagens">255</p>
+                <p id="numeroViagens">@ViewBag.NumeroTotalViagens</p>
             </div>
             <h3>Viagens no Total</h3>
             <div class="w3-padding-16 w3-margin-top">
                 <div class="w3-padding-16 w3-border w3-border-blue w3-circle w3-container w3-center" style="width:22%; display:inline-block">
-                    <p id="numeroCreditosMovidos">255<span>k</span></p>
+                    <p id="numeroCreditosMovidos">@ViewBag.CreditosMovidos<span>k</span></p>
                 </div>
                 <h3 class="w3-margin-left" style="display:inline-block">Créditos Movidos</h3>
             </div>
             <div class="w3-padding-24">
-                <button class="w3-btn w3-indigo">Gerir Viagens</button>
+                <button type="button" class="w3-btn w3-indigo" onclick="location.href='@Url.Action("Viagens", "Helpdesk")'">Gerir Viagens</button>
             </div>
         </div>
     </div>

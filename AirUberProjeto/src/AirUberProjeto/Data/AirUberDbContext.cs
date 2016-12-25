@@ -40,6 +40,9 @@ namespace AirUberProjeto.Data
                .HasForeignKey(v => v.AeroportoDestinoId)
                .OnDelete(DeleteBehavior.Restrict);
 
+            builder.Entity<Cliente>()
+                .HasMany(p => p.ListaReservas).WithOne(c => c.Cliente)
+                .HasForeignKey(c => c.ApplicationUserId);
 
             // Customize the ASP.NET Identity model and override the defaults if needed.
             // For example, you can rename the ASP.NET Identity table names and more.

@@ -14,9 +14,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.ReservaId)
             </th>
-            <!--<th>
-                Html.DisplayNameFor(model => model.ApplicationUser)
-            </th>-->
+            <th>
+                @Html.DisplayNameFor(model => model.Cliente)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.AeroportoPartida)
             </th>
@@ -41,6 +41,9 @@
                 @Html.DisplayFor(modelItem => item.ReservaId)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.Cliente.Nome)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.AeroportoPartida.Nome)
             </td>
             <td>
@@ -55,9 +58,6 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Custo)
             </td>
-            <!--<td>
-                Html.DisplayFor(modelItem => item.ApplicationUser.Nome)
-            </td>-->
             <td>
                 @Html.ActionLink("Aceitar", "Edit", new { /* id=item.PrimaryKey */ }) |
                 @Html.ActionLink("Rejeitar", "Details", new { /* id=item.PrimaryKey */ })
