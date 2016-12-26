@@ -12,7 +12,7 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.ReservaId)
+                @Html.DisplayNameFor(model => model.Jato.Companhia)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Cliente)
@@ -30,6 +30,12 @@
                 @Html.DisplayNameFor(model => model.DataChegada)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.ListaExtras)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Jato)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Custo)
             </th>
         </tr>
@@ -38,7 +44,7 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.ReservaId)
+                @Html.DisplayFor(model => item.Jato.Companhia.Nome)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Cliente.Nome)
@@ -56,11 +62,13 @@
                 @Html.DisplayFor(modelItem => item.DataChegada)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Custo)
+                @Html.DisplayFor(modelItem => item.ListaExtras.Count)
             </td>
             <td>
-                @Html.ActionLink("Aceitar", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Rejeitar", "Details", new { /* id=item.PrimaryKey */ })
+                @Html.DisplayFor(modelItem => item.Jato.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Custo)
             </td>
         </tr>
 }

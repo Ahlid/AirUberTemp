@@ -25,17 +25,16 @@ namespace AirUberProjeto.Models
             InicializarEstados(context);
             context.SaveChanges();
 
-            InicializarClientes(context);   //desaparecer 
+            InicializarTipoJatos(context);
             context.SaveChanges();
 
-            //Comentar daqui para baixo na 1ª vez
+            InicializarTiposExtra(context);
+            context.SaveChanges();
 
-            //A 1ª vez que executo o projecto depois de eliminar a bd não posso ter aqui código
-            //descomentado em que algum objecto use uma FK
-            //Para isso só posso descomentar à 2ª vez
-            //E 1º criar os valores para uma tabela e só depois é que volto a correr com código que utiliza os valores já criados
+            InicializarClientes(context);   // apagar - apenas testes
+            context.SaveChanges();
 
-            InicializarCompanhias(context); //desaparecer 
+            InicializarModelos(context);
             context.SaveChanges();
 
             InicializarCidades(context);
@@ -44,7 +43,19 @@ namespace AirUberProjeto.Models
             InicializarAeroportos(context);
             context.SaveChanges();
 
-            InicializarViagens(context);    //desaparecer 
+            InicializarCompanhias(context); // apagar - apenas testes
+            context.SaveChanges();
+
+            InicializarJatos(context);
+            context.SaveChanges();
+
+            InicializarExtras(context);
+            context.SaveChanges();
+
+            InicializarColaboradores(context);  // apagar - apenas testes
+            context.SaveChanges();
+
+            InicializarViagens(context);    // apagar - apenas testes
             context.SaveChanges();
 
         }
@@ -74,9 +85,6 @@ namespace AirUberProjeto.Models
             {
                 await roleManager.CreateAsync(new IdentityRole(Roles.ROLE_HELPDESK));
             }
-
-
-
         }
 
         private static void InicializarPaises(AirUberDbContext context)
@@ -103,6 +111,32 @@ namespace AirUberProjeto.Models
             }
         }
 
+        private static void InicializarTipoJatos(AirUberDbContext context)
+        {
+            if (!context.TipoJato.Any())
+            {
+                // http://www.jets.com/virtual-catalog/
+
+                context.Add(new TipoJato() { Nome = "Turbos" });
+                context.Add(new TipoJato() { Nome = "VLJs" });
+                context.Add(new TipoJato() { Nome = "Light" });
+                context.Add(new TipoJato() { Nome = "Mid-Size" });
+                context.Add(new TipoJato() { Nome = "Super" });
+                context.Add(new TipoJato() { Nome = "Heavy" });
+            }
+        }
+
+        private static void InicializarTiposExtra(AirUberDbContext context)
+        {
+            if (!context.TipoExtra.Any())
+            {
+                context.Add(new TipoExtra() { Nome = "Bar" });
+                context.Add(new TipoExtra() { Nome = "Refeição" });
+                context.Add(new TipoExtra() { Nome = "Uber" });
+                context.Add(new TipoExtra() { Nome = "Concierge" });
+            }
+        }
+
         private static void InicializarClientes(AirUberDbContext context)
         {
             if (!context.Cliente.Any())
@@ -115,7 +149,7 @@ namespace AirUberProjeto.Models
                     DataCriacao = DateTime.Now,
                     Contacto = "+351...",
                     Email = "artur@airuber.com"
-            });
+                });
 
                 context.Cliente.Add(new Cliente
                 {
@@ -125,54 +159,29 @@ namespace AirUberProjeto.Models
                     DataCriacao = DateTime.Now,
                     Contacto = "+351...",
                     Email = "joao@airuber.com"
-        });
-                //var reserva = context.Cliente.Select(p => p.Email == "joao@airuber.com");
-                
+                });
             }
         }
 
-        private static void InicializarCompanhias(AirUberDbContext context)
+        private static void InicializarModelos(AirUberDbContext context)
         {
-            if (!context.Companhia.Any())
+            if (!context.Modelo.Any())
             {
-                context.Companhia.Add(new Companhia
+                context.Add(new Modelo()
                 {
-                    Nome = "Transportes Aéreos Portugueses - TAP",
-                    Contacto = "+351 707 205 700",
-                    PaisId = 1,     // Portugal
-                    Nif = "506623602",
-                    JetCashAtual = 1000000,
-                    DataCriacao = DateTime.Now,
-                    //Activada = true,
-                    EstadoId = 1,
-                    Email = "tap@airuber.com"
+                    Capacidade = 8,
+                    Alcance = 10000,
+                    VelocidadeMaxima = 300.30m,
+                    PesoMaximaBagagens = 25,
+                    NumeroMotores = 2,
+                    AltitudeIdeal = 10000,
+                    AlturaCabine = 2.20m,
+                    LarguraCabine = 1.80m,
+                    ComprimentoCabine = 20.0m,
+                    Descricao = "1º Modelo",
+                    TipoJatoId = 1
                 });
 
-                context.Companhia.Add(new Companhia
-                {
-                    Nome = "Ryanair",
-                    Contacto = "+353 1 945 12 12",
-                    PaisId = 5,     // República da Irelanda
-                    Nif = "980489806",
-                    JetCashAtual = 2000000,
-                    DataCriacao = DateTime.Now,
-                    //Activada = false,
-                    EstadoId = 2,
-                    Email = "ryanair@airuber.com"
-                });
-
-                context.Companhia.Add(new Companhia
-                {
-                    Nome = "EasyJet Airline Company Limited",
-                    Contacto = "+351 707 500 176",
-                    PaisId = 6, // Reino Unido
-                    Nif = "980467101",
-                    JetCashAtual = 3000000,
-                    DataCriacao = DateTime.Now,
-                    //Activada = false,
-                    EstadoId = 2,
-                    Email = "easyJet@airuber.com"
-                });
             }
         }
 
@@ -272,92 +281,228 @@ namespace AirUberProjeto.Models
             }
         }
 
+        //change
+        private static void InicializarCompanhias(AirUberDbContext context)
+        {
+            if (!context.Companhia.Any())
+            {
+                context.Companhia.Add(new Companhia
+                {
+                    Nome = "Transportes Aéreos Portugueses - TAP",
+                    Contacto = "+351 707 205 700",
+                    PaisId = 1,     // Portugal
+                    Nif = "506623602",
+                    JetCashAtual = 1000000,
+                    DataCriacao = DateTime.Now,
+                    //Activada = true,
+                    EstadoId = 1,
+                    Email = "tap@airuber.com",
+                    Morada = "Edificio 25, Aeroporto de Lisboa 1750 - 364 Lisboa"
+                });
+
+                context.Companhia.Add(new Companhia
+                {
+                    Nome = "Ryanair",
+                    Contacto = "+353 1 945 12 12",
+                    PaisId = 5,     // República da Irelanda
+                    Nif = "980489806",
+                    JetCashAtual = 2000000,
+                    DataCriacao = DateTime.Now,
+                    //Activada = false,
+                    EstadoId = 2,
+                    Email = "ryanair@airuber.com",
+                    Morada = "8, R. Alexandre Herculano 50, 1250 Lisboa"
+                });
+
+                context.Companhia.Add(new Companhia
+                {
+                    Nome = "EasyJet Airline Company Limited",
+                    Contacto = "+351 707 500 176",
+                    PaisId = 6, // Reino Unido
+                    Nif = "980467101",
+                    JetCashAtual = 3000000,
+                    DataCriacao = DateTime.Now,
+                    //Activada = false,
+                    EstadoId = 2,
+                    Email = "easyJet@airuber.com",
+                    Morada = "Hangar 89, London Luton Airport, Luton, Bedfordshire LU2 9PF"
+                });
+            }
+        }
+
+        private static void InicializarJatos(AirUberDbContext context)
+        {
+            if (!context.Jato.Any())
+            {
+                Jato jato1 = new Jato() { Nome = "King Air", ModeloId = 1, CompanhiaId = 1 };
+                Jato jato2 = new Jato() { Nome = "Pilatus", ModeloId = 1, CompanhiaId = 1 };
+                List<Jato> listaJatos = new List<Jato>()
+                {
+                    jato1, jato2
+                };
+
+                context.Jato.Add(jato1);
+                context.Jato.Add(jato2);
+
+                context.SaveChanges();
+
+                foreach (Companhia c in context.Companhia)
+                {
+                    if (c.CompanhiaId == 1)
+                    {
+                        c.ListaJatos = listaJatos;
+                        context.Update(c);
+                    }
+                }
+
+            }
+        }
+
+        private static void InicializarExtras(AirUberDbContext context)
+        {
+            if (!context.Extra.Any())
+            {
+                Extra extra1 = new Models.Extra() { TipoExtraId = 1, CompanhiaId = 1, Valor = 50.00m };
+                Extra extra2 = new Models.Extra() { TipoExtraId = 2, CompanhiaId = 1, Valor = 100.00m };
+                Extra extra3 = new Models.Extra() { TipoExtraId = 3, CompanhiaId = 2, Valor = 150.00m };
+                Extra extra4 = new Models.Extra() { TipoExtraId = 4, CompanhiaId = 1, Valor = 500.00m };
+                Extra extra5 = new Models.Extra() { TipoExtraId = 4, CompanhiaId = 2, Valor = 700.00m };
+
+                List<Extra> extrasTAP = new List<Extra>() { extra1, extra2, extra4 };
+                List<Extra> extrasRyanair = new List<Extra>() { extra3, extra5 };
+
+                context.Extra.Add(extra1);
+                context.Extra.Add(extra2);
+                context.Extra.Add(extra3);
+                context.Extra.Add(extra4);
+                context.Extra.Add(extra5);
+
+                context.SaveChanges();
+
+                foreach (Companhia c in context.Companhia)
+                {
+                    if (c.CompanhiaId == 1)
+                    {
+                        c.ListaExtras = extrasTAP;
+                        context.Update(c);
+                    }
+                    else if(c.CompanhiaId == 2)
+                    {
+                        c.ListaExtras = extrasRyanair;
+                        context.Update(c);
+                    }
+                }
+            }
+        }
+
+        private static void InicializarColaboradores(AirUberDbContext context)
+        {
+            if (!context.Colaborador.Any())
+            {
+                // Colaboradores Companhia 1 - TAP  -> Total: 4 Colaboradores
+                Colaborador admin1TAP = new Colaborador() { Nome = "Admin1TAP", CompanhiaId = 1, IsAdministrador = true };
+                Colaborador Colaborador1TAP = new Colaborador() { Nome = "Colaborador1TAP", CompanhiaId = 1 };
+                Colaborador Colaborador2TAP = new Colaborador() { Nome = "Colaborador2TAP", CompanhiaId = 1 };
+                Colaborador Colaborador3TAP = new Colaborador() { Nome = "Colaborador3TAP", CompanhiaId = 1 };
+
+                List<Colaborador> ColaboradoresTap = new List<Colaborador>();
+                ColaboradoresTap.Add(admin1TAP);
+                ColaboradoresTap.Add(Colaborador1TAP);
+                ColaboradoresTap.Add(Colaborador2TAP);
+                ColaboradoresTap.Add(Colaborador3TAP);
+
+                // Colaboradores Companhia 2 - Ryanair  -> Total: 2 Colaboradores
+                Colaborador Admin1Ryanair = new Colaborador() { Nome = "Admin1Ryanair", CompanhiaId = 2, IsAdministrador = true };
+                Colaborador Colaborador1Ryanair = new Colaborador() { Nome = "Colaborador1Ryanair", CompanhiaId = 2 };
+
+                List<Colaborador> ColaboradoresRyanair = new List<Colaborador>();
+                ColaboradoresRyanair.Add(Admin1Ryanair);
+                ColaboradoresRyanair.Add(Colaborador1Ryanair);
+
+                // Colaboradores Companhia 3 - EasyJet  -> Total: 9 Colaboradores
+                Colaborador Admin1EasyJet = new Colaborador() { Nome = "Admin1EasyJet", CompanhiaId = 3, IsAdministrador = true };
+                Colaborador Admin2EasyJet = new Colaborador() { Nome = "Admin2EasyJet", CompanhiaId = 3, IsAdministrador = true };
+                Colaborador Colaborador1EasyJet = new Colaborador() { Nome = "Colaborador1EasyJet", CompanhiaId = 3 };
+                Colaborador Colaborador2EasyJet = new Colaborador() { Nome = "Colaborador2EasyJet", CompanhiaId = 3 };
+                Colaborador Colaborador3EasyJet = new Colaborador() { Nome = "Colaborador3EasyJet", CompanhiaId = 3 };
+                Colaborador Colaborador4EasyJet = new Colaborador() { Nome = "Colaborador4EasyJet", CompanhiaId = 3 };
+                Colaborador Colaborador5EasyJet = new Colaborador() { Nome = "Colaborador5EasyJet", CompanhiaId = 3 };
+                Colaborador Colaborador6EasyJet = new Colaborador() { Nome = "Colaborador6EasyJet", CompanhiaId = 3 };
+                Colaborador Colaborador7EasyJet = new Colaborador() { Nome = "Colaborador7EasyJet", CompanhiaId = 3 };
+
+                List<Colaborador> ColaboradoresEasyJet = new List<Colaborador>();
+                ColaboradoresEasyJet.Add(Admin1EasyJet);
+                ColaboradoresEasyJet.Add(Admin2EasyJet);
+                ColaboradoresEasyJet.Add(Colaborador1EasyJet);
+                ColaboradoresEasyJet.Add(Colaborador2EasyJet);
+                ColaboradoresEasyJet.Add(Colaborador3EasyJet);
+                ColaboradoresEasyJet.Add(Colaborador4EasyJet);
+                ColaboradoresEasyJet.Add(Colaborador5EasyJet);
+                ColaboradoresEasyJet.Add(Colaborador6EasyJet);
+                ColaboradoresEasyJet.Add(Colaborador7EasyJet);
+
+
+                context.SaveChanges();
+
+
+                foreach (Companhia c in context.Companhia)
+                {
+                    switch (c.CompanhiaId)
+                    {
+                        case 1:
+                            c.ListaColaboradores = ColaboradoresTap;
+                            break;
+                        case 2:
+                            c.ListaColaboradores = ColaboradoresRyanair;
+                            break;
+                        case 3:
+                            c.ListaColaboradores = ColaboradoresEasyJet;
+                            break;
+                    }
+
+                    //Se der!!
+                    context.Update(c);
+                }
+            }
+        }
+
         private static void InicializarViagens(AirUberDbContext context)
         {
+
+            //aqui associar uma lista de extras ao jato
             if (!context.Reserva.Any())
             {
-                //novos clientes
+                //Novo cliente
                 Cliente Miguel = new Cliente() { Nome = "Miguel", Apelido = "Esteves", Ativo = true,
                                                DataCriacao = DateTime.Now, Contacto = "2222", Email ="Qualquer"};
 
-                //not working
                 context.Cliente.Add(Miguel);
                 context.SaveChanges();
-                //context.Cliente.c
+
                  Reserva reserva1 = new Reserva()
                  {
                      DataPartida = DateTime.Now,
                      DataChegada = new DateTime(2016, 12, 31),
-                     Custo = 3500.5m,
-                     Cliente = Miguel,
                      AeroportoPartidaId = 1,
                      AeroportoDestinoId = 2,
-                     CompanhiaId = 1
+                     JatoId = 1,
+                     Cliente = Miguel,
+                     Custo = 3500.5m,
+
                  };
                 context.Reserva.Add(reserva1);
 
-                //ate aqui funciona 
+                foreach (Companhia c in context.Companhia)
+                {
+                    if (c.CompanhiaId == 1) //pq o Jato 1 está ligado à companhia 1 -> está hardcoded aqui pq é apenas para testar
+                    {
+                        c.ListaReservas.Add(reserva1);
+                        context.Update(c);
+                    }
+                }
+
                 Miguel.ListaReservas.Add(reserva1);
                 context.Update(Miguel);
-/*
- * attempt
-                Reserva reserva;
-                decimal custo = 5000.24m;
-                int ids = 1;
-
-                IList<Cliente> clientList = context.Cliente.ToList();
-                foreach (var c in clientList)
-                {
-                    reserva = new Reserva()
-                    {
-                        DataPartida = DateTime.Now,
-                        DataChegada = new DateTime(2016, 12, 31),
-                        Custo = custo,
-                        Cliente = c,
-                        AeroportoPartidaId = ids,
-                        AeroportoDestinoId = ids + 1
-                    };
-      
-                    c.ListaReservas.Add(reserva);
-                    context.Reserva.Add(reserva);
-                    //context.Cliente.Add(c);
-                    context.Update(c);
-                    context.SaveChanges();
-
-                    custo = custo * 2;
-                    ids++;
-                };
-
-*/
-/* other attempt
-                //await context.SaveChangesAsync();
-                
-                // foreach and contex.SaveChangesAsync() Together are a no go! http://stackoverflow.com/questions/2113498/sqlexception-from-entity-framework-new-transaction-is-not-allowed-because-ther
-                /*foreach (var c in context.Cliente)
-                {
-                    reserva = new Reserva()
-                    {
-                        DataPartida = DateTime.Now,
-                        DataChegada = new DateTime(2016, 12, 31),
-                        Custo = custo,
-                        Cliente = c,
-                        AeroportoPartidaId = ids,
-                        AeroportoDestinoId = ids + 1
-                    };
-                    c.ListaReservas.Add(reserva);
-                    context.Reserva.Add(reserva);
-                    //context.Cliente.Add(c);
-                    context.Update(c);
-                    await context.SaveChangesAsync();
-
-                    custo = custo * 2;
-                    ids++;
-                };*/
-
-                //Miguel.ListaReservas.Add(reserva1);
-
-                //context.Cliente.Add(Miguel);
-                //context.Reserva.Add(reserva1);
             }
         }
     }

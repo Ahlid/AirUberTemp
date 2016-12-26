@@ -15,7 +15,7 @@ namespace AirUberProjeto.Migrations
                 {
                     EstadoId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Nome = table.Column<string>(nullable: true)
+                    Nome = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -28,11 +28,37 @@ namespace AirUberProjeto.Migrations
                 {
                     PaisId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Nome = table.Column<string>(nullable: true)
+                    Nome = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Pais", x => x.PaisId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "TipoExtra",
+                columns: table => new
+                {
+                    TipoExtraId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Nome = table.Column<string>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TipoExtra", x => x.TipoExtraId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "TipoJato",
+                columns: table => new
+                {
+                    TipoJatoId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Nome = table.Column<string>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TipoJato", x => x.TipoJatoId);
                 });
 
             migrationBuilder.CreateTable(
@@ -69,7 +95,7 @@ namespace AirUberProjeto.Migrations
                 {
                     CidadeId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Nome = table.Column<string>(nullable: true),
+                    Nome = table.Column<string>(nullable: false),
                     PaisId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -89,14 +115,14 @@ namespace AirUberProjeto.Migrations
                 {
                     CompanhiaId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Contact = table.Column<string>(nullable: true),
+                    Contacto = table.Column<string>(nullable: false),
                     DataCriacao = table.Column<DateTime>(nullable: false),
-                    Email = table.Column<string>(nullable: true),
+                    Email = table.Column<string>(nullable: false),
                     EstadoId = table.Column<int>(nullable: false),
                     JetCashAtual = table.Column<decimal>(nullable: false),
-                    Morada = table.Column<string>(nullable: true),
-                    Nif = table.Column<string>(nullable: true),
-                    Nome = table.Column<string>(nullable: true),
+                    Morada = table.Column<string>(nullable: false),
+                    Nif = table.Column<string>(nullable: false),
+                    Nome = table.Column<string>(nullable: false),
                     PaisId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -113,6 +139,35 @@ namespace AirUberProjeto.Migrations
                         column: x => x.PaisId,
                         principalTable: "Pais",
                         principalColumn: "PaisId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Modelo",
+                columns: table => new
+                {
+                    ModeloId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Alcance = table.Column<decimal>(nullable: false),
+                    AltitudeIdeal = table.Column<decimal>(nullable: false),
+                    AlturaCabine = table.Column<decimal>(nullable: false),
+                    Capacidade = table.Column<int>(nullable: false),
+                    ComprimentoCabine = table.Column<decimal>(nullable: false),
+                    Descricao = table.Column<string>(nullable: false),
+                    LarguraCabine = table.Column<decimal>(nullable: false),
+                    NumeroMotores = table.Column<int>(nullable: false),
+                    PesoMaximaBagagens = table.Column<decimal>(nullable: false),
+                    TipoJatoId = table.Column<int>(nullable: false),
+                    VelocidadeMaxima = table.Column<decimal>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Modelo", x => x.ModeloId);
+                    table.ForeignKey(
+                        name: "FK_Modelo_TipoJato_TipoJatoId",
+                        column: x => x.TipoJatoId,
+                        principalTable: "TipoJato",
+                        principalColumn: "TipoJatoId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -146,7 +201,7 @@ namespace AirUberProjeto.Migrations
                     CidadeId = table.Column<int>(nullable: false),
                     Latitude = table.Column<double>(nullable: false),
                     Longitude = table.Column<double>(nullable: false),
-                    Nome = table.Column<string>(nullable: true)
+                    Nome = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -200,40 +255,31 @@ namespace AirUberProjeto.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Reserva",
+                name: "Jato",
                 columns: table => new
                 {
-                    ReservaId = table.Column<int>(nullable: false)
+                    JatoId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    AeroportoDestinoId = table.Column<int>(nullable: false),
-                    AeroportoPartidaId = table.Column<int>(nullable: false),
-                    ApplicationUserId = table.Column<string>(nullable: true),
-                    Avaliacao = table.Column<int>(nullable: false),
-                    Custo = table.Column<decimal>(nullable: false),
-                    DataChegada = table.Column<DateTime>(nullable: false),
-                    DataPartida = table.Column<DateTime>(nullable: false)
+                    CompanhiaId = table.Column<int>(nullable: false),
+                    EmFuncionamento = table.Column<bool>(nullable: false),
+                    ModeloId = table.Column<int>(nullable: false),
+                    Nome = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Reserva", x => x.ReservaId);
+                    table.PrimaryKey("PK_Jato", x => x.JatoId);
                     table.ForeignKey(
-                        name: "FK_Reserva_Aeroporto_AeroportoDestinoId",
-                        column: x => x.AeroportoDestinoId,
-                        principalTable: "Aeroporto",
-                        principalColumn: "AeroportoId",
-                        onDelete: ReferentialAction.Restrict);
+                        name: "FK_Jato_Companhia_CompanhiaId",
+                        column: x => x.CompanhiaId,
+                        principalTable: "Companhia",
+                        principalColumn: "CompanhiaId",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Reserva_Aeroporto_AeroportoPartidaId",
-                        column: x => x.AeroportoPartidaId,
-                        principalTable: "Aeroporto",
-                        principalColumn: "AeroportoId",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Reserva_AspNetUsers_ApplicationUserId",
-                        column: x => x.ApplicationUserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        name: "FK_Jato_Modelo_ModeloId",
+                        column: x => x.ModeloId,
+                        principalTable: "Modelo",
+                        principalColumn: "ModeloId",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -301,6 +347,91 @@ namespace AirUberProjeto.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Reserva",
+                columns: table => new
+                {
+                    ReservaId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    AeroportoDestinoId = table.Column<int>(nullable: false),
+                    AeroportoPartidaId = table.Column<int>(nullable: false),
+                    ApplicationUserId = table.Column<string>(nullable: false),
+                    Avaliacao = table.Column<int>(nullable: false),
+                    CompanhiaId = table.Column<int>(nullable: true),
+                    Custo = table.Column<decimal>(nullable: false),
+                    DataChegada = table.Column<DateTime>(nullable: false),
+                    DataPartida = table.Column<DateTime>(nullable: false),
+                    JatoId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Reserva", x => x.ReservaId);
+                    table.ForeignKey(
+                        name: "FK_Reserva_Aeroporto_AeroportoDestinoId",
+                        column: x => x.AeroportoDestinoId,
+                        principalTable: "Aeroporto",
+                        principalColumn: "AeroportoId",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Reserva_Aeroporto_AeroportoPartidaId",
+                        column: x => x.AeroportoPartidaId,
+                        principalTable: "Aeroporto",
+                        principalColumn: "AeroportoId",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Reserva_AspNetUsers_ApplicationUserId",
+                        column: x => x.ApplicationUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Reserva_Companhia_CompanhiaId",
+                        column: x => x.CompanhiaId,
+                        principalTable: "Companhia",
+                        principalColumn: "CompanhiaId",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Reserva_Jato_JatoId",
+                        column: x => x.JatoId,
+                        principalTable: "Jato",
+                        principalColumn: "JatoId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Extra",
+                columns: table => new
+                {
+                    ExtraId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    CompanhiaId = table.Column<int>(nullable: false),
+                    ReservaId = table.Column<int>(nullable: true),
+                    TipoExtraId = table.Column<int>(nullable: false),
+                    Valor = table.Column<decimal>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Extra", x => x.ExtraId);
+                    table.ForeignKey(
+                        name: "FK_Extra_Companhia_CompanhiaId",
+                        column: x => x.CompanhiaId,
+                        principalTable: "Companhia",
+                        principalColumn: "CompanhiaId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Extra_Reserva_ReservaId",
+                        column: x => x.ReservaId,
+                        principalTable: "Reserva",
+                        principalColumn: "ReservaId",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Extra_TipoExtra_TipoExtraId",
+                        column: x => x.TipoExtraId,
+                        principalTable: "TipoExtra",
+                        principalColumn: "TipoExtraId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Aeroporto_CidadeId",
                 table: "Aeroporto",
@@ -338,6 +469,36 @@ namespace AirUberProjeto.Migrations
                 column: "PaisId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Extra_CompanhiaId",
+                table: "Extra",
+                column: "CompanhiaId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Extra_ReservaId",
+                table: "Extra",
+                column: "ReservaId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Extra_TipoExtraId",
+                table: "Extra",
+                column: "TipoExtraId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Jato_CompanhiaId",
+                table: "Jato",
+                column: "CompanhiaId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Jato_ModeloId",
+                table: "Jato",
+                column: "ModeloId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Modelo_TipoJatoId",
+                table: "Modelo",
+                column: "TipoJatoId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Reserva_AeroportoDestinoId",
                 table: "Reserva",
                 column: "AeroportoDestinoId");
@@ -351,6 +512,16 @@ namespace AirUberProjeto.Migrations
                 name: "IX_Reserva_ApplicationUserId",
                 table: "Reserva",
                 column: "ApplicationUserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Reserva_CompanhiaId",
+                table: "Reserva",
+                column: "CompanhiaId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Reserva_JatoId",
+                table: "Reserva",
+                column: "JatoId");
 
             migrationBuilder.CreateIndex(
                 name: "RoleNameIndex",
@@ -386,7 +557,7 @@ namespace AirUberProjeto.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Reserva");
+                name: "Extra");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
@@ -404,13 +575,22 @@ namespace AirUberProjeto.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "Aeroporto");
+                name: "Reserva");
+
+            migrationBuilder.DropTable(
+                name: "TipoExtra");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
+                name: "Aeroporto");
+
+            migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Jato");
 
             migrationBuilder.DropTable(
                 name: "Cidade");
@@ -419,10 +599,16 @@ namespace AirUberProjeto.Migrations
                 name: "Companhia");
 
             migrationBuilder.DropTable(
+                name: "Modelo");
+
+            migrationBuilder.DropTable(
                 name: "Estado");
 
             migrationBuilder.DropTable(
                 name: "Pais");
+
+            migrationBuilder.DropTable(
+                name: "TipoJato");
         }
     }
 }

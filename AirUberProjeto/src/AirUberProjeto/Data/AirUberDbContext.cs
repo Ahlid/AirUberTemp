@@ -44,24 +44,33 @@ namespace AirUberProjeto.Data
                 .HasMany(p => p.ListaReservas).WithOne(c => c.Cliente)
                 .HasForeignKey(c => c.ApplicationUserId);
 
+            builder.Entity<Reserva>().HasOne(c => c.Cliente).WithMany(u => u.ListaReservas).IsRequired().OnDelete(DeleteBehavior.Restrict);
+            /* builder.Entity<Reserva>()
+                 .HasRequired(s => s.JatoId)
+                 .WithMany()
+                 .WillCascadeOnDelete(false);*/
+
             // Customize the ASP.NET Identity model and override the defaults if needed.
             // For example, you can rename the ASP.NET Identity table names and more.
             // Add your customizations after calling base.OnModelCreating(builder);
         }
 
-        public DbSet<Pais> Pais { get; set; }
-        public DbSet<ApplicationUser> ApplicationUser { get; set; } // nao cria esta tabela pq? -> pq fica tudo na tabela aspnetUsers
-        public DbSet<Companhia> Companhia { get; set; }
-
-        //added
-        public DbSet<Cliente> Cliente { get; set; } // nao cria esta tabela pq?
-        public DbSet<Cidade> Cidade { get; set; }
         public DbSet<Aeroporto> Aeroporto { get; set; }
-        public DbSet<Reserva> Reserva { get; set; }
+        public DbSet<ApplicationUser> ApplicationUser { get; set; }
+        public DbSet<Cidade> Cidade { get; set; }
+        public DbSet<Cliente> Cliente { get; set; }
+        public DbSet<Colaborador> Colaborador { get; set; }
+        public DbSet<Companhia> Companhia { get; set; }
         public DbSet<Estado> Estado { get; set; }
+        public DbSet<Extra> Extra { get; set; }
+        public DbSet<Jato> Jato { get; set; }
+        public DbSet<Modelo> Modelo { get; set; }
+        public DbSet<Pais> Pais { get; set; }
+        public DbSet<Reserva> Reserva { get; set; }
+        public DbSet<TipoExtra> TipoExtra { get; set; }
+        public DbSet<TipoJato> TipoJato { get; set; }
 
+        //public DbSet<Helpdesk> Helpdesk { get; set; }
+        
     }
-
-
-
 }

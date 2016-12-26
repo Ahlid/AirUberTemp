@@ -8,7 +8,7 @@ using AirUberProjeto.Data;
 namespace AirUberProjeto.Migrations
 {
     [DbContext(typeof(AirUberDbContext))]
-    [Migration("20161225054421_nomeQualquer")]
+    [Migration("20161226051110_nomeQualquer")]
     partial class nomeQualquer
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -28,7 +28,8 @@ namespace AirUberProjeto.Migrations
 
                     b.Property<double>("Longitude");
 
-                    b.Property<string>("Nome");
+                    b.Property<string>("Nome")
+                        .IsRequired();
 
                     b.HasKey("AeroportoId");
 
@@ -104,7 +105,8 @@ namespace AirUberProjeto.Migrations
                     b.Property<int>("CidadeId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Nome");
+                    b.Property<string>("Nome")
+                        .IsRequired();
 
                     b.Property<int>("PaisId");
 
@@ -120,21 +122,26 @@ namespace AirUberProjeto.Migrations
                     b.Property<int>("CompanhiaId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Contact");
+                    b.Property<string>("Contacto")
+                        .IsRequired();
 
                     b.Property<DateTime>("DataCriacao");
 
-                    b.Property<string>("Email");
+                    b.Property<string>("Email")
+                        .IsRequired();
 
                     b.Property<int>("EstadoId");
 
                     b.Property<decimal>("JetCashAtual");
 
-                    b.Property<string>("Morada");
+                    b.Property<string>("Morada")
+                        .IsRequired();
 
-                    b.Property<string>("Nif");
+                    b.Property<string>("Nif")
+                        .IsRequired();
 
-                    b.Property<string>("Nome");
+                    b.Property<string>("Nome")
+                        .IsRequired();
 
                     b.Property<int>("PaisId");
 
@@ -152,11 +159,94 @@ namespace AirUberProjeto.Migrations
                     b.Property<int>("EstadoId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Nome");
+                    b.Property<string>("Nome")
+                        .IsRequired();
 
                     b.HasKey("EstadoId");
 
                     b.ToTable("Estado");
+                });
+
+            modelBuilder.Entity("AirUberProjeto.Models.Extra", b =>
+                {
+                    b.Property<int>("ExtraId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("CompanhiaId");
+
+                    b.Property<int?>("ReservaId");
+
+                    b.Property<int>("TipoExtraId");
+
+                    b.Property<decimal>("Valor");
+
+                    b.HasKey("ExtraId");
+
+                    b.HasIndex("CompanhiaId");
+
+                    b.HasIndex("ReservaId");
+
+                    b.HasIndex("TipoExtraId");
+
+                    b.ToTable("Extra");
+                });
+
+            modelBuilder.Entity("AirUberProjeto.Models.Jato", b =>
+                {
+                    b.Property<int>("JatoId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("CompanhiaId");
+
+                    b.Property<bool>("EmFuncionamento");
+
+                    b.Property<int>("ModeloId");
+
+                    b.Property<string>("Nome")
+                        .IsRequired();
+
+                    b.HasKey("JatoId");
+
+                    b.HasIndex("CompanhiaId");
+
+                    b.HasIndex("ModeloId");
+
+                    b.ToTable("Jato");
+                });
+
+            modelBuilder.Entity("AirUberProjeto.Models.Modelo", b =>
+                {
+                    b.Property<int>("ModeloId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<decimal>("Alcance");
+
+                    b.Property<decimal>("AltitudeIdeal");
+
+                    b.Property<decimal>("AlturaCabine");
+
+                    b.Property<int>("Capacidade");
+
+                    b.Property<decimal>("ComprimentoCabine");
+
+                    b.Property<string>("Descricao")
+                        .IsRequired();
+
+                    b.Property<decimal>("LarguraCabine");
+
+                    b.Property<int>("NumeroMotores");
+
+                    b.Property<decimal>("PesoMaximaBagagens");
+
+                    b.Property<int>("TipoJatoId");
+
+                    b.Property<decimal>("VelocidadeMaxima");
+
+                    b.HasKey("ModeloId");
+
+                    b.HasIndex("TipoJatoId");
+
+                    b.ToTable("Modelo");
                 });
 
             modelBuilder.Entity("AirUberProjeto.Models.Pais", b =>
@@ -164,7 +254,8 @@ namespace AirUberProjeto.Migrations
                     b.Property<int>("PaisId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Nome");
+                    b.Property<string>("Nome")
+                        .IsRequired();
 
                     b.HasKey("PaisId");
 
@@ -180,15 +271,20 @@ namespace AirUberProjeto.Migrations
 
                     b.Property<int>("AeroportoPartidaId");
 
-                    b.Property<string>("ApplicationUserId");
+                    b.Property<string>("ApplicationUserId")
+                        .IsRequired();
 
                     b.Property<int>("Avaliacao");
+
+                    b.Property<int?>("CompanhiaId");
 
                     b.Property<decimal>("Custo");
 
                     b.Property<DateTime>("DataChegada");
 
                     b.Property<DateTime>("DataPartida");
+
+                    b.Property<int>("JatoId");
 
                     b.HasKey("ReservaId");
 
@@ -198,7 +294,37 @@ namespace AirUberProjeto.Migrations
 
                     b.HasIndex("ApplicationUserId");
 
+                    b.HasIndex("CompanhiaId");
+
+                    b.HasIndex("JatoId");
+
                     b.ToTable("Reserva");
+                });
+
+            modelBuilder.Entity("AirUberProjeto.Models.TipoExtra", b =>
+                {
+                    b.Property<int>("TipoExtraId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Nome")
+                        .IsRequired();
+
+                    b.HasKey("TipoExtraId");
+
+                    b.ToTable("TipoExtra");
+                });
+
+            modelBuilder.Entity("AirUberProjeto.Models.TipoJato", b =>
+                {
+                    b.Property<int>("TipoJatoId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Nome")
+                        .IsRequired();
+
+                    b.HasKey("TipoJatoId");
+
+                    b.ToTable("TipoJato");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRole", b =>
@@ -375,6 +501,44 @@ namespace AirUberProjeto.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
+            modelBuilder.Entity("AirUberProjeto.Models.Extra", b =>
+                {
+                    b.HasOne("AirUberProjeto.Models.Companhia", "Companhia")
+                        .WithMany("ListaExtras")
+                        .HasForeignKey("CompanhiaId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("AirUberProjeto.Models.Reserva")
+                        .WithMany("ListaExtras")
+                        .HasForeignKey("ReservaId");
+
+                    b.HasOne("AirUberProjeto.Models.TipoExtra", "TipoExtra")
+                        .WithMany()
+                        .HasForeignKey("TipoExtraId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("AirUberProjeto.Models.Jato", b =>
+                {
+                    b.HasOne("AirUberProjeto.Models.Companhia", "Companhia")
+                        .WithMany("ListaJatos")
+                        .HasForeignKey("CompanhiaId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("AirUberProjeto.Models.Modelo", "Modelo")
+                        .WithMany()
+                        .HasForeignKey("ModeloId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("AirUberProjeto.Models.Modelo", b =>
+                {
+                    b.HasOne("AirUberProjeto.Models.TipoJato", "TipoJato")
+                        .WithMany()
+                        .HasForeignKey("TipoJatoId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
             modelBuilder.Entity("AirUberProjeto.Models.Reserva", b =>
                 {
                     b.HasOne("AirUberProjeto.Models.Aeroporto", "AeroportoDestino")
@@ -388,6 +552,15 @@ namespace AirUberProjeto.Migrations
                     b.HasOne("AirUberProjeto.Models.Cliente", "Cliente")
                         .WithMany("ListaReservas")
                         .HasForeignKey("ApplicationUserId");
+
+                    b.HasOne("AirUberProjeto.Models.Companhia")
+                        .WithMany("ListaReservas")
+                        .HasForeignKey("CompanhiaId");
+
+                    b.HasOne("AirUberProjeto.Models.Jato", "Jato")
+                        .WithMany()
+                        .HasForeignKey("JatoId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRoleClaim<string>", b =>
@@ -430,7 +603,7 @@ namespace AirUberProjeto.Migrations
             modelBuilder.Entity("AirUberProjeto.Models.Colaborador", b =>
                 {
                     b.HasOne("AirUberProjeto.Models.Companhia", "Companhia")
-                        .WithMany()
+                        .WithMany("ListaColaboradores")
                         .HasForeignKey("CompanhiaId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

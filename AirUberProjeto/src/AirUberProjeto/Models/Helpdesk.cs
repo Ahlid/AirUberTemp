@@ -7,5 +7,6 @@ namespace AirUberProjeto.Models
 {
     public class Helpdesk : ApplicationUser
     {
+        // ?
     }
 }

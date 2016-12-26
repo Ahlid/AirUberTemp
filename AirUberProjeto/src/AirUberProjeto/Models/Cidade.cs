@@ -10,9 +10,13 @@ namespace AirUberProjeto.Models
     {
         public int CidadeId { get; set; }
         [Display (Name = "Cidade")]
+        [Required]
         public string Nome { get; set; }
+        [Display(Name = "País")]
+        [Required]
         public int PaisId { get; set; } 
 
+        // Atributos Virtuais
         public virtual Pais Pais { get; set; }
 
     }

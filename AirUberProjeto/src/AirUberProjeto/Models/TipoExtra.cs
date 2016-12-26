@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace AirUberProjeto.Models
 {
-    public class Pais
+    public class TipoExtra
     {
-        public int PaisId { get; set; }
-        [Display (Name = "País")]
+        public int TipoExtraId { get; set; }
+        [Display(Name = "Tipo Extra")]
         [Required]
         public string Nome { get; set; }
-
     }
 }

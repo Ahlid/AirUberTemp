@@ -12,58 +12,43 @@ namespace AirUberProjeto.Models
     {
         public int ReservaId { get; set; }
         [Display (Name = "Data Partida")]
+        [Required]
         public DateTime DataPartida { get; set; }
         [Display(Name = "Data Chegada")]
+        [Required]
         public DateTime DataChegada { get; set; }
-
-
-        //falta avaliação, extras e jatos -> para isto vai ser preciso gerar a view de novo
-        // falta o id do Utilizador
-        //guardar id do user que criou a reserva
-        //public string AspNetUsersId { get; set; }
-       // public string ApplicationUserId { get; set; }
-
-        public int CompanhiaId { get; set; }
-        public virtual Companhia Companhia { get; set; }
-
+        [Display (Name = "Aeroporto Partida")]
+        [Required]
+        public int AeroportoPartidaId { get; set; }
+        [Display (Name = "Aeroporto Destino")]
+        [Required]
+        public int AeroportoDestinoId { get; set; }
+        [Display (Name = "Jato")]
+        [Required]
+        public int JatoId { get; set; }         // Existe um erro de FK em relação a este ID -> correcção está na classe do Contexto -> mas confirmar se é o pretendido
+                                                //aparentemente resolveu o problema
+        [Display (Name = "Cliente")]
+        [Required]
         public string ApplicationUserId { get; set; }
-        //public string Cliente { get; set; }
-        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public virtual Cliente Cliente { get; set; }
-
+        [Required]
         public decimal Custo { get; set; }
-
-        [Display (Name = "Avaliação")]
-        [Range (0, 5, ErrorMessage = "A avaliação terá que pertencer ao intervalo de 0 a 5 ")]
+        [Display(Name = "Avaliação")]
+        [Range(0, 5, ErrorMessage = "A avaliação terá que pertencer ao intervalo de 0 a 5 ")]
         public int Avaliacao { get; set; }
 
-
-        //getting errrors
-        //public virtual AspNetUsers ApplicationUser { get; set; }
-        ///public virtual IdentityUser ApplicationUser { get; set; }
-
-        ////////       [Display(Name = "Partida")]
-        //[Key, Column(Order = 1), ForeignKey("AeroportoPartida")]
-        //[ForeignKey ("Aeroporto")]
-        public int AeroportoPartidaId { get; set; }
-
-        ////////       [Display(Name = "Chegada")]
-        //[Key, Column(Order = 2), ForeignKey("AeroportoChegada")]    //Before: Column(Order = 1)
-        public int AeroportoDestinoId { get; set; }
-
-
-
-
-
-        //[InverseProperty("AeroportoPartida")]
-        /*     [ForeignKey("AeroportoPartidaId")]
-             [InverseProperty("AeroportoPartida")]*/
+        // Atributos Virtuais
+        public virtual Jato Jato { get; set; }
+        public virtual Cliente Cliente { get; set; }
         public virtual Aeroporto AeroportoPartida { get; set; }
-        //[InverseProperty("AeroportoChegada")]
-        /*[ForeignKey("AeroportoChegadaId")]
-        [InverseProperty("AeroportoChegada")]*/
         public virtual Aeroporto AeroportoDestino { get; set; }
+        [Display (Name = "Extras")]
+        public virtual ICollection<Extra> ListaExtras { get; set; }
+        
 
 
+        public Reserva()
+        {
+            ListaExtras = new List<Extra>();
+        }
     }
 }

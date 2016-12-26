@@ -1,11 +1,19 @@
 ﻿@model System.Linq.IQueryable<AirUberProjeto.Models.Companhia>
 
 @{
-    ViewBag.Title_Requests = "Pedidos"; //se existrem companhias pendentes é este valor se não é ""
+    ViewBag.Title_Requests = "Pedidos";
     ViewBag.Title = "Companhias";
     Layout = "_LayoutHelpdesk";
+    
+    <!-- má solução mas funciona, usar enquanto não encontrar melhor-->
+    int numeroCompanhiasPendentes = 0;
+    foreach (var c in ViewBag.CompanhiasPendentes)
+    {
+        numeroCompanhiasPendentes++;
+    }
 }
-@if (@ViewBag.CompanhiasPendentes != null)
+
+@if (@numeroCompanhiasPendentes > 0) // verificar se é != null não resulta
 {
     <h2>@ViewBag.Title_Requests</h2>
     <div class="w3-col w3 out">
@@ -14,22 +22,22 @@
             <div class="w3-col w3-card-4 w3-margin w3-container in" >
                 <h2 class="w3-center">@companhia.Nome</h2>
                 <div>
-                    <h4 style="display: inline; ">@Html.DisplayNameFor(model => (model.Take(1) as Companhia).Nif): </h4><span>@companhia.Nif</span>
+                    <h4 style="font-weight:bold; display: inline; ">@Html.DisplayNameFor(model => (model.Take(1) as Companhia).Nif): </h4><span>@companhia.Nif</span>
                 </div>
                 <div>
-                    <h4 style="display: inline; ">@Html.DisplayNameFor(model => (model.Take(1) as Companhia).Pais): </h4><span>@companhia.Pais.Nome</span>
+                    <h4 style="font-weight:bold; display: inline; ">@Html.DisplayNameFor(model => (model.Take(1) as Companhia).Pais): </h4><span>@companhia.Pais.Nome</span>
                 </div>
                 <div>
-                    <h4 style="display: inline; ">Número Jatos: </h4><span>5</span>
+                    <h4 style="font-weight:bold; display: inline; ">@Html.DisplayNameFor(model => (model.Take(1) as Companhia).ListaJatos): </h4><span>@companhia.ListaJatos.Count</span>
                 </div>
                 <div>
-                    <h4 style="display: inline; ">Número Colaboradores: </h4><span>2</span>
+                    <h4 style="font-weight:bold; display: inline; ">@Html.DisplayNameFor(model => (model.Take(1) as Companhia).ListaColaboradores): </h4><span>@companhia.ListaColaboradores.Count</span>
                 </div>
                 <div>
-                    <h4 style="display: inline; ">@Html.DisplayNameFor(model => (model.Take(1) as Companhia).Morada): </h4><span>@companhia.Morada</span>
+                    <h4 style="font-weight:bold; display: inline; ">@Html.DisplayNameFor(model => (model.Take(1) as Companhia).Morada): </h4><span>@companhia.Morada</span>
                 </div>
                 <div>
-                    <h4 style="display: inline; ">@Html.DisplayNameFor(model => (model.Take(1) as Companhia).Contacto): </h4><span>@companhia.Contacto</span>
+                    <h4 style="font-weight:bold; display: inline; ">@Html.DisplayNameFor(model => (model.Take(1) as Companhia).Contacto): </h4><span>@companhia.Contacto</span>
                 </div>
                 <div class="w3-padding-24">
                     <a class="w3-btn w3-indigo" asp-action="Companhias" asp-route-id="@companhia.CompanhiaId" asp-route-estadoId="1">Aceitar</a>
@@ -40,6 +48,12 @@
             </div>
         }
     </div>
+}
+else
+{
+    /* se não existirem companhias pendentes ou não mostra nada como está actualmente, ou então mostrar uma mensagem a dizer que não existem companhias pendentes
+     */
+
 }
 
 <div style="display:inline-block">

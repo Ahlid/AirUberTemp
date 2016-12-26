@@ -24,7 +24,7 @@ namespace AirUberProjeto.Controllers
         public IActionResult Index()
         {
             // Informação Companhia
-            ViewBag.NumeroCompanhiasAceites = _context.Companhia.Select(p => p).Count();
+            ViewBag.NumeroCompanhiasAceites = _context.Companhia.Select(p => p).Where(p => p.EstadoId == 1).Count();
             ViewBag.NumeroCompanhiasPendentes = _context.Companhia.Select(c => c).Where(p => p.EstadoId == 2).Count();
 
             // Informação Clientes
@@ -35,7 +35,7 @@ namespace AirUberProjeto.Controllers
             ViewBag.NumeroTotalViagens = _context.Reserva.Select(p => p).Count();
             //ViewBag.CreditosMovidos = _context.Reserva.Select(p => new { Custo = p.Sum(s => s.Custo)});
             var creditosMovidos = from p in _context.Reserva group p by 1 into g select new { Custo = g.Sum(s => s.Custo) };
-
+            
             //ugly
             decimal val = 0.0m;
             foreach(var c in creditosMovidos)
@@ -79,9 +79,9 @@ namespace AirUberProjeto.Controllers
 // Esta actualização deveria ser feita no método post?
         public IActionResult Companhias(int? id, int? estadoId)
         {
-            var companhias_aceites = Enumerable.Empty<Companhia>().AsQueryable();
+            //var companhias_aceites = Enumerable.Empty<Companhia>().AsQueryable();
 
-            var companhias_pendentes = Enumerable.Empty<Companhia>().AsQueryable();
+            //var companhias_pendentes = Enumerable.Empty<Companhia>().AsQueryable();
 
             if (id != null && estadoId != null)
             {
@@ -94,11 +94,18 @@ namespace AirUberProjeto.Controllers
 
             }
 
-            companhias_pendentes = _context.Companhia.Select(c => c).Include(p => p.Pais).Include(r => r.ListaReservas).Where(p => p.EstadoId == 2); // EstadoId = 2 => Pendente
-            companhias_aceites = _context.Companhia.Select(c => c).Include(p => p.Pais).Include(r => r.ListaReservas).Where(p => p.EstadoId == 1); // EstadoId = 1 => Aceite
+            ViewBag.CompanhiasPendentes = _context.Companhia.Select(c => c).Include(p => p.Pais)
+                                                                    .Include(p => p.ListaReservas)
+                                                                    .Include(p => p.ListaColaboradores)
+                                                                    .Include(p => p.ListaJatos)
+                                                                    .Where(p => p.EstadoId == 2); // EstadoId = 2 => Pendente
 
-            ViewBag.CompanhiasPendentes = companhias_pendentes;
-            ViewBag.CompanhiasAceites = companhias_aceites;
+            ViewBag.CompanhiasAceites = _context.Companhia.Select(c => c).Include(p => p.Pais)
+                                                                  .Include(p => p.ListaReservas)
+                                                                  .Include(p => p.ListaColaboradores)
+                                                                  .Include(p => p.ListaJatos)
+                                                                  .Where(p => p.EstadoId == 1); // EstadoId = 1 => Aceite
+
 
 
             //return View(companhias);
@@ -107,7 +114,13 @@ namespace AirUberProjeto.Controllers
 
         public IActionResult Viagens()
         {
-            var viagens = _context.Reserva.Select(c => c).Include(a => a.AeroportoDestino).Include(a => a.AeroportoPartida).Include(s => s.Cliente).Include(co => co.Companhia);
+            var viagens = _context.Reserva.Select(c => c)
+                                          .Include(a => a.AeroportoDestino)
+                                          .Include(a => a.AeroportoPartida)
+                                          .Include(a => a.Cliente)
+                                          .Include(a => a.Jato)
+                                          .Include(a => a.Jato.Companhia)
+                                          .Include(r => r.ListaExtras);
 
             return View(viagens);
         }

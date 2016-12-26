@@ -14,5 +14,12 @@ namespace AirUberProjeto.Models
         public string Nome { get; set; }
         public string Apelido { get; set; }
         public bool Ativo { get; set; }
+
+
+
+        public ApplicationUser() : base()
+        {
+            DataCriacao = DateTime.Now;
+        }
     }
 }
