@@ -10,9 +10,6 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.ReservaId)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.DataPartida)
             </th>
             <th>
@@ -43,9 +40,6 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ReservaId)
-                </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.DataPartida)
                 </td>
