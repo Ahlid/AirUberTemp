@@ -56,25 +56,6 @@ namespace AirUberProjeto.Controllers
             return View(clientes);
         }
 
-        //working
-        /* public IActionResult Companhias()
-         {
-
-             //TODO arranjar maneira de distinguir companhias validas e por validar  -> Ver o MR
-             var companhias = _context.Companhia.Select(c => c).Include(p => p.Pais).Include(r => r.ListaReservas);
-
-             var companhias_pendentes = _context.Companhia.Select(c => c).Include(p => p.Pais).Include(r => r.ListaReservas).Where(p => p.EstadoId == 2); // EstadoId = 2 => Pendente
-             var companhias_aceites = _context.Companhia.Select(c => c).Include(p => p.Pais).Include(r => r.ListaReservas).Where(p => p.EstadoId == 1); // EstadoId = 1 => Aceite
-
-             ViewBag.CompanhiasPendentes = companhias_pendentes;
-             ViewBag.CompanhiasAceites = companhias_aceites;
-
-
-             //return View(companhias);
-             return View();
-         }*/
-
-
 //Se fizer algo do género -> actualizações são feitas! http://localhost:43636/Helpdesk/Companhias?id=3&estadoId=1
 // Esta actualização deveria ser feita no método post?
         public IActionResult Companhias(int? id, int? estadoId)
@@ -106,9 +87,6 @@ namespace AirUberProjeto.Controllers
                                                                   .Include(p => p.ListaJatos)
                                                                   .Where(p => p.EstadoId == 1); // EstadoId = 1 => Aceite
 
-
-
-            //return View(companhias);
             return View();
         }
 
@@ -123,6 +101,21 @@ namespace AirUberProjeto.Controllers
                                           .Include(r => r.ListaExtras);
 
             return View(viagens);
+        }
+
+        public IActionResult ModalViagens(string email, int? count)
+        {
+            if(email != null && count != null && count > 0)
+            {
+                var listaViagens = _context.Reserva.Select(c => c)
+                                                   .Include(c => c.ListaExtras)
+                                                   .Where(c => c.Cliente.Email == email);
+
+                //A ideia era apresentar uma página modal
+                return View(listaViagens);
+                
+            }
+            return NotFound();
         }
 
     }

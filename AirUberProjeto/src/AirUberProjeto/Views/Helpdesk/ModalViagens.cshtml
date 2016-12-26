@@ -1,0 +1,76 @@
+@model IEnumerable<AirUberProjeto.Models.Reserva>
+
+@{
+    ViewData["Title"] = "ModalViagens";
+    Layout = "_LayoutHelpDesk";
+}
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ReservaId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataPartida)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataChegada)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AeroportoPartidaId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AeroportoDestinoId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JatoId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicationUserId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Custo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Avaliacao)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReservaId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataPartida)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataChegada)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AeroportoPartidaId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AeroportoDestinoId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.JatoId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApplicationUserId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Custo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Avaliacao)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

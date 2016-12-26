@@ -56,7 +56,8 @@
                         @Html.DisplayFor(modelItem => (item.JetCashAtual))
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => (item.ListaReservas.Count))
+                        <a asp-action="ModalViagens" asp-route-email="@item.Email" asp-route-count="@item.ListaReservas.Count">@Html.DisplayFor(modelItem => (item.ListaReservas.Count))</a>
+                        
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => (item.DataCriacao))
