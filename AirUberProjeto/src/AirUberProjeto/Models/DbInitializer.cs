@@ -32,6 +32,7 @@ namespace AirUberProjeto.Models
             context.SaveChanges();
 
             InicializarClientes(context);   // apagar - apenas testes
+                                            // não foram atributos roles
             context.SaveChanges();
 
             InicializarModelos(context);
@@ -289,7 +290,7 @@ namespace AirUberProjeto.Models
                 context.Companhia.Add(new Companhia
                 {
                     Nome = "Transportes Aéreos Portugueses - TAP",
-                    Contacto = "+351 707 205 700",
+                    Contact = "+351 707 205 700",
                     PaisId = 1,     // Portugal
                     Nif = "506623602",
                     JetCashAtual = 1000000,
@@ -303,7 +304,7 @@ namespace AirUberProjeto.Models
                 context.Companhia.Add(new Companhia
                 {
                     Nome = "Ryanair",
-                    Contacto = "+353 1 945 12 12",
+                    Contact = "+353 1 945 12 12",
                     PaisId = 5,     // República da Irelanda
                     Nif = "980489806",
                     JetCashAtual = 2000000,
@@ -317,7 +318,7 @@ namespace AirUberProjeto.Models
                 context.Companhia.Add(new Companhia
                 {
                     Nome = "EasyJet Airline Company Limited",
-                    Contacto = "+351 707 500 176",
+                    Contact = "+351 707 500 176",
                     PaisId = 6, // Reino Unido
                     Nif = "980467101",
                     JetCashAtual = 3000000,

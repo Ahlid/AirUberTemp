@@ -18,7 +18,7 @@ namespace AirUberProjeto.Models
         [Required]
         public string Morada { get; set; }
         [Required]
-        public string Contacto { get; set; }
+        public string Contact { get; set; }
         [Display (Name = "País")]
         [Required]
         public int PaisId { get; set; }

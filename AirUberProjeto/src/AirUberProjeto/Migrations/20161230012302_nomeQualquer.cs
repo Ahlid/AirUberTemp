@@ -115,7 +115,7 @@ namespace AirUberProjeto.Migrations
                 {
                     CompanhiaId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Contacto = table.Column<string>(nullable: false),
+                    Contact = table.Column<string>(nullable: false),
                     DataCriacao = table.Column<DateTime>(nullable: false),
                     Email = table.Column<string>(nullable: false),
                     EstadoId = table.Column<int>(nullable: false),

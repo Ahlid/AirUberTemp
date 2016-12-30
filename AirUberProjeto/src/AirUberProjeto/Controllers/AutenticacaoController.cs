@@ -230,11 +230,12 @@ namespace AirUberProjeto.Controllers
 
                 Companhia companhia = new Companhia
                 {
-                    Contacto = model.Contacto,
+                    Contact = model.Contact,
                     PaisId = model.PaisId,
                     Morada = model.Morada,
                     Nif = model.Nif,
-                    Nome = model.Nome
+                    Nome = model.Nome,
+                    Email = model.Email //added -> Tive que acrescentar
 
                 };
                  
