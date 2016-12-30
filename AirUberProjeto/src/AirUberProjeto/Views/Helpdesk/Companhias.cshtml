@@ -16,37 +16,39 @@
 @if (@numeroCompanhiasPendentes > 0) // verificar se é != null não resulta
 {
     <h2>@ViewBag.Title_Requests</h2>
-    <div class="w3-col w3 out">
-        @foreach (var companhia in ViewBag.CompanhiasPendentes)
-        {
-            <div class="w3-col w3-card-4 w3-margin w3-container in" >
-                <h2 class="w3-center">@companhia.Nome</h2>
-                <div>
-                    <h4 style="font-weight:bold; display: inline; ">@Html.DisplayNameFor(model => (model.Take(1) as Companhia).Nif): </h4><span>@companhia.Nif</span>
+    <div class="container-scroll">
+        <div class="w3-col w3 out">
+            @foreach (var companhia in ViewBag.CompanhiasPendentes)
+            {
+                <div class="w3-col w3-card-4 w3-margin w3-container in">
+                    <h2 class="w3-center">@companhia.Nome</h2>
+                    <div>
+                        <h4 style="font-weight:bold; display: inline; ">@Html.DisplayNameFor(model => (model.Take(1) as Companhia).Nif): </h4><span>@companhia.Nif</span>
+                    </div>
+                    <div>
+                        <h4 style="font-weight:bold; display: inline; ">@Html.DisplayNameFor(model => (model.Take(1) as Companhia).Pais): </h4><span>@companhia.Pais.Nome</span>
+                    </div>
+                    <div>
+                        <h4 style="font-weight:bold; display: inline; ">@Html.DisplayNameFor(model => (model.Take(1) as Companhia).ListaJatos): </h4><span>@companhia.ListaJatos.Count</span>
+                    </div>
+                    <div>
+                        <h4 style="font-weight:bold; display: inline; ">@Html.DisplayNameFor(model => (model.Take(1) as Companhia).ListaColaboradores): </h4><span>@companhia.ListaColaboradores.Count</span>
+                    </div>
+                    <div>
+                        <h4 style="font-weight:bold; display: inline; ">@Html.DisplayNameFor(model => (model.Take(1) as Companhia).Morada): </h4><span>@companhia.Morada</span>
+                    </div>
+                    <div>
+                        <h4 style="font-weight:bold; display: inline; ">@Html.DisplayNameFor(model => (model.Take(1) as Companhia).Contact): </h4><span>@companhia.Contact</span>
+                    </div>
+                    <div class="w3-padding-24">
+                        <a class="w3-btn w3-indigo" asp-action="Companhias" asp-route-id="@companhia.CompanhiaId" asp-route-estadoId="1">Aceitar</a>
+                        <a class="w3-btn w3-indigo" asp-action="Companhias" asp-route-id="@companhia.CompanhiaId" asp-route-estadoId="3">Recusar</a>
+                        <!-- <button type="button" class="w3-btn w3-indigo" onclick="">Aceitar</button>
+                        <button type="button" class="w3-btn w3-indigo" onclick="">Recusar</button><!-- vai ao controlador, passando o id -> ver como fazem na view edit-->
+                    </div>
                 </div>
-                <div>
-                    <h4 style="font-weight:bold; display: inline; ">@Html.DisplayNameFor(model => (model.Take(1) as Companhia).Pais): </h4><span>@companhia.Pais.Nome</span>
-                </div>
-                <div>
-                    <h4 style="font-weight:bold; display: inline; ">@Html.DisplayNameFor(model => (model.Take(1) as Companhia).ListaJatos): </h4><span>@companhia.ListaJatos.Count</span>
-                </div>
-                <div>
-                    <h4 style="font-weight:bold; display: inline; ">@Html.DisplayNameFor(model => (model.Take(1) as Companhia).ListaColaboradores): </h4><span>@companhia.ListaColaboradores.Count</span>
-                </div>
-                <div>
-                    <h4 style="font-weight:bold; display: inline; ">@Html.DisplayNameFor(model => (model.Take(1) as Companhia).Morada): </h4><span>@companhia.Morada</span>
-                </div>
-                <div>
-                    <h4 style="font-weight:bold; display: inline; ">@Html.DisplayNameFor(model => (model.Take(1) as Companhia).Contact): </h4><span>@companhia.Contact</span>
-                </div>
-                <div class="w3-padding-24">
-                    <a class="w3-btn w3-indigo" asp-action="Companhias" asp-route-id="@companhia.CompanhiaId" asp-route-estadoId="1">Aceitar</a>
-                    <a class="w3-btn w3-indigo" asp-action="Companhias" asp-route-id="@companhia.CompanhiaId" asp-route-estadoId="3">Recusar</a> 
-                    <!-- <button type="button" class="w3-btn w3-indigo" onclick="">Aceitar</button>
-                    <button type="button" class="w3-btn w3-indigo" onclick="">Recusar</button><!-- vai ao controlador, passando o id -> ver como fazem na view edit-->
-                </div>
-            </div>
-        }
+            }
+        </div>
     </div>
 }
 else
@@ -82,7 +84,7 @@ else
         @Html.DisplayNameFor(model => (model.Take(1) as Companhia).ListaReservas)
     </th> 
     <th>
-        @Html.DisplayNameFor(model => (model.Take(1) as Companhia).JetCashAtual)
+        @Html.DisplayNameFor(model => (model.Take(1) as Companhia).ContaDeCreditos.JetCashActual)
     </th> 
     <th>
         @Html.DisplayNameFor(model => (model.Take(1) as Companhia).DataCriacao)
@@ -96,12 +98,12 @@ else
            {
             <tr>
                 <td>@companhia.Nome</td>
-                <td>@companhia.Contacto</td>
+                <td>@companhia.Contact</td>
                 <td>@companhia.Email</td>
                 <td>@companhia.Pais.Nome</td>
                 <td>@companhia.Nif</td>
                 <td>@companhia.ListaReservas.Count</td>
-                <td>@companhia.JetCashAtual</td>
+                <td>@companhia.ContaDeCreditos.JetCashActual</td>
                 <td>@companhia.DataCriacao</td>
             </tr>
            }

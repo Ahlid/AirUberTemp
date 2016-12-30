@@ -5,10 +5,23 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace AirUberProjeto.Migrations
 {
-    public partial class nomeQualquer : Migration
+    public partial class nomeQualquer0 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "ContaDeCreditos",
+                columns: table => new
+                {
+                    ContaDeCreditosId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    JetCashActual = table.Column<decimal>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ContaDeCreditos", x => x.ContaDeCreditosId);
+                });
+
             migrationBuilder.CreateTable(
                 name: "Estado",
                 columns: table => new
@@ -115,11 +128,11 @@ namespace AirUberProjeto.Migrations
                 {
                     CompanhiaId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    ContaDeCreditosId = table.Column<int>(nullable: false),
                     Contact = table.Column<string>(nullable: false),
                     DataCriacao = table.Column<DateTime>(nullable: false),
                     Email = table.Column<string>(nullable: false),
                     EstadoId = table.Column<int>(nullable: false),
-                    JetCashAtual = table.Column<decimal>(nullable: false),
                     Morada = table.Column<string>(nullable: false),
                     Nif = table.Column<string>(nullable: false),
                     Nome = table.Column<string>(nullable: false),
@@ -128,6 +141,12 @@ namespace AirUberProjeto.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Companhia", x => x.CompanhiaId);
+                    table.ForeignKey(
+                        name: "FK_Companhia_ContaDeCreditos_ContaDeCreditosId",
+                        column: x => x.ContaDeCreditosId,
+                        principalTable: "ContaDeCreditos",
+                        principalColumn: "ContaDeCreditosId",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Companhia_Estado_EstadoId",
                         column: x => x.EstadoId,
@@ -238,8 +257,8 @@ namespace AirUberProjeto.Migrations
                     SecurityStamp = table.Column<string>(nullable: true),
                     TwoFactorEnabled = table.Column<bool>(nullable: false),
                     UserName = table.Column<string>(maxLength: 256, nullable: true),
+                    ContaDeCreditosId = table.Column<int>(nullable: true),
                     Contacto = table.Column<string>(nullable: true),
-                    JetCashAtual = table.Column<decimal>(nullable: true),
                     CompanhiaId = table.Column<int>(nullable: true),
                     IsAdministrador = table.Column<bool>(nullable: true)
                 },
@@ -247,11 +266,17 @@ namespace AirUberProjeto.Migrations
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
                     table.ForeignKey(
+                        name: "FK_AspNetUsers_ContaDeCreditos_ContaDeCreditosId",
+                        column: x => x.ContaDeCreditosId,
+                        principalTable: "ContaDeCreditos",
+                        principalColumn: "ContaDeCreditosId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
                         name: "FK_AspNetUsers_Companhia_CompanhiaId",
                         column: x => x.CompanhiaId,
                         principalTable: "Companhia",
                         principalColumn: "CompanhiaId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -449,6 +474,11 @@ namespace AirUberProjeto.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
+                name: "IX_AspNetUsers_ContaDeCreditosId",
+                table: "AspNetUsers",
+                column: "ContaDeCreditosId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_AspNetUsers_CompanhiaId",
                 table: "AspNetUsers",
                 column: "CompanhiaId");
@@ -457,6 +487,11 @@ namespace AirUberProjeto.Migrations
                 name: "IX_Cidade_PaisId",
                 table: "Cidade",
                 column: "PaisId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Companhia_ContaDeCreditosId",
+                table: "Companhia",
+                column: "ContaDeCreditosId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Companhia_EstadoId",
@@ -600,6 +635,9 @@ namespace AirUberProjeto.Migrations
 
             migrationBuilder.DropTable(
                 name: "Modelo");
+
+            migrationBuilder.DropTable(
+                name: "ContaDeCreditos");
 
             migrationBuilder.DropTable(
                 name: "Estado");
