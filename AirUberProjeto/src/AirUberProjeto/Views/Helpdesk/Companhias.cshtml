@@ -37,7 +37,7 @@
                     <h4 style="font-weight:bold; display: inline; ">@Html.DisplayNameFor(model => (model.Take(1) as Companhia).Morada): </h4><span>@companhia.Morada</span>
                 </div>
                 <div>
-                    <h4 style="font-weight:bold; display: inline; ">@Html.DisplayNameFor(model => (model.Take(1) as Companhia).Contacto): </h4><span>@companhia.Contacto</span>
+                    <h4 style="font-weight:bold; display: inline; ">@Html.DisplayNameFor(model => (model.Take(1) as Companhia).Contact): </h4><span>@companhia.Contact</span>
                 </div>
                 <div class="w3-padding-24">
                     <a class="w3-btn w3-indigo" asp-action="Companhias" asp-route-id="@companhia.CompanhiaId" asp-route-estadoId="1">Aceitar</a>
@@ -67,7 +67,7 @@ else
         @Html.DisplayNameFor(model => (model.Take(1) as Companhia).Nome)
     </th> 
     <th>
-        @Html.DisplayNameFor(model => (model.Take(1) as Companhia).Contacto)
+        @Html.DisplayNameFor(model => (model.Take(1) as Companhia).Contact)
     </th> 
     <th>
         @Html.DisplayNameFor(model => (model.Take(1) as Companhia).Email)

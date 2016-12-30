@@ -14,8 +14,8 @@ namespace AirUberProjeto.Models.AutenticacaoViewModels
         [Display(Name = "Morada Escritório")]
         public string Morada { get; set; }
         [Required]
-        [Display(Name = "Contacto")]
-        public string Contacto { get; set; }
+        [Display(Name = "Contact")]
+        public string Contact { get; set; }
         [Required]
         [Display(Name = "Pais")]
         public int PaisId { get; set; }

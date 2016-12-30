@@ -8,8 +8,8 @@ using AirUberProjeto.Data;
 namespace AirUberProjeto.Migrations
 {
     [DbContext(typeof(AirUberDbContext))]
-    [Migration("20161226055346_nomeQualquer2")]
-    partial class nomeQualquer2
+    [Migration("20161230012302_nomeQualquer")]
+    partial class nomeQualquer
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -83,9 +83,6 @@ namespace AirUberProjeto.Migrations
 
                     b.Property<bool>("TwoFactorEnabled");
 
-                    b.Property<int>("UserId")
-                        .ValueGeneratedOnAdd();
-
                     b.Property<string>("UserName")
                         .HasAnnotation("MaxLength", 256);
 
@@ -125,7 +122,7 @@ namespace AirUberProjeto.Migrations
                     b.Property<int>("CompanhiaId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Contacto")
+                    b.Property<string>("Contact")
                         .IsRequired();
 
                     b.Property<DateTime>("DataCriacao");

@@ -121,7 +121,7 @@ namespace AirUberProjeto.Migrations
                     b.Property<int>("CompanhiaId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Contacto")
+                    b.Property<string>("Contact")
                         .IsRequired();
 
                     b.Property<DateTime>("DataCriacao");
