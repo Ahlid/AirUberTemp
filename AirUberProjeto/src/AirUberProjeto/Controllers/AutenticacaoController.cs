@@ -10,7 +10,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Logging;
 using AirUberProjeto.Models;
-using AirUberProjeto.Models.AccountViewModels;
 using AirUberProjeto.Models.AutenticacaoViewModels;
 using AirUberProjeto.Services;
 using MailKit.Net.Smtp;
