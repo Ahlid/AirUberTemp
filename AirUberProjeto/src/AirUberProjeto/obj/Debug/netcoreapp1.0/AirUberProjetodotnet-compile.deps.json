@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v1.0/",
-    "signature": "aef97b41d771e081cb48ed778230382d6da620ff"
+    "signature": "d06a36595b2159d9da021f48083d0d9b7c93e498"
   },
   "compilationOptions": {
     "defines": [
@@ -36,7 +36,8 @@
           "Microsoft.Extensions.Logging.Debug": "1.0.0",
           "Microsoft.Extensions.Options.ConfigurationExtensions": "1.0.0",
           "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0",
-          "MailKit": "1.10.1"
+          "MailKit": "1.10.1",
+          "NUnit": "3.5.0"
         },
         "compile": {
           "AirUberProjeto.dll": {}
@@ -1441,6 +1442,11 @@
         },
         "compile": {
           "lib/netstandard1.0/Newtonsoft.Json.dll": {}
+        }
+      },
+      "NUnit/3.5.0": {
+        "compile": {
+          "lib/dotnet/nunit.framework.dll": {}
         }
       },
       "Portable.BouncyCastle/1.8.1.1": {
@@ -3007,7 +3013,8 @@
           "Microsoft.Extensions.Logging.Debug": "1.0.0",
           "Microsoft.Extensions.Options.ConfigurationExtensions": "1.0.0",
           "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0",
-          "MailKit": "1.10.1"
+          "MailKit": "1.10.1",
+          "NUnit": "3.5.0"
         },
         "runtime": {
           "AirUberProjeto.dll": {}
@@ -4409,6 +4416,11 @@
         },
         "runtime": {
           "lib/netstandard1.0/Newtonsoft.Json.dll": {}
+        }
+      },
+      "NUnit/3.5.0": {
+        "runtime": {
+          "lib/dotnet/nunit.framework.dll": {}
         }
       },
       "Portable.BouncyCastle/1.8.1.1": {
@@ -6378,6 +6390,11 @@
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-U82mHQSKaIk+lpSVCbWYKNavmNH1i5xrExDEquU1i6I5pV6UMOqRnJRSlKO3cMPfcpp0RgDY+8jUXHdQ4IfXvw=="
+    },
+    "NUnit/3.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-z/03NfC+ci3/OzlIlClH+nd0LZ99OU3wS74nAtLVnPo1oq6nvd+CGxTHZAc8n8xxDLeLMofZ8AjahxlROEhf/Q=="
     },
     "Portable.BouncyCastle/1.8.1.1": {
       "type": "package",
