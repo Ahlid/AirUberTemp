@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<h2>Reset Confirm</h2>
+
+
+@if (@ViewBag.email != null)
+{
+    <form method="post" asp-controller="Autenticacao" asp-action="GenerateNewPassword">
+        <input type="hidden" value="@ViewBag.email" name="email"/>
+        <button class="w3-btn"> Confirmar</button>
+
+    </form>
+}
+else
+{
+    <div class="alert alert-danger">
+        Nenhum utilizador valido para esta operação.
+    </div>
+}

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace AirUberProjeto.Models
+namespace AirUberProjeto.Models.AutenticacaoViewModels
 {
     public class RegisterCompanhiaViewModel
 

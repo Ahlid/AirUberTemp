@@ -1,4 +1,4 @@
-﻿{
+{
   "userSecretsId": "aspnet-AirUberProjeto-66c8e40e-5470-4ac9-82b2-19ea78947f30",
 
   "dependencies": {
@@ -45,7 +45,8 @@
       "version": "1.0.0-preview2-final",
       "type": "build"
     },
-    "MailKit": "1.10.1" 
+    "MailKit": "1.10.1",
+    "NUnit": "3.5.0" 
   },
 
   "tools": {

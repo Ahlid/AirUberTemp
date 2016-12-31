@@ -30,7 +30,7 @@
             <th>
                 @Html.DisplayNameFor(model => (model.Take(1) as Cliente).DataCriacao)
             </th>
-
+            <th></th>
         </tr>
 
     </thead>
@@ -61,6 +61,14 @@
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => (item.DataCriacao))
+                    </td>
+                    <td>
+                        
+                        <form asp-controller="Autenticacao" asp-action="ConfirmReset" method="get">
+
+                            <input type="hidden" name="email" value="@Html.DisplayFor(modelItem => (item.Email))"/>
+                            <input type="submit" value="Reset Password"/>
+                        </form>
                     </td>
                 </tr>
 
