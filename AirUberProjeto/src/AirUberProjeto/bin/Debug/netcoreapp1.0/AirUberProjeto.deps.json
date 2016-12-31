@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v1.0",
-    "signature": "8421c022044686ff4b482ac20391671d14308a36"
+    "signature": "ba85991049ec3005e4e0f164caa53b9bbfeb64ad"
   },
   "compilationOptions": {
     "defines": [
@@ -36,7 +36,8 @@
           "Microsoft.Extensions.Logging.Debug": "1.0.0",
           "Microsoft.Extensions.Options.ConfigurationExtensions": "1.0.0",
           "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0",
-          "MailKit": "1.10.1"
+          "MailKit": "1.10.1",
+          "NUnit": "3.5.0"
         },
         "runtime": {
           "AirUberProjeto.dll": {}
@@ -1937,6 +1938,14 @@
         },
         "compile": {
           "lib/netstandard1.0/NuGet.Versioning.dll": {}
+        }
+      },
+      "NUnit/3.5.0": {
+        "runtime": {
+          "lib/dotnet/nunit.framework.dll": {}
+        },
+        "compile": {
+          "lib/dotnet/nunit.framework.dll": {}
         }
       },
       "Portable.BouncyCastle/1.8.1.1": {
@@ -4536,6 +4545,11 @@
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-Stok+SI5lWxOkTgZZM7jT4xuAZogm5+j85mKJeHSXb8o0OAbB+qDX9jkdM2wIEnjoR8R29J0nQYwk2Kl2lWFpA=="
+    },
+    "NUnit/3.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-z/03NfC+ci3/OzlIlClH+nd0LZ99OU3wS74nAtLVnPo1oq6nvd+CGxTHZAc8n8xxDLeLMofZ8AjahxlROEhf/Q=="
     },
     "Portable.BouncyCastle/1.8.1.1": {
       "type": "package",

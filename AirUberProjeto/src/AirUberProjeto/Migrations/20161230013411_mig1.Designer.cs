@@ -8,8 +8,8 @@ using AirUberProjeto.Data;
 namespace AirUberProjeto.Migrations
 {
     [DbContext(typeof(AirUberDbContext))]
-    [Migration("20161229195726_mig400")]
-    partial class mig400
+    [Migration("20161230013411_mig1")]
+    partial class mig1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -122,7 +122,7 @@ namespace AirUberProjeto.Migrations
                     b.Property<int>("CompanhiaId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Contacto")
+                    b.Property<string>("Contact")
                         .IsRequired();
 
                     b.Property<DateTime>("DataCriacao");
