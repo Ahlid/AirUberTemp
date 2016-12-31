@@ -44,11 +44,19 @@ namespace AirUberProjeto.Data
                 .HasMany(p => p.ListaReservas).WithOne(c => c.Cliente)
                 .HasForeignKey(c => c.ApplicationUserId);
 
-            builder.Entity<Reserva>().HasOne(c => c.Cliente).WithMany(u => u.ListaReservas).IsRequired().OnDelete(DeleteBehavior.Restrict);
-            /* builder.Entity<Reserva>()
-                 .HasRequired(s => s.JatoId)
-                 .WithMany()
-                 .WillCascadeOnDelete(false);*/
+            builder.Entity<Reserva>()
+                .HasOne(c => c.Cliente)
+                .WithMany(u => u.ListaReservas)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Restrict);
+
+
+            //resolve erro de FK 'CompanhiaId' on tabela 'aspnetusers' may cause cycles or multiple cascade paths
+            builder.Entity<Colaborador>()
+                .HasOne(c => c.Companhia)
+                .WithMany(u => u.ListaColaboradores)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Restrict);
 
             // Customize the ASP.NET Identity model and override the defaults if needed.
             // For example, you can rename the ASP.NET Identity table names and more.

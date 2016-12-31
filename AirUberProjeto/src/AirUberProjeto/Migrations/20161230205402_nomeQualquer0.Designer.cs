@@ -8,9 +8,10 @@ using AirUberProjeto.Data;
 namespace AirUberProjeto.Migrations
 {
     [DbContext(typeof(AirUberDbContext))]
-    partial class AirUberDbContextModelSnapshot : ModelSnapshot
+    [Migration("20161230205402_nomeQualquer0")]
+    partial class nomeQualquer0
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.1")

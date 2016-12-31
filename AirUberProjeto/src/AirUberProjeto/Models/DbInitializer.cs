@@ -9,58 +9,70 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace AirUberProjeto.Models
 {
+    /// <summary>
+    /// Classe responsável por popular a base de dados numa fase inicial.
+    /// </summary>
     public class DbInitializer
     {
 
+        /// <summary>
+        /// Método reponsável por inserir em todas as tabelas da base de dados caso não haja já valores na tabela.
+        /// </summary>
+        /// <param name="context">Contexto da aplicação.</param>
         public static void Initialize(AirUberDbContext context)
         {
-            //comentado
-            //context.Database.EnsureDeleted();
+
             context.Database.EnsureCreated();
 
 
-            InicializarPaises(context);
+            inicializarPaises(context);
             context.SaveChanges();
 
-            InicializarEstados(context);
+            inicializarEstados(context);
             context.SaveChanges();
 
-            InicializarTipoJatos(context);
+            inicializarTipoJatos(context);
             context.SaveChanges();
 
-            InicializarTiposExtra(context);
+            inicializarTipoExtras(context);
             context.SaveChanges();
 
-            InicializarClientes(context);   // apagar - apenas testes
+            inicializarClientes(context);   // apagar - apenas testes
                                             // não foram atributos roles
             context.SaveChanges();
 
-            InicializarModelos(context);
+            inicializarModelos(context);
             context.SaveChanges();
 
-            InicializarCidades(context);
+            inicializarCidades(context);
             context.SaveChanges();
 
-            InicializarAeroportos(context);
+            inicializarAeroportos(context);
             context.SaveChanges();
 
-            InicializarCompanhias(context); // apagar - apenas testes
+            inicializarCompanhias(context); // apagar - apenas testes
             context.SaveChanges();
 
-            InicializarJatos(context);
+            inicializarJatos(context);
             context.SaveChanges();
 
-            InicializarExtras(context);
+            inicializarExtras(context);
             context.SaveChanges();
 
-            InicializarColaboradores(context);  // apagar - apenas testes
+            inicializarColaboradores(context);  // apagar - apenas testes
             context.SaveChanges();
 
-            InicializarViagens(context);    // apagar - apenas testes
+            inicializarViagens(context);    // apagar - apenas testes
             context.SaveChanges();
 
         }
 
+        /// <summary>
+        /// Responsável por adicionar à base de dados todos os papéis que um utilizador pode adquirir.
+        /// </summary>
+        /// <param name="serviceProvider">serviço</param>
+        /// <param name="context">Contexto da aplicação</param>
+        /// <returns>retornar um objecto da classe Task</returns>
         public static async Task AddRoles(IServiceProvider serviceProvider, AirUberDbContext context)
         {
 
@@ -88,7 +100,11 @@ namespace AirUberProjeto.Models
             }
         }
 
-        private static void InicializarPaises(AirUberDbContext context)
+        /// <summary>
+        /// Responsável por inserir na base de dados vários pases caso não exista nenhum país na base de dados.
+        /// </summary>
+        /// <param name="context">Contexto da aplicação</param>
+        private static void inicializarPaises(AirUberDbContext context)
         {
             if (!context.Pais.Any())
             {
@@ -102,7 +118,11 @@ namespace AirUberProjeto.Models
             }
         }
 
-        private static void InicializarEstados(AirUberDbContext context)
+        /// <summary>
+        /// Responsável por inserir na base de dados vários estados caso não exista nenhum estado na base de dados.
+        /// </summary>
+        /// <param name="context">Contexto da aplicação</param>
+        private static void inicializarEstados(AirUberDbContext context)
         {
             if (!context.Estado.Any())
             {
@@ -112,7 +132,11 @@ namespace AirUberProjeto.Models
             }
         }
 
-        private static void InicializarTipoJatos(AirUberDbContext context)
+        /// <summary>
+        /// Responsável por inserir na base de dados vários tipo de jatos caso não exista nenhum tipo de jatos na base de dados.
+        /// </summary>
+        /// <param name="context">Contexto da aplicação</param>
+        private static void inicializarTipoJatos(AirUberDbContext context)
         {
             if (!context.TipoJato.Any())
             {
@@ -127,7 +151,11 @@ namespace AirUberProjeto.Models
             }
         }
 
-        private static void InicializarTiposExtra(AirUberDbContext context)
+        /// <summary>
+        /// Responsável por inserir na base de dados vários tipo de extras caso não exista nenhum tipo de extras na base de dados.
+        /// </summary>
+        /// <param name="context">Contexto da aplicação</param>
+        private static void inicializarTipoExtras(AirUberDbContext context)
         {
             if (!context.TipoExtra.Any())
             {
@@ -138,16 +166,31 @@ namespace AirUberProjeto.Models
             }
         }
 
-        private static void InicializarClientes(AirUberDbContext context)
+        /// <summary>
+        /// Responsável por inserir na base de dados vários clientes caso não exista nenhum cliente na base de dados
+        /// </summary>
+        /// <param name="context">Contexto da aplicação</param>
+        private static void inicializarClientes(AirUberDbContext context)
         {
             if (!context.Cliente.Any())
             {
+                ContaDeCreditos conta1 = new ContaDeCreditos()
+                {
+                    JetCashActual = 10000
+                };
+
+                ContaDeCreditos conta2 = new ContaDeCreditos()
+                {
+                    JetCashActual = 15000
+                };
+
                 context.Cliente.Add(new Cliente
                 {
                     Nome = "Artur",
                     Apelido = "Esteves",
                     Ativo = true,
                     DataCriacao = DateTime.Now,
+                    ContaDeCreditos = conta1,
                     Contacto = "+351...",
                     Email = "artur@airuber.com"
                 });
@@ -157,6 +200,7 @@ namespace AirUberProjeto.Models
                     Nome = "João",
                     Apelido = "Rafael",
                     Ativo = true,
+                    ContaDeCreditos = conta2,
                     DataCriacao = DateTime.Now,
                     Contacto = "+351...",
                     Email = "joao@airuber.com"
@@ -164,7 +208,11 @@ namespace AirUberProjeto.Models
             }
         }
 
-        private static void InicializarModelos(AirUberDbContext context)
+        /// <summary>
+        /// Responsável por inserir na base de dados vários modelos caso não exista nenhum modelo na base de dados
+        /// </summary>
+        /// <param name="context">Contexto da aplicação</param>
+        private static void inicializarModelos(AirUberDbContext context)
         {
             if (!context.Modelo.Any())
             {
@@ -186,7 +234,11 @@ namespace AirUberProjeto.Models
             }
         }
 
-        private static void InicializarCidades(AirUberDbContext context)
+        /// <summary>
+        /// Responsável por inserir na base de dados várias cidades caso não exista nenhuma cidade na base de dados
+        /// </summary>
+        /// <param name="context">Contexto da aplicação</param>
+        private static void inicializarCidades(AirUberDbContext context)
         {
             if (!context.Cidade.Any())
             {
@@ -252,7 +304,11 @@ namespace AirUberProjeto.Models
             }
         }
 
-        private static void InicializarAeroportos(AirUberDbContext context)
+        /// <summary>
+        /// Responsável por inserir na base de dados vários aeroportos caso não exista nenhum aeroporto na base de dados
+        /// </summary>
+        /// <param name="context">Contexto da aplicação</param>
+        private static void inicializarAeroportos(AirUberDbContext context)
         {
             if (!context.Aeroporto.Any())
             {
@@ -282,18 +338,35 @@ namespace AirUberProjeto.Models
             }
         }
 
-        //change
-        private static void InicializarCompanhias(AirUberDbContext context)
+        /// <summary>
+        /// Responsável por inserir na base de dados várias companhias caso não exista nenhuma companhia na base de dados
+        /// </summary>
+        /// <param name="context">Contexto da aplicação</param>
+        private static void inicializarCompanhias(AirUberDbContext context)
         {
             if (!context.Companhia.Any())
             {
+                ContaDeCreditos conta1 = new ContaDeCreditos()
+                {
+                    JetCashActual = 1000000
+                };
+
+                ContaDeCreditos conta2 = new ContaDeCreditos()
+                {
+                    JetCashActual = 2000000
+                };
+
+                ContaDeCreditos conta3 = new ContaDeCreditos()
+                {
+                    JetCashActual = 3000000
+                };
                 context.Companhia.Add(new Companhia
                 {
                     Nome = "Transportes Aéreos Portugueses - TAP",
                     Contact = "+351 707 205 700",
                     PaisId = 1,     // Portugal
                     Nif = "506623602",
-                    JetCashAtual = 1000000,
+                    ContaDeCreditos = conta1,
                     DataCriacao = DateTime.Now,
                     //Activada = true,
                     EstadoId = 1,
@@ -307,7 +380,7 @@ namespace AirUberProjeto.Models
                     Contact = "+353 1 945 12 12",
                     PaisId = 5,     // República da Irelanda
                     Nif = "980489806",
-                    JetCashAtual = 2000000,
+                    ContaDeCreditos = conta2,
                     DataCriacao = DateTime.Now,
                     //Activada = false,
                     EstadoId = 2,
@@ -321,7 +394,7 @@ namespace AirUberProjeto.Models
                     Contact = "+351 707 500 176",
                     PaisId = 6, // Reino Unido
                     Nif = "980467101",
-                    JetCashAtual = 3000000,
+                    ContaDeCreditos = conta2,
                     DataCriacao = DateTime.Now,
                     //Activada = false,
                     EstadoId = 2,
@@ -331,7 +404,11 @@ namespace AirUberProjeto.Models
             }
         }
 
-        private static void InicializarJatos(AirUberDbContext context)
+        /// <summary>
+        /// Responsável por inserir na base de dados vários jatos caso não exista nenhum jato na base de dados
+        /// </summary>
+        /// <param name="context">Contexto da aplicação</param>
+        private static void inicializarJatos(AirUberDbContext context)
         {
             if (!context.Jato.Any())
             {
@@ -359,7 +436,11 @@ namespace AirUberProjeto.Models
             }
         }
 
-        private static void InicializarExtras(AirUberDbContext context)
+        /// <summary>
+        /// Responsável por inserir na base de dados vários extras caso não exista nenhum extra na base de dados
+        /// </summary>
+        /// <param name="context">Contexto da aplicação</param>
+        private static void inicializarExtras(AirUberDbContext context)
         {
             if (!context.Extra.Any())
             {
@@ -396,7 +477,11 @@ namespace AirUberProjeto.Models
             }
         }
 
-        private static void InicializarColaboradores(AirUberDbContext context)
+        /// <summary>
+        /// Responsável por inserir na base de dados vários colaboradores caso não exista nenhum colaborador na base de dados
+        /// </summary>
+        /// <param name="context">Contexto da aplicação</param>
+        private static void inicializarColaboradores(AirUberDbContext context)
         {
             if (!context.Colaborador.Any())
             {
@@ -467,15 +552,24 @@ namespace AirUberProjeto.Models
             }
         }
 
-        private static void InicializarViagens(AirUberDbContext context)
+        /// <summary>
+        /// Responsável por inserir na base de dados várias viagens caso não exista nenhuma viagem na base de dados
+        /// </summary>
+        /// <param name="context">Contexto da aplicação</param>
+        private static void inicializarViagens(AirUberDbContext context)
         {
 
             //aqui associar uma lista de extras ao jato
             if (!context.Reserva.Any())
             {
+                ContaDeCreditos conta1 = new ContaDeCreditos()
+                {
+                    JetCashActual = 4542
+                };
+
                 //Novo cliente
-                Cliente Miguel = new Cliente() { Nome = "Miguel", Apelido = "Esteves", Ativo = true,
-                                               DataCriacao = DateTime.Now, Contacto = "2222", Email ="Qualquer"};
+                Cliente Miguel = new Cliente() { Nome = "Miguel", Apelido = "Esteves", Ativo = true, ContaDeCreditos = conta1,
+                    DataCriacao = DateTime.Now, Contacto = "2222", Email ="Qualquer"};
 
                 context.Cliente.Add(Miguel);
                 context.SaveChanges();
@@ -508,7 +602,3 @@ namespace AirUberProjeto.Models
         }
     }
 }
-
-
-
-//falta avaliação, extras e jatos -> para isto vai ser preciso gerar a view de novo

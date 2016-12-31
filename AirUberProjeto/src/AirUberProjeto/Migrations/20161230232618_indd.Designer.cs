@@ -8,9 +8,10 @@ using AirUberProjeto.Data;
 namespace AirUberProjeto.Migrations
 {
     [DbContext(typeof(AirUberDbContext))]
-    partial class AirUberDbContextModelSnapshot : ModelSnapshot
+    [Migration("20161230232618_indd")]
+    partial class indd
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.1")
@@ -121,8 +122,6 @@ namespace AirUberProjeto.Migrations
                     b.Property<int>("CompanhiaId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("ContaDeCreditosId");
-
                     b.Property<string>("Contact")
                         .IsRequired();
 
@@ -132,6 +131,8 @@ namespace AirUberProjeto.Migrations
                         .IsRequired();
 
                     b.Property<int>("EstadoId");
+
+                    b.Property<decimal>("JetCashAtual");
 
                     b.Property<string>("Morada")
                         .IsRequired();
@@ -146,25 +147,11 @@ namespace AirUberProjeto.Migrations
 
                     b.HasKey("CompanhiaId");
 
-                    b.HasIndex("ContaDeCreditosId");
-
                     b.HasIndex("EstadoId");
 
                     b.HasIndex("PaisId");
 
                     b.ToTable("Companhia");
-                });
-
-            modelBuilder.Entity("AirUberProjeto.Models.ContaDeCreditos", b =>
-                {
-                    b.Property<int>("ContaDeCreditosId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<decimal>("JetCashActual");
-
-                    b.HasKey("ContaDeCreditosId");
-
-                    b.ToTable("ContaDeCreditos");
                 });
 
             modelBuilder.Entity("AirUberProjeto.Models.Estado", b =>
@@ -451,11 +438,9 @@ namespace AirUberProjeto.Migrations
                 {
                     b.HasBaseType("AirUberProjeto.Models.ApplicationUser");
 
-                    b.Property<int>("ContaDeCreditosId");
-
                     b.Property<string>("Contacto");
 
-                    b.HasIndex("ContaDeCreditosId");
+                    b.Property<decimal>("JetCashAtual");
 
                     b.ToTable("Cliente");
 
@@ -505,11 +490,6 @@ namespace AirUberProjeto.Migrations
 
             modelBuilder.Entity("AirUberProjeto.Models.Companhia", b =>
                 {
-                    b.HasOne("AirUberProjeto.Models.ContaDeCreditos", "ContaDeCreditos")
-                        .WithMany()
-                        .HasForeignKey("ContaDeCreditosId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
                     b.HasOne("AirUberProjeto.Models.Estado", "Estado")
                         .WithMany()
                         .HasForeignKey("EstadoId")
@@ -620,19 +600,12 @@ namespace AirUberProjeto.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("AirUberProjeto.Models.Cliente", b =>
-                {
-                    b.HasOne("AirUberProjeto.Models.ContaDeCreditos", "ContaDeCreditos")
-                        .WithMany()
-                        .HasForeignKey("ContaDeCreditosId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
             modelBuilder.Entity("AirUberProjeto.Models.Colaborador", b =>
                 {
                     b.HasOne("AirUberProjeto.Models.Companhia", "Companhia")
                         .WithMany("ListaColaboradores")
-                        .HasForeignKey("CompanhiaId");
+                        .HasForeignKey("CompanhiaId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
         }
     }

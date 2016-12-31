@@ -1,7 +1,146 @@
 ﻿@{
     ViewData["Title"] = "About";
 }
-<h2>@ViewData["Title"].</h2>
-<h3>@ViewData["Message"]</h3>
 
-<p>Use this area to provide additional information.</p>
+
+<div class="w3-container">
+    <br/>
+    <h2>Manual Utilizador</h2>
+
+    <div class="w3-row">
+        <a href="javascript:void(0)" onclick="openCity(event, 'autenticacao');" id="defaultOpen">
+            <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding">Autenticação</div>
+        </a>
+        <a href="javascript:void(0)" onclick="openCity(event, 'helpdesk');">
+            <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding">Helpdesk</div>
+        </a>
+        <a href="javascript:void(0)" onclick="openCity(event, 'perilCliente');">
+            <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding">Peril Cliente</div>
+        </a>
+    </div>
+
+    <div id="autenticacao" class="w3-container city" style="display: none">
+        <h2>Build 0</h2>
+        <p>Autenticação.</p>
+        
+        <div class="panel-group" id="accordionAutenticacao">
+            <div class="panel panel-default ">
+                <div class="panel-heading w3-hover-indigo">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordionAutenticacao" href="#collapse1">
+                            Registar
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapse1" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+                        minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                        commodo consequat.
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading w3-hover-indigo">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordionAutenticacao" href="#collapse2">
+                            Registar Como Cliente
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapse2" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+                        minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                        commodo consequat.
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading w3-hover-indigo">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordionAutenticacao" href="#collapse3">
+                            Registar Como Companhia
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapse3" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+                        minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                        commodo consequat.
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading w3-hover-indigo">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordionAutenticacao" href="#collapse4">
+                            Login
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapse4" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+                        minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                        commodo consequat.
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading w3-hover-indigo">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordionAutenticacao" href="#collapse5">
+                            Recuperar A Password
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapse5" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+                        minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                        commodo consequat.
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+
+    </div>
+
+    <div id="helpdesk" class="w3-container city" style="display: none">
+        <h2>Build 1</h2>
+        <p>Paris is the capital of France.</p>
+    </div>
+
+    <div id="perilCliente" class="w3-container city" style="display: none">
+        <h2>Build 2</h2>
+        <p>Tokyo is the capital of Japan.</p>
+    </div>
+</div>
+
+<script>
+    function openCity(evt, cityName) {
+        var i, x, tablinks;
+        x = document.getElementsByClassName("city");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablink");
+        for (i = 0; i < x.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" w3-border-indigo", "");
+        }
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.firstElementChild.className += " w3-border-indigo";
+    }
+
+    document.getElementById("defaultOpen").click();
+</script>
+
