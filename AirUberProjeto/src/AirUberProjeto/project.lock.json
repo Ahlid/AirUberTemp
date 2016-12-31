@@ -2518,6 +2518,9 @@
           }
         }
       },
+      "Selenium.WebDriver/3.0.0": {
+        "type": "package"
+      },
       "System.AppContext/4.1.0": {
         "type": "package",
         "dependencies": {
@@ -6723,6 +6726,19 @@
         "runtime.win7-x86.runtime.native.System.Data.SqlClient.sni.4.0.1.nupkg.sha512",
         "runtime.win7-x86.runtime.native.System.Data.SqlClient.sni.nuspec",
         "runtimes/win7-x86/native/sni.dll"
+      ]
+    },
+    "Selenium.WebDriver/3.0.0": {
+      "sha512": "Cso/K2EQv08EEwKYDTFK4GjPkzH5sU3ts+Xep1vKGw/lvL8feSVw6P7NcCvslRz06Bv+hubbVpTqfw50+z1U0Q==",
+      "type": "package",
+      "path": "Selenium.WebDriver/3.0.0",
+      "files": [
+        "Selenium.WebDriver.3.0.0.nupkg.sha512",
+        "Selenium.WebDriver.nuspec",
+        "lib/net35/WebDriver.dll",
+        "lib/net35/WebDriver.xml",
+        "lib/net40/WebDriver.dll",
+        "lib/net40/WebDriver.xml"
       ]
     },
     "System.AppContext/4.1.0": {
@@ -11475,7 +11491,8 @@
       "Microsoft.VisualStudio.Web.BrowserLink.Loader >= 14.0.0",
       "Microsoft.VisualStudio.Web.CodeGeneration.Tools >= 1.0.0-preview2-final",
       "Microsoft.VisualStudio.Web.CodeGenerators.Mvc >= 1.0.0-preview2-final",
-      "NUnit >= 3.5.0"
+      "NUnit >= 3.5.0",
+      "Selenium.WebDriver >= 3.0.0"
     ],
     ".NETCoreApp,Version=v1.0": []
   },
