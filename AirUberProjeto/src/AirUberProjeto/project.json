@@ -45,8 +45,13 @@
       "version": "1.0.0-preview2-final",
       "type": "build"
     },
+<<<<<<< HEAD
     "MailKit": "1.10.1",
     "NUnit": "3.5.0"
+=======
+    "MailKit": "1.10.1"//,
+   // "NUnit": "3.5.0" 
+>>>>>>> 5df4a806e324fd214ccf9445ed60ac922ee1a91d
   },
 
   "tools": {
