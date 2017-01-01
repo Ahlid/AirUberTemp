@@ -143,7 +143,6 @@
 --reference:C:\Users\artur\.nuget\packages\NuGet.Repositories\3.5.0-beta2-1484\lib\netstandard1.3\NuGet.Repositories.dll
 --reference:C:\Users\artur\.nuget\packages\NuGet.RuntimeModel\3.5.0-beta2-1484\lib\netstandard1.3\NuGet.RuntimeModel.dll
 --reference:C:\Users\artur\.nuget\packages\NuGet.Versioning\3.5.0-beta2-1484\lib\netstandard1.0\NuGet.Versioning.dll
---reference:C:\Users\artur\.nuget\packages\NUnit\3.5.0\lib\dotnet\nunit.framework.dll
 --reference:C:\Users\artur\.nuget\packages\Portable.BouncyCastle\1.8.1.1\lib\netstandard1.3\crypto.dll
 --reference:C:\Users\artur\.nuget\packages\Remotion.Linq\2.1.1\lib\netstandard1.0\Remotion.Linq.dll
 --reference:C:\Users\artur\.nuget\packages\System.AppContext\4.1.0\ref\netstandard1.6\System.AppContext.dll
@@ -264,15 +263,11 @@ C:\Users\artur\Documents\Projectos\Escola\Projecto_ESW\AirUberProjeto\src\AirUbe
 C:\Users\artur\Documents\Projectos\Escola\Projecto_ESW\AirUberProjeto\src\AirUberProjeto\Models\TipoExtra.cs
 C:\Users\artur\Documents\Projectos\Escola\Projecto_ESW\AirUberProjeto\src\AirUberProjeto\Models\TipoJato.cs
 C:\Users\artur\Documents\Projectos\Escola\Projecto_ESW\AirUberProjeto\src\AirUberProjeto\Models\AutenticacaoViewModels\ChangePasswordViewModel.cs
-C:\Users\artur\Documents\Projectos\Escola\Projecto_ESW\AirUberProjeto\src\AirUberProjeto\Models\AutenticacaoViewModels\ExternalLoginConfirmationViewModel.cs
 C:\Users\artur\Documents\Projectos\Escola\Projecto_ESW\AirUberProjeto\src\AirUberProjeto\Models\AutenticacaoViewModels\ForgotPasswordViewModel.cs
 C:\Users\artur\Documents\Projectos\Escola\Projecto_ESW\AirUberProjeto\src\AirUberProjeto\Models\AutenticacaoViewModels\LoginViewModel.cs
 C:\Users\artur\Documents\Projectos\Escola\Projecto_ESW\AirUberProjeto\src\AirUberProjeto\Models\AutenticacaoViewModels\RegisterClienteViewModel.cs
 C:\Users\artur\Documents\Projectos\Escola\Projecto_ESW\AirUberProjeto\src\AirUberProjeto\Models\AutenticacaoViewModels\RegisterCompanhiaViewModel.cs
-C:\Users\artur\Documents\Projectos\Escola\Projecto_ESW\AirUberProjeto\src\AirUberProjeto\Models\AutenticacaoViewModels\RegisterViewModel.cs
 C:\Users\artur\Documents\Projectos\Escola\Projecto_ESW\AirUberProjeto\src\AirUberProjeto\Models\AutenticacaoViewModels\ResetPasswordViewModel.cs
-C:\Users\artur\Documents\Projectos\Escola\Projecto_ESW\AirUberProjeto\src\AirUberProjeto\Models\AutenticacaoViewModels\SendCodeViewModel.cs
-C:\Users\artur\Documents\Projectos\Escola\Projecto_ESW\AirUberProjeto\src\AirUberProjeto\Models\AutenticacaoViewModels\VerifyCodeViewModel.cs
 C:\Users\artur\Documents\Projectos\Escola\Projecto_ESW\AirUberProjeto\src\AirUberProjeto\Models\ManageViewModels\AddPhoneNumberViewModel.cs
 C:\Users\artur\Documents\Projectos\Escola\Projecto_ESW\AirUberProjeto\src\AirUberProjeto\Models\ManageViewModels\ChangePasswordViewModel.cs
 C:\Users\artur\Documents\Projectos\Escola\Projecto_ESW\AirUberProjeto\src\AirUberProjeto\Models\ManageViewModels\ConfigureTwoFactorViewModel.cs

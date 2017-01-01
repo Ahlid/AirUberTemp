@@ -18,20 +18,45 @@ using MimeKit;
 
 namespace AirUberProjeto.Controllers
 {
+    /// <summary>
+    /// Controlador responsável pela autenticação dos utilizadores web do sistema.
+    /// </summary>
     [Authorize]
     public class AutenticacaoController : Controller
     {
+        /// <summary>
+        /// User manager que vai permitir utilizar metodos feitos pela windows de forma a controlar os user.
+        /// </summary>
         private readonly UserManager<ApplicationUser> _userManager;
+        /// <summary>
+        /// Manager responsavel pelo tratamento das sessões dos utilizadores.
+        /// </summary>
         private readonly SignInManager<ApplicationUser> _signInManager;
+        /// <summary>
+        /// Server para enviar os emails.
+        /// </summary>
         private readonly IEmailSender _emailSender;
+        /// <summary>
+        /// Logger para cada ação.
+        /// </summary>
         private readonly ILogger _logger;
+        /// <summary>
+        /// O contexto da aplicação para poder aceder a dados.
+        /// </summary>
         private readonly AirUberDbContext _context;
 
+        /// <summary>
+        /// Construtor do controlador
+        /// </summary>
+        /// <param name="userManager">O user manager a usar para o controlo de utilizadores</param>
+        /// <param name="signInManager">O sign in manager a usar para o controlo de sessões</param>
+        /// <param name="emailSender">O email sender a usar para enviar os emails</param>
+        /// <param name="loggerFactory">O logger a usar para guardar ações no sistema</param>
+        /// <param name="context">O contexto da aplicação</param>
         public AutenticacaoController(
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
             IEmailSender emailSender,
-            ISmsSender smsSender,
             ILoggerFactory loggerFactory,
             AirUberDbContext context)
         {
@@ -73,6 +98,11 @@ namespace AirUberProjeto.Controllers
 
         //
         // GET: /Account/Login
+        /// <summary>
+        /// Método responsavel por devover a pagina de login
+        /// </summary>
+        /// <param name="returnUrl">O url de retorno que é a pagina de onde veio</param>
+        /// <returns>A view para efectuar login</returns>
         [HttpGet]
         [AllowAnonymous]
         public IActionResult Login(string returnUrl = null)
@@ -83,6 +113,12 @@ namespace AirUberProjeto.Controllers
 
         //
         // POST: /Account/Login
+        /// <summary>
+        /// Método responsável pelo pedido de login do utilizador, verificando os dados e autorizando ou não o login.
+        /// </summary>
+        /// <param name="model">O login model com os dados necessarios para o login</param>
+        /// <param name="returnUrl">O url de retorno que é a pagina de onde veio</param>
+        /// <returns>A View Login caso seja inválido, um redirecionamento caso seja login válido</returns>
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -145,6 +181,11 @@ namespace AirUberProjeto.Controllers
 
         //
         // GET: /Account/Register
+        /// <summary>
+        /// Metodo responsável pelos pedidos da pagina de registo.
+        /// </summary>
+        /// <param name="returnUrl">O url de retorno que é a pagina de onde veio</param>
+        /// <returns>A view de resgisto</returns>
         [HttpGet]
         [AllowAnonymous]
         public IActionResult Register(string returnUrl = null)
@@ -156,6 +197,11 @@ namespace AirUberProjeto.Controllers
 
         //
         // GET: /Account/RegisterCliente
+        /// <summary>
+        /// Método responsável pelo pedido da pagina de registo de cliente.
+        /// </summary>
+        /// <param name="returnUrl">O url de retorno que é a pagina de onde veio</param>
+        /// <returns>A view de registo do cliente</returns>
         [HttpGet]
         [AllowAnonymous]
         public IActionResult RegisterCliente(string returnUrl = null)
@@ -166,6 +212,12 @@ namespace AirUberProjeto.Controllers
 
         //
         // POST: /Account/Register
+        /// <summary>
+        /// Método responsável pelo tratamento de dados para um registo de cliente 
+        /// </summary>
+        /// <param name="model">Os dados para o registo do cliente</param>
+        /// <param name="returnUrl">O url de retorno que é a pagina de onde veio</param>
+        /// <returns>Se o registo oi valido retorna um redirecionamento para a home page, caso contrario retorna a view de Registo de Cliente</returns>
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -208,6 +260,11 @@ namespace AirUberProjeto.Controllers
 
         //
         // GET: /Account/RegisterCompanhia
+        /// <summary>
+        /// Método responsável pelo pedido da pagina de registo de companhia.
+        /// </summary>
+        /// <param name="returnUrl">O url de retorno que é a pagina de onde veio</param>
+        /// <returns>A view de registo de companhia.</returns>
         [HttpGet]
         [AllowAnonymous]
         public IActionResult RegisterCompanhia(string returnUrl = null)
@@ -220,6 +277,12 @@ namespace AirUberProjeto.Controllers
 
         //
         // POST: /Account/RegisterCompanhia
+        /// <summary>
+        /// Método responsável pelo tratamento de dados para o registo de uma companhia.
+        /// </summary>
+        /// <param name="model"> Os dados para o registo da companhia. </param>
+        /// <param name="returnUrl">O url de retorno que é a pagina de onde veio.</param>
+        /// <returns>A view de registo caso os dados sejam inválidos, um redrecionamento para a home page caso sejam válidos</returns>
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -276,6 +339,10 @@ namespace AirUberProjeto.Controllers
 
         //
         // POST: /Account/LogOff
+        /// <summary>
+        /// Método responsável pelo fecho de sessão
+        /// </summary>
+        /// <returns>Um redirecionamento para a home page</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> LogOff()
@@ -288,6 +355,12 @@ namespace AirUberProjeto.Controllers
      
 
         // GET: /Account/ConfirmEmail
+        /// <summary>
+        /// Método de devolve a página de veriicação de email.
+        /// </summary>
+        /// <param name="userId"> O id do utilizador a veriica o email.</param>
+        /// <param name="code">O code de veriicação do email do utilizador.</param>
+        /// <returns>Uma view error caso os dados sejam inválidos, uma view com ação sucedida caso contrario.</returns>
         [HttpGet]
         [AllowAnonymous]
         public async Task<IActionResult> ConfirmEmail(string userId, string code)
@@ -307,6 +380,10 @@ namespace AirUberProjeto.Controllers
 
         //
         // GET: /Account/ForgotPassword
+        /// <summary>
+        /// Método responsável por tratar de um pedido da pagina de esquecimento de password.
+        /// </summary>
+        /// <returns>A view de esquecimento de password.</returns>
         [HttpGet]
         [AllowAnonymous]
         public IActionResult ForgotPassword()
@@ -316,6 +393,11 @@ namespace AirUberProjeto.Controllers
 
         //
         // POST: /Account/ForgotPassword
+        /// <summary>
+        /// Método responsável pelo tratamento dos dados para um pedido de esquecimento de password.
+        /// </summary>
+        /// <param name="model">Os dados para o esquecimento de passowrd.</param>
+        /// <returns>Caso os dados sejam válidos retorna a view de esquecimento de password, caso contratio a view de confirmação de esquecimento de password.</returns>
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -327,7 +409,7 @@ namespace AirUberProjeto.Controllers
                 if (user == null )
                 {
                     // Don't reveal that the user does not exist or is not confirmed
-                    return View("Register");
+                    return View("ForgotPasswordConfirmation");
                 }
 
 
@@ -347,6 +429,10 @@ namespace AirUberProjeto.Controllers
 
         //
         // GET: /Account/ForgotPasswordConfirmation
+        /// <summary>
+        /// Método que devovle a página de confirmação de esquecimento a password.
+        /// </summary>
+        /// <returns>View de confirmação de esquecimento a password.</returns>
         [HttpGet]
         [AllowAnonymous]
         public IActionResult ForgotPasswordConfirmation()
@@ -356,6 +442,11 @@ namespace AirUberProjeto.Controllers
 
         //
         // GET: /Account/ResetPassword
+        /// <summary>
+        /// Metodo que devolve a página de reset password.
+        /// </summary>
+        /// <param name="code">Código de reset.</param>
+        /// <returns>A view reset se o codigo for valido, a view de erro caso contrario</returns>
         [HttpGet]
         [AllowAnonymous]
         public IActionResult ResetPassword(string code = null)
@@ -365,6 +456,11 @@ namespace AirUberProjeto.Controllers
 
         //
         // POST: /Account/ResetPassword
+        /// <summary>
+        /// Método que trata dos dados de alteração de password.
+        /// </summary>
+        /// <param name="model">O modelo de dados para a mudança da password.</param>
+        /// <returns>A view de mudança da password se inválido, um redirecionamento para a view de reset password confirmation caso válido </returns>
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -391,6 +487,10 @@ namespace AirUberProjeto.Controllers
 
         //
         // GET: /Account/ResetPasswordConfirmation
+        /// <summary>
+        /// Método que devovle a view de confirmação da mudança de password.
+        /// </summary>
+        /// <returns>A view de reset password confirmation.</returns>
         [HttpGet]
         [AllowAnonymous]
         public IActionResult ResetPasswordConfirmation()
@@ -399,6 +499,10 @@ namespace AirUberProjeto.Controllers
         }
 
 
+        /// <summary>
+        /// Método de devovle a view para mudar a password.
+        /// </summary>
+        /// <returns>View de mudança de passwor.</returns>
         [HttpGet]
         public IActionResult ChangePassword()
         {
@@ -406,6 +510,11 @@ namespace AirUberProjeto.Controllers
         }
 
         // POST: /Manage/ChangePassword
+        /// <summary>
+        /// Método que recebe os dados da mudança de password e muda.
+        /// </summary>
+        /// <param name="model">O modelo de dados a usar.</param>
+        /// <returns>Um redirecionamento caso os dados sejam validos, a view de mudança de password caso contrário.</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         
@@ -453,6 +562,11 @@ namespace AirUberProjeto.Controllers
             return RedirectToAction(nameof(HomeController.Index), "Home");
         }
 
+        /// <summary>
+        /// Metodo que devovle uma página de conirmação de reset de password.
+        /// </summary>
+        /// <param name="email">email a fazer o reset a password.</param>
+        /// <returns>A view de confirmação de reset.</returns>
         [HttpGet]
         [Authorize(Roles = Roles.ROLE_HELPDESK)]
         public IActionResult ConfirmReset(String email)
@@ -461,7 +575,11 @@ namespace AirUberProjeto.Controllers
             return View();
         }
 
-
+        /// <summary>
+        /// Método que gera uma nova password a um utilizador.
+        /// </summary>
+        /// <param name="email">email do utilizador a gerar nova password.</param>
+        /// <returns>A view de gerar uma nova password.</returns>
         [HttpPost]
         [Authorize(Roles = Roles.ROLE_HELPDESK)]
         public async Task<IActionResult> GenerateNewPassword(String email)
@@ -490,6 +608,10 @@ namespace AirUberProjeto.Controllers
 
 
         #region Helpers
+        /// <summary>
+        /// Método que adiciona erros
+        /// </summary>
+        /// <param name="result">Os erros atuais</param>
 
         private void AddErrors(IdentityResult result)
         {
@@ -499,11 +621,19 @@ namespace AirUberProjeto.Controllers
             }
         }
 
+        /// <summary>
+        /// Método que devovle o utilizador atual.
+        /// </summary>
+        /// <returns>O utilizador atual.</returns>
         private Task<ApplicationUser> GetCurrentUserAsync()
         {
             return _userManager.GetUserAsync(HttpContext.User);
         }
-
+        /// <summary>
+        /// Método que cira um redirecionamento.
+        /// </summary>
+        /// <param name="returnUrl">o url a redirecionar.</param>
+        /// <returns>Um redirecionamento para o url recebido.</returns>
         private IActionResult RedirectToLocal(string returnUrl)
         {
             if (Url.IsLocalUrl(returnUrl))
@@ -516,6 +646,11 @@ namespace AirUberProjeto.Controllers
             }
         }
 
+        /// <summary>
+        /// Método que gera uma nova password random
+        /// </summary>
+        /// <param name="length">o tamanho da password</param>
+        /// <returns>A password gerada</returns>
         private string CreatePassword(int length)
         {
             const string valid = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
