@@ -96,6 +96,7 @@ namespace AirUberProjeto.Models
         public Reserva()
         {
             ListaExtras = new List<Extra>();
+            Avaliacao = -1; //not introduced
         }
     }
 }
