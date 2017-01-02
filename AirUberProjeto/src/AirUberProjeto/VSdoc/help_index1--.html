@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>Index</title>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type">
+	<style>
+		html,body {
+			margin: 0; padding: 0px;
+			height:100%; 
+			min-height:100%;
+			background-color: rgb(233,232,220);
+			font-family: Verdana, Arial, Helvetica, sans-serif;
+			font-style: normal;
+			font-weight: normal;
+			color: black;
+		}
+
+		body {font-size:75%;position:relative; margin-top:-1px; border-style: solid solid solid solid;	border-color: rgb(172,168,153);	border-width: 0px 0px 1px 0px;}
+		a { text-decoration:none; color:#06c }
+		form {padding:5px; margin:0px;}
+	</style>
+</head>
+<body style="direction: ltr;">
+	<form>
+	Look for:<br /><input style="width:100%" onKeyDown="check_input(this.value,get_match)" onKeyUp="check_input(this.value,get_match)"/>
+	</form>
+
+	<script>
+		var words = new Array(
+"About Method","AddPhoneNumber  Method","AddPhoneNumber (AddPhoneNumberViewModel) Method","AddPhoneNumberViewModel Class","AddRoles Method","Aeroporto Class","Aeroporto Constructor","Aeroporto Property","AeroportoDestino Property","AeroportoDestinoId Property","AeroportoId Property","AeroportoPartida Property","AeroportoPartidaId Property","AirUberDbContext Class","AirUberDbContext Constructor","AirUberProjeto Namespace","AirUberProjeto Reference","AirUberProjeto.Controllers Namespace","AirUberProjeto.Data Namespace","AirUberProjeto.Migrations Namespace","AirUberProjeto.Models Namespace","AirUberProjeto.Models.AutenticacaoViewModels Namespace","AirUberProjeto.Models.ManageViewModels Namespace","AirUberProjeto.Services Namespace","Alcance Property","AlterarEstadoCompanhia Method","AltitudeIdeal Property","AlturaCabine Property","Apelido Property {AirUberProjeto.Models.ApplicationUser}","Apelido Property {AirUberProjeto.Models.AutenticacaoViewModels.RegisterClienteViewModel}","ApplicationUser Class","ApplicationUser Constructor","ApplicationUser Property","ApplicationUserId Property","Ativo Property","AutenticacaoController Class","AutenticacaoController Constructor","AuthMessageSender Class","Avaliacao Property","BrowserRemembered Property","Capacidade Property","ChangePassword  Method {AirUberProjeto.Controllers.AutenticacaoController}","ChangePassword  Method {AirUberProjeto.Controllers.ManageController}","ChangePassword (ChangePasswordViewModel) Method","ChangePassword (ChangePasswordViewModel) Method {AirUberProjeto.Controllers.ManageController}","ChangePasswordViewModel Class {AirUberProjeto.Models.AutenticacaoViewModels}","ChangePasswordViewModel Class {AirUberProjeto.Models.ManageViewModels}","Chegadas Property","Cidade Class","Cidade Property {AirUberProjeto.Data.AirUberDbContext}","Cidade Property {AirUberProjeto.Models.Aeroporto}","CidadeId Property {AirUberProjeto.Models.Aeroporto}","CidadeId Property {AirUberProjeto.Models.Cidade}","Cliente Class","Cliente Constructor","Cliente Property {AirUberProjeto.Data.AirUberDbContext}","Cliente Property {AirUberProjeto.Models.Reserva}","ClienteLogin Method","Clientes Method","Code Property {AirUberProjeto.Models.AutenticacaoViewModels.ResetPasswordViewModel}","Code Property {AirUberProjeto.Models.ManageViewModels.VerifyPhoneNumberViewModel}","Colaborador Class","Colaborador Constructor","Colaborador Property","ColaboradorLogin Method","Companhia Class","Companhia Constructor","Companhia Property {AirUberProjeto.Data.AirUberDbContext}","Companhia Property {AirUberProjeto.Models.Colaborador}","Companhia Property {AirUberProjeto.Models.Extra}","Companhia Property {AirUberProjeto.Models.Jato}","CompanhiaId Property {AirUberProjeto.Models.Colaborador}","CompanhiaId Property {AirUberProjeto.Models.Companhia}","CompanhiaId Property {AirUberProjeto.Models.Extra}","CompanhiaId Property {AirUberProjeto.Models.Jato}","Companhias Method","ComprimentoCabine Property","Configuration Property","Configure Method","ConfigureServices Method","ConfigureTwoFactorViewModel Class","ConfirmEmail Method","ConfirmPassword Property {AirUberProjeto.Models.AutenticacaoViewModels.ChangePasswordViewModel}","ConfirmPassword Property {AirUberProjeto.Models.AutenticacaoViewModels.RegisterClienteViewModel}","ConfirmPassword Property {AirUberProjeto.Models.AutenticacaoViewModels.RegisterCompanhiaViewModel}","ConfirmPassword Property {AirUberProjeto.Models.AutenticacaoViewModels.ResetPasswordViewModel}","ConfirmPassword Property {AirUberProjeto.Models.ManageViewModels.ChangePasswordViewModel}","ConfirmPassword Property {AirUberProjeto.Models.ManageViewModels.SetPasswordViewModel}","ConfirmReset Method","ContaDeCreditos Class","ContaDeCreditos Constructor","ContaDeCreditos Property {AirUberProjeto.Models.Cliente}","ContaDeCreditos Property {AirUberProjeto.Models.Companhia}","ContaDeCreditosId Property {AirUberProjeto.Models.Cliente}","ContaDeCreditosId Property {AirUberProjeto.Models.Companhia}","ContaDeCreditosId Property {AirUberProjeto.Models.ContaDeCreditos}","Contact Method","Contact Property {AirUberProjeto.Models.AutenticacaoViewModels.RegisterCompanhiaViewModel}","Contact Property {AirUberProjeto.Models.Companhia}","Contacto Property","CurrentLogins Property","Custo Property","DataChegada Property","DataCriacao Property {AirUberProjeto.Models.ApplicationUser}","DataCriacao Property {AirUberProjeto.Models.Companhia}","DataPartida Property","DbInitializer Class","Descricao Property","DisableTwoFactorAuthentication Method","Down Method","EmFuncionamento Property","Email Property {AirUberProjeto.Models.AutenticacaoViewModels.ForgotPasswordViewModel}","Email Property {AirUberProjeto.Models.AutenticacaoViewModels.LoginViewModel}","Email Property {AirUberProjeto.Models.AutenticacaoViewModels.RegisterClienteViewModel}","Email Property {AirUberProjeto.Models.AutenticacaoViewModels.RegisterCompanhiaViewModel}","Email Property {AirUberProjeto.Models.AutenticacaoViewModels.ResetPasswordViewModel}","Email Property {AirUberProjeto.Models.Companhia}","EnableTwoFactorAuthentication Method","Error Method","Estado Class","Estado Property {AirUberProjeto.Data.AirUberDbContext}","Estado Property {AirUberProjeto.Models.Companhia}","EstadoId Property {AirUberProjeto.Models.Companhia}","EstadoId Property {AirUberProjeto.Models.Estado}","Extra Class","Extra Property","ExtraId Property","FactorViewModel Class","ForgotPassword  Method","ForgotPassword (ForgotPasswordViewModel) Method","ForgotPasswordConfirmation Method","ForgotPasswordViewModel Class","GenerateNewPassword Method","HasPassword Property","Helpdesk Class","HelpdeskController Class","HelpdeskController Constructor","HelpdeskLogin Method","HomeController Class","IEmailSender Interface","ISmsSender Interface","Index Method {AirUberProjeto.Controllers.HelpdeskController}","Index Method {AirUberProjeto.Controllers.HomeController}","Index Method {AirUberProjeto.Controllers.ManageController}","IndexViewModel Class","Initialize Method","IsAdministrador Property","Jato Class","Jato Constructor","Jato Property {AirUberProjeto.Data.AirUberDbContext}","Jato Property {AirUberProjeto.Models.Reserva}","JatoId Property {AirUberProjeto.Models.Jato}","JatoId Property {AirUberProjeto.Models.Reserva}","JetCashActual Property","LarguraCabine Property","Latitude Property","LinkLogin Method","LinkLoginCallback Method","ListaColaboradores Property","ListaExtras Property {AirUberProjeto.Models.Companhia}","ListaExtras Property {AirUberProjeto.Models.Reserva}","ListaJatos Property","ListaReservas Property {AirUberProjeto.Models.Cliente}","ListaReservas Property {AirUberProjeto.Models.Companhia}","LogOff Method","Login (LoginViewModel, String) Method","Login (String) Method","LoginProvider Property","LoginViewModel Class","Logins Property","Longitude Property","Main Method","ManageController Class","ManageController Constructor","ManageLogins Method","ManageLoginsViewModel Class","ManageMessageId Enumeration","ModalViagens Method","Modelo Class","Modelo Property {AirUberProjeto.Data.AirUberDbContext}","Modelo Property {AirUberProjeto.Models.Jato}","ModeloId Property {AirUberProjeto.Models.Jato}","ModeloId Property {AirUberProjeto.Models.Modelo}","Morada Property {AirUberProjeto.Models.AutenticacaoViewModels.RegisterCompanhiaViewModel}","Morada Property {AirUberProjeto.Models.Companhia}","NewPassword Property {AirUberProjeto.Models.AutenticacaoViewModels.ChangePasswordViewModel}","NewPassword Property {AirUberProjeto.Models.ManageViewModels.ChangePasswordViewModel}","NewPassword Property {AirUberProjeto.Models.ManageViewModels.SetPasswordViewModel}","Nif Property {AirUberProjeto.Models.AutenticacaoViewModels.RegisterCompanhiaViewModel}","Nif Property {AirUberProjeto.Models.Companhia}","Nome Property {AirUberProjeto.Models.Aeroporto}","Nome Property {AirUberProjeto.Models.ApplicationUser}","Nome Property {AirUberProjeto.Models.AutenticacaoViewModels.RegisterClienteViewModel}","Nome Property {AirUberProjeto.Models.AutenticacaoViewModels.RegisterCompanhiaViewModel}","Nome Property {AirUberProjeto.Models.Cidade}","Nome Property {AirUberProjeto.Models.Companhia}","Nome Property {AirUberProjeto.Models.Estado}","Nome Property {AirUberProjeto.Models.Jato}","Nome Property {AirUberProjeto.Models.Pais}","Nome Property {AirUberProjeto.Models.TipoExtra}","Nome Property {AirUberProjeto.Models.TipoJato}","NumeroMotores Property","OldPassword Property {AirUberProjeto.Models.AutenticacaoViewModels.ChangePasswordViewModel}","OldPassword Property {AirUberProjeto.Models.ManageViewModels.ChangePasswordViewModel}","OnModelCreating Method","OtherLogins Property","Pais Class","Pais Property {AirUberProjeto.Data.AirUberDbContext}","Pais Property {AirUberProjeto.Models.Cidade}","Pais Property {AirUberProjeto.Models.Companhia}","PaisId Property {AirUberProjeto.Models.AutenticacaoViewModels.RegisterCompanhiaViewModel}","PaisId Property {AirUberProjeto.Models.Cidade}","PaisId Property {AirUberProjeto.Models.Companhia}","PaisId Property {AirUberProjeto.Models.Pais}","Partidas Property","Password Property {AirUberProjeto.Models.AutenticacaoViewModels.LoginViewModel}","Password Property {AirUberProjeto.Models.AutenticacaoViewModels.RegisterClienteViewModel}","Password Property {AirUberProjeto.Models.AutenticacaoViewModels.RegisterCompanhiaViewModel}","Password Property {AirUberProjeto.Models.AutenticacaoViewModels.ResetPasswordViewModel}","PesoMaximaBagagens Property","PhoneNumber Property {AirUberProjeto.Models.ManageViewModels.AddPhoneNumberViewModel}","PhoneNumber Property {AirUberProjeto.Models.ManageViewModels.IndexViewModel}","PhoneNumber Property {AirUberProjeto.Models.ManageViewModels.VerifyPhoneNumberViewModel}","Program Class","ProviderKey Property","Providers Property","Purpose Property","ROLE_CLIENTE Field","ROLE_COLABORADOR Field","ROLE_COLABORADOR_ADMIN Field","ROLE_HELPDESK Field","RecuperarCompanhias Method","Register Method","RegisterCliente (RegisterClienteViewModel, String) Method","RegisterCliente (String) Method","RegisterClienteViewModel Class","RegisterCompanhia (RegisterCompanhiaViewModel, String) Method","RegisterCompanhia (String) Method","RegisterCompanhiaViewModel Class","RememberMe Property","RemoveLogin Method","RemoveLoginViewModel Class","RemovePhoneNumber Method","Reserva Class","Reserva Constructor","Reserva Property","ReservaId Property","ResetPassword (ResetPasswordViewModel) Method","ResetPassword (String) Method","ResetPasswordConfirmation Method","ResetPasswordViewModel Class","Roles Class","SelectedProvider Property","SendEmailAsync Method {AirUberProjeto.Services.AuthMessageSender}","SendEmailAsync Method {AirUberProjeto.Services.IEmailSender}","SendSmsAsync Method {AirUberProjeto.Services.AuthMessageSender}","SendSmsAsync Method {AirUberProjeto.Services.ISmsSender}","SetPassword  Method","SetPassword (SetPasswordViewModel) Method","SetPasswordViewModel Class","Startup Class","Startup Constructor","TipoExtra Class","TipoExtra Property {AirUberProjeto.Data.AirUberDbContext}","TipoExtra Property {AirUberProjeto.Models.Extra}","TipoExtraId Property {AirUberProjeto.Models.Extra}","TipoExtraId Property {AirUberProjeto.Models.TipoExtra}","TipoJato Class","TipoJato Property {AirUberProjeto.Data.AirUberDbContext}","TipoJato Property {AirUberProjeto.Models.Modelo}","TipoJatoId Property {AirUberProjeto.Models.Modelo}","TipoJatoId Property {AirUberProjeto.Models.TipoJato}","TwoFactor Property","Up Method","Valor Property","VelocidadeMaxima Property","VerifyPhoneNumber (String) Method","VerifyPhoneNumber (VerifyPhoneNumberViewModel) Method","VerifyPhoneNumberViewModel Class","Viagens Method","in2dd Class"
+		);
+		
+		
+		var oldHighlight = 0;
+		var oldKey = "";
+		
+		function get_match(text) {
+		    var ltext = text.toLowerCase();
+		    for(i in words) {
+		        if(words[i].toLowerCase().indexOf(ltext) == "0") {
+		            return words[i];
+		        }
+		    }
+		    return "";
+		}
+		
+		function highlight(keyword) {
+		    if(oldHighlight) oldHighlight.className = "";
+		    var el = parent.frames['zindex'].document.getElementById("w_"+keyword);
+		    el.className="highlighted";
+		    oldHighlight = el;
+		}
+		
+		function check_input(text, matchfun) {
+		    if(text!=oldKey) {
+		        var keyword = matchfun(text);
+		        if(keyword) {       
+		            highlight(keyword);
+		            parent.frames['zindex'].document.getElementById('w_'+keyword).scrollIntoView();
+		        }
+		        oldKey = text;
+		    }
+		}
+	</script>
+</body>
+</html>
+

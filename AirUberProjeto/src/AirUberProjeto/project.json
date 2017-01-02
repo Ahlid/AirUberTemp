@@ -45,8 +45,10 @@
       "version": "1.0.0-preview2-final",
       "type": "build"
     },
-    "MailKit": "1.10.1"//,
-   // "NUnit": "3.5.0" 
+    "MailKit": "1.10.1",
+    "jQuery-vsdoc": "2.1.0",
+    "EWSoftware.SHFB": "2016.9.17" //,
+    // "NUnit": "3.5.0" 
   },
 
   "tools": {
@@ -74,7 +76,8 @@
 
   "buildOptions": {
     "emitEntryPoint": true,
-    "preserveCompilationContext": true
+    "preserveCompilationContext": true,
+    "xmlDoc": true
   },
 
   "runtimeOptions": {

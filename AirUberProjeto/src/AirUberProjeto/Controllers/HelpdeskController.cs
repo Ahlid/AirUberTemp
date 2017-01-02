@@ -182,7 +182,7 @@ namespace AirUberProjeto.Controllers
         /// </remarks>
         /// <param name="email">email do utilizador selecionado</param>
         /// <param name="count">númerto de reservas do utilizador selecionado</param>
-        /// <returns></returns>
+        /// <returns>Retorna View Modal caso email seja valido e ccontenha viagens, NotFound caso contratio</returns>
         public IActionResult ModalViagens(string email, int? count)
         {
             if (email != null && count != null && count > 0)
