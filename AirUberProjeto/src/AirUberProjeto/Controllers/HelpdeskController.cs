@@ -64,7 +64,9 @@ namespace AirUberProjeto.Controllers
         public IActionResult Clientes()
         {
 
-            var clientes =  getClientes();
+            var clientes = _context.Cliente.Select(p => p)
+                                                   .Include(p => p.ContaDeCreditos)
+                                                   .Include(r => r.ListaReservas);   // Este r.ListaReservas carrega a lista de reservas. Necessário fazê-lo sempre que existe uma coleção!
 
             return View(clientes);
         }
@@ -161,7 +163,13 @@ namespace AirUberProjeto.Controllers
         /// <returns>Retorna a view das viagens</returns>
         public IActionResult Viagens()
         {
-            var viagens = getReservas();
+            var viagens = _context.Reserva.Select(c => c)
+                                          .Include(a => a.AeroportoDestino)
+                                          .Include(a => a.AeroportoPartida)
+                                          .Include(a => a.Cliente)
+                                          .Include(a => a.Jato)
+                                          .Include(a => a.Jato.Companhia)
+                                          .Include(r => r.ListaExtras).ToList();
             return View(viagens);
         }
 
@@ -211,34 +219,6 @@ namespace AirUberProjeto.Controllers
                                                                     .Include(p => p.ListaColaboradores)
                                                                     .Include(p => p.ListaJatos)
                                                                     .Where(p => p.EstadoId == estado).ToList().ToList();
-        }
-
-        /// <summary>
-        /// Retorna a lista de todas as reservas registadas no sistema.
-        /// </summary>
-        /// <returns>Lista de reservas</returns>
-        private IList<Reserva> getReservas()
-        {
-            return _context.Reserva.Select(c => c)
-                                          .Include(a => a.AeroportoDestino)
-                                          .Include(a => a.AeroportoPartida)
-                                          .Include(a => a.Cliente)
-                                          .Include(a => a.Jato)
-                                          .Include(a => a.Jato.Companhia)
-                                          .Include(r => r.ListaExtras).ToList();
-        }
-
-        /// <summary>
-        /// Retorna uma query que cujo resultado é composto por todos os clientes registados no sistema.
-        /// </summary>
-        /// <returns>Query cujo resultado é composto pelas clientes</returns>
-        private IQueryable<Cliente> getClientes()
-        {
-            // é um IQueryable porque está ligado à forma como a view foi feita
-            // para mudar para IList<Cliente> a view deve ser adaptada, a forma como se percorrer os elementos!
-            return _context.Cliente.Select(p => p)
-                                                   .Include(p => p.ContaDeCreditos)
-                                                   .Include(r => r.ListaReservas);   // Este r.ListaReservas carrega a lista de reservas. Necessário fazê-lo sempre que existe uma coleção!
         }
 
     }
