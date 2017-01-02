@@ -1,0 +1,4721 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+    <title>Menu</title>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type">
+<style>
+html { font-family:sans-serif; background-color:#ffffff; font-size:75%;}
+a { text-decoration:none; color:rgb(0,51,102) }
+.header a { color:#000!important }
+.item { border:solid 0px #000; padding:0.25em; margin-left:1em }
+.header, .leaf { cursor:pointer; padding-left:19px; min-height:18px; line-height:18px; white-space:nowrap;}
+.closed { background:url(bookC.gif) no-repeat }
+.open { background:url(bookE.gif) no-repeat }
+.leaf { background:url(leaf.gif) no-repeat }
+</style>
+
+<script>
+function toggle(idsub,elhead) {
+    var elsub = document.getElementById(idsub);
+    if(elsub.style.display=="block")
+        elsub.style.display = "none";
+    else
+        elsub.style.display="block";
+        
+    if(elhead.className=="header open")
+        elhead.className = "header closed";
+    else
+        elhead.className = "header open";
+}
+
+function expandLinkInToc(url) {
+	var link = findLink(url);
+	//alert(link);
+	//alert(link.innerHTML);
+	if(!isElementVisible(link)) {
+		expandElementAndParents(link);
+	}
+	link.scrollIntoView(true);
+	link.focus();
+}
+
+function expandElementAndParents(elm) {
+	if(elm.style) {
+		if(elm.style.display=="none") {
+			//elm is container with subtopics
+			elm.style.display="block";
+			// process also chapter header
+			var id = elm.getAttribute("id");
+			id = id.substring(1);
+			var elHead = document.getElementById(id);
+			if(elHead.className=="header closed") {
+				elHead.className = "header open";
+			}
+		}
+	}
+	// process parents
+	if (elm.parentNode) {
+		expandElementAndParents(elm.parentNode);
+	}
+}
+
+function findLink(url) {
+	var links = document.links;
+	var i;
+	for (i=0; i<links.length; i++) {
+		if (links[i].href == url) {
+			return links[i];
+		}		
+	}
+	return null;
+} 
+
+function isElementVisible(elm) {
+	if(elm.style) {
+		if(elm.style.display == "none") {
+			return false;
+		}
+	}
+	if (elm.parentNode) {
+		return isElementVisible(elm.parentNode);
+	} else {
+		return true;
+	}
+}
+</script>
+
+</head>
+
+<body>
+    
+						 		<div id="1" class="header closed" onclick="toggle('c1',this)">
+   
+  		<a href="topic_0000000000000120.html" target="vbdocright">AirUberProjeto Reference</a>
+ 
+		</div>
+     <div id="c1" class="item" style="display:none">
+		
+     
+
+       <div id="2" class="header closed" onclick="toggle('c2',this)">
+    <a href="topic_0000000000000118.html" target="vbdocright">AirUberProjeto Namespace</a>
+    </div>
+    <div id="c2" class="item" style="display:none">
+		
+
+						    <div id="3" class="header closed" onclick="toggle('c3',this)">
+    <a href="topic_0000000000000119.html" target="vbdocright">Program Class</a>
+    </div>
+    <div id="c3" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_0000000000000119_members--.html" target="vbdocright">Program Members</a></div>
+
+
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="4" class="header closed" onclick="toggle('c4',this)">
+    <a href="topic_0000000000000119_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c4" class="item" style="display:none">
+		
+						
+						
+						
+						
+						  <div class="leaf"><a href="topic_000000000000011A.html" target="vbdocright">Main Method</a></div>
+
+						
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="5" class="header closed" onclick="toggle('c5',this)">
+    <a href="topic_000000000000011B.html" target="vbdocright">Startup Class</a>
+    </div>
+    <div id="c5" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_000000000000011B_members--.html" target="vbdocright">Startup Members</a></div>
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+						  <div class="leaf"><a href="topic_000000000000011D.html" target="vbdocright">Startup </a></div>
+
+		
+		
+
+
+		    <div id="6" class="header closed" onclick="toggle('c6',this)">
+    <a href="topic_000000000000011B_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c6" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_000000000000011C.html" target="vbdocright">Configuration Property</a></div>
+
+			</div>
+		
+
+
+		    <div id="7" class="header closed" onclick="toggle('c7',this)">
+    <a href="topic_000000000000011B_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c7" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_000000000000011F.html" target="vbdocright">Configure Method</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000011E.html" target="vbdocright">ConfigureServices Method</a></div>
+
+						
+						
+						
+						
+						
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+		
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+       <div id="8" class="header closed" onclick="toggle('c8',this)">
+    <a href="topic_0000000000000000.html" target="vbdocright">AirUberProjeto.Controllers Namespace</a>
+    </div>
+    <div id="c8" class="item" style="display:none">
+		
+
+						    <div id="9" class="header closed" onclick="toggle('c9',this)">
+    <a href="topic_0000000000000001.html" target="vbdocright">AutenticacaoController Class</a>
+    </div>
+    <div id="c9" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_0000000000000001_members--.html" target="vbdocright">AutenticacaoController Members</a></div>
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+						  <div class="leaf"><a href="topic_0000000000000002.html" target="vbdocright">AutenticacaoController </a></div>
+
+		
+		
+
+
+		
+
+
+		    <div id="10" class="header closed" onclick="toggle('c10',this)">
+    <a href="topic_0000000000000001_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c10" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_0000000000000012_overloads--.html" target="vbdocright">ChangePassword Method</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000000B.html" target="vbdocright">ConfirmEmail Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000014.html" target="vbdocright">ConfirmReset Method</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000000C_overloads--.html" target="vbdocright">ForgotPassword Method</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000000E.html" target="vbdocright">ForgotPasswordConfirmation Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000015.html" target="vbdocright">GenerateNewPassword Method</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000000A.html" target="vbdocright">LogOff Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000003_overloads--.html" target="vbdocright">Login Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000005.html" target="vbdocright">Register Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000006_overloads--.html" target="vbdocright">RegisterCliente Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000008_overloads--.html" target="vbdocright">RegisterCompanhia Method</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000000F_overloads--.html" target="vbdocright">ResetPassword Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000011.html" target="vbdocright">ResetPasswordConfirmation Method</a></div>
+
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="11" class="header closed" onclick="toggle('c11',this)">
+    <a href="topic_0000000000000016.html" target="vbdocright">HelpdeskController Class</a>
+    </div>
+    <div id="c11" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_0000000000000016_members--.html" target="vbdocright">HelpdeskController Members</a></div>
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+						  <div class="leaf"><a href="topic_0000000000000017.html" target="vbdocright">HelpdeskController </a></div>
+
+		
+		
+
+
+		
+
+
+		    <div id="12" class="header closed" onclick="toggle('c12',this)">
+    <a href="topic_0000000000000016_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c12" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_000000000000001C.html" target="vbdocright">AlterarEstadoCompanhia Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000019.html" target="vbdocright">Clientes Method</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000001A.html" target="vbdocright">Companhias Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000018.html" target="vbdocright">Index Method</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000001E.html" target="vbdocright">ModalViagens Method</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000001B.html" target="vbdocright">RecuperarCompanhias Method</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000001D.html" target="vbdocright">Viagens Method</a></div>
+
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="13" class="header closed" onclick="toggle('c13',this)">
+    <a href="topic_000000000000001F.html" target="vbdocright">HomeController Class</a>
+    </div>
+    <div id="c13" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_000000000000001F_members--.html" target="vbdocright">HomeController Members</a></div>
+
+
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="14" class="header closed" onclick="toggle('c14',this)">
+    <a href="topic_000000000000001F_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c14" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_0000000000000021.html" target="vbdocright">About Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000026.html" target="vbdocright">ClienteLogin Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000025.html" target="vbdocright">ColaboradorLogin Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000022.html" target="vbdocright">Contact Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000023.html" target="vbdocright">Error Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000024.html" target="vbdocright">HelpdeskLogin Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000020.html" target="vbdocright">Index Method</a></div>
+
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="15" class="header closed" onclick="toggle('c15',this)">
+    <a href="topic_0000000000000027.html" target="vbdocright">ManageController Class</a>
+    </div>
+    <div id="c15" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_0000000000000027_members--.html" target="vbdocright">ManageController Members</a></div>
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+						  <div class="leaf"><a href="topic_0000000000000039.html" target="vbdocright">ManageMessageId Enumeration</a></div>
+
+		
+		
+
+
+						  <div class="leaf"><a href="topic_0000000000000028.html" target="vbdocright">ManageController </a></div>
+
+		
+		
+
+
+		
+
+
+		    <div id="16" class="header closed" onclick="toggle('c16',this)">
+    <a href="topic_0000000000000027_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c16" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_000000000000002B_overloads--.html" target="vbdocright">AddPhoneNumber Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000032_overloads--.html" target="vbdocright">ChangePassword Method</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000002E.html" target="vbdocright">DisableTwoFactorAuthentication Method</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000002D.html" target="vbdocright">EnableTwoFactorAuthentication Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000029.html" target="vbdocright">Index Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000037.html" target="vbdocright">LinkLogin Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000038.html" target="vbdocright">LinkLoginCallback Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000036.html" target="vbdocright">ManageLogins Method</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000002A.html" target="vbdocright">RemoveLogin Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000031.html" target="vbdocright">RemovePhoneNumber Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000034_overloads--.html" target="vbdocright">SetPassword Method</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000002F_overloads--.html" target="vbdocright">VerifyPhoneNumber Method</a></div>
+
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+		
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+       <div id="17" class="header closed" onclick="toggle('c17',this)">
+    <a href="topic_0000000000000042.html" target="vbdocright">AirUberProjeto.Data Namespace</a>
+    </div>
+    <div id="c17" class="item" style="display:none">
+		
+
+						    <div id="18" class="header closed" onclick="toggle('c18',this)">
+    <a href="topic_0000000000000043.html" target="vbdocright">AirUberDbContext Class</a>
+    </div>
+    <div id="c18" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_0000000000000043_members--.html" target="vbdocright">AirUberDbContext Members</a></div>
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+						  <div class="leaf"><a href="topic_0000000000000044.html" target="vbdocright">AirUberDbContext </a></div>
+
+		
+		
+
+
+		    <div id="19" class="header closed" onclick="toggle('c19',this)">
+    <a href="topic_0000000000000043_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c19" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_0000000000000046.html" target="vbdocright">Aeroporto Property</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000047.html" target="vbdocright">ApplicationUser Property</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000048.html" target="vbdocright">Cidade Property</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000049.html" target="vbdocright">Cliente Property</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000004A.html" target="vbdocright">Colaborador Property</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000004B.html" target="vbdocright">Companhia Property</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000004C.html" target="vbdocright">Estado Property</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000004D.html" target="vbdocright">Extra Property</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000004E.html" target="vbdocright">Jato Property</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000004F.html" target="vbdocright">Modelo Property</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000050.html" target="vbdocright">Pais Property</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000051.html" target="vbdocright">Reserva Property</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000052.html" target="vbdocright">TipoExtra Property</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000053.html" target="vbdocright">TipoJato Property</a></div>
+
+			</div>
+		
+
+
+		    <div id="20" class="header closed" onclick="toggle('c20',this)">
+    <a href="topic_0000000000000043_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c20" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_0000000000000045.html" target="vbdocright">OnModelCreating Method</a></div>
+
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+		
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+       <div id="21" class="header closed" onclick="toggle('c21',this)">
+    <a href="topic_0000000000000054.html" target="vbdocright">AirUberProjeto.Migrations Namespace</a>
+    </div>
+    <div id="c21" class="item" style="display:none">
+		
+
+						    <div id="22" class="header closed" onclick="toggle('c22',this)">
+    <a href="topic_0000000000000055.html" target="vbdocright">in2dd Class</a>
+    </div>
+    <div id="c22" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_0000000000000055_members--.html" target="vbdocright">in2dd Members</a></div>
+
+
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="23" class="header closed" onclick="toggle('c23',this)">
+    <a href="topic_0000000000000055_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c23" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_0000000000000057.html" target="vbdocright">Down Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000056.html" target="vbdocright">Up Method</a></div>
+
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+		
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+       <div id="24" class="header closed" onclick="toggle('c24',this)">
+    <a href="topic_0000000000000095.html" target="vbdocright">AirUberProjeto.Models Namespace</a>
+    </div>
+    <div id="c24" class="item" style="display:none">
+		
+
+						    <div id="25" class="header closed" onclick="toggle('c25',this)">
+    <a href="topic_0000000000000096.html" target="vbdocright">Aeroporto Class</a>
+    </div>
+    <div id="c25" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_0000000000000096_members--.html" target="vbdocright">Aeroporto Members</a></div>
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+						  <div class="leaf"><a href="topic_000000000000009F.html" target="vbdocright">Aeroporto </a></div>
+
+		
+		
+
+
+		    <div id="26" class="header closed" onclick="toggle('c26',this)">
+    <a href="topic_0000000000000096_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c26" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_0000000000000097.html" target="vbdocright">AeroportoId Property</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000009E.html" target="vbdocright">Chegadas Property</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000009C.html" target="vbdocright">Cidade Property</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000098.html" target="vbdocright">CidadeId Property</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000009A.html" target="vbdocright">Latitude Property</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000009B.html" target="vbdocright">Longitude Property</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000099.html" target="vbdocright">Nome Property</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000009D.html" target="vbdocright">Partidas Property</a></div>
+
+			</div>
+		
+
+
+		    <div id="27" class="header closed" onclick="toggle('c27',this)">
+    <a href="topic_0000000000000096_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c27" class="item" style="display:none">
+		
+						
+						
+						
+						
+						
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="28" class="header closed" onclick="toggle('c28',this)">
+    <a href="topic_00000000000000A0.html" target="vbdocright">ApplicationUser Class</a>
+    </div>
+    <div id="c28" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_00000000000000A0_members--.html" target="vbdocright">ApplicationUser Members</a></div>
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+						  <div class="leaf"><a href="topic_00000000000000A5.html" target="vbdocright">ApplicationUser </a></div>
+
+		
+		
+
+
+		    <div id="29" class="header closed" onclick="toggle('c29',this)">
+    <a href="topic_00000000000000A0_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c29" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_00000000000000A3.html" target="vbdocright">Apelido Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000A4.html" target="vbdocright">Ativo Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000A1.html" target="vbdocright">DataCriacao Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000A2.html" target="vbdocright">Nome Property</a></div>
+
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="30" class="header closed" onclick="toggle('c30',this)">
+    <a href="topic_00000000000000A6.html" target="vbdocright">Cidade Class</a>
+    </div>
+    <div id="c30" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_00000000000000A6_members--.html" target="vbdocright">Cidade Members</a></div>
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="31" class="header closed" onclick="toggle('c31',this)">
+    <a href="topic_00000000000000A6_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c31" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_00000000000000A7.html" target="vbdocright">CidadeId Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000A8.html" target="vbdocright">Nome Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000AA.html" target="vbdocright">Pais Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000A9.html" target="vbdocright">PaisId Property</a></div>
+
+			</div>
+		
+
+
+		    <div id="32" class="header closed" onclick="toggle('c32',this)">
+    <a href="topic_00000000000000A6_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c32" class="item" style="display:none">
+		
+						
+						
+						
+						
+						
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="33" class="header closed" onclick="toggle('c33',this)">
+    <a href="topic_00000000000000AB.html" target="vbdocright">Cliente Class</a>
+    </div>
+    <div id="c33" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_00000000000000AB_members--.html" target="vbdocright">Cliente Members</a></div>
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+						  <div class="leaf"><a href="topic_00000000000000B0.html" target="vbdocright">Cliente </a></div>
+
+		
+		
+
+
+		    <div id="34" class="header closed" onclick="toggle('c34',this)">
+    <a href="topic_00000000000000AB_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c34" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_00000000000000A3.html" target="vbdocright">Apelido Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000A4.html" target="vbdocright">Ativo Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000AF.html" target="vbdocright">ContaDeCreditos Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000AC.html" target="vbdocright">ContaDeCreditosId Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000AD.html" target="vbdocright">Contacto Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000A1.html" target="vbdocright">DataCriacao Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000AE.html" target="vbdocright">ListaReservas Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000A2.html" target="vbdocright">Nome Property</a></div>
+
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="35" class="header closed" onclick="toggle('c35',this)">
+    <a href="topic_00000000000000B1.html" target="vbdocright">Colaborador Class</a>
+    </div>
+    <div id="c35" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_00000000000000B1_members--.html" target="vbdocright">Colaborador Members</a></div>
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+						  <div class="leaf"><a href="topic_00000000000000B5.html" target="vbdocright">Colaborador </a></div>
+
+		
+		
+
+
+		    <div id="36" class="header closed" onclick="toggle('c36',this)">
+    <a href="topic_00000000000000B1_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c36" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_00000000000000A3.html" target="vbdocright">Apelido Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000A4.html" target="vbdocright">Ativo Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000B4.html" target="vbdocright">Companhia Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000B2.html" target="vbdocright">CompanhiaId Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000A1.html" target="vbdocright">DataCriacao Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000B3.html" target="vbdocright">IsAdministrador Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000A2.html" target="vbdocright">Nome Property</a></div>
+
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="37" class="header closed" onclick="toggle('c37',this)">
+    <a href="topic_00000000000000B6.html" target="vbdocright">Companhia Class</a>
+    </div>
+    <div id="c37" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_00000000000000B6_members--.html" target="vbdocright">Companhia Members</a></div>
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+						  <div class="leaf"><a href="topic_00000000000000C8.html" target="vbdocright">Companhia </a></div>
+
+		
+		
+
+
+		    <div id="38" class="header closed" onclick="toggle('c38',this)">
+    <a href="topic_00000000000000B6_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c38" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_00000000000000B7.html" target="vbdocright">CompanhiaId Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000C3.html" target="vbdocright">ContaDeCreditos Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000BD.html" target="vbdocright">ContaDeCreditosId Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000BA.html" target="vbdocright">Contact Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000BF.html" target="vbdocright">DataCriacao Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000BE.html" target="vbdocright">Email Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000C2.html" target="vbdocright">Estado Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000C0.html" target="vbdocright">EstadoId Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000C5.html" target="vbdocright">ListaColaboradores Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000C7.html" target="vbdocright">ListaExtras Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000C6.html" target="vbdocright">ListaJatos Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000C4.html" target="vbdocright">ListaReservas Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000B9.html" target="vbdocright">Morada Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000BC.html" target="vbdocright">Nif Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000B8.html" target="vbdocright">Nome Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000C1.html" target="vbdocright">Pais Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000BB.html" target="vbdocright">PaisId Property</a></div>
+
+			</div>
+		
+
+
+		    <div id="39" class="header closed" onclick="toggle('c39',this)">
+    <a href="topic_00000000000000B6_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c39" class="item" style="display:none">
+		
+						
+						
+						
+						
+						
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="40" class="header closed" onclick="toggle('c40',this)">
+    <a href="topic_00000000000000C9.html" target="vbdocright">ContaDeCreditos Class</a>
+    </div>
+    <div id="c40" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_00000000000000C9_members--.html" target="vbdocright">ContaDeCreditos Members</a></div>
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+						  <div class="leaf"><a href="topic_00000000000000CC.html" target="vbdocright">ContaDeCreditos </a></div>
+
+		
+		
+
+
+		    <div id="41" class="header closed" onclick="toggle('c41',this)">
+    <a href="topic_00000000000000C9_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c41" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_00000000000000CA.html" target="vbdocright">ContaDeCreditosId Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000CB.html" target="vbdocright">JetCashActual Property</a></div>
+
+			</div>
+		
+
+
+		    <div id="42" class="header closed" onclick="toggle('c42',this)">
+    <a href="topic_00000000000000C9_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c42" class="item" style="display:none">
+		
+						
+						
+						
+						
+						
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="43" class="header closed" onclick="toggle('c43',this)">
+    <a href="topic_00000000000000CD.html" target="vbdocright">DbInitializer Class</a>
+    </div>
+    <div id="c43" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_00000000000000CD_members--.html" target="vbdocright">DbInitializer Members</a></div>
+
+
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="44" class="header closed" onclick="toggle('c44',this)">
+    <a href="topic_00000000000000CD_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c44" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_00000000000000CF.html" target="vbdocright">AddRoles Method</a></div>
+
+						
+						
+						
+						
+						  <div class="leaf"><a href="topic_00000000000000CE.html" target="vbdocright">Initialize Method</a></div>
+
+						
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="45" class="header closed" onclick="toggle('c45',this)">
+    <a href="topic_00000000000000D0.html" target="vbdocright">Estado Class</a>
+    </div>
+    <div id="c45" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_00000000000000D0_members--.html" target="vbdocright">Estado Members</a></div>
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="46" class="header closed" onclick="toggle('c46',this)">
+    <a href="topic_00000000000000D0_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c46" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_00000000000000D1.html" target="vbdocright">EstadoId Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000D2.html" target="vbdocright">Nome Property</a></div>
+
+			</div>
+		
+
+
+		    <div id="47" class="header closed" onclick="toggle('c47',this)">
+    <a href="topic_00000000000000D0_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c47" class="item" style="display:none">
+		
+						
+						
+						
+						
+						
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="48" class="header closed" onclick="toggle('c48',this)">
+    <a href="topic_00000000000000D3.html" target="vbdocright">Extra Class</a>
+    </div>
+    <div id="c48" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_00000000000000D3_members--.html" target="vbdocright">Extra Members</a></div>
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="49" class="header closed" onclick="toggle('c49',this)">
+    <a href="topic_00000000000000D3_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c49" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_00000000000000D9.html" target="vbdocright">Companhia Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000D6.html" target="vbdocright">CompanhiaId Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000D4.html" target="vbdocright">ExtraId Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000D8.html" target="vbdocright">TipoExtra Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000D5.html" target="vbdocright">TipoExtraId Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000D7.html" target="vbdocright">Valor Property</a></div>
+
+			</div>
+		
+
+
+		    <div id="50" class="header closed" onclick="toggle('c50',this)">
+    <a href="topic_00000000000000D3_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c50" class="item" style="display:none">
+		
+						
+						
+						
+						
+						
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="51" class="header closed" onclick="toggle('c51',this)">
+    <a href="topic_00000000000000DA.html" target="vbdocright">Helpdesk Class</a>
+    </div>
+    <div id="c51" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_00000000000000DA_members--.html" target="vbdocright">Helpdesk Members</a></div>
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+						  <div class="leaf"><a href="topic_00000000000000A5.html" target="vbdocright">Helpdesk </a></div>
+
+		
+		
+
+
+		    <div id="52" class="header closed" onclick="toggle('c52',this)">
+    <a href="topic_00000000000000DA_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c52" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_00000000000000A3.html" target="vbdocright">Apelido Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000A4.html" target="vbdocright">Ativo Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000A1.html" target="vbdocright">DataCriacao Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000A2.html" target="vbdocright">Nome Property</a></div>
+
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="53" class="header closed" onclick="toggle('c53',this)">
+    <a href="topic_00000000000000DB.html" target="vbdocright">Jato Class</a>
+    </div>
+    <div id="c53" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_00000000000000DB_members--.html" target="vbdocright">Jato Members</a></div>
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+						  <div class="leaf"><a href="topic_00000000000000E3.html" target="vbdocright">Jato </a></div>
+
+		
+		
+
+
+		    <div id="54" class="header closed" onclick="toggle('c54',this)">
+    <a href="topic_00000000000000DB_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c54" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_00000000000000E2.html" target="vbdocright">Companhia Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000DF.html" target="vbdocright">CompanhiaId Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000E0.html" target="vbdocright">EmFuncionamento Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000DC.html" target="vbdocright">JatoId Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000E1.html" target="vbdocright">Modelo Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000DE.html" target="vbdocright">ModeloId Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000DD.html" target="vbdocright">Nome Property</a></div>
+
+			</div>
+		
+
+
+		    <div id="55" class="header closed" onclick="toggle('c55',this)">
+    <a href="topic_00000000000000DB_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c55" class="item" style="display:none">
+		
+						
+						
+						
+						
+						
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="56" class="header closed" onclick="toggle('c56',this)">
+    <a href="topic_00000000000000E4.html" target="vbdocright">Modelo Class</a>
+    </div>
+    <div id="c56" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_00000000000000E4_members--.html" target="vbdocright">Modelo Members</a></div>
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="57" class="header closed" onclick="toggle('c57',this)">
+    <a href="topic_00000000000000E4_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c57" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_00000000000000E7.html" target="vbdocright">Alcance Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000EB.html" target="vbdocright">AltitudeIdeal Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000EC.html" target="vbdocright">AlturaCabine Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000E6.html" target="vbdocright">Capacidade Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000EE.html" target="vbdocright">ComprimentoCabine Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000EF.html" target="vbdocright">Descricao Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000ED.html" target="vbdocright">LarguraCabine Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000E5.html" target="vbdocright">ModeloId Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000EA.html" target="vbdocright">NumeroMotores Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000E9.html" target="vbdocright">PesoMaximaBagagens Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000F1.html" target="vbdocright">TipoJato Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000F0.html" target="vbdocright">TipoJatoId Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000E8.html" target="vbdocright">VelocidadeMaxima Property</a></div>
+
+			</div>
+		
+
+
+		    <div id="58" class="header closed" onclick="toggle('c58',this)">
+    <a href="topic_00000000000000E4_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c58" class="item" style="display:none">
+		
+						
+						
+						
+						
+						
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="59" class="header closed" onclick="toggle('c59',this)">
+    <a href="topic_00000000000000F2.html" target="vbdocright">Pais Class</a>
+    </div>
+    <div id="c59" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_00000000000000F2_members--.html" target="vbdocright">Pais Members</a></div>
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="60" class="header closed" onclick="toggle('c60',this)">
+    <a href="topic_00000000000000F2_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c60" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_00000000000000F4.html" target="vbdocright">Nome Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000F3.html" target="vbdocright">PaisId Property</a></div>
+
+			</div>
+		
+
+
+		    <div id="61" class="header closed" onclick="toggle('c61',this)">
+    <a href="topic_00000000000000F2_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c61" class="item" style="display:none">
+		
+						
+						
+						
+						
+						
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="62" class="header closed" onclick="toggle('c62',this)">
+    <a href="topic_00000000000000F5.html" target="vbdocright">Reserva Class</a>
+    </div>
+    <div id="c62" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_00000000000000F5_members--.html" target="vbdocright">Reserva Members</a></div>
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+						  <div class="leaf"><a href="topic_0000000000000104.html" target="vbdocright">Reserva </a></div>
+
+		
+		
+
+
+		    <div id="63" class="header closed" onclick="toggle('c63',this)">
+    <a href="topic_00000000000000F5_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c63" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_0000000000000102.html" target="vbdocright">AeroportoDestino Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000FA.html" target="vbdocright">AeroportoDestinoId Property</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000101.html" target="vbdocright">AeroportoPartida Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000F9.html" target="vbdocright">AeroportoPartidaId Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000FC.html" target="vbdocright">ApplicationUserId Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000FE.html" target="vbdocright">Avaliacao Property</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000100.html" target="vbdocright">Cliente Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000FD.html" target="vbdocright">Custo Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000F8.html" target="vbdocright">DataChegada Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000F7.html" target="vbdocright">DataPartida Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000FF.html" target="vbdocright">Jato Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000FB.html" target="vbdocright">JatoId Property</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000103.html" target="vbdocright">ListaExtras Property</a></div>
+
+						  <div class="leaf"><a href="topic_00000000000000F6.html" target="vbdocright">ReservaId Property</a></div>
+
+			</div>
+		
+
+
+		    <div id="64" class="header closed" onclick="toggle('c64',this)">
+    <a href="topic_00000000000000F5_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c64" class="item" style="display:none">
+		
+						
+						
+						
+						
+						
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="65" class="header closed" onclick="toggle('c65',this)">
+    <a href="topic_0000000000000105.html" target="vbdocright">Roles Class</a>
+    </div>
+    <div id="c65" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_0000000000000105_members--.html" target="vbdocright">Roles Members</a></div>
+
+
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="66" class="header closed" onclick="toggle('c66',this)">
+    <a href="topic_0000000000000105_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c66" class="item" style="display:none">
+		
+						
+						
+						
+						
+						
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		    <div id="67" class="header closed" onclick="toggle('c67',this)">
+    <a href="topic_0000000000000105_vars--.html" target="vbdocright">Fields</a>
+    </div>
+    <div id="c67" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_0000000000000106.html" target="vbdocright">ROLE_CLIENTE Field</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000108.html" target="vbdocright">ROLE_COLABORADOR Field</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000109.html" target="vbdocright">ROLE_COLABORADOR_ADMIN Field</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000107.html" target="vbdocright">ROLE_HELPDESK Field</a></div>
+
+			</div>
+		
+
+
+</div>
+
+
+				    <div id="68" class="header closed" onclick="toggle('c68',this)">
+    <a href="topic_000000000000010A.html" target="vbdocright">TipoExtra Class</a>
+    </div>
+    <div id="c68" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_000000000000010A_members--.html" target="vbdocright">TipoExtra Members</a></div>
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="69" class="header closed" onclick="toggle('c69',this)">
+    <a href="topic_000000000000010A_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c69" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_000000000000010C.html" target="vbdocright">Nome Property</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000010B.html" target="vbdocright">TipoExtraId Property</a></div>
+
+			</div>
+		
+
+
+		    <div id="70" class="header closed" onclick="toggle('c70',this)">
+    <a href="topic_000000000000010A_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c70" class="item" style="display:none">
+		
+						
+						
+						
+						
+						
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="71" class="header closed" onclick="toggle('c71',this)">
+    <a href="topic_000000000000010D.html" target="vbdocright">TipoJato Class</a>
+    </div>
+    <div id="c71" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_000000000000010D_members--.html" target="vbdocright">TipoJato Members</a></div>
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="72" class="header closed" onclick="toggle('c72',this)">
+    <a href="topic_000000000000010D_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c72" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_000000000000010F.html" target="vbdocright">Nome Property</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000010E.html" target="vbdocright">TipoJatoId Property</a></div>
+
+			</div>
+		
+
+
+		    <div id="73" class="header closed" onclick="toggle('c73',this)">
+    <a href="topic_000000000000010D_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c73" class="item" style="display:none">
+		
+						
+						
+						
+						
+						
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+		
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+       <div id="74" class="header closed" onclick="toggle('c74',this)">
+    <a href="topic_0000000000000058.html" target="vbdocright">AirUberProjeto.Models.AutenticacaoViewModels Namespace</a>
+    </div>
+    <div id="c74" class="item" style="display:none">
+		
+
+						    <div id="75" class="header closed" onclick="toggle('c75',this)">
+    <a href="topic_0000000000000059.html" target="vbdocright">ChangePasswordViewModel Class</a>
+    </div>
+    <div id="c75" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_0000000000000059_members--.html" target="vbdocright">ChangePasswordViewModel Members</a></div>
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="76" class="header closed" onclick="toggle('c76',this)">
+    <a href="topic_0000000000000059_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c76" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_000000000000005C.html" target="vbdocright">ConfirmPassword Property</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000005B.html" target="vbdocright">NewPassword Property</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000005A.html" target="vbdocright">OldPassword Property</a></div>
+
+			</div>
+		
+
+
+		    <div id="77" class="header closed" onclick="toggle('c77',this)">
+    <a href="topic_0000000000000059_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c77" class="item" style="display:none">
+		
+						
+						
+						
+						
+						
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="78" class="header closed" onclick="toggle('c78',this)">
+    <a href="topic_000000000000005D.html" target="vbdocright">ForgotPasswordViewModel Class</a>
+    </div>
+    <div id="c78" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_000000000000005D_members--.html" target="vbdocright">ForgotPasswordViewModel Members</a></div>
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="79" class="header closed" onclick="toggle('c79',this)">
+    <a href="topic_000000000000005D_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c79" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_000000000000005E.html" target="vbdocright">Email Property</a></div>
+
+			</div>
+		
+
+
+		    <div id="80" class="header closed" onclick="toggle('c80',this)">
+    <a href="topic_000000000000005D_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c80" class="item" style="display:none">
+		
+						
+						
+						
+						
+						
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="81" class="header closed" onclick="toggle('c81',this)">
+    <a href="topic_000000000000005F.html" target="vbdocright">LoginViewModel Class</a>
+    </div>
+    <div id="c81" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_000000000000005F_members--.html" target="vbdocright">LoginViewModel Members</a></div>
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="82" class="header closed" onclick="toggle('c82',this)">
+    <a href="topic_000000000000005F_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c82" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_0000000000000060.html" target="vbdocright">Email Property</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000061.html" target="vbdocright">Password Property</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000062.html" target="vbdocright">RememberMe Property</a></div>
+
+			</div>
+		
+
+
+		    <div id="83" class="header closed" onclick="toggle('c83',this)">
+    <a href="topic_000000000000005F_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c83" class="item" style="display:none">
+		
+						
+						
+						
+						
+						
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="84" class="header closed" onclick="toggle('c84',this)">
+    <a href="topic_0000000000000063.html" target="vbdocright">RegisterClienteViewModel Class</a>
+    </div>
+    <div id="c84" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_0000000000000063_members--.html" target="vbdocright">RegisterClienteViewModel Members</a></div>
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="85" class="header closed" onclick="toggle('c85',this)">
+    <a href="topic_0000000000000063_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c85" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_0000000000000065.html" target="vbdocright">Apelido Property</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000068.html" target="vbdocright">ConfirmPassword Property</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000066.html" target="vbdocright">Email Property</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000064.html" target="vbdocright">Nome Property</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000067.html" target="vbdocright">Password Property</a></div>
+
+			</div>
+		
+
+
+		    <div id="86" class="header closed" onclick="toggle('c86',this)">
+    <a href="topic_0000000000000063_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c86" class="item" style="display:none">
+		
+						
+						
+						
+						
+						
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="87" class="header closed" onclick="toggle('c87',this)">
+    <a href="topic_0000000000000069.html" target="vbdocright">RegisterCompanhiaViewModel Class</a>
+    </div>
+    <div id="c87" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_0000000000000069_members--.html" target="vbdocright">RegisterCompanhiaViewModel Members</a></div>
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="88" class="header closed" onclick="toggle('c88',this)">
+    <a href="topic_0000000000000069_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c88" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_0000000000000071.html" target="vbdocright">ConfirmPassword Property</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000006C.html" target="vbdocright">Contact Property</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000006F.html" target="vbdocright">Email Property</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000006B.html" target="vbdocright">Morada Property</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000006E.html" target="vbdocright">Nif Property</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000006A.html" target="vbdocright">Nome Property</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000006D.html" target="vbdocright">PaisId Property</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000070.html" target="vbdocright">Password Property</a></div>
+
+			</div>
+		
+
+
+		    <div id="89" class="header closed" onclick="toggle('c89',this)">
+    <a href="topic_0000000000000069_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c89" class="item" style="display:none">
+		
+						
+						
+						
+						
+						
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="90" class="header closed" onclick="toggle('c90',this)">
+    <a href="topic_0000000000000072.html" target="vbdocright">ResetPasswordViewModel Class</a>
+    </div>
+    <div id="c90" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_0000000000000072_members--.html" target="vbdocright">ResetPasswordViewModel Members</a></div>
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="91" class="header closed" onclick="toggle('c91',this)">
+    <a href="topic_0000000000000072_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c91" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_0000000000000076.html" target="vbdocright">Code Property</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000075.html" target="vbdocright">ConfirmPassword Property</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000073.html" target="vbdocright">Email Property</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000074.html" target="vbdocright">Password Property</a></div>
+
+			</div>
+		
+
+
+		    <div id="92" class="header closed" onclick="toggle('c92',this)">
+    <a href="topic_0000000000000072_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c92" class="item" style="display:none">
+		
+						
+						
+						
+						
+						
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+		
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+       <div id="93" class="header closed" onclick="toggle('c93',this)">
+    <a href="topic_0000000000000077.html" target="vbdocright">AirUberProjeto.Models.ManageViewModels Namespace</a>
+    </div>
+    <div id="c93" class="item" style="display:none">
+		
+
+						    <div id="94" class="header closed" onclick="toggle('c94',this)">
+    <a href="topic_0000000000000078.html" target="vbdocright">AddPhoneNumberViewModel Class</a>
+    </div>
+    <div id="c94" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_0000000000000078_members--.html" target="vbdocright">AddPhoneNumberViewModel Members</a></div>
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="95" class="header closed" onclick="toggle('c95',this)">
+    <a href="topic_0000000000000078_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c95" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_0000000000000079.html" target="vbdocright">PhoneNumber Property</a></div>
+
+			</div>
+		
+
+
+		    <div id="96" class="header closed" onclick="toggle('c96',this)">
+    <a href="topic_0000000000000078_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c96" class="item" style="display:none">
+		
+						
+						
+						
+						
+						
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="97" class="header closed" onclick="toggle('c97',this)">
+    <a href="topic_000000000000007A.html" target="vbdocright">ChangePasswordViewModel Class</a>
+    </div>
+    <div id="c97" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_000000000000007A_members--.html" target="vbdocright">ChangePasswordViewModel Members</a></div>
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="98" class="header closed" onclick="toggle('c98',this)">
+    <a href="topic_000000000000007A_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c98" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_000000000000007D.html" target="vbdocright">ConfirmPassword Property</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000007C.html" target="vbdocright">NewPassword Property</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000007B.html" target="vbdocright">OldPassword Property</a></div>
+
+			</div>
+		
+
+
+		    <div id="99" class="header closed" onclick="toggle('c99',this)">
+    <a href="topic_000000000000007A_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c99" class="item" style="display:none">
+		
+						
+						
+						
+						
+						
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="100" class="header closed" onclick="toggle('c100',this)">
+    <a href="topic_000000000000007E.html" target="vbdocright">ConfigureTwoFactorViewModel Class</a>
+    </div>
+    <div id="c100" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_000000000000007E_members--.html" target="vbdocright">ConfigureTwoFactorViewModel Members</a></div>
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="101" class="header closed" onclick="toggle('c101',this)">
+    <a href="topic_000000000000007E_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c101" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_0000000000000080.html" target="vbdocright">Providers Property</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000007F.html" target="vbdocright">SelectedProvider Property</a></div>
+
+			</div>
+		
+
+
+		    <div id="102" class="header closed" onclick="toggle('c102',this)">
+    <a href="topic_000000000000007E_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c102" class="item" style="display:none">
+		
+						
+						
+						
+						
+						
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="103" class="header closed" onclick="toggle('c103',this)">
+    <a href="topic_0000000000000081.html" target="vbdocright">FactorViewModel Class</a>
+    </div>
+    <div id="c103" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_0000000000000081_members--.html" target="vbdocright">FactorViewModel Members</a></div>
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="104" class="header closed" onclick="toggle('c104',this)">
+    <a href="topic_0000000000000081_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c104" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_0000000000000082.html" target="vbdocright">Purpose Property</a></div>
+
+			</div>
+		
+
+
+		    <div id="105" class="header closed" onclick="toggle('c105',this)">
+    <a href="topic_0000000000000081_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c105" class="item" style="display:none">
+		
+						
+						
+						
+						
+						
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="106" class="header closed" onclick="toggle('c106',this)">
+    <a href="topic_0000000000000083.html" target="vbdocright">IndexViewModel Class</a>
+    </div>
+    <div id="c106" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_0000000000000083_members--.html" target="vbdocright">IndexViewModel Members</a></div>
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="107" class="header closed" onclick="toggle('c107',this)">
+    <a href="topic_0000000000000083_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c107" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_0000000000000088.html" target="vbdocright">BrowserRemembered Property</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000084.html" target="vbdocright">HasPassword Property</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000085.html" target="vbdocright">Logins Property</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000086.html" target="vbdocright">PhoneNumber Property</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000087.html" target="vbdocright">TwoFactor Property</a></div>
+
+			</div>
+		
+
+
+		    <div id="108" class="header closed" onclick="toggle('c108',this)">
+    <a href="topic_0000000000000083_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c108" class="item" style="display:none">
+		
+						
+						
+						
+						
+						
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="109" class="header closed" onclick="toggle('c109',this)">
+    <a href="topic_0000000000000089.html" target="vbdocright">ManageLoginsViewModel Class</a>
+    </div>
+    <div id="c109" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_0000000000000089_members--.html" target="vbdocright">ManageLoginsViewModel Members</a></div>
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="110" class="header closed" onclick="toggle('c110',this)">
+    <a href="topic_0000000000000089_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c110" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_000000000000008A.html" target="vbdocright">CurrentLogins Property</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000008B.html" target="vbdocright">OtherLogins Property</a></div>
+
+			</div>
+		
+
+
+		    <div id="111" class="header closed" onclick="toggle('c111',this)">
+    <a href="topic_0000000000000089_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c111" class="item" style="display:none">
+		
+						
+						
+						
+						
+						
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="112" class="header closed" onclick="toggle('c112',this)">
+    <a href="topic_000000000000008C.html" target="vbdocright">RemoveLoginViewModel Class</a>
+    </div>
+    <div id="c112" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_000000000000008C_members--.html" target="vbdocright">RemoveLoginViewModel Members</a></div>
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="113" class="header closed" onclick="toggle('c113',this)">
+    <a href="topic_000000000000008C_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c113" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_000000000000008D.html" target="vbdocright">LoginProvider Property</a></div>
+
+						  <div class="leaf"><a href="topic_000000000000008E.html" target="vbdocright">ProviderKey Property</a></div>
+
+			</div>
+		
+
+
+		    <div id="114" class="header closed" onclick="toggle('c114',this)">
+    <a href="topic_000000000000008C_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c114" class="item" style="display:none">
+		
+						
+						
+						
+						
+						
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="115" class="header closed" onclick="toggle('c115',this)">
+    <a href="topic_000000000000008F.html" target="vbdocright">SetPasswordViewModel Class</a>
+    </div>
+    <div id="c115" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_000000000000008F_members--.html" target="vbdocright">SetPasswordViewModel Members</a></div>
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="116" class="header closed" onclick="toggle('c116',this)">
+    <a href="topic_000000000000008F_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c116" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_0000000000000091.html" target="vbdocright">ConfirmPassword Property</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000090.html" target="vbdocright">NewPassword Property</a></div>
+
+			</div>
+		
+
+
+		    <div id="117" class="header closed" onclick="toggle('c117',this)">
+    <a href="topic_000000000000008F_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c117" class="item" style="display:none">
+		
+						
+						
+						
+						
+						
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="118" class="header closed" onclick="toggle('c118',this)">
+    <a href="topic_0000000000000092.html" target="vbdocright">VerifyPhoneNumberViewModel Class</a>
+    </div>
+    <div id="c118" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_0000000000000092_members--.html" target="vbdocright">VerifyPhoneNumberViewModel Members</a></div>
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="119" class="header closed" onclick="toggle('c119',this)">
+    <a href="topic_0000000000000092_props--.html" target="vbdocright">Properties</a>
+    </div>
+    <div id="c119" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_0000000000000093.html" target="vbdocright">Code Property</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000094.html" target="vbdocright">PhoneNumber Property</a></div>
+
+			</div>
+		
+
+
+		    <div id="120" class="header closed" onclick="toggle('c120',this)">
+    <a href="topic_0000000000000092_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c120" class="item" style="display:none">
+		
+						
+						
+						
+						
+						
+						
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+		
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+       <div id="121" class="header closed" onclick="toggle('c121',this)">
+    <a href="topic_0000000000000110.html" target="vbdocright">AirUberProjeto.Services Namespace</a>
+    </div>
+    <div id="c121" class="item" style="display:none">
+		
+
+						    <div id="122" class="header closed" onclick="toggle('c122',this)">
+    <a href="topic_0000000000000115.html" target="vbdocright">AuthMessageSender Class</a>
+    </div>
+    <div id="c122" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_0000000000000115_members--.html" target="vbdocright">AuthMessageSender Members</a></div>
+
+
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="123" class="header closed" onclick="toggle('c123',this)">
+    <a href="topic_0000000000000115_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c123" class="item" style="display:none">
+		
+						
+						
+						
+						
+						
+						
+						  <div class="leaf"><a href="topic_0000000000000116.html" target="vbdocright">SendEmailAsync Method</a></div>
+
+						  <div class="leaf"><a href="topic_0000000000000117.html" target="vbdocright">SendSmsAsync Method</a></div>
+
+						
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+		
+		
+
+		
+
+
+						    <div id="124" class="header closed" onclick="toggle('c124',this)">
+    <a href="topic_0000000000000111.html" target="vbdocright">IEmailSender Interface</a>
+    </div>
+    <div id="c124" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_0000000000000111_members--.html" target="vbdocright">IEmailSender Members</a></div>
+
+
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="125" class="header closed" onclick="toggle('c125',this)">
+    <a href="topic_0000000000000111_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c125" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_0000000000000112.html" target="vbdocright">SendEmailAsync Method</a></div>
+
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+				    <div id="126" class="header closed" onclick="toggle('c126',this)">
+    <a href="topic_0000000000000113.html" target="vbdocright">ISmsSender Interface</a>
+    </div>
+    <div id="c126" class="item" style="display:none">
+		
+ 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="leaf"><a href="topic_0000000000000113_members--.html" target="vbdocright">ISmsSender Members</a></div>
+
+
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		    <div id="127" class="header closed" onclick="toggle('c127',this)">
+    <a href="topic_0000000000000113_methods--.html" target="vbdocright">Methods</a>
+    </div>
+    <div id="c127" class="item" style="display:none">
+		
+						  <div class="leaf"><a href="topic_0000000000000114.html" target="vbdocright">SendSmsAsync Method</a></div>
+
+			</div>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+		
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+</div>
+
+
+ 
+
+  
+		</div>
+ 
+
+
+
+		
+		
+</body>
+</html>

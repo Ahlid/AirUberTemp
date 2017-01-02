@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v1.0/",
-    "signature": "aef97b41d771e081cb48ed778230382d6da620ff"
+    "signature": "0f92da8a712bb50ec89b823dc34fffcdc1ce0137"
   },
   "compilationOptions": {
     "defines": [
@@ -10,7 +10,8 @@
       "NETCOREAPP1_0"
     ],
     "optimize": false,
-    "emitEntryPoint": true
+    "emitEntryPoint": true,
+    "xmlDoc": true
   },
   "targets": {
     ".NETCoreApp,Version=v1.0": {
@@ -36,10 +37,19 @@
           "Microsoft.Extensions.Logging.Debug": "1.0.0",
           "Microsoft.Extensions.Options.ConfigurationExtensions": "1.0.0",
           "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0",
-          "MailKit": "1.10.1"
+          "MailKit": "1.10.1",
+          "jQuery-vsdoc": "2.1.0",
+          "EWSoftware.SHFB": "2016.9.17"
         },
         "compile": {
           "AirUberProjeto.dll": {}
+        }
+      },
+      "EWSoftware.SHFB/2016.9.17": {},
+      "jQuery/2.1.0": {},
+      "jQuery-vsdoc/2.1.0": {
+        "dependencies": {
+          "jQuery": "2.1.0"
         }
       },
       "Libuv/1.9.0": {
@@ -3007,10 +3017,19 @@
           "Microsoft.Extensions.Logging.Debug": "1.0.0",
           "Microsoft.Extensions.Options.ConfigurationExtensions": "1.0.0",
           "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0",
-          "MailKit": "1.10.1"
+          "MailKit": "1.10.1",
+          "jQuery-vsdoc": "2.1.0",
+          "EWSoftware.SHFB": "2016.9.17"
         },
         "runtime": {
           "AirUberProjeto.dll": {}
+        }
+      },
+      "EWSoftware.SHFB/2016.9.17": {},
+      "jQuery/2.1.0": {},
+      "jQuery-vsdoc/2.1.0": {
+        "dependencies": {
+          "jQuery": "2.1.0"
         }
       },
       "Libuv/1.9.0": {
@@ -5853,6 +5872,21 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "EWSoftware.SHFB/2016.9.17": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6/puxUsYOprohSzUW/7SL2xUjmacfelEhj3kCs1vDwWF2gkjXJZvfBUaKq3ROX0nqLj9vfDzcDPrEePRDm5OnQ=="
+    },
+    "jQuery/2.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-xMauIG19FNgANvxF2jmt+PVOc/nATzqK8FbsDvvsJL1Hp9Mhl1pL80fPGok/Cmz+Mhph7RaH9wXtERjsxGggCQ=="
+    },
+    "jQuery-vsdoc/2.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-DS1WvcxuUq7EX682YOl9Pjw37ItPdGUBfIYZfQo+mjbdYjkLJKV4mAA7HU8siZvhLVZ4F32o4o8l9wbtRlsfsA=="
     },
     "Libuv/1.9.0": {
       "type": "package",

@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v1.0",
-    "signature": "8421c022044686ff4b482ac20391671d14308a36"
+    "signature": "561452c3693342a39aaaef866fe20146828ba373"
   },
   "compilationOptions": {
     "defines": [
@@ -10,7 +10,8 @@
       "NETCOREAPP1_0"
     ],
     "optimize": false,
-    "emitEntryPoint": true
+    "emitEntryPoint": true,
+    "xmlDoc": true
   },
   "targets": {
     ".NETCoreApp,Version=v1.0": {
@@ -36,13 +37,22 @@
           "Microsoft.Extensions.Logging.Debug": "1.0.0",
           "Microsoft.Extensions.Options.ConfigurationExtensions": "1.0.0",
           "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0",
-          "MailKit": "1.10.1"
+          "MailKit": "1.10.1",
+          "jQuery-vsdoc": "2.1.0",
+          "EWSoftware.SHFB": "2016.9.17"
         },
         "runtime": {
           "AirUberProjeto.dll": {}
         },
         "compile": {
           "AirUberProjeto.dll": {}
+        }
+      },
+      "EWSoftware.SHFB/2016.9.17": {},
+      "jQuery/2.1.0": {},
+      "jQuery-vsdoc/2.1.0": {
+        "dependencies": {
+          "jQuery": "2.1.0"
         }
       },
       "MailKit/1.10.1": {
@@ -3936,6 +3946,21 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "EWSoftware.SHFB/2016.9.17": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6/puxUsYOprohSzUW/7SL2xUjmacfelEhj3kCs1vDwWF2gkjXJZvfBUaKq3ROX0nqLj9vfDzcDPrEePRDm5OnQ=="
+    },
+    "jQuery/2.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-xMauIG19FNgANvxF2jmt+PVOc/nATzqK8FbsDvvsJL1Hp9Mhl1pL80fPGok/Cmz+Mhph7RaH9wXtERjsxGggCQ=="
+    },
+    "jQuery-vsdoc/2.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-DS1WvcxuUq7EX682YOl9Pjw37ItPdGUBfIYZfQo+mjbdYjkLJKV4mAA7HU8siZvhLVZ4F32o4o8l9wbtRlsfsA=="
     },
     "MailKit/1.10.1": {
       "type": "package",

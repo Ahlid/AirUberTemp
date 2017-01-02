@@ -4,6 +4,7 @@
 -nowarn:CS1701
 -nowarn:CS1702
 -nowarn:CS1705
+-doc:"C:\Users\artur\Documents\Projectos\Escola\Projecto_ESW\AirUberProjeto\src\AirUberProjeto\bin\Debug\netcoreapp1.0\AirUberProjeto.xml"
 -debug:full
 -nostdlib
 -nologo
