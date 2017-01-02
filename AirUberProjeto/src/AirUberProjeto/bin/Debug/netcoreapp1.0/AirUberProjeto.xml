@@ -281,18 +281,6 @@
             <param name="estado">estado de uma companhia</param>
             <returns>Lista de companhias de acordo com o estado</returns>
         </member>
-        <member name="M:AirUberProjeto.Controllers.HelpdeskController.getReservas">
-            <summary>
-            Retorna a lista de todas as reservas registadas no sistema.
-            </summary>
-            <returns>Lista de reservas</returns>
-        </member>
-        <member name="M:AirUberProjeto.Controllers.HelpdeskController.getClientes">
-            <summary>
-            Retorna uma query que cujo resultado é composto por todos os clientes registados no sistema.
-            </summary>
-            <returns>Query cujo resultado é composto pelas clientes</returns>
-        </member>
         <member name="T:AirUberProjeto.Models.Aeroporto">
             <summary>
             Classe responsável por toda a informação de um aeroporto.
