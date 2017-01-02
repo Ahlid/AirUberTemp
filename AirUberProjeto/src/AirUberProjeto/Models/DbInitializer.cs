@@ -585,13 +585,26 @@ namespace AirUberProjeto.Models
                      Custo = 3500.5m,
 
                  };
+                Reserva reserva2 = new Reserva()
+                {
+                    DataPartida = DateTime.Now,
+                    DataChegada = new DateTime(2017, 1, 1),
+                    AeroportoPartidaId = 2,
+                    AeroportoDestinoId = 3,
+                    JatoId = 1,
+                    Cliente = Miguel,
+                    Custo = 7483.23m,
+                    Avaliacao = 5,
+                };
                 context.Reserva.Add(reserva1);
+                context.Reserva.Add(reserva2);
 
                 foreach (Companhia c in context.Companhia)
                 {
                     if (c.CompanhiaId == 1) //pq o Jato 1 está ligado à companhia 1 -> está hardcoded aqui pq é apenas para testar
                     {
                         c.ListaReservas.Add(reserva1);
+                        c.ListaReservas.Add(reserva2);
                         context.Update(c);
                     }
                 }

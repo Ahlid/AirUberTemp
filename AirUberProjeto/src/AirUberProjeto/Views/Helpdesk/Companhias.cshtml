@@ -5,15 +5,14 @@
     ViewBag.Title = "Companhias";
     Layout = "_LayoutHelpdesk";
     
-    <!-- má solução mas funciona, usar enquanto não encontrar melhor-->
-    int numeroCompanhiasPendentes = 0;
-    foreach (var c in ViewBag.CompanhiasPendentes)
-    {
-        numeroCompanhiasPendentes++;
-    }
 }
 
-@if (@numeroCompanhiasPendentes > 0) // verificar se é != null não resulta
+@if (@ViewBag.NumeroCompanhiasRecusadas > 0)
+{
+    <a class="w3-btn w3-indigo" asp-action="RecuperarCompanhias">Recuperar Companhias</a>
+}
+
+@if (@ViewBag.NumeroCompanhiasPendentes > 0) // verificar se é != null não resulta
 {
     <h2>@ViewBag.Title_Requests</h2>
     <div class="container-scroll">
@@ -41,22 +40,15 @@
                         <h4 style="font-weight:bold; display: inline; ">@Html.DisplayNameFor(model => (model.Take(1) as Companhia).Contact): </h4><span>@companhia.Contact</span>
                     </div>
                     <div class="w3-padding-24">
-                        <a class="w3-btn w3-indigo" asp-action="Companhias" asp-route-id="@companhia.CompanhiaId" asp-route-estadoId="1">Aceitar</a>
-                        <a class="w3-btn w3-indigo" asp-action="Companhias" asp-route-id="@companhia.CompanhiaId" asp-route-estadoId="3">Recusar</a>
-                        <!-- <button type="button" class="w3-btn w3-indigo" onclick="">Aceitar</button>
-                        <button type="button" class="w3-btn w3-indigo" onclick="">Recusar</button><!-- vai ao controlador, passando o id -> ver como fazem na view edit-->
+                        <a class="w3-btn w3-indigo" asp-action="AlterarEstadoCompanhia" asp-route-id="@companhia.CompanhiaId" asp-route-estadoActualId="0" asp-route-estadoDestinoId="1">Aceitar</a>
+                        <a class="w3-btn w3-indigo" asp-action="AlterarEstadoCompanhia" asp-route-id="@companhia.CompanhiaId" asp-route-estadoActualId="0" asp-route-estadoDestinoId="3">Recusar</a>
                     </div>
                 </div>
             }
         </div>
     </div>
 }
-else
-{
-    /* se não existirem companhias pendentes ou não mostra nada como está actualmente, ou então mostrar uma mensagem a dizer que não existem companhias pendentes
-     */
 
-}
 
 <div style="display:inline-block">
 <h2>@ViewBag.Title</h2>
@@ -112,4 +104,4 @@ else
    </tbody>
 
 </table>
-    </div>
+</div>

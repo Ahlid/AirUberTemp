@@ -227,7 +227,7 @@ namespace AirUberProjeto.Controllers
             if (ModelState.IsValid)
             {
                 ContaDeCreditos conta = new ContaDeCreditos();
-                Cliente user = new Cliente { UserName = model.Email, Email = model.Email, ContaDeCreditos = conta};
+                Cliente user = new Cliente { Nome = model.Nome, Apelido = model.Apelido,  UserName = model.Email, Email = model.Email, ContaDeCreditos = conta};
                 var result = await _userManager.CreateAsync(user, model.Password);// cria um user com a pw
                 if (result.Succeeded)
                 {

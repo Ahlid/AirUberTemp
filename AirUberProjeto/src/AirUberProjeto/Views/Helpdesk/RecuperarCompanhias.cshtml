@@ -1,0 +1,73 @@
+﻿@model System.Linq.IQueryable<AirUberProjeto.Models.Companhia>
+
+@{
+    ViewBag.Title_Requests = "Companhias Recusadas";
+    ViewBag.Title = "Companhias";
+    Layout = "_LayoutHelpdesk";
+
+
+}
+
+
+<h2>@ViewBag.Title_Requests</h2>
+
+@if (@ViewBag.NumeroCompanhiasRecusadas > 0) 
+{
+    <div style="display:inline-block">
+        <table class="table">
+
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => (model.Take(1) as Companhia).Nome)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => (model.Take(1) as Companhia).Contact)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => (model.Take(1) as Companhia).Email)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => (model.Take(1) as Companhia).Pais)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => (model.Take(1) as Companhia).Nif)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => (model.Take(1) as Companhia).DataCriacao)
+                    </th>
+                </tr>
+
+            </thead>
+            <tbody>
+
+                @foreach (var companhia in ViewBag.CompanhiasRecusadas)
+                {
+                    <tr>
+                        <td>@companhia.Nome</td>
+                        <td>@companhia.Contact</td>
+                        <td>@companhia.Email</td>
+                        <td>@companhia.Pais.Nome</td>
+                        <td>@companhia.Nif</td>
+                        <td>@companhia.DataCriacao</td>
+                        <td><a class="w3-btn w3-indigo" asp-action="AlterarEstadoCompanhia" asp-route-id = "@companhia.CompanhiaId" asp-route-estadoActualId="@companhia.EstadoId" asp-route-estadoDestinoId="1">Aceitar</a></td>
+                        <td><a class="w3-btn w3-indigo" asp-action="AlterarEstadoCompanhia" asp-route-id="@companhia.CompanhiaId" asp-route-estadoActualId="@companhia.EstadoId" asp-route-estadoDestinoId="2">Pendente</a></td>   
+                    </tr>                      
+                }
+
+
+            </tbody>
+
+        </table>
+    </div>
+
+
+
+
+}
+else
+{
+    // Não existem companhias Recusadas
+
+    <h3>Não existem companhias recusadas</h3>
+}

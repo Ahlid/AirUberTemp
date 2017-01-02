@@ -38,6 +38,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Custo)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Avaliacao)
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -69,6 +72,16 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Custo)
+            </td>
+            <td> <!-- find better solution-->
+                @if (item.Avaliacao < 0)
+                {
+                    @Html.Raw("Por avaliar")
+                }
+                else
+                {
+                    @Html.DisplayFor(modelItem => item.Avaliacao)
+                }
             </td>
         </tr>
 }
