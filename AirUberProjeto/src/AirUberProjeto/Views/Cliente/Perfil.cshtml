@@ -84,7 +84,7 @@
                     {
                         <div class="alert alert-@notificacao.Tipo alert-dismissable  fade in" style="margin: 1px; padding-top: 3px; padding-bottom: 3px">
                             @notificacao.Mensagem
-                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <a href="#" class="close" onclick="marcarLida(@notificacao.NotificacaoId);" data-dismiss="alert" aria-label="close">&times;</a>
                         </div>
                     }
                 }
@@ -95,10 +95,26 @@
 </div>
 
 
+<script>
+
+    function marcarLida(id) {
+        $.ajax({
+            type: "POST",
+            url: "/Cliente/MarcarNotificacaoLida",
+            data: { id: id },
+            dataType: "json",
+            success: processData,
+            error: function () { alert("failed"); }
+        });
+    }
 
 
+    function processData(data) {
+        console.log("Retirado");
+    }
 
-   
+
+</script>
 
 
 

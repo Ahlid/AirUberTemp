@@ -212,6 +212,53 @@
             User manager que vai permitir utilizar metodos feitos pela windows de forma a controlar os user.
             </summary>
         </member>
+        <member name="M:AirUberProjeto.Controllers.ClienteController.#ctor(AirUberProjeto.Data.AirUberDbContext,Microsoft.AspNetCore.Identity.UserManager{AirUberProjeto.Models.ApplicationUser},Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+            <param name="userManager"></param>
+            <param name="environment"></param>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.ClienteController.Index">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.ClienteController.Perfil">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.ClienteController.MarcarNotificacaoLida(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.ClienteController.EditarPerfil">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.ClienteController.EditarPerfil(AirUberProjeto.Models.ClienteViewModels.EditarPerfilViewModel)">
+            <summary>
+            
+            </summary>
+            <param name="viewModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.ClienteController.EditarImagemPerfil(Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            
+            </summary>
+            <param name="file"></param>
+            <returns></returns>
+        </member>
         <member name="T:AirUberProjeto.Controllers.HelpdeskController">
             <summary>
             Classe responsável por receber todos os pedidos do browser e tratar dos mesmos.
