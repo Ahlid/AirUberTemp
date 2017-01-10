@@ -7,11 +7,6 @@
 
     <h2>Editar perfil</h2>
 
-
-
-
-
-
 <div class="container" style="margin-top: 20px">
     <div class="col-md-2">
         <img class="img-thumbnail" src="..\@Model.RelativePathImagemPerfil" alt="...">
@@ -43,9 +38,7 @@
                             
                         });
 
-
                     </script>
-
 
                 }
                 
@@ -85,7 +78,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">Personalização</div>
             <div class="panel-body">
-                <form asp-controller="Cliente" asp-action="EditarImagemPerfil" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" class="form-vertical" enctype="multipart/form-data">
+                <form asp-controller="Cliente" asp-action="AlterarImagemPerfil" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" class="form-vertical" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="file">Imagem de perfil:</label>
                         <input type="file" accept=".jpg,.png" name="file" id="file" />

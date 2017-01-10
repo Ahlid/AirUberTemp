@@ -17,12 +17,15 @@ using Microsoft.AspNetCore.Identity;
 namespace AirUberProjeto.Controllers
 {
 
+    /// <summary>
+    /// Controlador responsável pela gestão de clientes
+    /// </summary>
     [Authorize(Roles = Roles.ROLE_CLIENTE)]
     public class ClienteController : Controller
     {
         
         /// <summary>
-        /// Utilizado para sabermos o caminho absoluto do servidor
+        /// Utilizado para sabermos o caminho absoluto da pasta wwwRoot
         /// </summary>
         private IHostingEnvironment _environment;
 
@@ -39,11 +42,11 @@ namespace AirUberProjeto.Controllers
 
         
         /// <summary>
-        /// 
+        /// Construtor do controlador
         /// </summary>
-        /// <param name="context"></param>
-        /// <param name="userManager"></param>
-        /// <param name="environment"></param>
+        /// <param name="context">O DB context da aplicação</param>
+        /// <param name="userManager">O manager dos utilizadores</param>
+        /// <param name="environment">O ambiente da aplicação</param>
         public ClienteController(AirUberDbContext context, UserManager<ApplicationUser> userManager, IHostingEnvironment environment)
         { 
             _environment = environment;
@@ -52,7 +55,7 @@ namespace AirUberProjeto.Controllers
         }
 
         /// <summary>
-        /// 
+        /// A acção index é a ação default do controlador e redireciona para a ação Perfil
         /// </summary>
         /// <returns></returns>
         [HttpGet]
@@ -64,9 +67,9 @@ namespace AirUberProjeto.Controllers
          
 
         /// <summary>
-        /// 
+        /// Apresenta a página de perfil do cliente tendo em conta o utilizador atual
         /// </summary>
-        /// <returns></returns>
+        /// <returns>A view do perfil do cliente</returns>
         [HttpGet]
         public IActionResult Perfil()
         {
@@ -92,10 +95,10 @@ namespace AirUberProjeto.Controllers
 
 
         /// <summary>
-        /// 
+        /// Permite marcar uma notificação como lida através do seu ID
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        /// <param name="id">Id da notificação ao qual se quer marcar como lida</param>
+        /// <returns>Variavel booleana que indica se houve sucesso a marcar a notificação como lida</returns>
         [HttpPost]
         public bool MarcarNotificacaoLida(int id)
         {
@@ -116,9 +119,9 @@ namespace AirUberProjeto.Controllers
 
 
         /// <summary>
-        /// 
+        /// Apresenta a página de edição de perfil do cliente tendo em conta o utilizador atual
         /// </summary>
-        /// <returns></returns>
+        /// <returns>A View de edição do perfil do cliente</returns>
         [HttpGet]
         public IActionResult EditarPerfil()
         {
@@ -129,10 +132,10 @@ namespace AirUberProjeto.Controllers
 
 
         /// <summary>
-        /// 
+        /// Trata de um pedido de alteração de dados de um cliente
         /// </summary>
-        /// <param name="viewModel"></param>
-        /// <returns></returns>
+        /// <param name="viewModel">ViewModel do pedido de alteração de dados</param>
+        /// <returns>A view de edição de perfil do cliente</returns>
         [HttpPost]
         public IActionResult EditarPerfil(EditarPerfilViewModel viewModel)
         {
@@ -154,12 +157,12 @@ namespace AirUberProjeto.Controllers
 
 
         /// <summary>
-        /// 
+        /// Permite alterar a imagem de perfil do cliente
         /// </summary>
-        /// <param name="file"></param>
-        /// <returns></returns>
+        /// <param name="file">ficheiro de imagem que irá substituir a imagem de perfil</param>
+        /// <returns>Um redirecionamento para a ação editar perfil</returns>
         [HttpPost]
-        public async Task<IActionResult> EditarImagemPerfil (IFormFile file)
+        public async Task<IActionResult> AlterarImagemPerfil (IFormFile file)
         {
 
             string extension = Path.GetExtension(file.FileName);
