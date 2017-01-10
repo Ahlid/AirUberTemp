@@ -4,6 +4,17 @@
         <name>AirUberProjeto</name>
     </assembly>
     <members>
+        <member name="T:AirUberProjeto.Program">
+            <summary>
+            Classe principal do programa
+            </summary>
+        </member>
+        <member name="M:AirUberProjeto.Program.Main(System.String[])">
+            <summary>
+            Main da aplicação
+            </summary>
+            <param name="args"></param>
+        </member>
         <member name="T:AirUberProjeto.Controllers.AutenticacaoController">
             <summary>
             Controlador responsável pela autenticação dos utilizadores web do sistema.
@@ -201,6 +212,73 @@
             </summary>
             <param name="length">o tamanho da password</param>
             <returns>A password gerada</returns>
+        </member>
+        <member name="T:AirUberProjeto.Controllers.ClienteController">
+            <summary>
+            Controlador responsável pela gestão de clientes
+            </summary>
+        </member>
+        <member name="F:AirUberProjeto.Controllers.ClienteController._environment">
+            <summary>
+            Utilizado para sabermos o caminho absoluto da pasta wwwRoot
+            </summary>
+        </member>
+        <member name="F:AirUberProjeto.Controllers.ClienteController._context">
+            <summary>
+            O contexto da aplicação para poder aceder a dados.
+            </summary>
+        </member>
+        <member name="F:AirUberProjeto.Controllers.ClienteController._userManager">
+            <summary>
+            User manager que vai permitir utilizar metodos feitos pela windows de forma a controlar os user.
+            </summary>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.ClienteController.#ctor(AirUberProjeto.Data.AirUberDbContext,Microsoft.AspNetCore.Identity.UserManager{AirUberProjeto.Models.ApplicationUser},Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
+            <summary>
+            Construtor do controlador
+            </summary>
+            <param name="context">O DB context da aplicação</param>
+            <param name="userManager">O manager dos utilizadores</param>
+            <param name="environment">O ambiente da aplicação</param>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.ClienteController.Index">
+            <summary>
+            A acção index é a ação default do controlador e redireciona para a ação Perfil
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.ClienteController.Perfil">
+            <summary>
+            Apresenta a página de perfil do cliente tendo em conta o utilizador atual
+            </summary>
+            <returns>A view do perfil do cliente</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.ClienteController.MarcarNotificacaoLida(System.Int32)">
+            <summary>
+            Permite marcar uma notificação como lida através do seu ID
+            </summary>
+            <param name="id">Id da notificação ao qual se quer marcar como lida</param>
+            <returns>Variavel booleana que indica se houve sucesso a marcar a notificação como lida</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.ClienteController.EditarPerfil">
+            <summary>
+            Apresenta a página de edição de perfil do cliente tendo em conta o utilizador atual
+            </summary>
+            <returns>A View de edição do perfil do cliente</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.ClienteController.EditarPerfil(AirUberProjeto.Models.ClienteViewModels.EditarPerfilViewModel)">
+            <summary>
+            Trata de um pedido de alteração de dados de um cliente
+            </summary>
+            <param name="viewModel">ViewModel do pedido de alteração de dados</param>
+            <returns>A view de edição de perfil do cliente</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.ClienteController.AlterarImagemPerfil(Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            Permite alterar a imagem de perfil do cliente
+            </summary>
+            <param name="file">ficheiro de imagem que irá substituir a imagem de perfil</param>
+            <returns>Um redirecionamento para a ação editar perfil</returns>
         </member>
         <member name="T:AirUberProjeto.Controllers.HelpdeskController">
             <summary>

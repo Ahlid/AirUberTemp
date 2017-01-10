@@ -1,0 +1,98 @@
+﻿@model Cliente
+
+    @{
+        ViewBag.Title = "Editar perfil";
+        Layout = "_Layout";
+    }
+
+    <h2>Editar perfil</h2>
+
+<div class="container" style="margin-top: 20px">
+    <div class="col-md-2">
+        <img class="img-thumbnail" src="..\@Model.RelativePathImagemPerfil" alt="...">
+        <ul class="list-unstyled" style="margin-top: 10px">
+            <li><a class="btn-link" asp-area="" asp-controller="Autenticacao" asp-action="ChangePassword">Alterar password</a></li>
+        </ul>
+
+    </div>
+    <div class="col-lg-10 ">
+        <div class="panel panel-default">
+            <div class="panel-heading">Dados do cliente</div>
+            <div class="panel-body">
+
+                @if (ViewData["Success"] != null && (bool)ViewData["Success"])
+                {
+                    <div class="alert alert-success" id="success-alert">
+                        <button type="button" class="close" data-dismiss="alert">x</button>
+                        <strong>Sucesso! </strong>
+                        Os dados foram atualizados
+                    </div>
+
+                    <script>
+                        
+                        $(document).ready(function () {
+
+                                $("#success-alert").fadeTo(2000, 500).slideUp(500, function () {
+                                    $("#success-alert").slideUp(500);
+                                });
+                            
+                        });
+
+                    </script>
+
+                }
+                
+
+                <form asp-controller="Cliente" asp-action="EditarPerfil" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" class="form-vertical">
+
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Nome" class="control-label"></label>
+                        <div>
+                            <input asp-for="Nome" class="form-control" />
+                            <span asp-validation-for="Nome" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Apelido" class="control-label"></label>
+                        <div>
+                            <input asp-for="Apelido" class="form-control" />
+                            <span asp-validation-for="Apelido" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Contacto" class="control-label"></label>
+                        <div>
+                            <input asp-for="Contacto" class="form-control" />
+                            <span asp-validation-for="Contacto" class="text-danger"></span>
+                        </div>
+                    </div>
+ 
+                    <button type="submit" class="btn btn-default">Submeter</button>
+                </form>
+
+            </div>
+
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">Personalização</div>
+            <div class="panel-body">
+                <form asp-controller="Cliente" asp-action="AlterarImagemPerfil" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" class="form-vertical" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="file">Imagem de perfil:</label>
+                        <input type="file" accept=".jpg,.png" name="file" id="file" />
+                        <input type="submit" value="Alterar" />
+                    </div>                  
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

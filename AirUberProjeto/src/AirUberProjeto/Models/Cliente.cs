@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.IO;
 
 namespace AirUberProjeto.Models
 {
@@ -10,6 +11,9 @@ namespace AirUberProjeto.Models
     /// </summary>
     public class Cliente : ApplicationUser
     {
+
+
+
         /// <summary>
         /// Identificador unívoco da conta de créditos que pertence ao utilizador.
         /// </summary>
@@ -20,6 +24,10 @@ namespace AirUberProjeto.Models
         /// Propriedade responsável por guardar o contacto do cliente
         /// </summary>
         public string Contacto { get; set; }
+
+
+        public string RelativePathImagemPerfil { get; set; }
+
 
         // Propriedades Virtuais
         /// <summary>
@@ -40,6 +48,7 @@ namespace AirUberProjeto.Models
         public Cliente()
         {
             ListaReservas = new List<Reserva>();
+            RelativePathImagemPerfil = Path.Combine("images", "perfil-default.jpg");
         }
     }
 }
