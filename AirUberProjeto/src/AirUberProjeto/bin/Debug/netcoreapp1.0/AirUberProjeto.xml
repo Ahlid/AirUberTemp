@@ -202,6 +202,16 @@
             <param name="length">o tamanho da password</param>
             <returns>A password gerada</returns>
         </member>
+        <member name="F:AirUberProjeto.Controllers.ClienteController._context">
+            <summary>
+            O contexto da aplicação para poder aceder a dados.
+            </summary>
+        </member>
+        <member name="F:AirUberProjeto.Controllers.ClienteController._userManager">
+            <summary>
+            User manager que vai permitir utilizar metodos feitos pela windows de forma a controlar os user.
+            </summary>
+        </member>
         <member name="T:AirUberProjeto.Controllers.HelpdeskController">
             <summary>
             Classe responsável por receber todos os pedidos do browser e tratar dos mesmos.

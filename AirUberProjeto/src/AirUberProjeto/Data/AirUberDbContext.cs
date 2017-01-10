@@ -77,8 +77,10 @@ namespace AirUberProjeto.Data
         public DbSet<Reserva> Reserva { get; set; }
         public DbSet<TipoExtra> TipoExtra { get; set; }
         public DbSet<TipoJato> TipoJato { get; set; }
+        public DbSet<Notificacao> Notificacao { get; set; }
+        public DbSet<ContaDeCreditos> ContaDeCreditoses { get; set; }
 
         //public DbSet<Helpdesk> Helpdesk { get; set; }
-        
+
     }
 }

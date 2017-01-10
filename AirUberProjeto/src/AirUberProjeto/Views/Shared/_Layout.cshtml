@@ -1,10 +1,14 @@
-﻿<!DOCTYPE html>
+﻿
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - AirUberProjeto</title>
-
+    
     <environment names="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/css/site.css" />
@@ -18,77 +22,80 @@
        
     </environment>
     @Html.ApplicationInsightsJavaScript(TelemetryConfiguration)
-    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="~/js/jquery-3.1.1.min.js"></script>
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
-    <!--Start of Tawk.to Script-->
-    <script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/58599d0fddb8373fd2b15edc/default';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
-    </script>
-    <!--End of Tawk.to Script-->
-<div class="navbar navbar-fixed-top w3-text-theme w3-theme-d3" style="box-shadow: 1px 1px 1px 1px #888888;">
-    <div class="container">
-        <div class="navbar-header">
-            <button  type="button" class="navbar-toggle w3-white" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar w3-black"></span>
-                <span class="icon-bar w3-black"></span>
-                <span class="icon-bar w3-black"></span>
-            </button>
-            
-            <a  asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand w3-text-white">AirUber</a>
-            <a asp-area="" asp-controller="Home" asp-action="About" class="btn btn-link navbar-btn w3-text-white">Sobre Nos</a>
-            @if (User.IsInRole("Helpesk"))
-            {
-                <a asp-area="" asp-controller="Helpdesk" asp-action="Index" class="btn btn-link navbar-btn w3-text-white">Helpdesk</a>
-            }
-        </div>
-        <div class="navbar-collapse collapse">
-           
-            @await Html.PartialAsync("_LoginPartial")
-        </div>
-    </div>
-</div>
-<div class="container body-content">
-    @RenderBody()
-    <hr/>
-    <footer class="w3-theme-dark w3-center" style="position:fixed;
+<!--Start of Tawk.to Script-->
+    
+@if (SignInManager.IsSignedIn(User))
+{
+
+    if (!User.IsInRole("Helpesk"))
+    {
+        <script type="text/javascript">
+            var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+            (function() {
+                var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+                s1.async = true;
+                s1.src = 'https://embed.tawk.to/58599d0fddb8373fd2b15edc/default';
+                s1.charset = 'UTF-8';
+                s1.setAttribute('crossorigin', '*');
+                s0.parentNode.insertBefore(s1, s0);
+            })();
+        </script>
+
+        <!--End of Tawk.to Script-->
+    }
+}
+    <div class="navbar navbar-fixed-top w3-text-theme w3-theme-d3" style="box-shadow: 1px 1px 1px 1px #888888;">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle w3-white" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar w3-black"></span>
+                            <span class="icon-bar w3-black"></span>
+                            <span class="icon-bar w3-black"></span>
+                        </button>
+
+                        <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand w3-text-white">AirUber</a>
+
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        @await Html.PartialAsync("_LoginPartial")
+                    </div>
+                </div>
+            </div>
+            <div class="container body-content">
+                @RenderBody()
+                <hr />
+                <footer class="w3-theme-dark w3-center" style="position:fixed;
    left:0px;
    bottom:0px;
    height:30px;
    width:100%;">
-        <p>&copy; 2016 - AirUberProjeto</p>
-    </footer>
-</div>
+                    <p>&copy; 2017 - AirUber</p>
+                </footer>
+            </div>
 
-<environment names="Development">
-    <script src="~/lib/jquery/dist/jquery.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-</environment>
-<environment names="Staging,Production">
-    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
-            asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
-            asp-fallback-test="window.jQuery">
-        
-    </script>
-    <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/bootstrap.min.js"
-            asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
-            asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal">
-        
-    </script>
-    <script src="~/js/site.min.js" asp-append-version="true"></script>
-</environment>
+            <environment names="Development">
+                <script src="~/lib/jquery/dist/jquery.js"></script>
+                <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+                <script src="~/js/site.js" asp-append-version="true"></script>
+            </environment>
+            <environment names="Staging,Production">
+                <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
+                        asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                        asp-fallback-test="window.jQuery">
 
-@RenderSection("scripts", required: false)
+                </script>
+                <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/bootstrap.min.js"
+                        asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                        asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal">
+                </script>
+                <script src="~/js/site.min.js" asp-append-version="true"></script>
+            </environment>
+
+            @RenderSection("scripts", required: false)
 </body>
 </html>
