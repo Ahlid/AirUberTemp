@@ -14,6 +14,7 @@ namespace AirUberProjeto.Models.ClienteViewModels
 
         public ICollection<Notificacao> Notificacoes { get; set; }
         public Cliente Cliente { get; set; }
+        public int NumeroViagens;
 
     }
 }

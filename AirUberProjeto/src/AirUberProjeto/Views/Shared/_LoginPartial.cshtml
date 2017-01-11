@@ -17,7 +17,7 @@
             <li><a asp-area="" asp-controller="Helpdesk" asp-action="Clientes" class="w3-hover-white w3-hover-text-indigo w3-text-white">Clientes</a></li>
             <li><a asp-area="" asp-controller="Helpdesk" asp-action="Companhias" class="w3-hover-white w3-hover-text-indigo w3-text-white">Companhias</a></li>
             <li><a asp-area="" asp-controller="Helpdesk" asp-action="Viagens" class="w3-hover-white w3-hover-text-indigo w3-text-white">Viagens</a></li>
-            <li><a asp-area="" asp-controller="Autenticacao" asp-action="ChangePassword" class="w3-btn w3-theme-d3 w3-hover-white w3-hover-text-indigo w3-text-white w3-padding-12">Mudar Password</a></li>
+            
         } 
        
         @if (User.IsInRole(Roles.ROLE_CLIENTE))
@@ -38,6 +38,11 @@
 
     <form asp-area="" asp-controller="Autenticacao" asp-action="LogOff" method="post" id="logoutForm" class="navbar-right">
         <ul class="nav navbar-nav navbar-right">
+            @if (User.IsInRole(Roles.ROLE_HELPDESK))
+            {
+                <li><a asp-area="" asp-controller="Autenticacao" asp-action="ChangePassword" class="w3-btn w3-theme-d3 w3-hover-white w3-hover-text-indigo w3-text-white w3-padding-12">Mudar Password</a></li>
+            }
+            
             <li>
                 <button type="submit" class="btn btn-link navbar-btn" style="color: white">Sair <i class="glyphicon glyphicon-log-out"></i></button>
             </li>
