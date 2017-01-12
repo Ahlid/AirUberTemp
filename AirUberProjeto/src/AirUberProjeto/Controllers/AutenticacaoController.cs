@@ -154,7 +154,7 @@ namespace AirUberProjeto.Controllers
                                 return RedirectToAction(nameof(HelpdeskController.Index), "Helpdesk");
 
                             case Roles.ROLE_CLIENTE:
-                                return RedirectToAction(nameof(HomeController.ClienteLogin), "Home");
+                                return RedirectToAction(nameof(ClienteController.Perfil), "Cliente");
 
                         }
                         
@@ -231,7 +231,12 @@ namespace AirUberProjeto.Controllers
                 var result = await _userManager.CreateAsync(user, model.Password);// cria um user com a pw
                 if (result.Succeeded)
                 {
+                    Notificacao notificacao1 = new Notificacao() {Mensagem = "Bem vindo à plataforma", Tipo = Notificacao.TYPE_INFO, Lida = false, UtilizadorId = user.Id};
+                    _context.Notificacao.Add(notificacao1);
 
+                    Notificacao notificacao2 = new Notificacao() { Mensagem = "Confirme o seu email", Tipo = Notificacao.TYPE_WARNING, Lida = false, UtilizadorId = user.Id };
+                    _context.Notificacao.Add(notificacao2);
+                   
 
                     await _userManager.AddToRoleAsync(user, Roles.ROLE_CLIENTE);//atribui a role
 
@@ -311,10 +316,7 @@ namespace AirUberProjeto.Controllers
 
 
                     await _userManager.AddToRoleAsync(user, Roles.ROLE_COLABORADOR_ADMIN);//atribui a role
-                    
-                  
-                   
-                   
+
 
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=532713
                     // Send an email with this link
@@ -375,6 +377,14 @@ namespace AirUberProjeto.Controllers
                 return View("Error");
             }
             var result = await _userManager.ConfirmEmailAsync(user, code);
+
+            if (result.Succeeded)
+            {
+                user.EmailConfirmed = true;
+            }
+                
+
+
             return View(result.Succeeded ? "ConfirmEmail" : "Error");
         }
 

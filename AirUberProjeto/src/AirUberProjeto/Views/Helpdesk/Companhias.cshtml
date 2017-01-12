@@ -3,7 +3,7 @@
 @{
     ViewBag.Title_Requests = "Pedidos";
     ViewBag.Title = "Companhias";
-    Layout = "_LayoutHelpdesk";
+    Layout = "_Layout";
     
 }
 
@@ -15,7 +15,7 @@
 @if (@ViewBag.NumeroCompanhiasPendentes > 0) // verificar se é != null não resulta
 {
     <h2>@ViewBag.Title_Requests</h2>
-    <div class="container-scroll">
+    <div class="container">
         <div class="w3-col w3 out">
             @foreach (var companhia in ViewBag.CompanhiasPendentes)
             {
@@ -50,58 +50,58 @@
 }
 
 
-<div style="display:inline-block">
 <h2>@ViewBag.Title</h2>
+    
+    <div class="table-responsive">
+        <table class="table">
 
-<table class="table">
-
-<thead>
-<tr>
-    <th>
-        @Html.DisplayNameFor(model => (model.Take(1) as Companhia).Nome)
-    </th> 
-    <th>
-        @Html.DisplayNameFor(model => (model.Take(1) as Companhia).Contact)
-    </th> 
-    <th>
-        @Html.DisplayNameFor(model => (model.Take(1) as Companhia).Email)
-    </th> 
-    <th>
-        @Html.DisplayNameFor(model => (model.Take(1) as Companhia).Pais)
-    </th> 
-    <th>
-        @Html.DisplayNameFor(model => (model.Take(1) as Companhia).Nif)
-    </th> 
-    <th>
-        @Html.DisplayNameFor(model => (model.Take(1) as Companhia).ListaReservas)
-    </th> 
-    <th>
-        @Html.DisplayNameFor(model => (model.Take(1) as Companhia).ContaDeCreditos.JetCashActual)
-    </th> 
-    <th>
-        @Html.DisplayNameFor(model => (model.Take(1) as Companhia).DataCriacao)
-    </th>
-</tr>
-
-</thead>
-   <tbody>
-       
-           @foreach (var companhia in ViewBag.CompanhiasAceites)
-           {
+            <thead>
             <tr>
-                <td>@companhia.Nome</td>
-                <td>@companhia.Contact</td>
-                <td>@companhia.Email</td>
-                <td>@companhia.Pais.Nome</td>
-                <td>@companhia.Nif</td>
-                <td>@companhia.ListaReservas.Count</td>
-                <td>@companhia.ContaDeCreditos.JetCashActual</td>
-                <td>@companhia.DataCriacao</td>
+                <th>
+                    @Html.DisplayNameFor(model => (model.Take(1) as Companhia).Nome)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => (model.Take(1) as Companhia).Contact)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => (model.Take(1) as Companhia).Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => (model.Take(1) as Companhia).Pais)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => (model.Take(1) as Companhia).Nif)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => (model.Take(1) as Companhia).ListaReservas)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => (model.Take(1) as Companhia).ContaDeCreditos.JetCashActual)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => (model.Take(1) as Companhia).DataCriacao)
+                </th>
             </tr>
-           }
-            
 
-   </tbody>
+            </thead>
+            <tbody>
 
-</table>
-</div>
+            @foreach (var companhia in ViewBag.CompanhiasAceites)
+            {
+                <tr>
+                    <td>@companhia.Nome</td>
+                    <td>@companhia.Contact</td>
+                    <td>@companhia.Email</td>
+                    <td>@companhia.Pais.Nome</td>
+                    <td>@companhia.Nif</td>
+                    <td>@companhia.ListaReservas.Count</td>
+                    <td>@companhia.ContaDeCreditos.JetCashActual</td>
+                    <td>@companhia.DataCriacao</td>
+                </tr>
+            }
+
+
+            </tbody>
+
+        </table>
+    </div>

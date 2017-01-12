@@ -21,9 +21,7 @@ namespace AirUberProjeto.Models
         /// <param name="context">Contexto da aplicação.</param>
         public static void Initialize(AirUberDbContext context)
         {
-
             context.Database.EnsureCreated();
-
 
             inicializarPaises(context);
             context.SaveChanges();
@@ -194,6 +192,7 @@ namespace AirUberProjeto.Models
                     Contacto = "+351...",
                     Email = "artur@airuber.com"
                 });
+                
 
                 context.Cliente.Add(new Cliente
                 {

@@ -4,28 +4,66 @@
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
 
+
+
+
 @if (SignInManager.IsSignedIn(User))
 {
+    <ul class="nav navbar-nav navbar-left">
+        
+        @if (User.IsInRole(Roles.ROLE_HELPDESK))
+        {
+            <li><a asp-area="" asp-controller="Helpdesk" asp-action="Index" class="w3-hover-white w3-hover-text-indigo w3-text-white">Consola</a></li>
+            <li><a asp-area="" asp-controller="Helpdesk" asp-action="Clientes" class="w3-hover-white w3-hover-text-indigo w3-text-white">Clientes</a></li>
+            <li><a asp-area="" asp-controller="Helpdesk" asp-action="Companhias" class="w3-hover-white w3-hover-text-indigo w3-text-white">Companhias</a></li>
+            <li><a asp-area="" asp-controller="Helpdesk" asp-action="Viagens" class="w3-hover-white w3-hover-text-indigo w3-text-white">Viagens</a></li>
+            
+        } 
+       
+        @if (User.IsInRole(Roles.ROLE_CLIENTE))
+        {
+
+            <li><a class="w3-hover-white w3-hover-text-indigo w3-text-white" asp-area="" asp-controller="Cliente" asp-action="Perfil">Ver perfil</a></li>
+            <!-- <li><a class="w3-hover-white w3-hover-text-indigo w3-text-white" asp-area="" asp-controller="Cliente" asp-action="EditarPerfil">Editar perfil</a></li> -->
+            <li><a class="w3-hover-white w3-hover-text-indigo w3-text-white" asp-area="" asp-controller="Cliente" asp-action="Viagens">Viagens</a></li>
+            <li><a class="w3-hover-white w3-hover-text-indigo w3-text-white" asp-area="" asp-controller="Cliente" asp-action="Viajar">Viajar</a></li>
+        }
+        
+        @if (!User.IsInRole(Roles.ROLE_HELPDESK))
+        {
+            <li><a class="w3-hover-white w3-hover-text-indigo w3-text-white" asp-area="" asp-controller="Home" asp-action="About">Sobre Nos</a></li>
+        }
+    </ul>
+
+
     <form asp-area="" asp-controller="Autenticacao" asp-action="LogOff" method="post" id="logoutForm" class="navbar-right">
-        <ul class="nav navbar-nav navbar-right"> 
+        <ul class="nav navbar-nav navbar-right">
+            <li><a asp-area="" asp-controller="Autenticacao" asp-action="ChangePassword" class="w3-hover-white w3-hover-text-indigo w3-text-white">Mudar Password</a></li>
             <li>
-                <button type="submit" class="btn btn-link navbar-btn" style="color: white">Sair  <i class="glyphicon glyphicon-log-out"></i></button>
+                <button type="submit" class="btn btn-link navbar-btn" style="color: white">Sair <i class="glyphicon glyphicon-log-out"></i></button>
             </li>
         </ul>
     </form>
 }
 else
 {
+    <ul class="nav navbar-nav navbar-left">
+        <li><a class="w3-hover-white w3-hover-text-indigo w3-text-white" asp-area="" asp-controller="Home" asp-action="About">Sobre Nos</a></li>
+    </ul>
+
     <ul class="nav navbar-nav navbar-right" style="color: white">
-        
-        <li class="w3-dropdown-hover">
-        <a class="" asp-area="" asp-controller="Autenticacao" asp-action="Register">Registar</a>
-            <div class="w3-dropdown-content w3-white w3-card-4">
+
+        <!-- <li class="w3-dropdown-hover">-->
+        <li>
+            <a class="w3-hover-white w3-hover-text-indigo w3-text-white" asp-area="" asp-controller="Autenticacao" asp-action="Register">Registar</a>
+        </li>
+        <!-- <div class="w3-dropdown-content w3-white w3-card-4">
                 <a asp-area="" asp-controller="Autenticacao" asp-action="RegisterCliente">Registo Cliente</a>
                 <a asp-area="" asp-controller="Autenticacao" asp-action="RegisterCompanhia">Registo Companhia</a>
-            </div>
-        </li>
-       
+            </div>-->
+        <!-- </li>-->
         <li><a class="w3-hover-white w3-hover-text-indigo w3-text-white" asp-area="" asp-controller="Autenticacao" asp-action="Login">Entrar </a></li>
     </ul>
 }
+
+
