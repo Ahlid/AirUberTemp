@@ -1,0 +1,30 @@
+﻿{
+  "dependencies": {
+    "dotnet-test-xunit": "2.2.0-*",
+    "xunit": "2.2.0-*",
+    "MyTested.AspNetCore.Mvc": "1.0.0",
+    "MyTested.AspNetCore.Mvc.EntityFrameworkCore": "1.0.0", // <---
+    "AirUberProjeto": "*"
+  },
+
+  "frameworks": {
+    "netcoreapp1.0": {
+      "imports": [
+        "dotnet5.6",
+        "portable-net45+win10"
+      ]
+    }
+
+  },
+
+  "testRunner": "xunit",
+  "runtimes": {
+    "win10-x64": {}
+  },
+
+  "buildOptions": {
+    "copyToOutput": [
+      "config.json"
+    ]
+  }
+}

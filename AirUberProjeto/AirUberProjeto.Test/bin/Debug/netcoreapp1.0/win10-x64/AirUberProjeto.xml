@@ -1,0 +1,1145 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AirUberProjeto</name>
+    </assembly>
+    <members>
+        <member name="T:AirUberProjeto.Controllers.AutenticacaoController">
+            <summary>
+            Controlador responsável pela autenticação dos utilizadores web do sistema.
+            </summary>
+        </member>
+        <member name="F:AirUberProjeto.Controllers.AutenticacaoController._userManager">
+            <summary>
+            User manager que vai permitir utilizar metodos feitos pela windows de forma a controlar os user.
+            </summary>
+        </member>
+        <member name="F:AirUberProjeto.Controllers.AutenticacaoController._signInManager">
+            <summary>
+            Manager responsavel pelo tratamento das sessões dos utilizadores.
+            </summary>
+        </member>
+        <member name="F:AirUberProjeto.Controllers.AutenticacaoController._emailSender">
+            <summary>
+            Server para enviar os emails.
+            </summary>
+        </member>
+        <member name="F:AirUberProjeto.Controllers.AutenticacaoController._logger">
+            <summary>
+            Logger para cada ação.
+            </summary>
+        </member>
+        <member name="F:AirUberProjeto.Controllers.AutenticacaoController._context">
+            <summary>
+            O contexto da aplicação para poder aceder a dados.
+            </summary>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.AutenticacaoController.#ctor(Microsoft.AspNetCore.Identity.UserManager{AirUberProjeto.Models.ApplicationUser},Microsoft.AspNetCore.Identity.SignInManager{AirUberProjeto.Models.ApplicationUser},AirUberProjeto.Services.IEmailSender,Microsoft.Extensions.Logging.ILoggerFactory,AirUberProjeto.Data.AirUberDbContext)">
+            <summary>
+            Construtor do controlador
+            </summary>
+            <param name="userManager">O user manager a usar para o controlo de utilizadores</param>
+            <param name="signInManager">O sign in manager a usar para o controlo de sessões</param>
+            <param name="emailSender">O email sender a usar para enviar os emails</param>
+            <param name="loggerFactory">O logger a usar para guardar ações no sistema</param>
+            <param name="context">O contexto da aplicação</param>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.AutenticacaoController.Login(System.String)">
+            <summary>
+            Método responsavel por devover a pagina de login
+            </summary>
+            <param name="returnUrl">O url de retorno que é a pagina de onde veio</param>
+            <returns>A view para efectuar login</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.AutenticacaoController.Login(AirUberProjeto.Models.AutenticacaoViewModels.LoginViewModel,System.String)">
+            <summary>
+            Método responsável pelo pedido de login do utilizador, verificando os dados e autorizando ou não o login.
+            </summary>
+            <param name="model">O login model com os dados necessarios para o login</param>
+            <param name="returnUrl">O url de retorno que é a pagina de onde veio</param>
+            <returns>A View Login caso seja inválido, um redirecionamento caso seja login válido</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.AutenticacaoController.Register(System.String)">
+            <summary>
+            Metodo responsável pelos pedidos da pagina de registo.
+            </summary>
+            <param name="returnUrl">O url de retorno que é a pagina de onde veio</param>
+            <returns>A view de resgisto</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.AutenticacaoController.RegisterCliente(System.String)">
+            <summary>
+            Método responsável pelo pedido da pagina de registo de cliente.
+            </summary>
+            <param name="returnUrl">O url de retorno que é a pagina de onde veio</param>
+            <returns>A view de registo do cliente</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.AutenticacaoController.RegisterCliente(AirUberProjeto.Models.AutenticacaoViewModels.RegisterClienteViewModel,System.String)">
+            <summary>
+            Método responsável pelo tratamento de dados para um registo de cliente 
+            </summary>
+            <param name="model">Os dados para o registo do cliente</param>
+            <param name="returnUrl">O url de retorno que é a pagina de onde veio</param>
+            <returns>Se o registo oi valido retorna um redirecionamento para a home page, caso contrario retorna a view de Registo de Cliente</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.AutenticacaoController.RegisterCompanhia(System.String)">
+            <summary>
+            Método responsável pelo pedido da pagina de registo de companhia.
+            </summary>
+            <param name="returnUrl">O url de retorno que é a pagina de onde veio</param>
+            <returns>A view de registo de companhia.</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.AutenticacaoController.RegisterCompanhia(AirUberProjeto.Models.AutenticacaoViewModels.RegisterCompanhiaViewModel,System.String)">
+            <summary>
+            Método responsável pelo tratamento de dados para o registo de uma companhia.
+            </summary>
+            <param name="model"> Os dados para o registo da companhia. </param>
+            <param name="returnUrl">O url de retorno que é a pagina de onde veio.</param>
+            <returns>A view de registo caso os dados sejam inválidos, um redrecionamento para a home page caso sejam válidos</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.AutenticacaoController.LogOff">
+            <summary>
+            Método responsável pelo fecho de sessão
+            </summary>
+            <returns>Um redirecionamento para a home page</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.AutenticacaoController.ConfirmEmail(System.String,System.String)">
+            <summary>
+            Método de devolve a página de veriicação de email.
+            </summary>
+            <param name="userId"> O id do utilizador a veriica o email.</param>
+            <param name="code">O code de veriicação do email do utilizador.</param>
+            <returns>Uma view error caso os dados sejam inválidos, uma view com ação sucedida caso contrario.</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.AutenticacaoController.ForgotPassword">
+            <summary>
+            Método responsável por tratar de um pedido da pagina de esquecimento de password.
+            </summary>
+            <returns>A view de esquecimento de password.</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.AutenticacaoController.ForgotPassword(AirUberProjeto.Models.AutenticacaoViewModels.ForgotPasswordViewModel)">
+            <summary>
+            Método responsável pelo tratamento dos dados para um pedido de esquecimento de password.
+            </summary>
+            <param name="model">Os dados para o esquecimento de passowrd.</param>
+            <returns>Caso os dados sejam válidos retorna a view de esquecimento de password, caso contratio a view de confirmação de esquecimento de password.</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.AutenticacaoController.ForgotPasswordConfirmation">
+            <summary>
+            Método que devovle a página de confirmação de esquecimento a password.
+            </summary>
+            <returns>View de confirmação de esquecimento a password.</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.AutenticacaoController.ResetPassword(System.String)">
+            <summary>
+            Metodo que devolve a página de reset password.
+            </summary>
+            <param name="code">Código de reset.</param>
+            <returns>A view reset se o codigo for valido, a view de erro caso contrario</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.AutenticacaoController.ResetPassword(AirUberProjeto.Models.AutenticacaoViewModels.ResetPasswordViewModel)">
+            <summary>
+            Método que trata dos dados de alteração de password.
+            </summary>
+            <param name="model">O modelo de dados para a mudança da password.</param>
+            <returns>A view de mudança da password se inválido, um redirecionamento para a view de reset password confirmation caso válido </returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.AutenticacaoController.ResetPasswordConfirmation">
+            <summary>
+            Método que devovle a view de confirmação da mudança de password.
+            </summary>
+            <returns>A view de reset password confirmation.</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.AutenticacaoController.ChangePassword">
+            <summary>
+            Método de devovle a view para mudar a password.
+            </summary>
+            <returns>View de mudança de passwor.</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.AutenticacaoController.ChangePassword(AirUberProjeto.Models.AutenticacaoViewModels.ChangePasswordViewModel)">
+            <summary>
+            Método que recebe os dados da mudança de password e muda.
+            </summary>
+            <param name="model">O modelo de dados a usar.</param>
+            <returns>Um redirecionamento caso os dados sejam validos, a view de mudança de password caso contrário.</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.AutenticacaoController.ConfirmReset(System.String)">
+            <summary>
+            Metodo que devovle uma página de conirmação de reset de password.
+            </summary>
+            <param name="email">email a fazer o reset a password.</param>
+            <returns>A view de confirmação de reset.</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.AutenticacaoController.GenerateNewPassword(System.String)">
+            <summary>
+            Método que gera uma nova password a um utilizador.
+            </summary>
+            <param name="email">email do utilizador a gerar nova password.</param>
+            <returns>A view de gerar uma nova password.</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.AutenticacaoController.AddErrors(Microsoft.AspNetCore.Identity.IdentityResult)">
+            <summary>
+            Método que adiciona erros
+            </summary>
+            <param name="result">Os erros atuais</param>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.AutenticacaoController.GetCurrentUserAsync">
+            <summary>
+            Método que devovle o utilizador atual.
+            </summary>
+            <returns>O utilizador atual.</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.AutenticacaoController.RedirectToLocal(System.String)">
+            <summary>
+            Método que cira um redirecionamento.
+            </summary>
+            <param name="returnUrl">o url a redirecionar.</param>
+            <returns>Um redirecionamento para o url recebido.</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.AutenticacaoController.CreatePassword(System.Int32)">
+            <summary>
+            Método que gera uma nova password random
+            </summary>
+            <param name="length">o tamanho da password</param>
+            <returns>A password gerada</returns>
+        </member>
+        <member name="T:AirUberProjeto.Controllers.HelpdeskController">
+            <summary>
+            Classe responsável por receber todos os pedidos do browser e tratar dos mesmos.
+            </summary>
+            <remarks>
+            Apenas são autorizados pedidos cujo papel do utilizador seja o de Helpdesk.
+            </remarks>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.HelpdeskController.Index">
+            <summary>
+            Responsável por redireccionar o utilizador de helpdesk para a página inicial do helpdesk.
+            </summary>
+            <returns>Retorna a view da página inicial do helpdesk</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.HelpdeskController.Clientes">
+            <summary>
+            Responsável por redireccionar o utilizador de helpdesk para a página que apresenta a informação de todos os clientes.
+            </summary>
+            <returns>Retorna a view dos clientes</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.HelpdeskController.Companhias">
+            <summary>
+            Responsável por redireccionar o utilizador de helpdesk para a página que apresenta a informação de todas as companhias.
+            </summary>
+            <remarks>
+            São apresentados todas as companhias pendentes (caso existam) e aceites
+            </remarks>
+            <param name="id">id da companhia</param>
+            <param name="estadoId">id do estado da companhia</param>
+            <returns>Retorna a view dos clientes</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.HelpdeskController.RecuperarCompanhias">
+            <summary>
+            Responsável por redireccionar o utilizador de helpdesk para a página que apresenta a informação das companhias recusadas.
+            </summary>
+            <remarks>
+            É apresentada uma listagem de companhias caso estas existam, se não é apresentada uma mensagem a informar que n
+            não existem companhias recusadas.
+            </remarks>
+            <returns>Retorna a view das companhias recusadas</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.HelpdeskController.AlterarEstadoCompanhia(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Responsável por alterar o estado de uma companhia. 
+            </summary>
+            <param name="id">id da companhia</param>
+            <param name="estadoActualId">estado actual da companhia</param>
+            <param name="estadoDestinoId">estado que o utilizador de helpdesk indicou para a companhia</param>
+            <returns>Retorna a view das companhias ou das companhias recusadas, dependendo da 
+            localização do utilizador de helpdesk</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.HelpdeskController.Viagens">
+            <summary>
+            Responsável por redireccionar o utilizador de helpdesk para a página que apresenta a informação de todas as viagens.
+            </summary>
+            <returns>Retorna a view das viagens</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.HelpdeskController.ModalViagens(System.String,System.Nullable{System.Int32})">
+            <summary>
+            Responsável por redireccionar o utilizador de helpdesk para a página que apresenta a informação de todas as viagens
+            de um utilizador. 
+            </summary>
+            <remarks>
+            As informações do utilizador são recebidas como parâmetro. 
+            </remarks>
+            <param name="email">email do utilizador selecionado</param>
+            <param name="count">númerto de reservas do utilizador selecionado</param>
+            <returns>Retorna View Modal caso email seja valido e ccontenha viagens, NotFound caso contratio</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.HelpdeskController.getCompanhiaPorEstado(System.Int32)">
+            <summary>
+            Retornar uma lista de companhias de acordo com o estado da companhia.
+            Estado = 1 -> Companhia Aceite
+            Estado = 2 -> Companhia Pendente
+            Estado = 3 -> Companhia Recusada
+            </summary>
+            <param name="estado">estado de uma companhia</param>
+            <returns>Lista de companhias de acordo com o estado</returns>
+        </member>
+        <member name="T:AirUberProjeto.Models.Aeroporto">
+            <summary>
+            Classe responsável por toda a informação de um aeroporto.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Aeroporto.AeroportoId">
+            <summary>
+            Identificador unívoco de um aeroporto, sendo chave primária na base de dados.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Aeroporto.CidadeId">
+            <summary>
+            Identificador unívoco da cidade a que o aeroporto pertence.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Aeroporto.Nome">
+            <summary>
+            Propriedade responsável por guardar o nome do aeroporto.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Aeroporto.Latitude">
+            <summary>
+            Propriedade responsável por guardar a latitude do aeroporto.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Aeroporto.Longitude">
+            <summary>
+            Propriedade responsável por guardar a longitude do aeroporto.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Aeroporto.Cidade">
+            <summary>
+            Propriedade navegacional responsável por referenciar a cidade do aeroporto.
+            </summary>
+        </member>
+        <member name="M:AirUberProjeto.Models.Aeroporto.#ctor">
+            <summary>
+            Constructor da classe Aeroporto, é responsável por inicializar as listas de partidas
+            e chegadas.
+            </summary>
+        </member>
+        <member name="T:AirUberProjeto.Models.ApplicationUser">
+            <summary>
+            Classe responsável por representar a informação comum a todos os utilizadores.
+            Para maximizar este efeito a classe extende da classe 'IdentityUser' da Microsoft.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.ApplicationUser.DataCriacao">
+            <summary>
+            Propriedade responsável por guardar a data de criação de um utilizador no sistema.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.ApplicationUser.Nome">
+            <summary>
+            Propriedade responsável por guardar o nome do utilizador
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.ApplicationUser.Apelido">
+            <summary>
+            Propriedade responsável por guardar o apelido do utilizador
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.ApplicationUser.Ativo">
+            <summary>
+            Propriedade responsável por indicar se um utilizador está activo ou desactivado.
+            </summary>
+            <remarks>
+            Caso um utilizador esteja desactivado este não conseguirá fazer login no sistema.
+            </remarks>
+        </member>
+        <member name="M:AirUberProjeto.Models.ApplicationUser.#ctor">
+            <summary>
+            Constructor da classe ApplicationUser, é responsável por inicializar a data criação para a data do momento
+            de criação.
+            </summary>
+        </member>
+        <member name="T:AirUberProjeto.Models.Cidade">
+            <summary>
+            Classe responsável por toda a informação de uma cidade.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Cidade.CidadeId">
+            <summary>
+            Identificador unívoco de uma cidade, sendo chave primária na base de dados.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Cidade.Nome">
+            <summary>
+            Propriedade responsável por guardar o nome da cidade.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Cidade.PaisId">
+            <summary>
+            Identificador unívoco do país a que a cidade pertence.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Cidade.Pais">
+            <summary>
+            Propriedade navegacional responsável por referenciar o país da cidade.
+            </summary>
+        </member>
+        <member name="T:AirUberProjeto.Models.Cliente">
+            <summary>
+            Classe responsável por representar a informação específica de um cliente.
+            Para a classe adquirir toda a informação de um utilizador esta classe extende 
+            da classe 'ApplicationUser'.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Cliente.ContaDeCreditosId">
+            <summary>
+            Identificador unívoco da conta de créditos que pertence ao utilizador.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Cliente.Contacto">
+            <summary>
+            Propriedade responsável por guardar o contacto do cliente
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Cliente.ListaReservas">
+            <summary>
+            Propriedade navegacional responsável por referenciar a lista de reservas de um cliente.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Cliente.ContaDeCreditos">
+            <summary>
+            Propriedade navegacional responsável por referenciar a conta de créditos de um cliente.
+            </summary>
+        </member>
+        <member name="M:AirUberProjeto.Models.Cliente.#ctor">
+            <summary>
+            Constructor da classe Cliente, é responsável por inicializar a lista de reservas de um cliente.
+            </summary>
+        </member>
+        <member name="T:AirUberProjeto.Models.Colaborador">
+            <summary>
+            Classe responsável por representar a informação específica de um colaborador.
+            Para a classe adquirir toda a informação de um utilizador esta classe extende 
+            da classe 'ApplicationUser'.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Colaborador.CompanhiaId">
+            <summary>
+            Identificador unívoco da companhia a que pertence o colaborador
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Colaborador.IsAdministrador">
+            <summary>
+            Propriedade responsável por indicar se um colaborador é administrador ou não
+            </summary>
+            <remarks>
+            Um utilizador que seja administrador terá certos privilégios que um colaborador não seja administrador não tem responsabilidade
+            </remarks>
+        </member>
+        <member name="P:AirUberProjeto.Models.Colaborador.Companhia">
+            <summary>
+            Propriedade navegacional responsável por referenciar a companhia a que o colaborador pertence.
+            </summary>
+        </member>
+        <member name="M:AirUberProjeto.Models.Colaborador.#ctor">
+            <summary>
+            Constructor da classe Colaborador, é responsável por indicar, que por omissão, um 
+            colaborador não é um administrador.
+            </summary>
+        </member>
+        <member name="T:AirUberProjeto.Models.Companhia">
+            <summary>
+            Classe responsável por toda a informação de uma companhia.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Companhia.CompanhiaId">
+            <summary>
+            Identificador unívoco de uma companhia, sendo chave primária na base de dados.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Companhia.Nome">
+            <summary>
+            Propriedade responsável por guardar o nome da companhia.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Companhia.Morada">
+            <summary>
+            Propriedade responsável por guardar a morada da companhia.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Companhia.Contact">
+            <summary>
+            Propriedade responsável por guardar o contacto da companhia.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Companhia.PaisId">
+            <summary>
+            Identificador unívoco do país a que a companhia pertence.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Companhia.Nif">
+            <summary>
+            Propriedade responsável por guardar o NIF da companhia.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Companhia.ContaDeCreditosId">
+            <summary>
+            Identificador unívoco da conta de créditos que pertence à companhia.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Companhia.Email">
+            <summary>
+            Propriedade responsável por guardar o email da companhia.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Companhia.DataCriacao">
+            <summary>
+            Propriedade responsável por guardar a data de criação da companhia.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Companhia.EstadoId">
+            <summary>
+            Identificador unívoco do estado que representa a situação actual da companhia no sistema.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Companhia.Pais">
+            <summary>
+            Propriedade navegacional responsável por referenciar o país a que uma companhia pertence.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Companhia.Estado">
+            <summary>
+            Propriedade navegacional responsável por referenciar o estado de uma companhia.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Companhia.ContaDeCreditos">
+            <summary>
+            Propriedade navegacional responsável por referenciar a conta de créditos de uma companhia.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Companhia.ListaReservas">
+            <summary>
+            Propriedade navegacional responsável por referenciar a lista de reservas de uma companhia.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Companhia.ListaColaboradores">
+            <summary>
+            Propriedade navegacional responsável por referenciar a lista de colaboradores que pertence a uma companhia.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Companhia.ListaJatos">
+            <summary>
+            Propriedade navegacional responsável por referenciar a lista de jatos que pertencem a uma companhia.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Companhia.ListaExtras">
+            <summary>
+            Propriedade navegacional responsável por referenciar a lista de extras que pertencem a uma companhia.
+            </summary>
+        </member>
+        <member name="M:AirUberProjeto.Models.Companhia.#ctor">
+            <summary>
+            Constructor da classe Companhia, é responsável por inicializar a lista de reservas,
+            de colaboradores, de jatos e extras. É também responsável por inicializar a data de criação para a 
+            data do momento da criação da companhia. Por omissão também inicializa o EstadoId a 2, que é o 
+            estado que indica que a companhia está pendente.
+            </summary>
+        </member>
+        <member name="T:AirUberProjeto.Models.ContaDeCreditos">
+            <summary>
+            Classe responsável por toda a informação de uma conta de créditos.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.ContaDeCreditos.ContaDeCreditosId">
+            <summary>
+            Identificador unívoco de uma conta de créditos, sendo chave primária na base de dados.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.ContaDeCreditos.JetCashActual">
+            <summary>
+            Propriedade responsável por guardar o número de créditos existentes numa conta.
+            </summary>
+        </member>
+        <member name="M:AirUberProjeto.Models.ContaDeCreditos.#ctor">
+            <summary>
+            Constructor da classe ContaDeCreditos, é responsável por inicializar o número de jetcash a 0.
+            </summary>
+        </member>
+        <member name="T:AirUberProjeto.Models.DbInitializer">
+            <summary>
+            Classe responsável por popular a base de dados numa fase inicial.
+            </summary>
+        </member>
+        <member name="M:AirUberProjeto.Models.DbInitializer.Initialize(AirUberProjeto.Data.AirUberDbContext)">
+            <summary>
+            Método reponsável por inserir em todas as tabelas da base de dados caso não haja já valores na tabela.
+            </summary>
+            <param name="context">Contexto da aplicação.</param>
+        </member>
+        <member name="M:AirUberProjeto.Models.DbInitializer.AddRoles(System.IServiceProvider,AirUberProjeto.Data.AirUberDbContext)">
+            <summary>
+            Responsável por adicionar à base de dados todos os papéis que um utilizador pode adquirir.
+            </summary>
+            <param name="serviceProvider">serviço</param>
+            <param name="context">Contexto da aplicação</param>
+            <returns>retornar um objecto da classe Task</returns>
+        </member>
+        <member name="M:AirUberProjeto.Models.DbInitializer.inicializarPaises(AirUberProjeto.Data.AirUberDbContext)">
+            <summary>
+            Responsável por inserir na base de dados vários pases caso não exista nenhum país na base de dados.
+            </summary>
+            <param name="context">Contexto da aplicação</param>
+        </member>
+        <member name="M:AirUberProjeto.Models.DbInitializer.inicializarEstados(AirUberProjeto.Data.AirUberDbContext)">
+            <summary>
+            Responsável por inserir na base de dados vários estados caso não exista nenhum estado na base de dados.
+            </summary>
+            <param name="context">Contexto da aplicação</param>
+        </member>
+        <member name="M:AirUberProjeto.Models.DbInitializer.inicializarTipoJatos(AirUberProjeto.Data.AirUberDbContext)">
+            <summary>
+            Responsável por inserir na base de dados vários tipo de jatos caso não exista nenhum tipo de jatos na base de dados.
+            </summary>
+            <param name="context">Contexto da aplicação</param>
+        </member>
+        <member name="M:AirUberProjeto.Models.DbInitializer.inicializarTipoExtras(AirUberProjeto.Data.AirUberDbContext)">
+            <summary>
+            Responsável por inserir na base de dados vários tipo de extras caso não exista nenhum tipo de extras na base de dados.
+            </summary>
+            <param name="context">Contexto da aplicação</param>
+        </member>
+        <member name="M:AirUberProjeto.Models.DbInitializer.inicializarClientes(AirUberProjeto.Data.AirUberDbContext)">
+            <summary>
+            Responsável por inserir na base de dados vários clientes caso não exista nenhum cliente na base de dados
+            </summary>
+            <param name="context">Contexto da aplicação</param>
+        </member>
+        <member name="M:AirUberProjeto.Models.DbInitializer.inicializarModelos(AirUberProjeto.Data.AirUberDbContext)">
+            <summary>
+            Responsável por inserir na base de dados vários modelos caso não exista nenhum modelo na base de dados
+            </summary>
+            <param name="context">Contexto da aplicação</param>
+        </member>
+        <member name="M:AirUberProjeto.Models.DbInitializer.inicializarCidades(AirUberProjeto.Data.AirUberDbContext)">
+            <summary>
+            Responsável por inserir na base de dados várias cidades caso não exista nenhuma cidade na base de dados
+            </summary>
+            <param name="context">Contexto da aplicação</param>
+        </member>
+        <member name="M:AirUberProjeto.Models.DbInitializer.inicializarAeroportos(AirUberProjeto.Data.AirUberDbContext)">
+            <summary>
+            Responsável por inserir na base de dados vários aeroportos caso não exista nenhum aeroporto na base de dados
+            </summary>
+            <param name="context">Contexto da aplicação</param>
+        </member>
+        <member name="M:AirUberProjeto.Models.DbInitializer.inicializarCompanhias(AirUberProjeto.Data.AirUberDbContext)">
+            <summary>
+            Responsável por inserir na base de dados várias companhias caso não exista nenhuma companhia na base de dados
+            </summary>
+            <param name="context">Contexto da aplicação</param>
+        </member>
+        <member name="M:AirUberProjeto.Models.DbInitializer.inicializarJatos(AirUberProjeto.Data.AirUberDbContext)">
+            <summary>
+            Responsável por inserir na base de dados vários jatos caso não exista nenhum jato na base de dados
+            </summary>
+            <param name="context">Contexto da aplicação</param>
+        </member>
+        <member name="M:AirUberProjeto.Models.DbInitializer.inicializarExtras(AirUberProjeto.Data.AirUberDbContext)">
+            <summary>
+            Responsável por inserir na base de dados vários extras caso não exista nenhum extra na base de dados
+            </summary>
+            <param name="context">Contexto da aplicação</param>
+        </member>
+        <member name="M:AirUberProjeto.Models.DbInitializer.inicializarColaboradores(AirUberProjeto.Data.AirUberDbContext)">
+            <summary>
+            Responsável por inserir na base de dados vários colaboradores caso não exista nenhum colaborador na base de dados
+            </summary>
+            <param name="context">Contexto da aplicação</param>
+        </member>
+        <member name="M:AirUberProjeto.Models.DbInitializer.inicializarViagens(AirUberProjeto.Data.AirUberDbContext)">
+            <summary>
+            Responsável por inserir na base de dados várias viagens caso não exista nenhuma viagem na base de dados
+            </summary>
+            <param name="context">Contexto da aplicação</param>
+        </member>
+        <member name="T:AirUberProjeto.Models.Estado">
+            <summary>
+            Classe responsável por toda a informação de um estado
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Estado.EstadoId">
+            <summary>
+            Identificador unívoco de um estado, sendo chave primária na base de dados.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Estado.Nome">
+            <summary>
+            Propriedade responsável por guardar o nome do estado.
+            </summary>
+        </member>
+        <member name="T:AirUberProjeto.Models.Extra">
+            <summary>
+            Classe responsável por toda a informação de um extra.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Extra.ExtraId">
+            <summary>
+            Identificador unívoco de um extra, sendo chave primária na base de dados.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Extra.TipoExtraId">
+            <summary>
+            Identificador unívoco do tipo de extra que o extra é.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Extra.CompanhiaId">
+            <summary>
+            Identificador unívoco da companhia a que o extra pertence.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Extra.Valor">
+            <summary>
+            Propriedade responsável por guardar o valor de um extra.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Extra.TipoExtra">
+            <summary>
+            Propriedade navegacional responsável por referenciar o tipo de extra que o extra é.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Extra.Companhia">
+            <summary>
+            Propriedade navegacional responsável por referenciar a companhia a que o extra pertence.
+            </summary>
+        </member>
+        <member name="T:AirUberProjeto.Models.Helpdesk">
+            <summary>
+            Classe responsável por representar a informação específica de um utilizador de helpdesk.
+            Para a classe adquirir toda a informação de um utilizador esta classe extende 
+            da classe 'ApplicationUser'.
+            </summary>
+        </member>
+        <member name="T:AirUberProjeto.Models.Jato">
+            <summary>
+            Classe responsável por toda a informação de um Jato.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Jato.JatoId">
+            <summary>
+            Identificador unívoco de um jato, sendo chave primária na base de dados.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Jato.Nome">
+            <summary>
+            Propriedade responsável por guardar o nome de um jato.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Jato.ModeloId">
+            <summary>
+            Identificador unívoco do modelo que o jato é.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Jato.CompanhiaId">
+            <summary>
+            Identificador unívoco da companhia a que o jato pertence.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Jato.EmFuncionamento">
+            <summary>
+            Propriedade responsável por indicar se uma companhia está em funcionamento ou não.
+            </summary>
+            <remarks>
+            Caso uma companhia não esteja em funcionamento os seus jatos não serão apresentados
+            nas listagem de voos possíveis para os dados introduzidos pelo cliente.
+            </remarks>
+        </member>
+        <member name="P:AirUberProjeto.Models.Jato.Modelo">
+            <summary>
+            Propriedade navegacional responsável por referenciar o modelo que o jato é.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Jato.Companhia">
+            <summary>
+            Propriedade navegacional responsável por referenciar a companhia a que o jato pertence.
+            </summary>
+        </member>
+        <member name="M:AirUberProjeto.Models.Jato.#ctor">
+            <summary>
+            Constructor da classe Jato, é responsável por indicar, que por omissão, um jato
+            não está em funcionamento.
+            </summary>
+        </member>
+        <member name="T:AirUberProjeto.Models.Modelo">
+            <summary>
+            Classe responsável por toda a informação de um Modelo.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Modelo.ModeloId">
+            <summary>
+            Identificador unívoco de um modelo, sendo chave primária na base de dados.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Modelo.Capacidade">
+            <summary>
+            Propriedade responsável por guardar o número máximo de pessoas que um modelo de jato suporta.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Modelo.Alcance">
+            <summary>
+            Propriedade responsável por guardar valor do alcance máximo, em Km, de um modelo.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Modelo.VelocidadeMaxima">
+            <summary>
+            Propriedade responsável por guardar o valor da velocidade máxima, em Km/H, de um modelo.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Modelo.PesoMaximaBagagens">
+            <summary>
+            Propriedade responsável por guardar o valor do peso máximo em bagagens, em Kg, de um modelo.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Modelo.NumeroMotores">
+            <summary>
+            Propriedade responsável por guardar o número de motores de um modelo.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Modelo.AltitudeIdeal">
+            <summary>
+            Propriedade responsável por guardar o valor da altura ideal, em Metros, de um modelo.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Modelo.AlturaCabine">
+            <summary>
+            Propriedade responsável por guardar o valor da altura da cabine, em Metros, de um modelo.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Modelo.LarguraCabine">
+            <summary>
+            Propriedade responsável por guardar o valor da largura da cabine, em Metros, de um modelo.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Modelo.ComprimentoCabine">
+            <summary>
+            Propriedade responsável por guardar o valor do comprimento da cabine, em Metros, de um modelo.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Modelo.Descricao">
+            <summary>
+            Propriedade responsável por guardar a descrição de um modelo.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Modelo.TipoJatoId">
+            <summary>
+            Identificador unívoco do tipo de jato que o modelo é.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Modelo.TipoJato">
+            <summary>
+            Propriedade navegacional responsável por referenciar o tipo de jato que o modelo é.
+            </summary>
+        </member>
+        <member name="T:AirUberProjeto.Models.Pais">
+            <summary>
+            Classe responsável por toda a informação de um país.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Pais.PaisId">
+            <summary>
+            Identificador unívoco de um país, sendo chave primária na base de dados.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Pais.Nome">
+            <summary>
+            Propriedade responsável por guardar o nome de um país.
+            </summary>
+        </member>
+        <member name="T:AirUberProjeto.Models.Reserva">
+            <summary>
+            Classe responsável por toda a informação de uma reserva.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Reserva.ReservaId">
+            <summary>
+            Identificador unívoco de um reserva, sendo chave primária na base de dados.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Reserva.DataPartida">
+            <summary>
+            Propriedade responsável por guardar a data de partida da reserva.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Reserva.DataChegada">
+            <summary>
+            Propriedade responsável por guardar a data de chegada da reserva.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Reserva.AeroportoPartidaId">
+            <summary>
+            Identificador unívoco do aeroporto de partida da reserva.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Reserva.AeroportoDestinoId">
+            <summary>
+            Identificador unívoco do aeroporto de destino da reserva.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Reserva.JatoId">
+            <summary>
+            Identificador unívoco do jato que pertence à reserva.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Reserva.ApplicationUserId">
+            <summary>
+            Identificador unívoco do cliente que fez a reserva.
+            </summary>       
+        </member>
+        <member name="P:AirUberProjeto.Models.Reserva.Custo">
+            <summary>
+            Propriedade responsável por guardar o valor do custo da reserva.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Reserva.Avaliacao">
+            <summary>
+            Propriedade responsável por guardar o valor da avaliação.
+            </summary>
+            <remarks>
+            Esta avaliação é feita depois da viagem terminar. 
+            Quem pode fazer a avaliação é o cliente que fez a reserva.
+            </remarks>
+        </member>
+        <member name="P:AirUberProjeto.Models.Reserva.Jato">
+            <summary>
+            Propriedade navegacional responsável por referenciar o jato que pertence à reserva.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Reserva.Cliente">
+            <summary>
+            Propriedade navegacional responsável por referenciar o cliente que fez a reserva.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Reserva.AeroportoPartida">
+            <summary>
+            Propriedade navegacional responsável por referenciar o aeroporto de partida da reserva.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Reserva.AeroportoDestino">
+            <summary>
+            Propriedade navegacional responsável por referenciar o aeroporto de destino da reserva.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Reserva.ListaExtras">
+            <summary>
+            Propriedade navegacional responsável por referenciar a lista de extras que foram requisitados para a viagem.
+            </summary>
+        </member>
+        <member name="M:AirUberProjeto.Models.Reserva.#ctor">
+            <summary>
+            Constructor da classe Reserva, é responsável por inicializar a lista de extras.
+            </summary>
+        </member>
+        <member name="T:AirUberProjeto.Models.Roles">
+            <summary>
+            Classe responsável por indicar todos os papéis disponíveis que um utilizador pode adquirir.
+            </summary>
+        </member>
+        <member name="F:AirUberProjeto.Models.Roles.ROLE_CLIENTE">
+            <summary>
+            Constante que representa o papel de Cliente
+            </summary>
+        </member>
+        <member name="F:AirUberProjeto.Models.Roles.ROLE_HELPDESK">
+            <summary>
+            Constante que representa o papel de Helpdesk
+            </summary>
+        </member>
+        <member name="F:AirUberProjeto.Models.Roles.ROLE_COLABORADOR">
+            <summary>
+            Constante que representa o papel de Colaborador
+            </summary>
+        </member>
+        <member name="F:AirUberProjeto.Models.Roles.ROLE_COLABORADOR_ADMIN">
+            <summary>
+            Constante que representa o papel de Colaborador Administrador
+            </summary>
+        </member>
+        <member name="T:AirUberProjeto.Models.TipoExtra">
+            <summary>
+            Classe responsável por toda a informação de um tipo de extra.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.TipoExtra.TipoExtraId">
+            <summary>
+            Identificador unívoco de um tipo de extra, sendo chave primária na base de dados.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.TipoExtra.Nome">
+            <summary>
+            Propriedade responsável por guardar o nome do tipo de extra.
+            </summary>
+        </member>
+        <member name="T:AirUberProjeto.Models.TipoJato">
+            <summary>
+            Classe responsável por toda a informação de um tipo de jato.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.TipoJato.TipoJatoId">
+            <summary>
+            Identificador unívoco de um tipo de jato, sendo chave primária na base de dados.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.TipoJato.Nome">
+            <summary>
+            Propriedade responsável por guardar o nome do tipo de jato.
+            </summary>
+        </member>
+        <member name="T:AirUberProjeto.Models.AutenticacaoViewModels.ChangePasswordViewModel">
+            <summary>
+            ViewModel para mudar a password.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.AutenticacaoViewModels.ChangePasswordViewModel.OldPassword">
+            <summary>
+            A antiga password.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.AutenticacaoViewModels.ChangePasswordViewModel.NewPassword">
+            <summary>
+            A nova password.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.AutenticacaoViewModels.ChangePasswordViewModel.ConfirmPassword">
+            <summary>
+            Repetição da nova password.
+            </summary>
+        </member>
+        <member name="T:AirUberProjeto.Models.AutenticacaoViewModels.ForgotPasswordViewModel">
+            <summary>
+            ViewModel para o esquecimento de uma password.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.AutenticacaoViewModels.ForgotPasswordViewModel.Email">
+            <summary>
+            O email do utilizador que se esqueceu da password.
+            </summary>
+        </member>
+        <member name="T:AirUberProjeto.Models.AutenticacaoViewModels.LoginViewModel">
+            <summary>
+            View Model para efetuar um login.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.AutenticacaoViewModels.LoginViewModel.Email">
+            <summary>
+            Email do utilizador a fazer login
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.AutenticacaoViewModels.LoginViewModel.Password">
+            <summary>
+            Password do utilizador a fazer login
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.AutenticacaoViewModels.LoginViewModel.RememberMe">
+            <summary>
+            Para saber se o utilizador deseja que a sua conta continue logada
+            </summary>
+        </member>
+        <member name="T:AirUberProjeto.Models.AutenticacaoViewModels.RegisterClienteViewModel">
+            <summary>
+            View Model responsavel pelo registo de um cliente
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.AutenticacaoViewModels.RegisterClienteViewModel.Nome">
+            <summary>
+            Nome do cliente
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.AutenticacaoViewModels.RegisterClienteViewModel.Apelido">
+            <summary>
+            Apelido do cliente
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.AutenticacaoViewModels.RegisterClienteViewModel.Email">
+            <summary>
+            Email do cliente
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.AutenticacaoViewModels.RegisterClienteViewModel.Password">
+            <summary>
+            Password do cliente
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.AutenticacaoViewModels.RegisterClienteViewModel.ConfirmPassword">
+            <summary>
+            Repetição da password do cliente
+            </summary>
+        </member>
+        <member name="T:AirUberProjeto.Models.AutenticacaoViewModels.RegisterCompanhiaViewModel">
+            <summary>
+            View Model responsavel pelo registo da companhia.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.AutenticacaoViewModels.RegisterCompanhiaViewModel.Nome">
+            <summary>
+            Nome da companhia.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.AutenticacaoViewModels.RegisterCompanhiaViewModel.Morada">
+            <summary>
+            Morada da base da companhia.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.AutenticacaoViewModels.RegisterCompanhiaViewModel.Contact">
+            <summary>
+            Contacto da companhia.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.AutenticacaoViewModels.RegisterCompanhiaViewModel.PaisId">
+            <summary>
+            Id do pais da companhia
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.AutenticacaoViewModels.RegisterCompanhiaViewModel.Nif">
+            <summary>
+            NIf da companhia
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.AutenticacaoViewModels.RegisterCompanhiaViewModel.Email">
+            <summary>
+            Email do colaborador admin.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.AutenticacaoViewModels.RegisterCompanhiaViewModel.Password">
+            <summary>
+            Password para o colaborador admin.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.AutenticacaoViewModels.RegisterCompanhiaViewModel.ConfirmPassword">
+            <summary>
+            Repetição da password para o colaborador admin.
+            </summary>
+        </member>
+        <member name="T:AirUberProjeto.Models.AutenticacaoViewModels.ResetPasswordViewModel">
+            <summary>
+            View Model Responsavel para a mudança da password quando o utilizador se esquece da mesma.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.AutenticacaoViewModels.ResetPasswordViewModel.Email">
+            <summary>
+            Email do utilizador.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.AutenticacaoViewModels.ResetPasswordViewModel.Password">
+            <summary>
+            Nova password do utilizador.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.AutenticacaoViewModels.ResetPasswordViewModel.ConfirmPassword">
+            <summary>
+            Repetição da nova password.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.AutenticacaoViewModels.ResetPasswordViewModel.Code">
+            <summary>
+            Codigo enviado pra que o utilizador possa alterar a password.
+            </summary>
+        </member>
+    </members>
+</doc>
