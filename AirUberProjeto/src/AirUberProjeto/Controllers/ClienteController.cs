@@ -27,7 +27,7 @@ namespace AirUberProjeto.Controllers
         /// <summary>
         /// Utilizado para sabermos o caminho absoluto da pasta wwwRoot
         /// </summary>
-        private IHostingEnvironment _environment;
+        private readonly IHostingEnvironment _environment;
 
         /// <summary>
         /// O contexto da aplicação para poder aceder a dados.
@@ -75,9 +75,20 @@ namespace AirUberProjeto.Controllers
         {
             string idCliente = _userManager.GetUserAsync(this.User).Result.Id;
 
-            Cliente cliente = (_context.Cliente.Include(c => c.ContaDeCreditos).Where(c => c.Id == idCliente).Select(c => c)).Single() ;
-            
-            PerfilViewModel viewModel = new PerfilViewModel() {Cliente = cliente};
+            Cliente cliente = (_context.Cliente
+                                    .Include(c => c.ContaDeCreditos)
+                                    .Include(c => c.ListaReservas)
+                                    .Where(c => c.Id == idCliente)
+                                    .Select(c => c))
+                                    .Single() ;
+
+            PerfilViewModel viewModel = new PerfilViewModel()
+            {
+                Cliente = cliente,
+                NumeroViagens = cliente.ListaReservas.Count
+            };
+
+
 
             List<Notificacao> notificacoes =  _context.Notificacao.Where((n) =>
                 n.UtilizadorId == cliente.Id
@@ -164,6 +175,11 @@ namespace AirUberProjeto.Controllers
         [HttpPost]
         public async Task<IActionResult> AlterarImagemPerfil (IFormFile file)
         {
+            if (file == null)
+            {
+                return RedirectToAction(nameof(ClienteController.EditarPerfil), "Cliente");
+            }
+
 
             string extension = Path.GetExtension(file.FileName);
             if (extension != ".jpg" && extension != ".png")
