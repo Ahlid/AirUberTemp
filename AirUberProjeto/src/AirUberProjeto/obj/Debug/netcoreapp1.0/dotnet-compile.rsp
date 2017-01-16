@@ -240,6 +240,7 @@ C:\Users\artur\Documents\Projectos\Escola\Projecto_ESW\AirUberProjeto\src\AirUbe
 C:\Users\artur\Documents\Projectos\Escola\Projecto_ESW\AirUberProjeto\src\AirUberProjeto\Startup.cs
 C:\Users\artur\Documents\Projectos\Escola\Projecto_ESW\AirUberProjeto\src\AirUberProjeto\Controllers\AutenticacaoController.cs
 C:\Users\artur\Documents\Projectos\Escola\Projecto_ESW\AirUberProjeto\src\AirUberProjeto\Controllers\ClienteController.cs
+C:\Users\artur\Documents\Projectos\Escola\Projecto_ESW\AirUberProjeto\src\AirUberProjeto\Controllers\CompanhiaController.cs
 C:\Users\artur\Documents\Projectos\Escola\Projecto_ESW\AirUberProjeto\src\AirUberProjeto\Controllers\HelpdeskController.cs
 C:\Users\artur\Documents\Projectos\Escola\Projecto_ESW\AirUberProjeto\src\AirUberProjeto\Controllers\HomeController.cs
 C:\Users\artur\Documents\Projectos\Escola\Projecto_ESW\AirUberProjeto\src\AirUberProjeto\Controllers\ManageController.cs
@@ -274,6 +275,7 @@ C:\Users\artur\Documents\Projectos\Escola\Projecto_ESW\AirUberProjeto\src\AirUbe
 C:\Users\artur\Documents\Projectos\Escola\Projecto_ESW\AirUberProjeto\src\AirUberProjeto\Models\AutenticacaoViewModels\ResetPasswordViewModel.cs
 C:\Users\artur\Documents\Projectos\Escola\Projecto_ESW\AirUberProjeto\src\AirUberProjeto\Models\ClienteViewModels\EditarPerfilViewModel.cs
 C:\Users\artur\Documents\Projectos\Escola\Projecto_ESW\AirUberProjeto\src\AirUberProjeto\Models\ClienteViewModels\PerfilViewModel.cs
+C:\Users\artur\Documents\Projectos\Escola\Projecto_ESW\AirUberProjeto\src\AirUberProjeto\Models\CompanhiaViewModels\PerfilCompanhiaViewModel.cs
 C:\Users\artur\Documents\Projectos\Escola\Projecto_ESW\AirUberProjeto\src\AirUberProjeto\Models\ManageViewModels\AddPhoneNumberViewModel.cs
 C:\Users\artur\Documents\Projectos\Escola\Projecto_ESW\AirUberProjeto\src\AirUberProjeto\Models\ManageViewModels\ChangePasswordViewModel.cs
 C:\Users\artur\Documents\Projectos\Escola\Projecto_ESW\AirUberProjeto\src\AirUberProjeto\Models\ManageViewModels\ConfigureTwoFactorViewModel.cs

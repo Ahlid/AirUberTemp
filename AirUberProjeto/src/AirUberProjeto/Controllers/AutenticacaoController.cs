@@ -145,10 +145,10 @@ namespace AirUberProjeto.Controllers
                         switch (role.ToString())
                         {
                             case Roles.ROLE_COLABORADOR_ADMIN:
-                                return RedirectToAction(nameof(HomeController.ColaboradorLogin), "Home");
+                                return RedirectToAction(nameof(CompanhiaController.Index), "Companhia");
 
                             case Roles.ROLE_COLABORADOR:
-                                return RedirectToAction(nameof(HomeController.ColaboradorLogin), "Home");
+                                return RedirectToAction(nameof(CompanhiaController.Index), "Companhia");
 
                             case Roles.ROLE_HELPDESK:
                                 return RedirectToAction(nameof(HelpdeskController.Index), "Helpdesk");
@@ -309,7 +309,7 @@ namespace AirUberProjeto.Controllers
                 };
                  
 
-                Colaborador user = new Colaborador{ UserName = model.Email, Email = model.Email, IsAdministrador = true, Companhia = companhia};
+                Colaborador user = new Colaborador{ Nome = "Colaborador", Apelido = "Admin", UserName = model.Email, Email = model.Email, IsAdministrador = true, Companhia = companhia};
                 var result = await _userManager.CreateAsync(user, model.Password);// cria um user com a pw
                 if (result.Succeeded)
                 {
@@ -317,7 +317,7 @@ namespace AirUberProjeto.Controllers
 
                     await _userManager.AddToRoleAsync(user, Roles.ROLE_COLABORADOR_ADMIN);//atribui a role
 
-
+                    
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=532713
                     // Send an email with this link
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);

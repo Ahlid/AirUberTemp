@@ -280,6 +280,23 @@
             <param name="file">ficheiro de imagem que irá substituir a imagem de perfil</param>
             <returns>Um redirecionamento para a ação editar perfil</returns>
         </member>
+        <member name="F:AirUberProjeto.Controllers.CompanhiaController._context">
+            <summary>
+            O contexto da aplicação para poder aceder a dados.
+            </summary>
+        </member>
+        <member name="F:AirUberProjeto.Controllers.CompanhiaController._userManager">
+            <summary>
+            User manager que vai permitir utilizar metodos feitos pela windows de forma a controlar os user.
+            </summary>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.CompanhiaController.#ctor(AirUberProjeto.Data.AirUberDbContext,Microsoft.AspNetCore.Identity.UserManager{AirUberProjeto.Models.ApplicationUser})">
+            <summary>
+            Construtor do controlador Companhia
+            </summary>
+            <param name="context">O contexto da aplicação</param>
+            <param name="userManager">O manager dos utilizadores</param>
+        </member>
         <member name="T:AirUberProjeto.Controllers.HelpdeskController">
             <summary>
             Classe responsável por receber todos os pedidos do browser e tratar dos mesmos.
