@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace AirUberProjeto.Migrations
 {
-    public partial class nomeQualquer : Migration
+    public partial class initt : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

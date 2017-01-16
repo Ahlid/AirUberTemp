@@ -235,5 +235,6 @@
 -r:"C:\Users\pcts\.nuget\packages\xunit.runner.utility\2.2.0-beta2-build3300\lib\netstandard1.1\xunit.runner.utility.dotnet.dll"
 -r:"C:\Users\pcts\Documents\AirUberTemp\AirUberProjeto\src\AirUberProjeto\bin\Debug\netcoreapp1.0\AirUberProjeto.dll"
 "C:\Users\pcts\Documents\AirUberTemp\AirUberProjeto\AirUberProjeto.Test\TestStartup.cs"
-"C:\Users\pcts\Documents\AirUberTemp\AirUberProjeto\AirUberProjeto.Test\Controllers\RegistoTest.cs"
+"C:\Users\pcts\Documents\AirUberTemp\AirUberProjeto\AirUberProjeto.Test\Controllers\ClienteControllerTest.cs"
+"C:\Users\pcts\Documents\AirUberTemp\AirUberProjeto\AirUberProjeto.Test\Mocks\UserManagerMock.cs"
 "C:\Users\pcts\Documents\AirUberTemp\AirUberProjeto\AirUberProjeto.Test\Properties\AssemblyInfo.cs"
