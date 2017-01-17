@@ -20,8 +20,15 @@ namespace AirUberProjeto.Controllers
     [Authorize(Roles = Roles.ROLE_HELPDESK)]
     public class HelpdeskController : Controller
     {
+        /// <summary>
+        /// Contexto da aplicação
+        /// </summary>
         private readonly AirUberDbContext _context;
 
+        /// <summary>
+        /// Constructor do controlador do Helpdesk
+        /// </summary>
+        /// <param name="context">Contexto da aplicação</param>
         public HelpdeskController(AirUberDbContext context)
         {
             _context = context;

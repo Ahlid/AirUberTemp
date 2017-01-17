@@ -10,7 +10,27 @@
          <KItem Name="AirUberProjeto.Controllers.HomeController.About" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000021.html" LinkGroup="AirUberProjeto">About Method</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000003C.html" LinkGroup="AirUberProjeto">About Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Controllers.AutenticacaoController.AddErrors" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000001B.html" LinkGroup="AirUberProjeto">AddErrors Method {AirUberProjeto.Controllers.AutenticacaoController}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Controllers.ManageController.AddErrors" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000059.html" LinkGroup="AirUberProjeto">AddErrors Method {AirUberProjeto.Controllers.ManageController}</LItem>
       </Links>
    </Context>
    
@@ -19,7 +39,7 @@
          <KItem Name="AirUberProjeto.Controllers.ManageController.AddPhoneNumber" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000002B_overloads--.html" LinkGroup="AirUberProjeto">AddPhoneNumber Method</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000004B_overloads--.html" LinkGroup="AirUberProjeto">AddPhoneNumber Method</LItem>
       </Links>
    </Context>
    
@@ -28,7 +48,7 @@
          <KItem Name="AirUberProjeto.Controllers.ManageController.AddPhoneNumber" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000002C_overloads--.html" LinkGroup="AirUberProjeto">AddPhoneNumber Method</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000004C_overloads--.html" LinkGroup="AirUberProjeto">AddPhoneNumber Method</LItem>
       </Links>
    </Context>
    
@@ -38,7 +58,7 @@
          <KItem Name="AirUberProjeto.Models.ManageViewModels.AddPhoneNumberViewModel" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000078.html" LinkGroup="AirUberProjeto">AddPhoneNumberViewModel Class</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000AF.html" LinkGroup="AirUberProjeto">AddPhoneNumberViewModel Class</LItem>
       </Links>
    </Context>
    
@@ -48,7 +68,7 @@
          <KItem Name="AirUberProjeto.Models.DbInitializer.AddRoles" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000CF.html" LinkGroup="AirUberProjeto">AddRoles Method</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000107.html" LinkGroup="AirUberProjeto">AddRoles Method</LItem>
       </Links>
    </Context>
    
@@ -58,7 +78,7 @@
          <KItem Name="AirUberProjeto.Models.Aeroporto" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000096.html" LinkGroup="AirUberProjeto">Aeroporto Class</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000CD.html" LinkGroup="AirUberProjeto">Aeroporto Class</LItem>
       </Links>
    </Context>
    
@@ -68,7 +88,7 @@
          <KItem Name="AirUberProjeto.Models.Aeroporto.Aeroporto" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000009F.html" LinkGroup="AirUberProjeto">Aeroporto Constructor</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000D6.html" LinkGroup="AirUberProjeto">Aeroporto Constructor</LItem>
       </Links>
    </Context>
    
@@ -78,7 +98,7 @@
          <KItem Name="AirUberProjeto.Data.AirUberDbContext.Aeroporto" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000046.html" LinkGroup="AirUberProjeto">Aeroporto Property</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000068.html" LinkGroup="AirUberProjeto">Aeroporto Property</LItem>
       </Links>
    </Context>
    
@@ -88,7 +108,7 @@
          <KItem Name="AirUberProjeto.Models.Reserva.AeroportoDestino" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000102.html" LinkGroup="AirUberProjeto">AeroportoDestino Property</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000153.html" LinkGroup="AirUberProjeto">AeroportoDestino Property</LItem>
       </Links>
    </Context>
    
@@ -98,7 +118,7 @@
          <KItem Name="AirUberProjeto.Models.Reserva.AeroportoDestinoId" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000FA.html" LinkGroup="AirUberProjeto">AeroportoDestinoId Property</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000014B.html" LinkGroup="AirUberProjeto">AeroportoDestinoId Property</LItem>
       </Links>
    </Context>
    
@@ -108,7 +128,7 @@
          <KItem Name="AirUberProjeto.Models.Aeroporto.AeroportoId" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000097.html" LinkGroup="AirUberProjeto">AeroportoId Property</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000CE.html" LinkGroup="AirUberProjeto">AeroportoId Property</LItem>
       </Links>
    </Context>
    
@@ -118,7 +138,7 @@
          <KItem Name="AirUberProjeto.Models.Reserva.AeroportoPartida" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000101.html" LinkGroup="AirUberProjeto">AeroportoPartida Property</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000152.html" LinkGroup="AirUberProjeto">AeroportoPartida Property</LItem>
       </Links>
    </Context>
    
@@ -128,7 +148,7 @@
          <KItem Name="AirUberProjeto.Models.Reserva.AeroportoPartidaId" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000F9.html" LinkGroup="AirUberProjeto">AeroportoPartidaId Property</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000014A.html" LinkGroup="AirUberProjeto">AeroportoPartidaId Property</LItem>
       </Links>
    </Context>
    
@@ -138,7 +158,7 @@
          <KItem Name="AirUberProjeto.Data.AirUberDbContext" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000043.html" LinkGroup="AirUberProjeto">AirUberDbContext Class</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000065.html" LinkGroup="AirUberProjeto">AirUberDbContext Class</LItem>
       </Links>
    </Context>
    
@@ -148,7 +168,17 @@
          <KItem Name="AirUberProjeto.Data.AirUberDbContext.AirUberDbContext" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000044.html" LinkGroup="AirUberProjeto">AirUberDbContext Constructor</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000066.html" LinkGroup="AirUberProjeto">AirUberDbContext Constructor</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Migrations.AirUberDbContextModelSnapshot" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000007D.html" LinkGroup="AirUberProjeto">AirUberDbContextModelSnapshot Class</LItem>
       </Links>
    </Context>
    
@@ -158,7 +188,7 @@
          <KItem Name="AirUberProjeto" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000118.html" LinkGroup="AirUberProjeto">AirUberProjeto Namespace</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000169.html" LinkGroup="AirUberProjeto">AirUberProjeto Namespace</LItem>
       </Links>
    </Context>
    
@@ -168,7 +198,7 @@
          <KItem Name="AirUberProjeto Reference" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000120.html" LinkGroup="AirUberProjeto">AirUberProjeto Reference</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000171.html" LinkGroup="AirUberProjeto">AirUberProjeto Reference</LItem>
       </Links>
    </Context>
    
@@ -188,7 +218,7 @@
          <KItem Name="AirUberProjeto.Data" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000042.html" LinkGroup="AirUberProjeto">AirUberProjeto.Data Namespace</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000064.html" LinkGroup="AirUberProjeto">AirUberProjeto.Data Namespace</LItem>
       </Links>
    </Context>
    
@@ -198,7 +228,7 @@
          <KItem Name="AirUberProjeto.Migrations" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000054.html" LinkGroup="AirUberProjeto">AirUberProjeto.Migrations Namespace</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000078.html" LinkGroup="AirUberProjeto">AirUberProjeto.Migrations Namespace</LItem>
       </Links>
    </Context>
    
@@ -208,7 +238,7 @@
          <KItem Name="AirUberProjeto.Models" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000095.html" LinkGroup="AirUberProjeto">AirUberProjeto.Models Namespace</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000CC.html" LinkGroup="AirUberProjeto">AirUberProjeto.Models Namespace</LItem>
       </Links>
    </Context>
    
@@ -218,7 +248,27 @@
          <KItem Name="AirUberProjeto.Models.AutenticacaoViewModels" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000058.html" LinkGroup="AirUberProjeto">AirUberProjeto.Models.AutenticacaoViewModels Namespace</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000007F.html" LinkGroup="AirUberProjeto">AirUberProjeto.Models.AutenticacaoViewModels Namespace</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Models.ClienteViewModels" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000009E.html" LinkGroup="AirUberProjeto">AirUberProjeto.Models.ClienteViewModels Namespace</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Models.CompanhiaViewModels" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000A8.html" LinkGroup="AirUberProjeto">AirUberProjeto.Models.CompanhiaViewModels Namespace</LItem>
       </Links>
    </Context>
    
@@ -228,7 +278,7 @@
          <KItem Name="AirUberProjeto.Models.ManageViewModels" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000077.html" LinkGroup="AirUberProjeto">AirUberProjeto.Models.ManageViewModels Namespace</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000AE.html" LinkGroup="AirUberProjeto">AirUberProjeto.Models.ManageViewModels Namespace</LItem>
       </Links>
    </Context>
    
@@ -238,7 +288,7 @@
          <KItem Name="AirUberProjeto.Services" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000110.html" LinkGroup="AirUberProjeto">AirUberProjeto.Services Namespace</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000161.html" LinkGroup="AirUberProjeto">AirUberProjeto.Services Namespace</LItem>
       </Links>
    </Context>
    
@@ -248,7 +298,7 @@
          <KItem Name="AirUberProjeto.Models.Modelo.Alcance" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000E7.html" LinkGroup="AirUberProjeto">Alcance Property</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000012C.html" LinkGroup="AirUberProjeto">Alcance Property</LItem>
       </Links>
    </Context>
    
@@ -258,7 +308,17 @@
          <KItem Name="AirUberProjeto.Controllers.HelpdeskController.AlterarEstadoCompanhia" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000001C.html" LinkGroup="AirUberProjeto">AlterarEstadoCompanhia Method</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000036.html" LinkGroup="AirUberProjeto">AlterarEstadoCompanhia Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Controllers.ClienteController.AlterarImagemPerfil" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000029.html" LinkGroup="AirUberProjeto">AlterarImagemPerfil Method</LItem>
       </Links>
    </Context>
    
@@ -268,7 +328,7 @@
          <KItem Name="AirUberProjeto.Models.Modelo.AltitudeIdeal" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000EB.html" LinkGroup="AirUberProjeto">AltitudeIdeal Property</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000130.html" LinkGroup="AirUberProjeto">AltitudeIdeal Property</LItem>
       </Links>
    </Context>
    
@@ -278,7 +338,7 @@
          <KItem Name="AirUberProjeto.Models.Modelo.AlturaCabine" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000EC.html" LinkGroup="AirUberProjeto">AlturaCabine Property</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000131.html" LinkGroup="AirUberProjeto">AlturaCabine Property</LItem>
       </Links>
    </Context>
    
@@ -288,7 +348,7 @@
          <KItem Name="AirUberProjeto.Models.ApplicationUser.Apelido" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000A3.html" LinkGroup="AirUberProjeto">Apelido Property {AirUberProjeto.Models.ApplicationUser}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000DA.html" LinkGroup="AirUberProjeto">Apelido Property {AirUberProjeto.Models.ApplicationUser}</LItem>
       </Links>
    </Context>
    
@@ -298,7 +358,17 @@
          <KItem Name="AirUberProjeto.Models.AutenticacaoViewModels.RegisterClienteViewModel.Apelido" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000065.html" LinkGroup="AirUberProjeto">Apelido Property {AirUberProjeto.Models.AutenticacaoViewModels.RegisterClienteViewModel}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000008C.html" LinkGroup="AirUberProjeto">Apelido Property {AirUberProjeto.Models.AutenticacaoViewModels.RegisterClienteViewModel}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Models.ClienteViewModels.EditarPerfilViewModel.Apelido" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000A1.html" LinkGroup="AirUberProjeto">Apelido Property {AirUberProjeto.Models.ClienteViewModels.EditarPerfilViewModel}</LItem>
       </Links>
    </Context>
    
@@ -308,7 +378,7 @@
          <KItem Name="AirUberProjeto.Models.ApplicationUser" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000A0.html" LinkGroup="AirUberProjeto">ApplicationUser Class</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000D7.html" LinkGroup="AirUberProjeto">ApplicationUser Class</LItem>
       </Links>
    </Context>
    
@@ -318,7 +388,7 @@
          <KItem Name="AirUberProjeto.Models.ApplicationUser.ApplicationUser" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000A5.html" LinkGroup="AirUberProjeto">ApplicationUser Constructor</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000DC.html" LinkGroup="AirUberProjeto">ApplicationUser Constructor</LItem>
       </Links>
    </Context>
    
@@ -328,7 +398,7 @@
          <KItem Name="AirUberProjeto.Data.AirUberDbContext.ApplicationUser" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000047.html" LinkGroup="AirUberProjeto">ApplicationUser Property</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000069.html" LinkGroup="AirUberProjeto">ApplicationUser Property</LItem>
       </Links>
    </Context>
    
@@ -338,7 +408,7 @@
          <KItem Name="AirUberProjeto.Models.Reserva.ApplicationUserId" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000FC.html" LinkGroup="AirUberProjeto">ApplicationUserId Property</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000014D.html" LinkGroup="AirUberProjeto">ApplicationUserId Property</LItem>
       </Links>
    </Context>
    
@@ -348,7 +418,7 @@
          <KItem Name="AirUberProjeto.Models.ApplicationUser.Ativo" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000A4.html" LinkGroup="AirUberProjeto">Ativo Property</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000DB.html" LinkGroup="AirUberProjeto">Ativo Property</LItem>
       </Links>
    </Context>
    
@@ -368,7 +438,7 @@
          <KItem Name="AirUberProjeto.Controllers.AutenticacaoController.AutenticacaoController" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000002.html" LinkGroup="AirUberProjeto">AutenticacaoController Constructor</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000007.html" LinkGroup="AirUberProjeto">AutenticacaoController Constructor</LItem>
       </Links>
    </Context>
    
@@ -378,7 +448,7 @@
          <KItem Name="AirUberProjeto.Services.AuthMessageSender" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000115.html" LinkGroup="AirUberProjeto">AuthMessageSender Class</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000166.html" LinkGroup="AirUberProjeto">AuthMessageSender Class</LItem>
       </Links>
    </Context>
    
@@ -388,7 +458,7 @@
          <KItem Name="AirUberProjeto.Models.Reserva.Avaliacao" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000FE.html" LinkGroup="AirUberProjeto">Avaliacao Property</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000014F.html" LinkGroup="AirUberProjeto">Avaliacao Property</LItem>
       </Links>
    </Context>
    
@@ -398,7 +468,27 @@
          <KItem Name="AirUberProjeto.Models.ManageViewModels.IndexViewModel.BrowserRemembered" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000088.html" LinkGroup="AirUberProjeto">BrowserRemembered Property</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000BF.html" LinkGroup="AirUberProjeto">BrowserRemembered Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Migrations.AirUberDbContextModelSnapshot.BuildModel" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000007E.html" LinkGroup="AirUberProjeto">BuildModel Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Migrations.nomeQualquer.BuildTargetModel" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000007C.html" LinkGroup="AirUberProjeto">BuildTargetModel Method</LItem>
       </Links>
    </Context>
    
@@ -408,7 +498,7 @@
          <KItem Name="AirUberProjeto.Models.Modelo.Capacidade" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000E6.html" LinkGroup="AirUberProjeto">Capacidade Property</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000012B.html" LinkGroup="AirUberProjeto">Capacidade Property</LItem>
       </Links>
    </Context>
    
@@ -417,7 +507,7 @@
          <KItem Name="AirUberProjeto.Controllers.AutenticacaoController.ChangePassword" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000012_overloads--.html" LinkGroup="AirUberProjeto">ChangePassword Method</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000017_overloads--.html" LinkGroup="AirUberProjeto">ChangePassword Method</LItem>
       </Links>
    </Context>
    
@@ -426,7 +516,7 @@
          <KItem Name="AirUberProjeto.Controllers.ManageController.ChangePassword" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000032_overloads--.html" LinkGroup="AirUberProjeto">ChangePassword Method</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000052_overloads--.html" LinkGroup="AirUberProjeto">ChangePassword Method</LItem>
       </Links>
    </Context>
    
@@ -435,7 +525,7 @@
          <KItem Name="AirUberProjeto.Controllers.AutenticacaoController.ChangePassword" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000013_overloads--.html" LinkGroup="AirUberProjeto">ChangePassword Method</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000018_overloads--.html" LinkGroup="AirUberProjeto">ChangePassword Method</LItem>
       </Links>
    </Context>
    
@@ -444,7 +534,7 @@
          <KItem Name="AirUberProjeto.Controllers.ManageController.ChangePassword" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000033_overloads--.html" LinkGroup="AirUberProjeto">ChangePassword Method</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000053_overloads--.html" LinkGroup="AirUberProjeto">ChangePassword Method</LItem>
       </Links>
    </Context>
    
@@ -454,7 +544,7 @@
          <KItem Name="AirUberProjeto.Models.AutenticacaoViewModels.ChangePasswordViewModel" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000059.html" LinkGroup="AirUberProjeto">ChangePasswordViewModel Class {AirUberProjeto.Models.AutenticacaoViewModels}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000080.html" LinkGroup="AirUberProjeto">ChangePasswordViewModel Class {AirUberProjeto.Models.AutenticacaoViewModels}</LItem>
       </Links>
    </Context>
    
@@ -464,7 +554,7 @@
          <KItem Name="AirUberProjeto.Models.ManageViewModels.ChangePasswordViewModel" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000007A.html" LinkGroup="AirUberProjeto">ChangePasswordViewModel Class {AirUberProjeto.Models.ManageViewModels}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000B1.html" LinkGroup="AirUberProjeto">ChangePasswordViewModel Class {AirUberProjeto.Models.ManageViewModels}</LItem>
       </Links>
    </Context>
    
@@ -474,7 +564,7 @@
          <KItem Name="AirUberProjeto.Models.Aeroporto.Chegadas" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000009E.html" LinkGroup="AirUberProjeto">Chegadas Property</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000D5.html" LinkGroup="AirUberProjeto">Chegadas Property</LItem>
       </Links>
    </Context>
    
@@ -484,7 +574,7 @@
          <KItem Name="AirUberProjeto.Models.Cidade" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000A6.html" LinkGroup="AirUberProjeto">Cidade Class</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000DD.html" LinkGroup="AirUberProjeto">Cidade Class</LItem>
       </Links>
    </Context>
    
@@ -494,7 +584,7 @@
          <KItem Name="AirUberProjeto.Data.AirUberDbContext.Cidade" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000048.html" LinkGroup="AirUberProjeto">Cidade Property {AirUberProjeto.Data.AirUberDbContext}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000006A.html" LinkGroup="AirUberProjeto">Cidade Property {AirUberProjeto.Data.AirUberDbContext}</LItem>
       </Links>
    </Context>
    
@@ -504,7 +594,7 @@
          <KItem Name="AirUberProjeto.Models.Aeroporto.Cidade" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000009C.html" LinkGroup="AirUberProjeto">Cidade Property {AirUberProjeto.Models.Aeroporto}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000D3.html" LinkGroup="AirUberProjeto">Cidade Property {AirUberProjeto.Models.Aeroporto}</LItem>
       </Links>
    </Context>
    
@@ -514,7 +604,7 @@
          <KItem Name="AirUberProjeto.Models.Aeroporto.CidadeId" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000098.html" LinkGroup="AirUberProjeto">CidadeId Property {AirUberProjeto.Models.Aeroporto}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000CF.html" LinkGroup="AirUberProjeto">CidadeId Property {AirUberProjeto.Models.Aeroporto}</LItem>
       </Links>
    </Context>
    
@@ -524,7 +614,7 @@
          <KItem Name="AirUberProjeto.Models.Cidade.CidadeId" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000A7.html" LinkGroup="AirUberProjeto">CidadeId Property {AirUberProjeto.Models.Cidade}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000DE.html" LinkGroup="AirUberProjeto">CidadeId Property {AirUberProjeto.Models.Cidade}</LItem>
       </Links>
    </Context>
    
@@ -534,7 +624,7 @@
          <KItem Name="AirUberProjeto.Models.Cliente" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000AB.html" LinkGroup="AirUberProjeto">Cliente Class</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000E2.html" LinkGroup="AirUberProjeto">Cliente Class</LItem>
       </Links>
    </Context>
    
@@ -544,7 +634,7 @@
          <KItem Name="AirUberProjeto.Models.Cliente.Cliente" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000B0.html" LinkGroup="AirUberProjeto">Cliente Constructor</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000E8.html" LinkGroup="AirUberProjeto">Cliente Constructor</LItem>
       </Links>
    </Context>
    
@@ -554,7 +644,17 @@
          <KItem Name="AirUberProjeto.Data.AirUberDbContext.Cliente" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000049.html" LinkGroup="AirUberProjeto">Cliente Property {AirUberProjeto.Data.AirUberDbContext}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000006B.html" LinkGroup="AirUberProjeto">Cliente Property {AirUberProjeto.Data.AirUberDbContext}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Models.ClienteViewModels.PerfilViewModel.Cliente" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000A5.html" LinkGroup="AirUberProjeto">Cliente Property {AirUberProjeto.Models.ClienteViewModels.PerfilViewModel}</LItem>
       </Links>
    </Context>
    
@@ -564,7 +664,27 @@
          <KItem Name="AirUberProjeto.Models.Reserva.Cliente" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000100.html" LinkGroup="AirUberProjeto">Cliente Property {AirUberProjeto.Models.Reserva}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000151.html" LinkGroup="AirUberProjeto">Cliente Property {AirUberProjeto.Models.Reserva}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Controllers.ClienteController" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000001F.html" LinkGroup="AirUberProjeto">ClienteController Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Controllers.ClienteController.ClienteController" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000023.html" LinkGroup="AirUberProjeto">ClienteController Constructor</LItem>
       </Links>
    </Context>
    
@@ -574,7 +694,7 @@
          <KItem Name="AirUberProjeto.Controllers.HomeController.ClienteLogin" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000026.html" LinkGroup="AirUberProjeto">ClienteLogin Method</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000041.html" LinkGroup="AirUberProjeto">ClienteLogin Method</LItem>
       </Links>
    </Context>
    
@@ -584,7 +704,7 @@
          <KItem Name="AirUberProjeto.Controllers.HelpdeskController.Clientes" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000019.html" LinkGroup="AirUberProjeto">Clientes Method</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000033.html" LinkGroup="AirUberProjeto">Clientes Method</LItem>
       </Links>
    </Context>
    
@@ -594,7 +714,7 @@
          <KItem Name="AirUberProjeto.Models.AutenticacaoViewModels.ResetPasswordViewModel.Code" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000076.html" LinkGroup="AirUberProjeto">Code Property {AirUberProjeto.Models.AutenticacaoViewModels.ResetPasswordViewModel}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000009D.html" LinkGroup="AirUberProjeto">Code Property {AirUberProjeto.Models.AutenticacaoViewModels.ResetPasswordViewModel}</LItem>
       </Links>
    </Context>
    
@@ -604,7 +724,7 @@
          <KItem Name="AirUberProjeto.Models.ManageViewModels.VerifyPhoneNumberViewModel.Code" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000093.html" LinkGroup="AirUberProjeto">Code Property {AirUberProjeto.Models.ManageViewModels.VerifyPhoneNumberViewModel}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000CA.html" LinkGroup="AirUberProjeto">Code Property {AirUberProjeto.Models.ManageViewModels.VerifyPhoneNumberViewModel}</LItem>
       </Links>
    </Context>
    
@@ -614,7 +734,7 @@
          <KItem Name="AirUberProjeto.Models.Colaborador" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000B1.html" LinkGroup="AirUberProjeto">Colaborador Class</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000E9.html" LinkGroup="AirUberProjeto">Colaborador Class</LItem>
       </Links>
    </Context>
    
@@ -624,7 +744,7 @@
          <KItem Name="AirUberProjeto.Models.Colaborador.Colaborador" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000B5.html" LinkGroup="AirUberProjeto">Colaborador Constructor</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000ED.html" LinkGroup="AirUberProjeto">Colaborador Constructor</LItem>
       </Links>
    </Context>
    
@@ -634,7 +754,17 @@
          <KItem Name="AirUberProjeto.Data.AirUberDbContext.Colaborador" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000004A.html" LinkGroup="AirUberProjeto">Colaborador Property</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000006C.html" LinkGroup="AirUberProjeto">Colaborador Property {AirUberProjeto.Data.AirUberDbContext}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Models.CompanhiaViewModels.PerfilCompanhiaViewModel.Colaborador" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000AA.html" LinkGroup="AirUberProjeto">Colaborador Property {AirUberProjeto.Models.CompanhiaViewModels.PerfilCompanhiaViewModel}</LItem>
       </Links>
    </Context>
    
@@ -644,7 +774,7 @@
          <KItem Name="AirUberProjeto.Controllers.HomeController.ColaboradorLogin" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000025.html" LinkGroup="AirUberProjeto">ColaboradorLogin Method</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000040.html" LinkGroup="AirUberProjeto">ColaboradorLogin Method</LItem>
       </Links>
    </Context>
    
@@ -654,7 +784,7 @@
          <KItem Name="AirUberProjeto.Models.Companhia" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000B6.html" LinkGroup="AirUberProjeto">Companhia Class</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000EE.html" LinkGroup="AirUberProjeto">Companhia Class</LItem>
       </Links>
    </Context>
    
@@ -664,7 +794,7 @@
          <KItem Name="AirUberProjeto.Models.Companhia.Companhia" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000C8.html" LinkGroup="AirUberProjeto">Companhia Constructor</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000100.html" LinkGroup="AirUberProjeto">Companhia Constructor</LItem>
       </Links>
    </Context>
    
@@ -674,7 +804,7 @@
          <KItem Name="AirUberProjeto.Data.AirUberDbContext.Companhia" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000004B.html" LinkGroup="AirUberProjeto">Companhia Property {AirUberProjeto.Data.AirUberDbContext}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000006D.html" LinkGroup="AirUberProjeto">Companhia Property {AirUberProjeto.Data.AirUberDbContext}</LItem>
       </Links>
    </Context>
    
@@ -684,7 +814,17 @@
          <KItem Name="AirUberProjeto.Models.Colaborador.Companhia" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000B4.html" LinkGroup="AirUberProjeto">Companhia Property {AirUberProjeto.Models.Colaborador}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000EC.html" LinkGroup="AirUberProjeto">Companhia Property {AirUberProjeto.Models.Colaborador}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Models.CompanhiaViewModels.PerfilCompanhiaViewModel.Companhia" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000AB.html" LinkGroup="AirUberProjeto">Companhia Property {AirUberProjeto.Models.CompanhiaViewModels.PerfilCompanhiaViewModel}</LItem>
       </Links>
    </Context>
    
@@ -694,7 +834,7 @@
          <KItem Name="AirUberProjeto.Models.Extra.Companhia" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000D9.html" LinkGroup="AirUberProjeto">Companhia Property {AirUberProjeto.Models.Extra}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000011E.html" LinkGroup="AirUberProjeto">Companhia Property {AirUberProjeto.Models.Extra}</LItem>
       </Links>
    </Context>
    
@@ -704,7 +844,27 @@
          <KItem Name="AirUberProjeto.Models.Jato.Companhia" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000E2.html" LinkGroup="AirUberProjeto">Companhia Property {AirUberProjeto.Models.Jato}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000127.html" LinkGroup="AirUberProjeto">Companhia Property {AirUberProjeto.Models.Jato}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Controllers.CompanhiaController" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000002A.html" LinkGroup="AirUberProjeto">CompanhiaController Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Controllers.CompanhiaController.CompanhiaController" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000002D.html" LinkGroup="AirUberProjeto">CompanhiaController Constructor</LItem>
       </Links>
    </Context>
    
@@ -714,7 +874,7 @@
          <KItem Name="AirUberProjeto.Models.Colaborador.CompanhiaId" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000B2.html" LinkGroup="AirUberProjeto">CompanhiaId Property {AirUberProjeto.Models.Colaborador}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000EA.html" LinkGroup="AirUberProjeto">CompanhiaId Property {AirUberProjeto.Models.Colaborador}</LItem>
       </Links>
    </Context>
    
@@ -724,7 +884,7 @@
          <KItem Name="AirUberProjeto.Models.Companhia.CompanhiaId" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000B7.html" LinkGroup="AirUberProjeto">CompanhiaId Property {AirUberProjeto.Models.Companhia}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000EF.html" LinkGroup="AirUberProjeto">CompanhiaId Property {AirUberProjeto.Models.Companhia}</LItem>
       </Links>
    </Context>
    
@@ -734,7 +894,7 @@
          <KItem Name="AirUberProjeto.Models.Extra.CompanhiaId" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000D6.html" LinkGroup="AirUberProjeto">CompanhiaId Property {AirUberProjeto.Models.Extra}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000011B.html" LinkGroup="AirUberProjeto">CompanhiaId Property {AirUberProjeto.Models.Extra}</LItem>
       </Links>
    </Context>
    
@@ -744,7 +904,7 @@
          <KItem Name="AirUberProjeto.Models.Jato.CompanhiaId" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000DF.html" LinkGroup="AirUberProjeto">CompanhiaId Property {AirUberProjeto.Models.Jato}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000124.html" LinkGroup="AirUberProjeto">CompanhiaId Property {AirUberProjeto.Models.Jato}</LItem>
       </Links>
    </Context>
    
@@ -754,7 +914,7 @@
          <KItem Name="AirUberProjeto.Controllers.HelpdeskController.Companhias" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000001A.html" LinkGroup="AirUberProjeto">Companhias Method</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000034.html" LinkGroup="AirUberProjeto">Companhias Method</LItem>
       </Links>
    </Context>
    
@@ -764,7 +924,7 @@
          <KItem Name="AirUberProjeto.Models.Modelo.ComprimentoCabine" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000EE.html" LinkGroup="AirUberProjeto">ComprimentoCabine Property</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000133.html" LinkGroup="AirUberProjeto">ComprimentoCabine Property</LItem>
       </Links>
    </Context>
    
@@ -774,7 +934,7 @@
          <KItem Name="AirUberProjeto.Startup.Configuration" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000011C.html" LinkGroup="AirUberProjeto">Configuration Property</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000016D.html" LinkGroup="AirUberProjeto">Configuration Property</LItem>
       </Links>
    </Context>
    
@@ -784,7 +944,7 @@
          <KItem Name="AirUberProjeto.Startup.Configure" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000011F.html" LinkGroup="AirUberProjeto">Configure Method</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000170.html" LinkGroup="AirUberProjeto">Configure Method</LItem>
       </Links>
    </Context>
    
@@ -794,7 +954,7 @@
          <KItem Name="AirUberProjeto.Startup.ConfigureServices" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000011E.html" LinkGroup="AirUberProjeto">ConfigureServices Method</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000016F.html" LinkGroup="AirUberProjeto">ConfigureServices Method</LItem>
       </Links>
    </Context>
    
@@ -804,7 +964,7 @@
          <KItem Name="AirUberProjeto.Models.ManageViewModels.ConfigureTwoFactorViewModel" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000007E.html" LinkGroup="AirUberProjeto">ConfigureTwoFactorViewModel Class</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000B5.html" LinkGroup="AirUberProjeto">ConfigureTwoFactorViewModel Class</LItem>
       </Links>
    </Context>
    
@@ -814,7 +974,7 @@
          <KItem Name="AirUberProjeto.Controllers.AutenticacaoController.ConfirmEmail" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000000B.html" LinkGroup="AirUberProjeto">ConfirmEmail Method</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000010.html" LinkGroup="AirUberProjeto">ConfirmEmail Method</LItem>
       </Links>
    </Context>
    
@@ -824,7 +984,7 @@
          <KItem Name="AirUberProjeto.Models.AutenticacaoViewModels.ChangePasswordViewModel.ConfirmPassword" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000005C.html" LinkGroup="AirUberProjeto">ConfirmPassword Property {AirUberProjeto.Models.AutenticacaoViewModels.ChangePasswordViewModel}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000083.html" LinkGroup="AirUberProjeto">ConfirmPassword Property {AirUberProjeto.Models.AutenticacaoViewModels.ChangePasswordViewModel}</LItem>
       </Links>
    </Context>
    
@@ -834,7 +994,7 @@
          <KItem Name="AirUberProjeto.Models.AutenticacaoViewModels.RegisterClienteViewModel.ConfirmPassword" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000068.html" LinkGroup="AirUberProjeto">ConfirmPassword Property {AirUberProjeto.Models.AutenticacaoViewModels.RegisterClienteViewModel}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000008F.html" LinkGroup="AirUberProjeto">ConfirmPassword Property {AirUberProjeto.Models.AutenticacaoViewModels.RegisterClienteViewModel}</LItem>
       </Links>
    </Context>
    
@@ -844,7 +1004,7 @@
          <KItem Name="AirUberProjeto.Models.AutenticacaoViewModels.RegisterCompanhiaViewModel.ConfirmPassword" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000071.html" LinkGroup="AirUberProjeto">ConfirmPassword Property {AirUberProjeto.Models.AutenticacaoViewModels.RegisterCompanhiaViewModel}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000098.html" LinkGroup="AirUberProjeto">ConfirmPassword Property {AirUberProjeto.Models.AutenticacaoViewModels.RegisterCompanhiaViewModel}</LItem>
       </Links>
    </Context>
    
@@ -854,7 +1014,7 @@
          <KItem Name="AirUberProjeto.Models.AutenticacaoViewModels.ResetPasswordViewModel.ConfirmPassword" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000075.html" LinkGroup="AirUberProjeto">ConfirmPassword Property {AirUberProjeto.Models.AutenticacaoViewModels.ResetPasswordViewModel}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000009C.html" LinkGroup="AirUberProjeto">ConfirmPassword Property {AirUberProjeto.Models.AutenticacaoViewModels.ResetPasswordViewModel}</LItem>
       </Links>
    </Context>
    
@@ -864,7 +1024,7 @@
          <KItem Name="AirUberProjeto.Models.ManageViewModels.ChangePasswordViewModel.ConfirmPassword" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000007D.html" LinkGroup="AirUberProjeto">ConfirmPassword Property {AirUberProjeto.Models.ManageViewModels.ChangePasswordViewModel}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000B4.html" LinkGroup="AirUberProjeto">ConfirmPassword Property {AirUberProjeto.Models.ManageViewModels.ChangePasswordViewModel}</LItem>
       </Links>
    </Context>
    
@@ -874,7 +1034,7 @@
          <KItem Name="AirUberProjeto.Models.ManageViewModels.SetPasswordViewModel.ConfirmPassword" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000091.html" LinkGroup="AirUberProjeto">ConfirmPassword Property {AirUberProjeto.Models.ManageViewModels.SetPasswordViewModel}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000C8.html" LinkGroup="AirUberProjeto">ConfirmPassword Property {AirUberProjeto.Models.ManageViewModels.SetPasswordViewModel}</LItem>
       </Links>
    </Context>
    
@@ -884,7 +1044,7 @@
          <KItem Name="AirUberProjeto.Controllers.AutenticacaoController.ConfirmReset" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000014.html" LinkGroup="AirUberProjeto">ConfirmReset Method</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000019.html" LinkGroup="AirUberProjeto">ConfirmReset Method</LItem>
       </Links>
    </Context>
    
@@ -894,7 +1054,7 @@
          <KItem Name="AirUberProjeto.Models.ContaDeCreditos" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000C9.html" LinkGroup="AirUberProjeto">ContaDeCreditos Class</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000101.html" LinkGroup="AirUberProjeto">ContaDeCreditos Class</LItem>
       </Links>
    </Context>
    
@@ -904,7 +1064,7 @@
          <KItem Name="AirUberProjeto.Models.ContaDeCreditos.ContaDeCreditos" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000CC.html" LinkGroup="AirUberProjeto">ContaDeCreditos Constructor</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000104.html" LinkGroup="AirUberProjeto">ContaDeCreditos Constructor</LItem>
       </Links>
    </Context>
    
@@ -914,7 +1074,7 @@
          <KItem Name="AirUberProjeto.Models.Cliente.ContaDeCreditos" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000AF.html" LinkGroup="AirUberProjeto">ContaDeCreditos Property {AirUberProjeto.Models.Cliente}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000E7.html" LinkGroup="AirUberProjeto">ContaDeCreditos Property {AirUberProjeto.Models.Cliente}</LItem>
       </Links>
    </Context>
    
@@ -924,7 +1084,7 @@
          <KItem Name="AirUberProjeto.Models.Companhia.ContaDeCreditos" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000C3.html" LinkGroup="AirUberProjeto">ContaDeCreditos Property {AirUberProjeto.Models.Companhia}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000FB.html" LinkGroup="AirUberProjeto">ContaDeCreditos Property {AirUberProjeto.Models.Companhia}</LItem>
       </Links>
    </Context>
    
@@ -934,7 +1094,7 @@
          <KItem Name="AirUberProjeto.Models.Cliente.ContaDeCreditosId" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000AC.html" LinkGroup="AirUberProjeto">ContaDeCreditosId Property {AirUberProjeto.Models.Cliente}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000E3.html" LinkGroup="AirUberProjeto">ContaDeCreditosId Property {AirUberProjeto.Models.Cliente}</LItem>
       </Links>
    </Context>
    
@@ -944,7 +1104,7 @@
          <KItem Name="AirUberProjeto.Models.Companhia.ContaDeCreditosId" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000BD.html" LinkGroup="AirUberProjeto">ContaDeCreditosId Property {AirUberProjeto.Models.Companhia}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000F5.html" LinkGroup="AirUberProjeto">ContaDeCreditosId Property {AirUberProjeto.Models.Companhia}</LItem>
       </Links>
    </Context>
    
@@ -954,7 +1114,17 @@
          <KItem Name="AirUberProjeto.Models.ContaDeCreditos.ContaDeCreditosId" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000CA.html" LinkGroup="AirUberProjeto">ContaDeCreditosId Property {AirUberProjeto.Models.ContaDeCreditos}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000102.html" LinkGroup="AirUberProjeto">ContaDeCreditosId Property {AirUberProjeto.Models.ContaDeCreditos}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Data.AirUberDbContext.ContaDeCreditoses" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000077.html" LinkGroup="AirUberProjeto">ContaDeCreditoses Property</LItem>
       </Links>
    </Context>
    
@@ -964,7 +1134,7 @@
          <KItem Name="AirUberProjeto.Controllers.HomeController.Contact" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000022.html" LinkGroup="AirUberProjeto">Contact Method</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000003D.html" LinkGroup="AirUberProjeto">Contact Method</LItem>
       </Links>
    </Context>
    
@@ -974,7 +1144,7 @@
          <KItem Name="AirUberProjeto.Models.AutenticacaoViewModels.RegisterCompanhiaViewModel.Contact" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000006C.html" LinkGroup="AirUberProjeto">Contact Property {AirUberProjeto.Models.AutenticacaoViewModels.RegisterCompanhiaViewModel}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000093.html" LinkGroup="AirUberProjeto">Contact Property {AirUberProjeto.Models.AutenticacaoViewModels.RegisterCompanhiaViewModel}</LItem>
       </Links>
    </Context>
    
@@ -984,7 +1154,17 @@
          <KItem Name="AirUberProjeto.Models.Companhia.Contact" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000BA.html" LinkGroup="AirUberProjeto">Contact Property {AirUberProjeto.Models.Companhia}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000F2.html" LinkGroup="AirUberProjeto">Contact Property {AirUberProjeto.Models.Companhia}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Models.ClienteViewModels.EditarPerfilViewModel.Contacto" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000A2.html" LinkGroup="AirUberProjeto">Contacto Property {AirUberProjeto.Models.ClienteViewModels.EditarPerfilViewModel}</LItem>
       </Links>
    </Context>
    
@@ -994,7 +1174,17 @@
          <KItem Name="AirUberProjeto.Models.Cliente.Contacto" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000AD.html" LinkGroup="AirUberProjeto">Contacto Property</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000E4.html" LinkGroup="AirUberProjeto">Contacto Property {AirUberProjeto.Models.Cliente}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Controllers.AutenticacaoController.CreatePassword" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000001E.html" LinkGroup="AirUberProjeto">CreatePassword Method</LItem>
       </Links>
    </Context>
    
@@ -1004,7 +1194,7 @@
          <KItem Name="AirUberProjeto.Models.ManageViewModels.ManageLoginsViewModel.CurrentLogins" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000008A.html" LinkGroup="AirUberProjeto">CurrentLogins Property</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000C1.html" LinkGroup="AirUberProjeto">CurrentLogins Property</LItem>
       </Links>
    </Context>
    
@@ -1014,7 +1204,7 @@
          <KItem Name="AirUberProjeto.Models.Reserva.Custo" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000FD.html" LinkGroup="AirUberProjeto">Custo Property</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000014E.html" LinkGroup="AirUberProjeto">Custo Property</LItem>
       </Links>
    </Context>
    
@@ -1024,7 +1214,7 @@
          <KItem Name="AirUberProjeto.Models.Reserva.DataChegada" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000F8.html" LinkGroup="AirUberProjeto">DataChegada Property</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000149.html" LinkGroup="AirUberProjeto">DataChegada Property</LItem>
       </Links>
    </Context>
    
@@ -1034,7 +1224,7 @@
          <KItem Name="AirUberProjeto.Models.ApplicationUser.DataCriacao" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000A1.html" LinkGroup="AirUberProjeto">DataCriacao Property {AirUberProjeto.Models.ApplicationUser}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000D8.html" LinkGroup="AirUberProjeto">DataCriacao Property {AirUberProjeto.Models.ApplicationUser}</LItem>
       </Links>
    </Context>
    
@@ -1044,7 +1234,7 @@
          <KItem Name="AirUberProjeto.Models.Companhia.DataCriacao" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000BF.html" LinkGroup="AirUberProjeto">DataCriacao Property {AirUberProjeto.Models.Companhia}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000F7.html" LinkGroup="AirUberProjeto">DataCriacao Property {AirUberProjeto.Models.Companhia}</LItem>
       </Links>
    </Context>
    
@@ -1054,7 +1244,7 @@
          <KItem Name="AirUberProjeto.Models.Reserva.DataPartida" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000F7.html" LinkGroup="AirUberProjeto">DataPartida Property</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000148.html" LinkGroup="AirUberProjeto">DataPartida Property</LItem>
       </Links>
    </Context>
    
@@ -1064,7 +1254,7 @@
          <KItem Name="AirUberProjeto.Models.DbInitializer" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000CD.html" LinkGroup="AirUberProjeto">DbInitializer Class</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000105.html" LinkGroup="AirUberProjeto">DbInitializer Class</LItem>
       </Links>
    </Context>
    
@@ -1074,7 +1264,7 @@
          <KItem Name="AirUberProjeto.Models.Modelo.Descricao" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000EF.html" LinkGroup="AirUberProjeto">Descricao Property</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000134.html" LinkGroup="AirUberProjeto">Descricao Property</LItem>
       </Links>
    </Context>
    
@@ -1084,17 +1274,45 @@
          <KItem Name="AirUberProjeto.Controllers.ManageController.DisableTwoFactorAuthentication" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000002E.html" LinkGroup="AirUberProjeto">DisableTwoFactorAuthentication Method</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000004E.html" LinkGroup="AirUberProjeto">DisableTwoFactorAuthentication Method</LItem>
       </Links>
    </Context>
    
 
    <Context>
       <Keywords>
-         <KItem Name="AirUberProjeto.Migrations.in2dd.Down" />
+         <KItem Name="AirUberProjeto.Migrations.nomeQualquer.Down" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000057.html" LinkGroup="AirUberProjeto">Down Method</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000007B.html" LinkGroup="AirUberProjeto">Down Method</LItem>
+      </Links>
+   </Context>
+   
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Controllers.ClienteController.EditarPerfil" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000027_overloads--.html" LinkGroup="AirUberProjeto">EditarPerfil Method</LItem>
+      </Links>
+   </Context>
+   
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Controllers.ClienteController.EditarPerfil" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000028_overloads--.html" LinkGroup="AirUberProjeto">EditarPerfil Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Models.ClienteViewModels.EditarPerfilViewModel" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000009F.html" LinkGroup="AirUberProjeto">EditarPerfilViewModel Class</LItem>
       </Links>
    </Context>
    
@@ -1104,7 +1322,7 @@
          <KItem Name="AirUberProjeto.Models.Jato.EmFuncionamento" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000E0.html" LinkGroup="AirUberProjeto">EmFuncionamento Property</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000125.html" LinkGroup="AirUberProjeto">EmFuncionamento Property</LItem>
       </Links>
    </Context>
    
@@ -1114,7 +1332,7 @@
          <KItem Name="AirUberProjeto.Models.AutenticacaoViewModels.ForgotPasswordViewModel.Email" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000005E.html" LinkGroup="AirUberProjeto">Email Property {AirUberProjeto.Models.AutenticacaoViewModels.ForgotPasswordViewModel}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000085.html" LinkGroup="AirUberProjeto">Email Property {AirUberProjeto.Models.AutenticacaoViewModels.ForgotPasswordViewModel}</LItem>
       </Links>
    </Context>
    
@@ -1124,7 +1342,7 @@
          <KItem Name="AirUberProjeto.Models.AutenticacaoViewModels.LoginViewModel.Email" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000060.html" LinkGroup="AirUberProjeto">Email Property {AirUberProjeto.Models.AutenticacaoViewModels.LoginViewModel}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000087.html" LinkGroup="AirUberProjeto">Email Property {AirUberProjeto.Models.AutenticacaoViewModels.LoginViewModel}</LItem>
       </Links>
    </Context>
    
@@ -1134,7 +1352,7 @@
          <KItem Name="AirUberProjeto.Models.AutenticacaoViewModels.RegisterClienteViewModel.Email" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000066.html" LinkGroup="AirUberProjeto">Email Property {AirUberProjeto.Models.AutenticacaoViewModels.RegisterClienteViewModel}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000008D.html" LinkGroup="AirUberProjeto">Email Property {AirUberProjeto.Models.AutenticacaoViewModels.RegisterClienteViewModel}</LItem>
       </Links>
    </Context>
    
@@ -1144,7 +1362,7 @@
          <KItem Name="AirUberProjeto.Models.AutenticacaoViewModels.RegisterCompanhiaViewModel.Email" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000006F.html" LinkGroup="AirUberProjeto">Email Property {AirUberProjeto.Models.AutenticacaoViewModels.RegisterCompanhiaViewModel}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000096.html" LinkGroup="AirUberProjeto">Email Property {AirUberProjeto.Models.AutenticacaoViewModels.RegisterCompanhiaViewModel}</LItem>
       </Links>
    </Context>
    
@@ -1154,7 +1372,7 @@
          <KItem Name="AirUberProjeto.Models.AutenticacaoViewModels.ResetPasswordViewModel.Email" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000073.html" LinkGroup="AirUberProjeto">Email Property {AirUberProjeto.Models.AutenticacaoViewModels.ResetPasswordViewModel}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000009A.html" LinkGroup="AirUberProjeto">Email Property {AirUberProjeto.Models.AutenticacaoViewModels.ResetPasswordViewModel}</LItem>
       </Links>
    </Context>
    
@@ -1164,7 +1382,7 @@
          <KItem Name="AirUberProjeto.Models.Companhia.Email" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000BE.html" LinkGroup="AirUberProjeto">Email Property {AirUberProjeto.Models.Companhia}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000F6.html" LinkGroup="AirUberProjeto">Email Property {AirUberProjeto.Models.Companhia}</LItem>
       </Links>
    </Context>
    
@@ -1174,7 +1392,7 @@
          <KItem Name="AirUberProjeto.Controllers.ManageController.EnableTwoFactorAuthentication" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000002D.html" LinkGroup="AirUberProjeto">EnableTwoFactorAuthentication Method</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000004D.html" LinkGroup="AirUberProjeto">EnableTwoFactorAuthentication Method</LItem>
       </Links>
    </Context>
    
@@ -1184,7 +1402,7 @@
          <KItem Name="AirUberProjeto.Controllers.HomeController.Error" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000023.html" LinkGroup="AirUberProjeto">Error Method</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000003E.html" LinkGroup="AirUberProjeto">Error Method</LItem>
       </Links>
    </Context>
    
@@ -1194,7 +1412,7 @@
          <KItem Name="AirUberProjeto.Models.Estado" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000D0.html" LinkGroup="AirUberProjeto">Estado Class</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000115.html" LinkGroup="AirUberProjeto">Estado Class</LItem>
       </Links>
    </Context>
    
@@ -1204,7 +1422,7 @@
          <KItem Name="AirUberProjeto.Data.AirUberDbContext.Estado" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000004C.html" LinkGroup="AirUberProjeto">Estado Property {AirUberProjeto.Data.AirUberDbContext}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000006E.html" LinkGroup="AirUberProjeto">Estado Property {AirUberProjeto.Data.AirUberDbContext}</LItem>
       </Links>
    </Context>
    
@@ -1214,7 +1432,7 @@
          <KItem Name="AirUberProjeto.Models.Companhia.Estado" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000C2.html" LinkGroup="AirUberProjeto">Estado Property {AirUberProjeto.Models.Companhia}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000FA.html" LinkGroup="AirUberProjeto">Estado Property {AirUberProjeto.Models.Companhia}</LItem>
       </Links>
    </Context>
    
@@ -1224,7 +1442,7 @@
          <KItem Name="AirUberProjeto.Models.Companhia.EstadoId" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000C0.html" LinkGroup="AirUberProjeto">EstadoId Property {AirUberProjeto.Models.Companhia}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000F8.html" LinkGroup="AirUberProjeto">EstadoId Property {AirUberProjeto.Models.Companhia}</LItem>
       </Links>
    </Context>
    
@@ -1234,7 +1452,7 @@
          <KItem Name="AirUberProjeto.Models.Estado.EstadoId" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000D1.html" LinkGroup="AirUberProjeto">EstadoId Property {AirUberProjeto.Models.Estado}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000116.html" LinkGroup="AirUberProjeto">EstadoId Property {AirUberProjeto.Models.Estado}</LItem>
       </Links>
    </Context>
    
@@ -1244,7 +1462,7 @@
          <KItem Name="AirUberProjeto.Models.Extra" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000D3.html" LinkGroup="AirUberProjeto">Extra Class</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000118.html" LinkGroup="AirUberProjeto">Extra Class</LItem>
       </Links>
    </Context>
    
@@ -1254,7 +1472,7 @@
          <KItem Name="AirUberProjeto.Data.AirUberDbContext.Extra" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000004D.html" LinkGroup="AirUberProjeto">Extra Property</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000006F.html" LinkGroup="AirUberProjeto">Extra Property</LItem>
       </Links>
    </Context>
    
@@ -1264,7 +1482,7 @@
          <KItem Name="AirUberProjeto.Models.Extra.ExtraId" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000D4.html" LinkGroup="AirUberProjeto">ExtraId Property</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000119.html" LinkGroup="AirUberProjeto">ExtraId Property</LItem>
       </Links>
    </Context>
    
@@ -1274,7 +1492,7 @@
          <KItem Name="AirUberProjeto.Models.ManageViewModels.FactorViewModel" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000081.html" LinkGroup="AirUberProjeto">FactorViewModel Class</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000B8.html" LinkGroup="AirUberProjeto">FactorViewModel Class</LItem>
       </Links>
    </Context>
    
@@ -1283,7 +1501,7 @@
          <KItem Name="AirUberProjeto.Controllers.AutenticacaoController.ForgotPassword" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000000C_overloads--.html" LinkGroup="AirUberProjeto">ForgotPassword Method</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000011_overloads--.html" LinkGroup="AirUberProjeto">ForgotPassword Method</LItem>
       </Links>
    </Context>
    
@@ -1292,7 +1510,7 @@
          <KItem Name="AirUberProjeto.Controllers.AutenticacaoController.ForgotPassword" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000000D_overloads--.html" LinkGroup="AirUberProjeto">ForgotPassword Method</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000012_overloads--.html" LinkGroup="AirUberProjeto">ForgotPassword Method</LItem>
       </Links>
    </Context>
    
@@ -1302,7 +1520,7 @@
          <KItem Name="AirUberProjeto.Controllers.AutenticacaoController.ForgotPasswordConfirmation" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000000E.html" LinkGroup="AirUberProjeto">ForgotPasswordConfirmation Method</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000013.html" LinkGroup="AirUberProjeto">ForgotPasswordConfirmation Method</LItem>
       </Links>
    </Context>
    
@@ -1312,7 +1530,7 @@
          <KItem Name="AirUberProjeto.Models.AutenticacaoViewModels.ForgotPasswordViewModel" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000005D.html" LinkGroup="AirUberProjeto">ForgotPasswordViewModel Class</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000084.html" LinkGroup="AirUberProjeto">ForgotPasswordViewModel Class</LItem>
       </Links>
    </Context>
    
@@ -1322,7 +1540,27 @@
          <KItem Name="AirUberProjeto.Controllers.AutenticacaoController.GenerateNewPassword" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000015.html" LinkGroup="AirUberProjeto">GenerateNewPassword Method</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000001A.html" LinkGroup="AirUberProjeto">GenerateNewPassword Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Controllers.AutenticacaoController.GetCurrentUserAsync" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000001C.html" LinkGroup="AirUberProjeto">GetCurrentUserAsync Method {AirUberProjeto.Controllers.AutenticacaoController}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Controllers.ManageController.GetCurrentUserAsync" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000063.html" LinkGroup="AirUberProjeto">GetCurrentUserAsync Method {AirUberProjeto.Controllers.ManageController}</LItem>
       </Links>
    </Context>
    
@@ -1332,7 +1570,7 @@
          <KItem Name="AirUberProjeto.Models.ManageViewModels.IndexViewModel.HasPassword" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000084.html" LinkGroup="AirUberProjeto">HasPassword Property</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000BB.html" LinkGroup="AirUberProjeto">HasPassword Property</LItem>
       </Links>
    </Context>
    
@@ -1342,7 +1580,7 @@
          <KItem Name="AirUberProjeto.Models.Helpdesk" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000DA.html" LinkGroup="AirUberProjeto">Helpdesk Class</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000011F.html" LinkGroup="AirUberProjeto">Helpdesk Class</LItem>
       </Links>
    </Context>
    
@@ -1352,7 +1590,7 @@
          <KItem Name="AirUberProjeto.Controllers.HelpdeskController" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000016.html" LinkGroup="AirUberProjeto">HelpdeskController Class</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000002F.html" LinkGroup="AirUberProjeto">HelpdeskController Class</LItem>
       </Links>
    </Context>
    
@@ -1362,7 +1600,7 @@
          <KItem Name="AirUberProjeto.Controllers.HelpdeskController.HelpdeskController" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000017.html" LinkGroup="AirUberProjeto">HelpdeskController Constructor</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000031.html" LinkGroup="AirUberProjeto">HelpdeskController Constructor</LItem>
       </Links>
    </Context>
    
@@ -1372,7 +1610,7 @@
          <KItem Name="AirUberProjeto.Controllers.HomeController.HelpdeskLogin" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000024.html" LinkGroup="AirUberProjeto">HelpdeskLogin Method</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000003F.html" LinkGroup="AirUberProjeto">HelpdeskLogin Method</LItem>
       </Links>
    </Context>
    
@@ -1382,7 +1620,7 @@
          <KItem Name="AirUberProjeto.Controllers.HomeController" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000001F.html" LinkGroup="AirUberProjeto">HomeController Class</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000003A.html" LinkGroup="AirUberProjeto">HomeController Class</LItem>
       </Links>
    </Context>
    
@@ -1392,7 +1630,7 @@
          <KItem Name="AirUberProjeto.Services.IEmailSender" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000111.html" LinkGroup="AirUberProjeto">IEmailSender Interface</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000162.html" LinkGroup="AirUberProjeto">IEmailSender Interface</LItem>
       </Links>
    </Context>
    
@@ -1402,7 +1640,27 @@
          <KItem Name="AirUberProjeto.Services.ISmsSender" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000113.html" LinkGroup="AirUberProjeto">ISmsSender Interface</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000164.html" LinkGroup="AirUberProjeto">ISmsSender Interface</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Controllers.ClienteController.Index" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000024.html" LinkGroup="AirUberProjeto">Index Method {AirUberProjeto.Controllers.ClienteController}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Controllers.CompanhiaController.Index" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000002E.html" LinkGroup="AirUberProjeto">Index Method {AirUberProjeto.Controllers.CompanhiaController}</LItem>
       </Links>
    </Context>
    
@@ -1412,7 +1670,7 @@
          <KItem Name="AirUberProjeto.Controllers.HelpdeskController.Index" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000018.html" LinkGroup="AirUberProjeto">Index Method {AirUberProjeto.Controllers.HelpdeskController}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000032.html" LinkGroup="AirUberProjeto">Index Method {AirUberProjeto.Controllers.HelpdeskController}</LItem>
       </Links>
    </Context>
    
@@ -1422,7 +1680,7 @@
          <KItem Name="AirUberProjeto.Controllers.HomeController.Index" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000020.html" LinkGroup="AirUberProjeto">Index Method {AirUberProjeto.Controllers.HomeController}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000003B.html" LinkGroup="AirUberProjeto">Index Method {AirUberProjeto.Controllers.HomeController}</LItem>
       </Links>
    </Context>
    
@@ -1432,7 +1690,7 @@
          <KItem Name="AirUberProjeto.Controllers.ManageController.Index" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000029.html" LinkGroup="AirUberProjeto">Index Method {AirUberProjeto.Controllers.ManageController}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000049.html" LinkGroup="AirUberProjeto">Index Method {AirUberProjeto.Controllers.ManageController}</LItem>
       </Links>
    </Context>
    
@@ -1442,7 +1700,7 @@
          <KItem Name="AirUberProjeto.Models.ManageViewModels.IndexViewModel" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000083.html" LinkGroup="AirUberProjeto">IndexViewModel Class</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000BA.html" LinkGroup="AirUberProjeto">IndexViewModel Class</LItem>
       </Links>
    </Context>
    
@@ -1452,7 +1710,7 @@
          <KItem Name="AirUberProjeto.Models.DbInitializer.Initialize" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000CE.html" LinkGroup="AirUberProjeto">Initialize Method</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000106.html" LinkGroup="AirUberProjeto">Initialize Method</LItem>
       </Links>
    </Context>
    
@@ -1462,7 +1720,7 @@
          <KItem Name="AirUberProjeto.Models.Colaborador.IsAdministrador" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000B3.html" LinkGroup="AirUberProjeto">IsAdministrador Property</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000EB.html" LinkGroup="AirUberProjeto">IsAdministrador Property</LItem>
       </Links>
    </Context>
    
@@ -1472,7 +1730,7 @@
          <KItem Name="AirUberProjeto.Models.Jato" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000DB.html" LinkGroup="AirUberProjeto">Jato Class</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000120.html" LinkGroup="AirUberProjeto">Jato Class</LItem>
       </Links>
    </Context>
    
@@ -1482,7 +1740,7 @@
          <KItem Name="AirUberProjeto.Models.Jato.Jato" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000E3.html" LinkGroup="AirUberProjeto">Jato Constructor</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000128.html" LinkGroup="AirUberProjeto">Jato Constructor</LItem>
       </Links>
    </Context>
    
@@ -1492,7 +1750,7 @@
          <KItem Name="AirUberProjeto.Data.AirUberDbContext.Jato" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000004E.html" LinkGroup="AirUberProjeto">Jato Property {AirUberProjeto.Data.AirUberDbContext}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000070.html" LinkGroup="AirUberProjeto">Jato Property {AirUberProjeto.Data.AirUberDbContext}</LItem>
       </Links>
    </Context>
    
@@ -1502,7 +1760,7 @@
          <KItem Name="AirUberProjeto.Models.Reserva.Jato" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000FF.html" LinkGroup="AirUberProjeto">Jato Property {AirUberProjeto.Models.Reserva}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000150.html" LinkGroup="AirUberProjeto">Jato Property {AirUberProjeto.Models.Reserva}</LItem>
       </Links>
    </Context>
    
@@ -1512,7 +1770,7 @@
          <KItem Name="AirUberProjeto.Models.Jato.JatoId" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000DC.html" LinkGroup="AirUberProjeto">JatoId Property {AirUberProjeto.Models.Jato}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000121.html" LinkGroup="AirUberProjeto">JatoId Property {AirUberProjeto.Models.Jato}</LItem>
       </Links>
    </Context>
    
@@ -1522,7 +1780,7 @@
          <KItem Name="AirUberProjeto.Models.Reserva.JatoId" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000FB.html" LinkGroup="AirUberProjeto">JatoId Property {AirUberProjeto.Models.Reserva}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000014C.html" LinkGroup="AirUberProjeto">JatoId Property {AirUberProjeto.Models.Reserva}</LItem>
       </Links>
    </Context>
    
@@ -1532,7 +1790,7 @@
          <KItem Name="AirUberProjeto.Models.ContaDeCreditos.JetCashActual" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000CB.html" LinkGroup="AirUberProjeto">JetCashActual Property</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000103.html" LinkGroup="AirUberProjeto">JetCashActual Property</LItem>
       </Links>
    </Context>
    
@@ -1542,7 +1800,7 @@
          <KItem Name="AirUberProjeto.Models.Modelo.LarguraCabine" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000ED.html" LinkGroup="AirUberProjeto">LarguraCabine Property</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000132.html" LinkGroup="AirUberProjeto">LarguraCabine Property</LItem>
       </Links>
    </Context>
    
@@ -1552,7 +1810,17 @@
          <KItem Name="AirUberProjeto.Models.Aeroporto.Latitude" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000009A.html" LinkGroup="AirUberProjeto">Latitude Property</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000D1.html" LinkGroup="AirUberProjeto">Latitude Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Models.Notificacao.Lida" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000141.html" LinkGroup="AirUberProjeto">Lida Property</LItem>
       </Links>
    </Context>
    
@@ -1562,7 +1830,7 @@
          <KItem Name="AirUberProjeto.Controllers.ManageController.LinkLogin" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000037.html" LinkGroup="AirUberProjeto">LinkLogin Method</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000057.html" LinkGroup="AirUberProjeto">LinkLogin Method</LItem>
       </Links>
    </Context>
    
@@ -1572,7 +1840,7 @@
          <KItem Name="AirUberProjeto.Controllers.ManageController.LinkLoginCallback" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000038.html" LinkGroup="AirUberProjeto">LinkLoginCallback Method</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000058.html" LinkGroup="AirUberProjeto">LinkLoginCallback Method</LItem>
       </Links>
    </Context>
    
@@ -1582,7 +1850,7 @@
          <KItem Name="AirUberProjeto.Models.Companhia.ListaColaboradores" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000C5.html" LinkGroup="AirUberProjeto">ListaColaboradores Property</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000FD.html" LinkGroup="AirUberProjeto">ListaColaboradores Property</LItem>
       </Links>
    </Context>
    
@@ -1592,7 +1860,7 @@
          <KItem Name="AirUberProjeto.Models.Companhia.ListaExtras" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000C7.html" LinkGroup="AirUberProjeto">ListaExtras Property {AirUberProjeto.Models.Companhia}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000FF.html" LinkGroup="AirUberProjeto">ListaExtras Property {AirUberProjeto.Models.Companhia}</LItem>
       </Links>
    </Context>
    
@@ -1602,7 +1870,7 @@
          <KItem Name="AirUberProjeto.Models.Reserva.ListaExtras" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000103.html" LinkGroup="AirUberProjeto">ListaExtras Property {AirUberProjeto.Models.Reserva}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000154.html" LinkGroup="AirUberProjeto">ListaExtras Property {AirUberProjeto.Models.Reserva}</LItem>
       </Links>
    </Context>
    
@@ -1612,7 +1880,7 @@
          <KItem Name="AirUberProjeto.Models.Companhia.ListaJatos" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000C6.html" LinkGroup="AirUberProjeto">ListaJatos Property</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000FE.html" LinkGroup="AirUberProjeto">ListaJatos Property</LItem>
       </Links>
    </Context>
    
@@ -1622,7 +1890,7 @@
          <KItem Name="AirUberProjeto.Models.Cliente.ListaReservas" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000AE.html" LinkGroup="AirUberProjeto">ListaReservas Property {AirUberProjeto.Models.Cliente}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000E6.html" LinkGroup="AirUberProjeto">ListaReservas Property {AirUberProjeto.Models.Cliente}</LItem>
       </Links>
    </Context>
    
@@ -1632,7 +1900,7 @@
          <KItem Name="AirUberProjeto.Models.Companhia.ListaReservas" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000C4.html" LinkGroup="AirUberProjeto">ListaReservas Property {AirUberProjeto.Models.Companhia}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000FC.html" LinkGroup="AirUberProjeto">ListaReservas Property {AirUberProjeto.Models.Companhia}</LItem>
       </Links>
    </Context>
    
@@ -1642,7 +1910,7 @@
          <KItem Name="AirUberProjeto.Controllers.AutenticacaoController.LogOff" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000000A.html" LinkGroup="AirUberProjeto">LogOff Method</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000000F.html" LinkGroup="AirUberProjeto">LogOff Method</LItem>
       </Links>
    </Context>
    
@@ -1651,7 +1919,7 @@
          <KItem Name="AirUberProjeto.Controllers.AutenticacaoController.Login" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000004_overloads--.html" LinkGroup="AirUberProjeto">Login Method</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000009_overloads--.html" LinkGroup="AirUberProjeto">Login Method</LItem>
       </Links>
    </Context>
    
@@ -1660,7 +1928,7 @@
          <KItem Name="AirUberProjeto.Controllers.AutenticacaoController.Login" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000003_overloads--.html" LinkGroup="AirUberProjeto">Login Method</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000008_overloads--.html" LinkGroup="AirUberProjeto">Login Method</LItem>
       </Links>
    </Context>
    
@@ -1670,7 +1938,7 @@
          <KItem Name="AirUberProjeto.Models.ManageViewModels.RemoveLoginViewModel.LoginProvider" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000008D.html" LinkGroup="AirUberProjeto">LoginProvider Property</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000C4.html" LinkGroup="AirUberProjeto">LoginProvider Property</LItem>
       </Links>
    </Context>
    
@@ -1680,7 +1948,7 @@
          <KItem Name="AirUberProjeto.Models.AutenticacaoViewModels.LoginViewModel" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000005F.html" LinkGroup="AirUberProjeto">LoginViewModel Class</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000086.html" LinkGroup="AirUberProjeto">LoginViewModel Class</LItem>
       </Links>
    </Context>
    
@@ -1690,7 +1958,7 @@
          <KItem Name="AirUberProjeto.Models.ManageViewModels.IndexViewModel.Logins" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000085.html" LinkGroup="AirUberProjeto">Logins Property</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000BC.html" LinkGroup="AirUberProjeto">Logins Property</LItem>
       </Links>
    </Context>
    
@@ -1700,7 +1968,7 @@
          <KItem Name="AirUberProjeto.Models.Aeroporto.Longitude" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000009B.html" LinkGroup="AirUberProjeto">Longitude Property</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000D2.html" LinkGroup="AirUberProjeto">Longitude Property</LItem>
       </Links>
    </Context>
    
@@ -1710,7 +1978,7 @@
          <KItem Name="AirUberProjeto.Program.Main" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000011A.html" LinkGroup="AirUberProjeto">Main Method</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000016B.html" LinkGroup="AirUberProjeto">Main Method</LItem>
       </Links>
    </Context>
    
@@ -1720,7 +1988,7 @@
          <KItem Name="AirUberProjeto.Controllers.ManageController" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000027.html" LinkGroup="AirUberProjeto">ManageController Class</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000042.html" LinkGroup="AirUberProjeto">ManageController Class</LItem>
       </Links>
    </Context>
    
@@ -1730,7 +1998,7 @@
          <KItem Name="AirUberProjeto.Controllers.ManageController.ManageController" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000028.html" LinkGroup="AirUberProjeto">ManageController Constructor</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000048.html" LinkGroup="AirUberProjeto">ManageController Constructor</LItem>
       </Links>
    </Context>
    
@@ -1740,7 +2008,7 @@
          <KItem Name="AirUberProjeto.Controllers.ManageController.ManageLogins" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000036.html" LinkGroup="AirUberProjeto">ManageLogins Method</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000056.html" LinkGroup="AirUberProjeto">ManageLogins Method</LItem>
       </Links>
    </Context>
    
@@ -1750,7 +2018,7 @@
          <KItem Name="AirUberProjeto.Models.ManageViewModels.ManageLoginsViewModel" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000089.html" LinkGroup="AirUberProjeto">ManageLoginsViewModel Class</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000C0.html" LinkGroup="AirUberProjeto">ManageLoginsViewModel Class</LItem>
       </Links>
    </Context>
    
@@ -1760,7 +2028,27 @@
          <KItem Name="AirUberProjeto.Controllers.ManageController.ManageMessageId" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000039.html" LinkGroup="AirUberProjeto">ManageMessageId Enumeration</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000005A.html" LinkGroup="AirUberProjeto">ManageMessageId Enumeration</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Controllers.ClienteController.MarcarNotificacaoLida" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000026.html" LinkGroup="AirUberProjeto">MarcarNotificacaoLida Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Models.Notificacao.Mensagem" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000013F.html" LinkGroup="AirUberProjeto">Mensagem Property</LItem>
       </Links>
    </Context>
    
@@ -1770,7 +2058,7 @@
          <KItem Name="AirUberProjeto.Controllers.HelpdeskController.ModalViagens" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000001E.html" LinkGroup="AirUberProjeto">ModalViagens Method</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000038.html" LinkGroup="AirUberProjeto">ModalViagens Method</LItem>
       </Links>
    </Context>
    
@@ -1780,7 +2068,7 @@
          <KItem Name="AirUberProjeto.Models.Modelo" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000E4.html" LinkGroup="AirUberProjeto">Modelo Class</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000129.html" LinkGroup="AirUberProjeto">Modelo Class</LItem>
       </Links>
    </Context>
    
@@ -1790,7 +2078,7 @@
          <KItem Name="AirUberProjeto.Data.AirUberDbContext.Modelo" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000004F.html" LinkGroup="AirUberProjeto">Modelo Property {AirUberProjeto.Data.AirUberDbContext}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000071.html" LinkGroup="AirUberProjeto">Modelo Property {AirUberProjeto.Data.AirUberDbContext}</LItem>
       </Links>
    </Context>
    
@@ -1800,7 +2088,7 @@
          <KItem Name="AirUberProjeto.Models.Jato.Modelo" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000E1.html" LinkGroup="AirUberProjeto">Modelo Property {AirUberProjeto.Models.Jato}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000126.html" LinkGroup="AirUberProjeto">Modelo Property {AirUberProjeto.Models.Jato}</LItem>
       </Links>
    </Context>
    
@@ -1810,7 +2098,7 @@
          <KItem Name="AirUberProjeto.Models.Jato.ModeloId" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000DE.html" LinkGroup="AirUberProjeto">ModeloId Property {AirUberProjeto.Models.Jato}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000123.html" LinkGroup="AirUberProjeto">ModeloId Property {AirUberProjeto.Models.Jato}</LItem>
       </Links>
    </Context>
    
@@ -1820,7 +2108,7 @@
          <KItem Name="AirUberProjeto.Models.Modelo.ModeloId" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000E5.html" LinkGroup="AirUberProjeto">ModeloId Property {AirUberProjeto.Models.Modelo}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000012A.html" LinkGroup="AirUberProjeto">ModeloId Property {AirUberProjeto.Models.Modelo}</LItem>
       </Links>
    </Context>
    
@@ -1830,7 +2118,7 @@
          <KItem Name="AirUberProjeto.Models.AutenticacaoViewModels.RegisterCompanhiaViewModel.Morada" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000006B.html" LinkGroup="AirUberProjeto">Morada Property {AirUberProjeto.Models.AutenticacaoViewModels.RegisterCompanhiaViewModel}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000092.html" LinkGroup="AirUberProjeto">Morada Property {AirUberProjeto.Models.AutenticacaoViewModels.RegisterCompanhiaViewModel}</LItem>
       </Links>
    </Context>
    
@@ -1840,7 +2128,7 @@
          <KItem Name="AirUberProjeto.Models.Companhia.Morada" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000B9.html" LinkGroup="AirUberProjeto">Morada Property {AirUberProjeto.Models.Companhia}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000F1.html" LinkGroup="AirUberProjeto">Morada Property {AirUberProjeto.Models.Companhia}</LItem>
       </Links>
    </Context>
    
@@ -1850,7 +2138,7 @@
          <KItem Name="AirUberProjeto.Models.AutenticacaoViewModels.ChangePasswordViewModel.NewPassword" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000005B.html" LinkGroup="AirUberProjeto">NewPassword Property {AirUberProjeto.Models.AutenticacaoViewModels.ChangePasswordViewModel}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000082.html" LinkGroup="AirUberProjeto">NewPassword Property {AirUberProjeto.Models.AutenticacaoViewModels.ChangePasswordViewModel}</LItem>
       </Links>
    </Context>
    
@@ -1860,7 +2148,7 @@
          <KItem Name="AirUberProjeto.Models.ManageViewModels.ChangePasswordViewModel.NewPassword" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000007C.html" LinkGroup="AirUberProjeto">NewPassword Property {AirUberProjeto.Models.ManageViewModels.ChangePasswordViewModel}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000B3.html" LinkGroup="AirUberProjeto">NewPassword Property {AirUberProjeto.Models.ManageViewModels.ChangePasswordViewModel}</LItem>
       </Links>
    </Context>
    
@@ -1870,7 +2158,7 @@
          <KItem Name="AirUberProjeto.Models.ManageViewModels.SetPasswordViewModel.NewPassword" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000090.html" LinkGroup="AirUberProjeto">NewPassword Property {AirUberProjeto.Models.ManageViewModels.SetPasswordViewModel}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000C7.html" LinkGroup="AirUberProjeto">NewPassword Property {AirUberProjeto.Models.ManageViewModels.SetPasswordViewModel}</LItem>
       </Links>
    </Context>
    
@@ -1880,7 +2168,7 @@
          <KItem Name="AirUberProjeto.Models.AutenticacaoViewModels.RegisterCompanhiaViewModel.Nif" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000006E.html" LinkGroup="AirUberProjeto">Nif Property {AirUberProjeto.Models.AutenticacaoViewModels.RegisterCompanhiaViewModel}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000095.html" LinkGroup="AirUberProjeto">Nif Property {AirUberProjeto.Models.AutenticacaoViewModels.RegisterCompanhiaViewModel}</LItem>
       </Links>
    </Context>
    
@@ -1890,7 +2178,7 @@
          <KItem Name="AirUberProjeto.Models.Companhia.Nif" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000BC.html" LinkGroup="AirUberProjeto">Nif Property {AirUberProjeto.Models.Companhia}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000F4.html" LinkGroup="AirUberProjeto">Nif Property {AirUberProjeto.Models.Companhia}</LItem>
       </Links>
    </Context>
    
@@ -1900,7 +2188,7 @@
          <KItem Name="AirUberProjeto.Models.Aeroporto.Nome" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000099.html" LinkGroup="AirUberProjeto">Nome Property {AirUberProjeto.Models.Aeroporto}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000D0.html" LinkGroup="AirUberProjeto">Nome Property {AirUberProjeto.Models.Aeroporto}</LItem>
       </Links>
    </Context>
    
@@ -1910,7 +2198,7 @@
          <KItem Name="AirUberProjeto.Models.ApplicationUser.Nome" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000A2.html" LinkGroup="AirUberProjeto">Nome Property {AirUberProjeto.Models.ApplicationUser}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000D9.html" LinkGroup="AirUberProjeto">Nome Property {AirUberProjeto.Models.ApplicationUser}</LItem>
       </Links>
    </Context>
    
@@ -1920,7 +2208,7 @@
          <KItem Name="AirUberProjeto.Models.AutenticacaoViewModels.RegisterClienteViewModel.Nome" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000064.html" LinkGroup="AirUberProjeto">Nome Property {AirUberProjeto.Models.AutenticacaoViewModels.RegisterClienteViewModel}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000008B.html" LinkGroup="AirUberProjeto">Nome Property {AirUberProjeto.Models.AutenticacaoViewModels.RegisterClienteViewModel}</LItem>
       </Links>
    </Context>
    
@@ -1930,7 +2218,7 @@
          <KItem Name="AirUberProjeto.Models.AutenticacaoViewModels.RegisterCompanhiaViewModel.Nome" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000006A.html" LinkGroup="AirUberProjeto">Nome Property {AirUberProjeto.Models.AutenticacaoViewModels.RegisterCompanhiaViewModel}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000091.html" LinkGroup="AirUberProjeto">Nome Property {AirUberProjeto.Models.AutenticacaoViewModels.RegisterCompanhiaViewModel}</LItem>
       </Links>
    </Context>
    
@@ -1940,7 +2228,17 @@
          <KItem Name="AirUberProjeto.Models.Cidade.Nome" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000A8.html" LinkGroup="AirUberProjeto">Nome Property {AirUberProjeto.Models.Cidade}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000DF.html" LinkGroup="AirUberProjeto">Nome Property {AirUberProjeto.Models.Cidade}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Models.ClienteViewModels.EditarPerfilViewModel.Nome" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000A0.html" LinkGroup="AirUberProjeto">Nome Property {AirUberProjeto.Models.ClienteViewModels.EditarPerfilViewModel}</LItem>
       </Links>
    </Context>
    
@@ -1950,7 +2248,7 @@
          <KItem Name="AirUberProjeto.Models.Companhia.Nome" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000B8.html" LinkGroup="AirUberProjeto">Nome Property {AirUberProjeto.Models.Companhia}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000F0.html" LinkGroup="AirUberProjeto">Nome Property {AirUberProjeto.Models.Companhia}</LItem>
       </Links>
    </Context>
    
@@ -1960,7 +2258,7 @@
          <KItem Name="AirUberProjeto.Models.Estado.Nome" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000D2.html" LinkGroup="AirUberProjeto">Nome Property {AirUberProjeto.Models.Estado}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000117.html" LinkGroup="AirUberProjeto">Nome Property {AirUberProjeto.Models.Estado}</LItem>
       </Links>
    </Context>
    
@@ -1970,7 +2268,7 @@
          <KItem Name="AirUberProjeto.Models.Jato.Nome" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000DD.html" LinkGroup="AirUberProjeto">Nome Property {AirUberProjeto.Models.Jato}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000122.html" LinkGroup="AirUberProjeto">Nome Property {AirUberProjeto.Models.Jato}</LItem>
       </Links>
    </Context>
    
@@ -1980,7 +2278,7 @@
          <KItem Name="AirUberProjeto.Models.Pais.Nome" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000F4.html" LinkGroup="AirUberProjeto">Nome Property {AirUberProjeto.Models.Pais}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000145.html" LinkGroup="AirUberProjeto">Nome Property {AirUberProjeto.Models.Pais}</LItem>
       </Links>
    </Context>
    
@@ -1990,7 +2288,7 @@
          <KItem Name="AirUberProjeto.Models.TipoExtra.Nome" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000010C.html" LinkGroup="AirUberProjeto">Nome Property {AirUberProjeto.Models.TipoExtra}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000015D.html" LinkGroup="AirUberProjeto">Nome Property {AirUberProjeto.Models.TipoExtra}</LItem>
       </Links>
    </Context>
    
@@ -2000,7 +2298,57 @@
          <KItem Name="AirUberProjeto.Models.TipoJato.Nome" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000010F.html" LinkGroup="AirUberProjeto">Nome Property {AirUberProjeto.Models.TipoJato}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000160.html" LinkGroup="AirUberProjeto">Nome Property {AirUberProjeto.Models.TipoJato}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Models.Notificacao" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000137.html" LinkGroup="AirUberProjeto">Notificacao Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Data.AirUberDbContext.Notificacao" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000076.html" LinkGroup="AirUberProjeto">Notificacao Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Models.Notificacao.NotificacaoId" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000013D.html" LinkGroup="AirUberProjeto">NotificacaoId Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Models.ClienteViewModels.PerfilViewModel.Notificacoes" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000A4.html" LinkGroup="AirUberProjeto">Notificacoes Property {AirUberProjeto.Models.ClienteViewModels.PerfilViewModel}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Models.CompanhiaViewModels.PerfilCompanhiaViewModel.Notificacoes" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000AC.html" LinkGroup="AirUberProjeto">Notificacoes Property {AirUberProjeto.Models.CompanhiaViewModels.PerfilCompanhiaViewModel}</LItem>
       </Links>
    </Context>
    
@@ -2010,7 +2358,17 @@
          <KItem Name="AirUberProjeto.Models.Modelo.NumeroMotores" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000EA.html" LinkGroup="AirUberProjeto">NumeroMotores Property</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000012F.html" LinkGroup="AirUberProjeto">NumeroMotores Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Models.ClienteViewModels.PerfilViewModel.NumeroViagens" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000A6.html" LinkGroup="AirUberProjeto">NumeroViagens Field</LItem>
       </Links>
    </Context>
    
@@ -2020,7 +2378,7 @@
          <KItem Name="AirUberProjeto.Models.AutenticacaoViewModels.ChangePasswordViewModel.OldPassword" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000005A.html" LinkGroup="AirUberProjeto">OldPassword Property {AirUberProjeto.Models.AutenticacaoViewModels.ChangePasswordViewModel}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000081.html" LinkGroup="AirUberProjeto">OldPassword Property {AirUberProjeto.Models.AutenticacaoViewModels.ChangePasswordViewModel}</LItem>
       </Links>
    </Context>
    
@@ -2030,7 +2388,7 @@
          <KItem Name="AirUberProjeto.Models.ManageViewModels.ChangePasswordViewModel.OldPassword" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000007B.html" LinkGroup="AirUberProjeto">OldPassword Property {AirUberProjeto.Models.ManageViewModels.ChangePasswordViewModel}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000B2.html" LinkGroup="AirUberProjeto">OldPassword Property {AirUberProjeto.Models.ManageViewModels.ChangePasswordViewModel}</LItem>
       </Links>
    </Context>
    
@@ -2040,7 +2398,7 @@
          <KItem Name="AirUberProjeto.Data.AirUberDbContext.OnModelCreating" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000045.html" LinkGroup="AirUberProjeto">OnModelCreating Method</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000067.html" LinkGroup="AirUberProjeto">OnModelCreating Method</LItem>
       </Links>
    </Context>
    
@@ -2050,7 +2408,7 @@
          <KItem Name="AirUberProjeto.Models.ManageViewModels.ManageLoginsViewModel.OtherLogins" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000008B.html" LinkGroup="AirUberProjeto">OtherLogins Property</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000C2.html" LinkGroup="AirUberProjeto">OtherLogins Property</LItem>
       </Links>
    </Context>
    
@@ -2060,7 +2418,7 @@
          <KItem Name="AirUberProjeto.Models.Pais" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000F2.html" LinkGroup="AirUberProjeto">Pais Class</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000143.html" LinkGroup="AirUberProjeto">Pais Class</LItem>
       </Links>
    </Context>
    
@@ -2070,7 +2428,7 @@
          <KItem Name="AirUberProjeto.Data.AirUberDbContext.Pais" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000050.html" LinkGroup="AirUberProjeto">Pais Property {AirUberProjeto.Data.AirUberDbContext}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000072.html" LinkGroup="AirUberProjeto">Pais Property {AirUberProjeto.Data.AirUberDbContext}</LItem>
       </Links>
    </Context>
    
@@ -2080,7 +2438,7 @@
          <KItem Name="AirUberProjeto.Models.Cidade.Pais" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000AA.html" LinkGroup="AirUberProjeto">Pais Property {AirUberProjeto.Models.Cidade}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000E1.html" LinkGroup="AirUberProjeto">Pais Property {AirUberProjeto.Models.Cidade}</LItem>
       </Links>
    </Context>
    
@@ -2090,7 +2448,7 @@
          <KItem Name="AirUberProjeto.Models.Companhia.Pais" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000C1.html" LinkGroup="AirUberProjeto">Pais Property {AirUberProjeto.Models.Companhia}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000F9.html" LinkGroup="AirUberProjeto">Pais Property {AirUberProjeto.Models.Companhia}</LItem>
       </Links>
    </Context>
    
@@ -2100,7 +2458,7 @@
          <KItem Name="AirUberProjeto.Models.AutenticacaoViewModels.RegisterCompanhiaViewModel.PaisId" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000006D.html" LinkGroup="AirUberProjeto">PaisId Property {AirUberProjeto.Models.AutenticacaoViewModels.RegisterCompanhiaViewModel}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000094.html" LinkGroup="AirUberProjeto">PaisId Property {AirUberProjeto.Models.AutenticacaoViewModels.RegisterCompanhiaViewModel}</LItem>
       </Links>
    </Context>
    
@@ -2110,7 +2468,7 @@
          <KItem Name="AirUberProjeto.Models.Cidade.PaisId" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000A9.html" LinkGroup="AirUberProjeto">PaisId Property {AirUberProjeto.Models.Cidade}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000E0.html" LinkGroup="AirUberProjeto">PaisId Property {AirUberProjeto.Models.Cidade}</LItem>
       </Links>
    </Context>
    
@@ -2120,7 +2478,7 @@
          <KItem Name="AirUberProjeto.Models.Companhia.PaisId" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000BB.html" LinkGroup="AirUberProjeto">PaisId Property {AirUberProjeto.Models.Companhia}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000F3.html" LinkGroup="AirUberProjeto">PaisId Property {AirUberProjeto.Models.Companhia}</LItem>
       </Links>
    </Context>
    
@@ -2130,7 +2488,7 @@
          <KItem Name="AirUberProjeto.Models.Pais.PaisId" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000F3.html" LinkGroup="AirUberProjeto">PaisId Property {AirUberProjeto.Models.Pais}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000144.html" LinkGroup="AirUberProjeto">PaisId Property {AirUberProjeto.Models.Pais}</LItem>
       </Links>
    </Context>
    
@@ -2140,7 +2498,7 @@
          <KItem Name="AirUberProjeto.Models.Aeroporto.Partidas" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000009D.html" LinkGroup="AirUberProjeto">Partidas Property</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000D4.html" LinkGroup="AirUberProjeto">Partidas Property</LItem>
       </Links>
    </Context>
    
@@ -2150,7 +2508,7 @@
          <KItem Name="AirUberProjeto.Models.AutenticacaoViewModels.LoginViewModel.Password" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000061.html" LinkGroup="AirUberProjeto">Password Property {AirUberProjeto.Models.AutenticacaoViewModels.LoginViewModel}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000088.html" LinkGroup="AirUberProjeto">Password Property {AirUberProjeto.Models.AutenticacaoViewModels.LoginViewModel}</LItem>
       </Links>
    </Context>
    
@@ -2160,7 +2518,7 @@
          <KItem Name="AirUberProjeto.Models.AutenticacaoViewModels.RegisterClienteViewModel.Password" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000067.html" LinkGroup="AirUberProjeto">Password Property {AirUberProjeto.Models.AutenticacaoViewModels.RegisterClienteViewModel}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000008E.html" LinkGroup="AirUberProjeto">Password Property {AirUberProjeto.Models.AutenticacaoViewModels.RegisterClienteViewModel}</LItem>
       </Links>
    </Context>
    
@@ -2170,7 +2528,7 @@
          <KItem Name="AirUberProjeto.Models.AutenticacaoViewModels.RegisterCompanhiaViewModel.Password" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000070.html" LinkGroup="AirUberProjeto">Password Property {AirUberProjeto.Models.AutenticacaoViewModels.RegisterCompanhiaViewModel}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000097.html" LinkGroup="AirUberProjeto">Password Property {AirUberProjeto.Models.AutenticacaoViewModels.RegisterCompanhiaViewModel}</LItem>
       </Links>
    </Context>
    
@@ -2180,7 +2538,57 @@
          <KItem Name="AirUberProjeto.Models.AutenticacaoViewModels.ResetPasswordViewModel.Password" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000074.html" LinkGroup="AirUberProjeto">Password Property {AirUberProjeto.Models.AutenticacaoViewModels.ResetPasswordViewModel}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000009B.html" LinkGroup="AirUberProjeto">Password Property {AirUberProjeto.Models.AutenticacaoViewModels.ResetPasswordViewModel}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Controllers.ClienteController.Perfil" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000025.html" LinkGroup="AirUberProjeto">Perfil Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Models.CompanhiaViewModels.PerfilCompanhiaViewModel" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000A9.html" LinkGroup="AirUberProjeto">PerfilCompanhiaViewModel Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Models.CompanhiaViewModels.PerfilCompanhiaViewModel.PerfilCompanhiaViewModel" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000AD.html" LinkGroup="AirUberProjeto">PerfilCompanhiaViewModel Constructor</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Models.ClienteViewModels.PerfilViewModel" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000A3.html" LinkGroup="AirUberProjeto">PerfilViewModel Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Models.ClienteViewModels.PerfilViewModel.PerfilViewModel" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000A7.html" LinkGroup="AirUberProjeto">PerfilViewModel Constructor</LItem>
       </Links>
    </Context>
    
@@ -2190,7 +2598,7 @@
          <KItem Name="AirUberProjeto.Models.Modelo.PesoMaximaBagagens" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000E9.html" LinkGroup="AirUberProjeto">PesoMaximaBagagens Property</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000012E.html" LinkGroup="AirUberProjeto">PesoMaximaBagagens Property</LItem>
       </Links>
    </Context>
    
@@ -2200,7 +2608,7 @@
          <KItem Name="AirUberProjeto.Models.ManageViewModels.AddPhoneNumberViewModel.PhoneNumber" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000079.html" LinkGroup="AirUberProjeto">PhoneNumber Property {AirUberProjeto.Models.ManageViewModels.AddPhoneNumberViewModel}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000B0.html" LinkGroup="AirUberProjeto">PhoneNumber Property {AirUberProjeto.Models.ManageViewModels.AddPhoneNumberViewModel}</LItem>
       </Links>
    </Context>
    
@@ -2210,7 +2618,7 @@
          <KItem Name="AirUberProjeto.Models.ManageViewModels.IndexViewModel.PhoneNumber" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000086.html" LinkGroup="AirUberProjeto">PhoneNumber Property {AirUberProjeto.Models.ManageViewModels.IndexViewModel}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000BD.html" LinkGroup="AirUberProjeto">PhoneNumber Property {AirUberProjeto.Models.ManageViewModels.IndexViewModel}</LItem>
       </Links>
    </Context>
    
@@ -2220,7 +2628,7 @@
          <KItem Name="AirUberProjeto.Models.ManageViewModels.VerifyPhoneNumberViewModel.PhoneNumber" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000094.html" LinkGroup="AirUberProjeto">PhoneNumber Property {AirUberProjeto.Models.ManageViewModels.VerifyPhoneNumberViewModel}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000CB.html" LinkGroup="AirUberProjeto">PhoneNumber Property {AirUberProjeto.Models.ManageViewModels.VerifyPhoneNumberViewModel}</LItem>
       </Links>
    </Context>
    
@@ -2230,7 +2638,7 @@
          <KItem Name="AirUberProjeto.Program" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000119.html" LinkGroup="AirUberProjeto">Program Class</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000016A.html" LinkGroup="AirUberProjeto">Program Class</LItem>
       </Links>
    </Context>
    
@@ -2240,7 +2648,7 @@
          <KItem Name="AirUberProjeto.Models.ManageViewModels.RemoveLoginViewModel.ProviderKey" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000008E.html" LinkGroup="AirUberProjeto">ProviderKey Property</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000C5.html" LinkGroup="AirUberProjeto">ProviderKey Property</LItem>
       </Links>
    </Context>
    
@@ -2250,7 +2658,7 @@
          <KItem Name="AirUberProjeto.Models.ManageViewModels.ConfigureTwoFactorViewModel.Providers" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000080.html" LinkGroup="AirUberProjeto">Providers Property</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000B7.html" LinkGroup="AirUberProjeto">Providers Property</LItem>
       </Links>
    </Context>
    
@@ -2260,7 +2668,7 @@
          <KItem Name="AirUberProjeto.Models.ManageViewModels.FactorViewModel.Purpose" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000082.html" LinkGroup="AirUberProjeto">Purpose Property</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000B9.html" LinkGroup="AirUberProjeto">Purpose Property</LItem>
       </Links>
    </Context>
    
@@ -2270,7 +2678,7 @@
          <KItem Name="AirUberProjeto.Models.Roles.ROLE_CLIENTE" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000106.html" LinkGroup="AirUberProjeto">ROLE_CLIENTE Field</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000157.html" LinkGroup="AirUberProjeto">ROLE_CLIENTE Field</LItem>
       </Links>
    </Context>
    
@@ -2280,7 +2688,7 @@
          <KItem Name="AirUberProjeto.Models.Roles.ROLE_COLABORADOR" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000108.html" LinkGroup="AirUberProjeto">ROLE_COLABORADOR Field</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000159.html" LinkGroup="AirUberProjeto">ROLE_COLABORADOR Field</LItem>
       </Links>
    </Context>
    
@@ -2290,7 +2698,7 @@
          <KItem Name="AirUberProjeto.Models.Roles.ROLE_COLABORADOR_ADMIN" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000109.html" LinkGroup="AirUberProjeto">ROLE_COLABORADOR_ADMIN Field</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000015A.html" LinkGroup="AirUberProjeto">ROLE_COLABORADOR_ADMIN Field</LItem>
       </Links>
    </Context>
    
@@ -2300,7 +2708,7 @@
          <KItem Name="AirUberProjeto.Models.Roles.ROLE_HELPDESK" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000107.html" LinkGroup="AirUberProjeto">ROLE_HELPDESK Field</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000158.html" LinkGroup="AirUberProjeto">ROLE_HELPDESK Field</LItem>
       </Links>
    </Context>
    
@@ -2310,7 +2718,17 @@
          <KItem Name="AirUberProjeto.Controllers.HelpdeskController.RecuperarCompanhias" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000001B.html" LinkGroup="AirUberProjeto">RecuperarCompanhias Method</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000035.html" LinkGroup="AirUberProjeto">RecuperarCompanhias Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Controllers.AutenticacaoController.RedirectToLocal" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000001D.html" LinkGroup="AirUberProjeto">RedirectToLocal Method</LItem>
       </Links>
    </Context>
    
@@ -2320,7 +2738,7 @@
          <KItem Name="AirUberProjeto.Controllers.AutenticacaoController.Register" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000005.html" LinkGroup="AirUberProjeto">Register Method</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000000A.html" LinkGroup="AirUberProjeto">Register Method</LItem>
       </Links>
    </Context>
    
@@ -2329,7 +2747,7 @@
          <KItem Name="AirUberProjeto.Controllers.AutenticacaoController.RegisterCliente" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000007_overloads--.html" LinkGroup="AirUberProjeto">RegisterCliente Method</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000000C_overloads--.html" LinkGroup="AirUberProjeto">RegisterCliente Method</LItem>
       </Links>
    </Context>
    
@@ -2338,7 +2756,7 @@
          <KItem Name="AirUberProjeto.Controllers.AutenticacaoController.RegisterCliente" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000006_overloads--.html" LinkGroup="AirUberProjeto">RegisterCliente Method</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000000B_overloads--.html" LinkGroup="AirUberProjeto">RegisterCliente Method</LItem>
       </Links>
    </Context>
    
@@ -2348,7 +2766,7 @@
          <KItem Name="AirUberProjeto.Models.AutenticacaoViewModels.RegisterClienteViewModel" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000063.html" LinkGroup="AirUberProjeto">RegisterClienteViewModel Class</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000008A.html" LinkGroup="AirUberProjeto">RegisterClienteViewModel Class</LItem>
       </Links>
    </Context>
    
@@ -2357,7 +2775,7 @@
          <KItem Name="AirUberProjeto.Controllers.AutenticacaoController.RegisterCompanhia" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000009_overloads--.html" LinkGroup="AirUberProjeto">RegisterCompanhia Method</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000000E_overloads--.html" LinkGroup="AirUberProjeto">RegisterCompanhia Method</LItem>
       </Links>
    </Context>
    
@@ -2366,7 +2784,7 @@
          <KItem Name="AirUberProjeto.Controllers.AutenticacaoController.RegisterCompanhia" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000008_overloads--.html" LinkGroup="AirUberProjeto">RegisterCompanhia Method</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000000D_overloads--.html" LinkGroup="AirUberProjeto">RegisterCompanhia Method</LItem>
       </Links>
    </Context>
    
@@ -2376,7 +2794,17 @@
          <KItem Name="AirUberProjeto.Models.AutenticacaoViewModels.RegisterCompanhiaViewModel" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000069.html" LinkGroup="AirUberProjeto">RegisterCompanhiaViewModel Class</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000090.html" LinkGroup="AirUberProjeto">RegisterCompanhiaViewModel Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Models.Cliente.RelativePathImagemPerfil" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000E5.html" LinkGroup="AirUberProjeto">RelativePathImagemPerfil Property</LItem>
       </Links>
    </Context>
    
@@ -2386,7 +2814,7 @@
          <KItem Name="AirUberProjeto.Models.AutenticacaoViewModels.LoginViewModel.RememberMe" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000062.html" LinkGroup="AirUberProjeto">RememberMe Property</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000089.html" LinkGroup="AirUberProjeto">RememberMe Property</LItem>
       </Links>
    </Context>
    
@@ -2396,7 +2824,7 @@
          <KItem Name="AirUberProjeto.Controllers.ManageController.RemoveLogin" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000002A.html" LinkGroup="AirUberProjeto">RemoveLogin Method</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000004A.html" LinkGroup="AirUberProjeto">RemoveLogin Method</LItem>
       </Links>
    </Context>
    
@@ -2406,7 +2834,7 @@
          <KItem Name="AirUberProjeto.Models.ManageViewModels.RemoveLoginViewModel" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000008C.html" LinkGroup="AirUberProjeto">RemoveLoginViewModel Class</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000C3.html" LinkGroup="AirUberProjeto">RemoveLoginViewModel Class</LItem>
       </Links>
    </Context>
    
@@ -2416,7 +2844,7 @@
          <KItem Name="AirUberProjeto.Controllers.ManageController.RemovePhoneNumber" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000031.html" LinkGroup="AirUberProjeto">RemovePhoneNumber Method</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000051.html" LinkGroup="AirUberProjeto">RemovePhoneNumber Method</LItem>
       </Links>
    </Context>
    
@@ -2426,7 +2854,7 @@
          <KItem Name="AirUberProjeto.Models.Reserva" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000F5.html" LinkGroup="AirUberProjeto">Reserva Class</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000146.html" LinkGroup="AirUberProjeto">Reserva Class</LItem>
       </Links>
    </Context>
    
@@ -2436,7 +2864,7 @@
          <KItem Name="AirUberProjeto.Models.Reserva.Reserva" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000104.html" LinkGroup="AirUberProjeto">Reserva Constructor</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000155.html" LinkGroup="AirUberProjeto">Reserva Constructor</LItem>
       </Links>
    </Context>
    
@@ -2446,7 +2874,7 @@
          <KItem Name="AirUberProjeto.Data.AirUberDbContext.Reserva" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000051.html" LinkGroup="AirUberProjeto">Reserva Property</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000073.html" LinkGroup="AirUberProjeto">Reserva Property</LItem>
       </Links>
    </Context>
    
@@ -2456,7 +2884,7 @@
          <KItem Name="AirUberProjeto.Models.Reserva.ReservaId" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000F6.html" LinkGroup="AirUberProjeto">ReservaId Property</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000147.html" LinkGroup="AirUberProjeto">ReservaId Property</LItem>
       </Links>
    </Context>
    
@@ -2465,7 +2893,7 @@
          <KItem Name="AirUberProjeto.Controllers.AutenticacaoController.ResetPassword" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000010_overloads--.html" LinkGroup="AirUberProjeto">ResetPassword Method</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000015_overloads--.html" LinkGroup="AirUberProjeto">ResetPassword Method</LItem>
       </Links>
    </Context>
    
@@ -2474,7 +2902,7 @@
          <KItem Name="AirUberProjeto.Controllers.AutenticacaoController.ResetPassword" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000000F_overloads--.html" LinkGroup="AirUberProjeto">ResetPassword Method</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000014_overloads--.html" LinkGroup="AirUberProjeto">ResetPassword Method</LItem>
       </Links>
    </Context>
    
@@ -2484,7 +2912,7 @@
          <KItem Name="AirUberProjeto.Controllers.AutenticacaoController.ResetPasswordConfirmation" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000011.html" LinkGroup="AirUberProjeto">ResetPasswordConfirmation Method</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000016.html" LinkGroup="AirUberProjeto">ResetPasswordConfirmation Method</LItem>
       </Links>
    </Context>
    
@@ -2494,7 +2922,7 @@
          <KItem Name="AirUberProjeto.Models.AutenticacaoViewModels.ResetPasswordViewModel" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000072.html" LinkGroup="AirUberProjeto">ResetPasswordViewModel Class</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000099.html" LinkGroup="AirUberProjeto">ResetPasswordViewModel Class</LItem>
       </Links>
    </Context>
    
@@ -2504,7 +2932,7 @@
          <KItem Name="AirUberProjeto.Models.Roles" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000105.html" LinkGroup="AirUberProjeto">Roles Class</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000156.html" LinkGroup="AirUberProjeto">Roles Class</LItem>
       </Links>
    </Context>
    
@@ -2514,7 +2942,7 @@
          <KItem Name="AirUberProjeto.Models.ManageViewModels.ConfigureTwoFactorViewModel.SelectedProvider" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000007F.html" LinkGroup="AirUberProjeto">SelectedProvider Property</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000B6.html" LinkGroup="AirUberProjeto">SelectedProvider Property</LItem>
       </Links>
    </Context>
    
@@ -2524,7 +2952,7 @@
          <KItem Name="AirUberProjeto.Services.AuthMessageSender.SendEmailAsync" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000116.html" LinkGroup="AirUberProjeto">SendEmailAsync Method {AirUberProjeto.Services.AuthMessageSender}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000167.html" LinkGroup="AirUberProjeto">SendEmailAsync Method {AirUberProjeto.Services.AuthMessageSender}</LItem>
       </Links>
    </Context>
    
@@ -2534,7 +2962,7 @@
          <KItem Name="AirUberProjeto.Services.IEmailSender.SendEmailAsync" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000112.html" LinkGroup="AirUberProjeto">SendEmailAsync Method {AirUberProjeto.Services.IEmailSender}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000163.html" LinkGroup="AirUberProjeto">SendEmailAsync Method {AirUberProjeto.Services.IEmailSender}</LItem>
       </Links>
    </Context>
    
@@ -2544,7 +2972,7 @@
          <KItem Name="AirUberProjeto.Services.AuthMessageSender.SendSmsAsync" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000117.html" LinkGroup="AirUberProjeto">SendSmsAsync Method {AirUberProjeto.Services.AuthMessageSender}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000168.html" LinkGroup="AirUberProjeto">SendSmsAsync Method {AirUberProjeto.Services.AuthMessageSender}</LItem>
       </Links>
    </Context>
    
@@ -2554,7 +2982,7 @@
          <KItem Name="AirUberProjeto.Services.ISmsSender.SendSmsAsync" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000114.html" LinkGroup="AirUberProjeto">SendSmsAsync Method {AirUberProjeto.Services.ISmsSender}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000165.html" LinkGroup="AirUberProjeto">SendSmsAsync Method {AirUberProjeto.Services.ISmsSender}</LItem>
       </Links>
    </Context>
    
@@ -2563,7 +2991,7 @@
          <KItem Name="AirUberProjeto.Controllers.ManageController.SetPassword" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000034_overloads--.html" LinkGroup="AirUberProjeto">SetPassword Method</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000054_overloads--.html" LinkGroup="AirUberProjeto">SetPassword Method</LItem>
       </Links>
    </Context>
    
@@ -2572,7 +3000,7 @@
          <KItem Name="AirUberProjeto.Controllers.ManageController.SetPassword" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000035_overloads--.html" LinkGroup="AirUberProjeto">SetPassword Method</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000055_overloads--.html" LinkGroup="AirUberProjeto">SetPassword Method</LItem>
       </Links>
    </Context>
    
@@ -2582,7 +3010,7 @@
          <KItem Name="AirUberProjeto.Models.ManageViewModels.SetPasswordViewModel" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000008F.html" LinkGroup="AirUberProjeto">SetPasswordViewModel Class</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000C6.html" LinkGroup="AirUberProjeto">SetPasswordViewModel Class</LItem>
       </Links>
    </Context>
    
@@ -2592,7 +3020,7 @@
          <KItem Name="AirUberProjeto.Startup" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000011B.html" LinkGroup="AirUberProjeto">Startup Class</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000016C.html" LinkGroup="AirUberProjeto">Startup Class</LItem>
       </Links>
    </Context>
    
@@ -2602,7 +3030,67 @@
          <KItem Name="AirUberProjeto.Startup.Startup" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000011D.html" LinkGroup="AirUberProjeto">Startup Constructor</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000016E.html" LinkGroup="AirUberProjeto">Startup Constructor</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Models.Notificacao.TYPE_DANGER" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000013C.html" LinkGroup="AirUberProjeto">TYPE_DANGER Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Models.Notificacao.TYPE_INFO" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000013A.html" LinkGroup="AirUberProjeto">TYPE_INFO Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Models.Notificacao.TYPE_PRIMARY" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000138.html" LinkGroup="AirUberProjeto">TYPE_PRIMARY Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Models.Notificacao.TYPE_SUCCESS" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000139.html" LinkGroup="AirUberProjeto">TYPE_SUCCESS Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Models.Notificacao.TYPE_WARNING" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000013B.html" LinkGroup="AirUberProjeto">TYPE_WARNING Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Models.Notificacao.Tipo" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000140.html" LinkGroup="AirUberProjeto">Tipo Property</LItem>
       </Links>
    </Context>
    
@@ -2612,7 +3100,7 @@
          <KItem Name="AirUberProjeto.Models.TipoExtra" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000010A.html" LinkGroup="AirUberProjeto">TipoExtra Class</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000015B.html" LinkGroup="AirUberProjeto">TipoExtra Class</LItem>
       </Links>
    </Context>
    
@@ -2622,7 +3110,7 @@
          <KItem Name="AirUberProjeto.Data.AirUberDbContext.TipoExtra" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000052.html" LinkGroup="AirUberProjeto">TipoExtra Property {AirUberProjeto.Data.AirUberDbContext}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000074.html" LinkGroup="AirUberProjeto">TipoExtra Property {AirUberProjeto.Data.AirUberDbContext}</LItem>
       </Links>
    </Context>
    
@@ -2632,7 +3120,7 @@
          <KItem Name="AirUberProjeto.Models.Extra.TipoExtra" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000D8.html" LinkGroup="AirUberProjeto">TipoExtra Property {AirUberProjeto.Models.Extra}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000011D.html" LinkGroup="AirUberProjeto">TipoExtra Property {AirUberProjeto.Models.Extra}</LItem>
       </Links>
    </Context>
    
@@ -2642,7 +3130,7 @@
          <KItem Name="AirUberProjeto.Models.Extra.TipoExtraId" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000D5.html" LinkGroup="AirUberProjeto">TipoExtraId Property {AirUberProjeto.Models.Extra}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000011A.html" LinkGroup="AirUberProjeto">TipoExtraId Property {AirUberProjeto.Models.Extra}</LItem>
       </Links>
    </Context>
    
@@ -2652,7 +3140,7 @@
          <KItem Name="AirUberProjeto.Models.TipoExtra.TipoExtraId" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000010B.html" LinkGroup="AirUberProjeto">TipoExtraId Property {AirUberProjeto.Models.TipoExtra}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000015C.html" LinkGroup="AirUberProjeto">TipoExtraId Property {AirUberProjeto.Models.TipoExtra}</LItem>
       </Links>
    </Context>
    
@@ -2662,7 +3150,7 @@
          <KItem Name="AirUberProjeto.Models.TipoJato" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000010D.html" LinkGroup="AirUberProjeto">TipoJato Class</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000015E.html" LinkGroup="AirUberProjeto">TipoJato Class</LItem>
       </Links>
    </Context>
    
@@ -2672,7 +3160,7 @@
          <KItem Name="AirUberProjeto.Data.AirUberDbContext.TipoJato" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000053.html" LinkGroup="AirUberProjeto">TipoJato Property {AirUberProjeto.Data.AirUberDbContext}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000075.html" LinkGroup="AirUberProjeto">TipoJato Property {AirUberProjeto.Data.AirUberDbContext}</LItem>
       </Links>
    </Context>
    
@@ -2682,7 +3170,7 @@
          <KItem Name="AirUberProjeto.Models.Modelo.TipoJato" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000F1.html" LinkGroup="AirUberProjeto">TipoJato Property {AirUberProjeto.Models.Modelo}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000136.html" LinkGroup="AirUberProjeto">TipoJato Property {AirUberProjeto.Models.Modelo}</LItem>
       </Links>
    </Context>
    
@@ -2692,7 +3180,7 @@
          <KItem Name="AirUberProjeto.Models.Modelo.TipoJatoId" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000F0.html" LinkGroup="AirUberProjeto">TipoJatoId Property {AirUberProjeto.Models.Modelo}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000135.html" LinkGroup="AirUberProjeto">TipoJatoId Property {AirUberProjeto.Models.Modelo}</LItem>
       </Links>
    </Context>
    
@@ -2702,7 +3190,7 @@
          <KItem Name="AirUberProjeto.Models.TipoJato.TipoJatoId" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000010E.html" LinkGroup="AirUberProjeto">TipoJatoId Property {AirUberProjeto.Models.TipoJato}</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000015F.html" LinkGroup="AirUberProjeto">TipoJatoId Property {AirUberProjeto.Models.TipoJato}</LItem>
       </Links>
    </Context>
    
@@ -2712,17 +3200,37 @@
          <KItem Name="AirUberProjeto.Models.ManageViewModels.IndexViewModel.TwoFactor" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000087.html" LinkGroup="AirUberProjeto">TwoFactor Property</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000BE.html" LinkGroup="AirUberProjeto">TwoFactor Property</LItem>
       </Links>
    </Context>
    
 
    <Context>
       <Keywords>
-         <KItem Name="AirUberProjeto.Migrations.in2dd.Up" />
+         <KItem Name="AirUberProjeto.Migrations.nomeQualquer.Up" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000056.html" LinkGroup="AirUberProjeto">Up Method</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000007A.html" LinkGroup="AirUberProjeto">Up Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Models.Notificacao.Utilizador" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000142.html" LinkGroup="AirUberProjeto">Utilizador Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Models.Notificacao.UtilizadorId" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000013E.html" LinkGroup="AirUberProjeto">UtilizadorId Property</LItem>
       </Links>
    </Context>
    
@@ -2732,7 +3240,7 @@
          <KItem Name="AirUberProjeto.Models.Extra.Valor" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000D7.html" LinkGroup="AirUberProjeto">Valor Property</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000011C.html" LinkGroup="AirUberProjeto">Valor Property</LItem>
       </Links>
    </Context>
    
@@ -2742,7 +3250,7 @@
          <KItem Name="AirUberProjeto.Models.Modelo.VelocidadeMaxima" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000E8.html" LinkGroup="AirUberProjeto">VelocidadeMaxima Property</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000012D.html" LinkGroup="AirUberProjeto">VelocidadeMaxima Property</LItem>
       </Links>
    </Context>
    
@@ -2751,7 +3259,7 @@
          <KItem Name="AirUberProjeto.Controllers.ManageController.VerifyPhoneNumber" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000002F_overloads--.html" LinkGroup="AirUberProjeto">VerifyPhoneNumber Method</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000004F_overloads--.html" LinkGroup="AirUberProjeto">VerifyPhoneNumber Method</LItem>
       </Links>
    </Context>
    
@@ -2760,7 +3268,7 @@
          <KItem Name="AirUberProjeto.Controllers.ManageController.VerifyPhoneNumber" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000030_overloads--.html" LinkGroup="AirUberProjeto">VerifyPhoneNumber Method</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000050_overloads--.html" LinkGroup="AirUberProjeto">VerifyPhoneNumber Method</LItem>
       </Links>
    </Context>
    
@@ -2770,7 +3278,7 @@
          <KItem Name="AirUberProjeto.Models.ManageViewModels.VerifyPhoneNumberViewModel" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000092.html" LinkGroup="AirUberProjeto">VerifyPhoneNumberViewModel Class</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_00000000000000C9.html" LinkGroup="AirUberProjeto">VerifyPhoneNumberViewModel Class</LItem>
       </Links>
    </Context>
    
@@ -2780,17 +3288,317 @@
          <KItem Name="AirUberProjeto.Controllers.HelpdeskController.Viagens" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000001D.html" LinkGroup="AirUberProjeto">Viagens Method</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000037.html" LinkGroup="AirUberProjeto">Viagens Method</LItem>
       </Links>
    </Context>
    
 
    <Context>
       <Keywords>
-         <KItem Name="AirUberProjeto.Migrations.in2dd" />
+         <KItem Name="AirUberProjeto.Controllers.AutenticacaoController._context" />
       </Keywords>
       <Links>
-         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000055.html" LinkGroup="AirUberProjeto">in2dd Class</LItem>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000006.html" LinkGroup="AirUberProjeto">_context Field {AirUberProjeto.Controllers.AutenticacaoController}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Controllers.ClienteController._context" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000021.html" LinkGroup="AirUberProjeto">_context Field {AirUberProjeto.Controllers.ClienteController}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Controllers.CompanhiaController._context" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000002B.html" LinkGroup="AirUberProjeto">_context Field {AirUberProjeto.Controllers.CompanhiaController}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Controllers.HelpdeskController._context" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000030.html" LinkGroup="AirUberProjeto">_context Field {AirUberProjeto.Controllers.HelpdeskController}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Controllers.AutenticacaoController._emailSender" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000004.html" LinkGroup="AirUberProjeto">_emailSender Field {AirUberProjeto.Controllers.AutenticacaoController}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Controllers.ManageController._emailSender" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000045.html" LinkGroup="AirUberProjeto">_emailSender Field {AirUberProjeto.Controllers.ManageController}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Controllers.ClienteController._environment" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000020.html" LinkGroup="AirUberProjeto">_environment Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Controllers.AutenticacaoController._logger" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000005.html" LinkGroup="AirUberProjeto">_logger Field {AirUberProjeto.Controllers.AutenticacaoController}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Controllers.ManageController._logger" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000047.html" LinkGroup="AirUberProjeto">_logger Field {AirUberProjeto.Controllers.ManageController}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Controllers.AutenticacaoController._signInManager" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000003.html" LinkGroup="AirUberProjeto">_signInManager Field {AirUberProjeto.Controllers.AutenticacaoController}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Controllers.ManageController._signInManager" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000044.html" LinkGroup="AirUberProjeto">_signInManager Field {AirUberProjeto.Controllers.ManageController}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Controllers.ManageController._smsSender" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000046.html" LinkGroup="AirUberProjeto">_smsSender Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Controllers.AutenticacaoController._userManager" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000002.html" LinkGroup="AirUberProjeto">_userManager Field {AirUberProjeto.Controllers.AutenticacaoController}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Controllers.ClienteController._userManager" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000022.html" LinkGroup="AirUberProjeto">_userManager Field {AirUberProjeto.Controllers.ClienteController}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Controllers.CompanhiaController._userManager" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000002C.html" LinkGroup="AirUberProjeto">_userManager Field {AirUberProjeto.Controllers.CompanhiaController}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Controllers.ManageController._userManager" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000043.html" LinkGroup="AirUberProjeto">_userManager Field {AirUberProjeto.Controllers.ManageController}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Controllers.HelpdeskController.getCompanhiaPorEstado" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000039.html" LinkGroup="AirUberProjeto">getCompanhiaPorEstado Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Models.DbInitializer.inicializarAeroportos" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000010F.html" LinkGroup="AirUberProjeto">inicializarAeroportos Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Models.DbInitializer.inicializarCidades" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000010E.html" LinkGroup="AirUberProjeto">inicializarCidades Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Models.DbInitializer.inicializarClientes" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000010C.html" LinkGroup="AirUberProjeto">inicializarClientes Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Models.DbInitializer.inicializarColaboradores" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000113.html" LinkGroup="AirUberProjeto">inicializarColaboradores Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Models.DbInitializer.inicializarCompanhias" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000110.html" LinkGroup="AirUberProjeto">inicializarCompanhias Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Models.DbInitializer.inicializarEstados" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000109.html" LinkGroup="AirUberProjeto">inicializarEstados Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Models.DbInitializer.inicializarExtras" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000112.html" LinkGroup="AirUberProjeto">inicializarExtras Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Models.DbInitializer.inicializarJatos" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000111.html" LinkGroup="AirUberProjeto">inicializarJatos Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Models.DbInitializer.inicializarModelos" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000010D.html" LinkGroup="AirUberProjeto">inicializarModelos Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Models.DbInitializer.inicializarPaises" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000108.html" LinkGroup="AirUberProjeto">inicializarPaises Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Models.DbInitializer.inicializarTipoExtras" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000010B.html" LinkGroup="AirUberProjeto">inicializarTipoExtras Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Models.DbInitializer.inicializarTipoJatos" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_000000000000010A.html" LinkGroup="AirUberProjeto">inicializarTipoJatos Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Models.DbInitializer.inicializarViagens" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000114.html" LinkGroup="AirUberProjeto">inicializarViagens Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="AirUberProjeto.Migrations.nomeQualquer" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:AirUberProjeto.chm::/topic_0000000000000079.html" LinkGroup="AirUberProjeto">nomeQualquer Class</LItem>
       </Links>
    </Context>
    

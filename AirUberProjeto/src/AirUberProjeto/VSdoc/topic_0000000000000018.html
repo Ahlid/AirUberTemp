@@ -3,7 +3,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="GENERATOR" content="VSdocman - documentation generator; http://www.helixoft.com" />
-	<title>HelpdeskController.Index Method</title>
+	<title>AutenticacaoController.ChangePassword (ChangePasswordViewModel) Method</title>
 
 	<link rel="stylesheet" type="text/css" href="msdn10_lightweight/msdn10_lightweight.css"></link>
 	<script src="msdn10_lightweight/msdn10_lightweight.js" type="text/javascript"></script>
@@ -59,7 +59,7 @@ function replaceTitleAndUrl(win, title, url) {
 <!--HEADER START-->
   <div id="header">
   	<div id="runningHeaderText">AirUberProjeto Reference</div>
-  	<h1 class="title">HelpdeskController.Index Method</h1>
+  	<h1 class="title">AutenticacaoController.ChangePassword (ChangePasswordViewModel) Method</h1>
   	<div id="headerLinks">
 
 	<a href="#seeAlsoSection">See Also</a>
@@ -73,7 +73,7 @@ function replaceTitleAndUrl(win, title, url) {
       <div id="mainBody">
         <p />
        
-        Responsável por redireccionar o utilizador de helpdesk para a página inicial do helpdesk.
+        Método que recebe os dados da mudança de password e muda.
 
 
         <p /><strong>Namespace:</strong>
@@ -132,7 +132,7 @@ function replaceTitleAndUrl(win, title, url) {
 				</div>
 				
 				<div class="codeSnippetCode codeVB">
-					<pre xml:space="preserve" class="brush: vb">Public Function Index() As <a target="_top" href="http://msdn2.microsoft.com/en-us/library/microsoft.aspnetcore.mvc.iactionresult.aspx">IActionResult</a></pre>			
+					<pre xml:space="preserve" class="brush: vb">&lt;HttpPost()&gt; _&nbsp;<br />&lt;ValidateAntiForgeryToken()&gt; _&nbsp;<br />Public Function ChangePassword( _&nbsp;<br />   ByVal <i>model</i> As <a target="_top" href="topic_0000000000000080.html" onclick="this.target='';return true;">ChangePasswordViewModel</a> _&nbsp;<br />) As <a target="_top" href="http://msdn2.microsoft.com/en-us/library/dd321424.aspx">Task</a>(Of <a target="_top" href="http://msdn2.microsoft.com/en-us/library/microsoft.aspnetcore.mvc.iactionresult.aspx">IActionResult</a>)</pre>			
 				</div>
 				<div class="codeSnippetCode codeNA">
 					<pre xml:space="preserve">This language is not supported or no code example is available.</pre>			
@@ -168,7 +168,7 @@ function replaceTitleAndUrl(win, title, url) {
 				</div>
 				
 				<div class="codeSnippetCode codeCsharp">
-					<pre xml:space="preserve" class="brush: csharp">public <a target="_top" href="http://msdn2.microsoft.com/en-us/library/microsoft.aspnetcore.mvc.iactionresult.aspx">IActionResult</a> Index()</pre>			
+					<pre xml:space="preserve" class="brush: csharp">[HttpPost()]&nbsp;<br />[ValidateAntiForgeryToken()]&nbsp;<br />public <a target="_top" href="http://msdn2.microsoft.com/en-us/library/dd321424.aspx">Task</a>&lt;<a target="_top" href="http://msdn2.microsoft.com/en-us/library/microsoft.aspnetcore.mvc.iactionresult.aspx">IActionResult</a>&gt; ChangePassword(&nbsp;<br />   <a target="_top" href="topic_0000000000000080.html" onclick="this.target='';return true;">ChangePasswordViewModel</a> <i>model</i>&nbsp;<br />)</pre>			
 				</div>
 				<div class="codeSnippetCode codeNA">
 					<pre xml:space="preserve">This language is not supported or no code example is available.</pre>			
@@ -204,7 +204,7 @@ function replaceTitleAndUrl(win, title, url) {
 				</div>
 				
 				<div class="codeSnippetCode codeCpp">
-					<pre xml:space="preserve" class="brush: cpp">public: &nbsp;<br /><a target="_top" href="http://msdn2.microsoft.com/en-us/library/microsoft.aspnetcore.mvc.iactionresult.aspx">IActionResult</a>^ Index() </pre>			
+					<pre xml:space="preserve" class="brush: cpp">[HttpPost()]&nbsp;<br />[ValidateAntiForgeryToken()]&nbsp;<br />public: &nbsp;<br /><a target="_top" href="http://msdn2.microsoft.com/en-us/library/dd321424.aspx">Task</a>&lt;<a target="_top" href="http://msdn2.microsoft.com/en-us/library/microsoft.aspnetcore.mvc.iactionresult.aspx">IActionResult</a>^&gt;^ ChangePassword(&nbsp;<br />   <a target="_top" href="topic_0000000000000080.html" onclick="this.target='';return true;">ChangePasswordViewModel</a>^ <i>model</i>&nbsp;<br />) </pre>			
 				</div>
 				<div class="codeSnippetCode codeNA">
 					<pre xml:space="preserve">This language is not supported or no code example is available.</pre>			
@@ -240,7 +240,7 @@ function replaceTitleAndUrl(win, title, url) {
 				</div>
 				
 				<div class="codeSnippetCode codeJScript">
-					<pre xml:space="preserve" class="brush: js">public function Index() : <a target="_top" href="http://msdn2.microsoft.com/en-us/library/microsoft.aspnetcore.mvc.iactionresult.aspx">IActionResult</a>;</pre>			
+					<pre xml:space="preserve" class="brush: js">JScript does not support generic types and methods.</pre>			
 				</div>
 				<div class="codeSnippetCode codeNA">
 					<pre xml:space="preserve">This language is not supported or no code example is available.</pre>			
@@ -251,10 +251,29 @@ function replaceTitleAndUrl(win, title, url) {
 	</div>
 
 
+<h4 class="subHeading">
+	Parameters</h4><dl paramName="model">
+	<dt>
+		<span class="parameter">
+			model
+		</span>
+	</dt>
+	<dd>
+		<p>
+			Type: <a target="_top" href="topic_0000000000000080.html" onclick="this.target='';return true;">ChangePasswordViewModel</a> 
+		</p>
+		<p>
+			O modelo de dados a usar. 
+		</p>
+	</dd>
+</dl>
+
+<p />
+<p />
 
 	<h4 class="subHeading">
 		Return Value</h4>
-  Retorna a view da página inicial do helpdesk
+  Um redirecionamento caso os dados sejam validos, a view de mudança de password caso contrário.
 
 
 
@@ -352,8 +371,8 @@ function replaceTitleAndUrl(win, title, url) {
 		<div>
 			<h4 class="subHeading">
 				Reference</h4>
-			<a href="topic_0000000000000016.html">HelpdeskController Class</a><br />
-<a href="topic_0000000000000016_members--.html">HelpdeskController Members</a><br />
+			<a href="topic_0000000000000001.html">AutenticacaoController Class</a><br />
+<a href="topic_0000000000000001_members--.html">AutenticacaoController Members</a><br />
 
 
 

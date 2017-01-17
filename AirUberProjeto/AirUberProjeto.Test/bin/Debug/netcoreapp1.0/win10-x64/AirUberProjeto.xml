@@ -4,6 +4,17 @@
         <name>AirUberProjeto</name>
     </assembly>
     <members>
+        <member name="T:AirUberProjeto.Program">
+            <summary>
+            Classe principal do programa
+            </summary>
+        </member>
+        <member name="M:AirUberProjeto.Program.Main(System.String[])">
+            <summary>
+            Main da aplicação
+            </summary>
+            <param name="args"></param>
+        </member>
         <member name="T:AirUberProjeto.Controllers.AutenticacaoController">
             <summary>
             Controlador responsável pela autenticação dos utilizadores web do sistema.
@@ -202,6 +213,101 @@
             <param name="length">o tamanho da password</param>
             <returns>A password gerada</returns>
         </member>
+        <member name="T:AirUberProjeto.Controllers.ClienteController">
+            <summary>
+            Controlador responsável pela gestão de clientes
+            </summary>
+        </member>
+        <member name="F:AirUberProjeto.Controllers.ClienteController._environment">
+            <summary>
+            Utilizado para sabermos o caminho absoluto da pasta wwwRoot
+            </summary>
+        </member>
+        <member name="F:AirUberProjeto.Controllers.ClienteController._context">
+            <summary>
+            O contexto da aplicação para poder aceder a dados.
+            </summary>
+        </member>
+        <member name="F:AirUberProjeto.Controllers.ClienteController._userManager">
+            <summary>
+            User manager que vai permitir utilizar metodos feitos pela windows de forma a controlar os user.
+            </summary>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.ClienteController.#ctor(AirUberProjeto.Data.AirUberDbContext,Microsoft.AspNetCore.Identity.UserManager{AirUberProjeto.Models.ApplicationUser},Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
+            <summary>
+            Construtor do controlador
+            </summary>
+            <param name="context">O DB context da aplicação</param>
+            <param name="userManager">O manager dos utilizadores</param>
+            <param name="environment">O ambiente da aplicação</param>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.ClienteController.Index">
+            <summary>
+            A acção index é a ação default do controlador e redireciona para a ação Perfil
+            </summary>
+            <returns>Retorna a view retornada pela acção Perfil</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.ClienteController.Perfil">
+            <summary>
+            Apresenta a página de perfil do cliente tendo em conta o utilizador atual
+            </summary>
+            <returns>A view do perfil do cliente</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.ClienteController.MarcarNotificacaoLida(System.Int32)">
+            <summary>
+            Permite marcar uma notificação como lida através do seu ID
+            </summary>
+            <param name="id">Id da notificação ao qual se quer marcar como lida</param>
+            <returns>Variavel booleana que indica se houve sucesso a marcar a notificação como lida</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.ClienteController.EditarPerfil">
+            <summary>
+            Apresenta a página de edição de perfil do cliente tendo em conta o utilizador atual
+            </summary>
+            <returns>A View de edição do perfil do cliente</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.ClienteController.EditarPerfil(AirUberProjeto.Models.ClienteViewModels.EditarPerfilViewModel)">
+            <summary>
+            Trata de um pedido de alteração de dados de um cliente
+            </summary>
+            <param name="viewModel">ViewModel do pedido de alteração de dados</param>
+            <returns>A view de edição de perfil do cliente</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.ClienteController.AlterarImagemPerfil(Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            Permite alterar a imagem de perfil do cliente
+            </summary>
+            <param name="file">ficheiro de imagem que irá substituir a imagem de perfil</param>
+            <returns>Um redirecionamento para a ação editar perfil</returns>
+        </member>
+        <member name="T:AirUberProjeto.Controllers.CompanhiaController">
+            <summary>
+            Classe responsável por receber todos os pedidos do browser e tratar dos mesmos relativamente às companhias
+            </summary>
+        </member>
+        <member name="F:AirUberProjeto.Controllers.CompanhiaController._context">
+            <summary>
+            O contexto da aplicação para poder aceder a dados.
+            </summary>
+        </member>
+        <member name="F:AirUberProjeto.Controllers.CompanhiaController._userManager">
+            <summary>
+            User manager que vai permitir utilizar metodos feitos pela windows de forma a controlar os user.
+            </summary>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.CompanhiaController.#ctor(AirUberProjeto.Data.AirUberDbContext,Microsoft.AspNetCore.Identity.UserManager{AirUberProjeto.Models.ApplicationUser})">
+            <summary>
+            Construtor do controlador Companhia
+            </summary>
+            <param name="context">O contexto da aplicação</param>
+            <param name="userManager">O manager dos utilizadores</param>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.CompanhiaController.Index">
+            <summary>
+            Apresenta a página de perfil da companhia autenticada
+            </summary>
+            <returns>Retorna a view da página inicial das companhias</returns>
+        </member>
         <member name="T:AirUberProjeto.Controllers.HelpdeskController">
             <summary>
             Classe responsável por receber todos os pedidos do browser e tratar dos mesmos.
@@ -209,6 +315,17 @@
             <remarks>
             Apenas são autorizados pedidos cujo papel do utilizador seja o de Helpdesk.
             </remarks>
+        </member>
+        <member name="F:AirUberProjeto.Controllers.HelpdeskController._context">
+            <summary>
+            Contexto da aplicação
+            </summary>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.HelpdeskController.#ctor(AirUberProjeto.Data.AirUberDbContext)">
+            <summary>
+            Constructor do controlador do Helpdesk
+            </summary>
+            <param name="context">Contexto da aplicação</param>
         </member>
         <member name="M:AirUberProjeto.Controllers.HelpdeskController.Index">
             <summary>
@@ -280,6 +397,150 @@
             </summary>
             <param name="estado">estado de uma companhia</param>
             <returns>Lista de companhias de acordo com o estado</returns>
+        </member>
+        <member name="T:AirUberProjeto.Controllers.HomeController">
+            <summary>
+            Controlador acções por omissão
+            </summary>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.HomeController.Index">
+            <summary>
+            Acção por defeito do home controller
+            </summary>
+            <returns>View</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.HomeController.About">
+            <summary>
+            Apresenta a página do about
+            </summary>
+            <returns>Retorna a view da página about da home</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.HomeController.Contact">
+            <summary>
+            Apresenta a página dos contactos
+            </summary>
+            <returns>Retorna a view da página contact do home</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.HomeController.Error">
+            <summary>
+            Apresenta a página de erros
+            </summary>
+            <returns>Retorna a view da página erro do home</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.HomeController.HelpdeskLogin">
+            <summary>
+            Apresenta a página que corresponde a um utilizador de helpdesk após a autenticação
+            </summary>
+            <returns>Retorna a view da página do login helpdesk</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.HomeController.ColaboradorLogin">
+            <summary>
+            Apresenta a página que corresponde a um utilizador de uma companhia após a autenticação
+            </summary>
+            <returns>Retorna a view da página do login do colaborador</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.HomeController.ClienteLogin">
+            <summary>
+            Apresenta a página que corresponde a um cliente após a autenticação
+            </summary>
+            <returns>Retorna a view da página do login do cliente</returns>
+        </member>
+        <member name="T:AirUberProjeto.Data.AirUberDbContext">
+            <summary>
+            Classe que representa o contexto da aplicação
+            </summary>
+        </member>
+        <member name="M:AirUberProjeto.Data.AirUberDbContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{AirUberProjeto.Data.AirUberDbContext})">
+            <summary>
+            Constructor da classe AirUberDbContext
+            </summary>
+            <param name="options"></param>
+        </member>
+        <member name="M:AirUberProjeto.Data.AirUberDbContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            Create model
+            </summary>
+            <param name="builder">builder model</param>
+        </member>
+        <member name="P:AirUberProjeto.Data.AirUberDbContext.Aeroporto">
+            <summary>
+            Entidade usada para criar, editar e eliminar aeroportos
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Data.AirUberDbContext.ApplicationUser">
+            <summary>
+            Entidade usada para criar, editar e eliminar application users
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Data.AirUberDbContext.Cidade">
+            <summary>
+            Entidade usada para criar, editar e eliminar cidades
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Data.AirUberDbContext.Cliente">
+            <summary>
+            Entidade usada para criar, editar e eliminar clientes
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Data.AirUberDbContext.Colaborador">
+            <summary>
+            Entidade usada para criar, editar e eliminar colaboradores
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Data.AirUberDbContext.Companhia">
+            <summary>
+            Entidade usada para criar, editar e eliminar companhias
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Data.AirUberDbContext.Estado">
+            <summary>
+            Entidade usada para criar, editar e eliminar estados
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Data.AirUberDbContext.Extra">
+            <summary>
+            Entidade usada para criar, editar e eliminar extras
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Data.AirUberDbContext.Jato">
+            <summary>
+            Entidade usada para criar, editar e eliminar jatos
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Data.AirUberDbContext.Modelo">
+            <summary>
+            Entidade usada para criar, editar e eliminar modelos
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Data.AirUberDbContext.Pais">
+            <summary>
+            Entidade usada para criar, editar e eliminar paises
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Data.AirUberDbContext.Reserva">
+            <summary>
+            Entidade usada para criar, editar e eliminar reservas
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Data.AirUberDbContext.TipoExtra">
+            <summary>
+            Entidade usada para criar, editar e eliminar tipos de extra
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Data.AirUberDbContext.TipoJato">
+            <summary>
+            Entidade usada para criar, editar e eliminar tipos de jato
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Data.AirUberDbContext.Notificacao">
+            <summary>
+            Entidade usada para criar, editar e eliminar notificações
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Data.AirUberDbContext.ContaDeCreditoses">
+            <summary>
+            Entidade usada para criar, editar e eliminar conta de créditos
+            </summary>
         </member>
         <member name="T:AirUberProjeto.Models.Aeroporto">
             <summary>
@@ -837,6 +1098,66 @@
             Propriedade navegacional responsável por referenciar o tipo de jato que o modelo é.
             </summary>
         </member>
+        <member name="T:AirUberProjeto.Models.Notificacao">
+            <summary>
+            Classe responsável por toda a informação de uma notificação.
+            </summary>
+        </member>
+        <member name="F:AirUberProjeto.Models.Notificacao.TYPE_PRIMARY">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:AirUberProjeto.Models.Notificacao.TYPE_SUCCESS">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:AirUberProjeto.Models.Notificacao.TYPE_INFO">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:AirUberProjeto.Models.Notificacao.TYPE_WARNING">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:AirUberProjeto.Models.Notificacao.TYPE_DANGER">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Notificacao.NotificacaoId">
+            <summary>
+            Id da notificação
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Notificacao.UtilizadorId">
+            <summary>
+            Id do utilizador a quem a notificação pertence
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Notificacao.Mensagem">
+            <summary>
+            Mensagem da notificação
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Notificacao.Tipo">
+            <summary>
+            Tipo de notificação
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Notificacao.Lida">
+            <summary>
+            Indica se uma notificação já foi lida
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Notificacao.Utilizador">
+            <summary>
+            Propriedade navegacional responsável por referenciar o utilizador a quem a notificação pertence
+            </summary>
+        </member>
         <member name="T:AirUberProjeto.Models.Pais">
             <summary>
             Classe responsável por toda a informação de um país.
@@ -1139,6 +1460,76 @@
         <member name="P:AirUberProjeto.Models.AutenticacaoViewModels.ResetPasswordViewModel.Code">
             <summary>
             Codigo enviado pra que o utilizador possa alterar a password.
+            </summary>
+        </member>
+        <member name="T:AirUberProjeto.Models.ClienteViewModels.EditarPerfilViewModel">
+            <summary>
+            View Model Responsavel por editar o perfil do cliente
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.ClienteViewModels.EditarPerfilViewModel.Nome">
+            <summary>
+            Nome do cliente
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.ClienteViewModels.EditarPerfilViewModel.Apelido">
+            <summary>
+            Apelido do cliente
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.ClienteViewModels.EditarPerfilViewModel.Contacto">
+            <summary>
+            Contacto do cliente
+            </summary>
+        </member>
+        <member name="T:AirUberProjeto.Models.ClienteViewModels.PerfilViewModel">
+            <summary>
+            View Model Responsavel pelo perfil do cliente
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.ClienteViewModels.PerfilViewModel.Notificacoes">
+            <summary>
+            Lista de notificações do cliente
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.ClienteViewModels.PerfilViewModel.Cliente">
+            <summary>
+            Objecto que representa o cliente
+            </summary>
+        </member>
+        <member name="F:AirUberProjeto.Models.ClienteViewModels.PerfilViewModel.NumeroViagens">
+            <summary>
+            Número de viagens de um cliente
+            </summary>
+        </member>
+        <member name="M:AirUberProjeto.Models.ClienteViewModels.PerfilViewModel.#ctor">
+            <summary>
+            Criar uma instância da classe PerfilViewModel.
+            </summary>
+        </member>
+        <member name="T:AirUberProjeto.Models.CompanhiaViewModels.PerfilCompanhiaViewModel">
+            <summary>
+            View Model Responsavel pelo perfil da companhia
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.CompanhiaViewModels.PerfilCompanhiaViewModel.Colaborador">
+            <summary>
+            Objecto que representa o colaborador
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.CompanhiaViewModels.PerfilCompanhiaViewModel.Companhia">
+            <summary>
+            Objecto que representa a companhia
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.CompanhiaViewModels.PerfilCompanhiaViewModel.Notificacoes">
+            <summary>
+            Lista de notificações da companhia
+            </summary>
+        </member>
+        <member name="M:AirUberProjeto.Models.CompanhiaViewModels.PerfilCompanhiaViewModel.#ctor">
+            <summary>
+            Cria uma instância da classe PerfilCompanhiaViewModel
             </summary>
         </member>
     </members>
