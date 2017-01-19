@@ -8,14 +8,32 @@ using AirUberProjeto.Data;
 namespace AirUberProjeto.Migrations
 {
     [DbContext(typeof(AirUberDbContext))]
-    [Migration("20170110225155_nomeQualquer")]
-    partial class nomeQualquer
+    [Migration("20170118235910_mig")]
+    partial class mig
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.1")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("AirUberProjeto.Models.Acao", b =>
+                {
+                    b.Property<int>("AcaoId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Detalhes");
+
+                    b.Property<string>("Target");
+
+                    b.Property<int>("TipoAcaoId");
+
+                    b.HasKey("AcaoId");
+
+                    b.HasIndex("TipoAcaoId");
+
+                    b.ToTable("Acao");
+                });
 
             modelBuilder.Entity("AirUberProjeto.Models.Aeroporto", b =>
                 {
@@ -168,6 +186,24 @@ namespace AirUberProjeto.Migrations
                     b.ToTable("ContaDeCreditoses");
                 });
 
+            modelBuilder.Entity("AirUberProjeto.Models.Disponibilidade", b =>
+                {
+                    b.Property<int>("DisponibilidadeId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime>("Fim");
+
+                    b.Property<DateTime>("Inicio");
+
+                    b.Property<int?>("JatoId");
+
+                    b.HasKey("DisponibilidadeId");
+
+                    b.HasIndex("JatoId");
+
+                    b.ToTable("Disponibilidade");
+                });
+
             modelBuilder.Entity("AirUberProjeto.Models.Estado", b =>
                 {
                     b.Property<int>("EstadoId")
@@ -187,6 +223,8 @@ namespace AirUberProjeto.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<int>("CompanhiaId");
+
+                    b.Property<string>("Nome");
 
                     b.Property<int?>("ReservaId");
 
@@ -210,6 +248,8 @@ namespace AirUberProjeto.Migrations
                     b.Property<int>("JatoId")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<int>("AeroportoId");
+
                     b.Property<int>("CompanhiaId");
 
                     b.Property<bool>("EmFuncionamento");
@@ -220,6 +260,8 @@ namespace AirUberProjeto.Migrations
                         .IsRequired();
 
                     b.HasKey("JatoId");
+
+                    b.HasIndex("AeroportoId");
 
                     b.HasIndex("CompanhiaId");
 
@@ -336,6 +378,18 @@ namespace AirUberProjeto.Migrations
                     b.HasIndex("JatoId");
 
                     b.ToTable("Reserva");
+                });
+
+            modelBuilder.Entity("AirUberProjeto.Models.TipoAcao", b =>
+                {
+                    b.Property<int>("TipoAcaoId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Nome");
+
+                    b.HasKey("TipoAcaoId");
+
+                    b.ToTable("TipoAcao");
                 });
 
             modelBuilder.Entity("AirUberProjeto.Models.TipoExtra", b =>
@@ -513,6 +567,14 @@ namespace AirUberProjeto.Migrations
                     b.HasDiscriminator().HasValue("Helpdesk");
                 });
 
+            modelBuilder.Entity("AirUberProjeto.Models.Acao", b =>
+                {
+                    b.HasOne("AirUberProjeto.Models.TipoAcao", "TipoAcao")
+                        .WithMany()
+                        .HasForeignKey("TipoAcaoId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
             modelBuilder.Entity("AirUberProjeto.Models.Aeroporto", b =>
                 {
                     b.HasOne("AirUberProjeto.Models.Cidade", "Cidade")
@@ -547,6 +609,13 @@ namespace AirUberProjeto.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
+            modelBuilder.Entity("AirUberProjeto.Models.Disponibilidade", b =>
+                {
+                    b.HasOne("AirUberProjeto.Models.Jato")
+                        .WithMany("ListaDisponibilidade")
+                        .HasForeignKey("JatoId");
+                });
+
             modelBuilder.Entity("AirUberProjeto.Models.Extra", b =>
                 {
                     b.HasOne("AirUberProjeto.Models.Companhia", "Companhia")
@@ -566,6 +635,11 @@ namespace AirUberProjeto.Migrations
 
             modelBuilder.Entity("AirUberProjeto.Models.Jato", b =>
                 {
+                    b.HasOne("AirUberProjeto.Models.Aeroporto", "Aeroporto")
+                        .WithMany()
+                        .HasForeignKey("AeroportoId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
                     b.HasOne("AirUberProjeto.Models.Companhia", "Companhia")
                         .WithMany("ListaJatos")
                         .HasForeignKey("CompanhiaId")

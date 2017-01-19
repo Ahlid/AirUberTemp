@@ -1,0 +1,50 @@
+@model AirUberProjeto.Models.Extra
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<form asp-action="Edit">
+    <div class="form-horizontal">
+        <h4>Extra</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="ExtraId" />
+        <div class="form-group">
+            <label asp-for="CompanhiaId" class="control-label col-md-2"></label>
+            <div class="col-md-10">
+                <select asp-for="CompanhiaId" class="form-control" asp-items="ViewBag.CompanhiaId"></select>
+                <span asp-validation-for="CompanhiaId" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="TipoExtraId" class="control-label col-md-2"></label>
+            <div class="col-md-10">
+                <select asp-for="TipoExtraId" class="form-control" asp-items="ViewBag.TipoExtraId"></select>
+                <span asp-validation-for="TipoExtraId" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Valor" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Valor" class="form-control" />
+                <span asp-validation-for="Valor" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

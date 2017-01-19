@@ -316,9 +316,9 @@
         </member>
         <member name="M:AirUberProjeto.Controllers.CompanhiaController.PerfilCompanhia">
             <summary>
-            
+            Apresenta a página de perfil da companhia
             </summary>
-            <returns></returns>
+            <returns>A View de perfil da companhia</returns>
         </member>
         <member name="M:AirUberProjeto.Controllers.CompanhiaController.EditarPerfilCompanhia">
             <summary>
@@ -332,6 +332,39 @@
             </summary>
             <param name="viewModel">ViewModel do pedido de alteração de dados</param>
             <returns>A view de edição de perfil da companhia</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.CompanhiaController.VerJatos">
+            <summary>
+            Apresenta a página com todos os jatos da companhia 
+            </summary>
+            <returns>View para visualizar jatos</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.CompanhiaController.EditarJatos(System.Nullable{System.Int32})">
+            <summary>
+            Apresenta a página para editar os dados dos jatos
+            </summary>
+            <param name="id">identificador único do jato</param>
+            <returns>View para visualizar a página de edição de jatos</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.CompanhiaController.EditarJatos(AirUberProjeto.Models.CompanhiaViewModels.EditarJatoViewModel)">
+            <summary>
+            Trata de um pedido de alteração de dados de um jato
+            </summary>
+            <param name="viewModel">ViewModel do pedido de alteração de dados</param>
+            <returns>A view de edição de um jato da companhia</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.CompanhiaController.CriarJato">
+            <summary>
+            Apresenta a página para criar jatos de uma companhia
+            </summary>
+            <returns>View para criar jatos</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.CompanhiaController.CriarJato(AirUberProjeto.Models.CompanhiaViewModels.CriarJatoViewModel)">
+            <summary>
+            Trata de um pedido de criação de um jato
+            </summary>
+            <param name="viewModel">ViewModel do pedido de criação de dados</param>
+            <returns>A view de criação de um jato</returns>
         </member>
         <member name="T:AirUberProjeto.Controllers.HelpdeskController">
             <summary>
@@ -567,6 +600,46 @@
             Entidade usada para criar, editar e eliminar conta de créditos
             </summary>
         </member>
+        <member name="P:AirUberProjeto.Data.AirUberDbContext.Acao">
+            <summary>
+            Entidade usada para criar, editar e eliminar informação sobre acções realizáveis no sistema por um utilizador 
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Data.AirUberDbContext.TipoAcao">
+            <summary>
+            Entidade usada para criar, editar e eliminar informação sobre o tipo de acções que um utilizador por realizar no sistema
+            </summary>
+        </member>
+        <member name="T:AirUberProjeto.Models.Acao">
+            <summary>
+            Classe responsável por toda a informação de uma acção realizável no sistema
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Acao.AcaoId">
+            <summary>
+            Identificador único da acção realizada por um utilizador do sistema
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Acao.TipoAcaoId">
+            <summary>
+            Tipo de ação
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Acao.Target">
+            <summary>
+            Objectivo da acção
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Acao.Detalhes">
+            <summary>
+            Detalhes sobre a acção
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Acao.TipoAcao">
+            <summary>
+            Propriedade navegacional de um tipo de acão
+            </summary>
+        </member>
         <member name="T:AirUberProjeto.Models.Aeroporto">
             <summary>
             Classe responsável por toda a informação de um aeroporto.
@@ -723,6 +796,11 @@
         <member name="P:AirUberProjeto.Models.Colaborador.Companhia">
             <summary>
             Propriedade navegacional responsável por referenciar a companhia a que o colaborador pertence.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Colaborador.ListaAcoes">
+            <summary>
+            Propriedade navegacional responável por guardar todas as informações que um utilziador realizou
             </summary>
         </member>
         <member name="M:AirUberProjeto.Models.Colaborador.#ctor">
@@ -946,6 +1024,27 @@
             </summary>
             <param name="context">Contexto da aplicação</param>
         </member>
+        <member name="P:AirUberProjeto.Models.Disponibilidade.DisponibilidadeId">
+            <summary>
+            Identificador único de uma disponibilidade
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Disponibilidade.Inicio">
+            <summary>
+            Data de início
+            </summary>
+            <remarks>
+            Disponível a partir desta data
+            </remarks>
+        </member>
+        <member name="P:AirUberProjeto.Models.Disponibilidade.Fim">
+            <summary>
+            Data de fim
+            </summary>
+            <remarks>
+            Indisponível a partir desta data
+            </remarks>
+        </member>
         <member name="T:AirUberProjeto.Models.Estado">
             <summary>
             Classe responsável por toda a informação de um estado
@@ -969,6 +1068,11 @@
         <member name="P:AirUberProjeto.Models.Extra.ExtraId">
             <summary>
             Identificador unívoco de um extra, sendo chave primária na base de dados.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Extra.Nome">
+            <summary>
+            Nome do extra
             </summary>
         </member>
         <member name="P:AirUberProjeto.Models.Extra.TipoExtraId">
@@ -1037,6 +1141,11 @@
             nas listagem de voos possíveis para os dados introduzidos pelo cliente.
             </remarks>
         </member>
+        <member name="P:AirUberProjeto.Models.Jato.AeroportoId">
+            <summary>
+            Identificador único do aeroporto onde o jato se encontra
+            </summary>
+        </member>
         <member name="P:AirUberProjeto.Models.Jato.Modelo">
             <summary>
             Propriedade navegacional responsável por referenciar o modelo que o jato é.
@@ -1045,6 +1154,16 @@
         <member name="P:AirUberProjeto.Models.Jato.Companhia">
             <summary>
             Propriedade navegacional responsável por referenciar a companhia a que o jato pertence.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Jato.Aeroporto">
+            <summary>
+            Propriedade navegacional responsável por referencer o aeroporto a que se encontra o jato
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Jato.ListaDisponibilidade">
+            <summary>
+            Propriedade navegacional responsável por guardar todos os intervalos de tempo que um jato está ou não disponível
             </summary>
         </member>
         <member name="M:AirUberProjeto.Models.Jato.#ctor">
@@ -1307,6 +1426,21 @@
             Constante que representa o papel de Colaborador Administrador
             </summary>
         </member>
+        <member name="T:AirUberProjeto.Models.TipoAcao">
+            <summary>
+            Classe responsável por toda a informação de um tipo de acão.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.TipoAcao.TipoAcaoId">
+            <summary>
+            Identificador unívoco de um tipo de extra
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.TipoAcao.Nome">
+            <summary>
+            Nome de um tipo de extra
+            </summary>
+        </member>
         <member name="T:AirUberProjeto.Models.TipoExtra">
             <summary>
             Classe responsável por toda a informação de um tipo de extra.
@@ -1532,6 +1666,37 @@
             Criar uma instância da classe PerfilViewModel.
             </summary>
         </member>
+        <member name="T:AirUberProjeto.Models.CompanhiaViewModels.CriarJatoViewModel">
+            <summary>
+            View Model Responsavel por criar um jato
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.CompanhiaViewModels.CriarJatoViewModel.Nome">
+            <summary>
+            Nome do jato
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.CompanhiaViewModels.CriarJatoViewModel.ModeloId">
+            <summary>
+            Identificador único do modelo do jato
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.CompanhiaViewModels.CriarJatoViewModel.CompanhiaId">
+            <summary>
+            Identificador único da companhia a que pertence o jato
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.CompanhiaViewModels.CriarJatoViewModel.EmFuncionamento">
+            <summary>
+            Indica se um jato está disponível para viajar
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.CompanhiaViewModels.CriarJatoViewModel.AeroportoId">
+            ESTA PROPRIEDADE DEVE SAIR, PORQUE NÃO É PARA A COMPANHIA INDICAR, MAS SIM O HELPDESK
+            <summary>
+            Identificador único do aeroporto onde o jato se encontra
+            </summary>
+        </member>
         <member name="T:AirUberProjeto.Models.CompanhiaViewModels.EditarCompanhiaViewModel">
             <summary>
             View Model Responsavel por editar o perfil da companhia
@@ -1560,6 +1725,41 @@
         <member name="P:AirUberProjeto.Models.CompanhiaViewModels.EditarCompanhiaViewModel.Nif">
             <summary>
             Número de identificação fiscal da companhia
+            </summary>
+        </member>
+        <member name="T:AirUberProjeto.Models.CompanhiaViewModels.EditarJatoViewModel">
+            <summary>
+            View Model Responsavel por editar um jato
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.CompanhiaViewModels.EditarJatoViewModel.JatoId">
+            <summary>
+            Identificador único do jato
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.CompanhiaViewModels.EditarJatoViewModel.Nome">
+            <summary>
+            Nome do jato
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.CompanhiaViewModels.EditarJatoViewModel.ModeloId">
+            <summary>
+            Identificador único do modelo do jati
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.CompanhiaViewModels.EditarJatoViewModel.CompanhiaId">
+            <summary>
+            Identificador único da companhia a que pertence o jato
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.CompanhiaViewModels.EditarJatoViewModel.EmFuncionamento">
+            <summary>
+            Indica se um jato está disponível para viajar
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.CompanhiaViewModels.EditarJatoViewModel.AeroportoId">
+            <summary>
+            Identificador único do aeroporto onde o jato se encontra
             </summary>
         </member>
         <member name="T:AirUberProjeto.Models.CompanhiaViewModels.PerfilCompanhiaViewModel">

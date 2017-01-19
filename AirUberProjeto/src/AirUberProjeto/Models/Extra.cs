@@ -12,6 +12,10 @@ namespace AirUberProjeto.Models
         /// </summary>
         public int ExtraId { get; set; }
         /// <summary>
+        /// Nome do extra
+        /// </summary>
+        public string Nome { get; set; }
+        /// <summary>
         /// Identificador unívoco do tipo de extra que o extra é.
         /// </summary>
         [Display (Name = "Tipo Extra")]

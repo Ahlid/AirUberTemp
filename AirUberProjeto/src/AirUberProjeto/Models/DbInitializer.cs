@@ -22,6 +22,10 @@ namespace AirUberProjeto.Models
         public static void Initialize(AirUberDbContext context)
         {
             context.Database.EnsureCreated();
+            //context.SaveChanges();
+
+            inicializarTiposAcoes(context);
+            context.SaveChanges();
 
             inicializarPaises(context);
             context.SaveChanges();
@@ -95,6 +99,20 @@ namespace AirUberProjeto.Models
             if (!await roleManager.RoleExistsAsync(Roles.ROLE_HELPDESK))
             {
                 await roleManager.CreateAsync(new IdentityRole(Roles.ROLE_HELPDESK));
+            }
+        }
+
+
+        private static void inicializarTiposAcoes(AirUberDbContext context)
+        {
+            if (!context.TipoAcao.Any())
+            {
+                context.TipoAcao.Add(new TipoAcao { Nome = "CREATE" });
+                context.TipoAcao.Add(new TipoAcao { Nome = "UPDATE" });
+                context.TipoAcao.Add(new TipoAcao { Nome = "INSERT" });
+                context.TipoAcao.Add(new TipoAcao { Nome = "DELETE" });
+                context.TipoAcao.Add(new TipoAcao { Nome = "...." });
+                context.TipoAcao.Add(new TipoAcao { Nome = "++++" });
             }
         }
 
@@ -411,8 +429,8 @@ namespace AirUberProjeto.Models
         {
             if (!context.Jato.Any())
             {
-                Jato jato1 = new Jato() { Nome = "King Air", ModeloId = 1, CompanhiaId = 1 };
-                Jato jato2 = new Jato() { Nome = "Pilatus", ModeloId = 1, CompanhiaId = 1 };
+                Jato jato1 = new Jato() { Nome = "King Air", ModeloId = 1, CompanhiaId = 1, AeroportoId = 1, };
+                Jato jato2 = new Jato() { Nome = "Pilatus", ModeloId = 1, CompanhiaId = 1, AeroportoId = 2, };
                 List<Jato> listaJatos = new List<Jato>()
                 {
                     jato1, jato2

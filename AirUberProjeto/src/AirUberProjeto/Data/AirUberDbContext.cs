@@ -37,6 +37,8 @@ namespace AirUberProjeto.Data
             builder.Entity<Helpdesk>().ToTable("Helpdesk");
             builder.Entity<Colaborador>().ToTable("Colaborador");
 
+            builder.Entity<Pais>();
+
 
 
             builder.Entity<Reserva>()
@@ -69,6 +71,18 @@ namespace AirUberProjeto.Data
                 .IsRequired()
                 .OnDelete(DeleteBehavior.Restrict);
 
+
+           /* builder.Entity<Jato>()
+                .HasOne(c => c.Companhia)
+                .WithMany()
+                .OnDelete(DeleteBehavior.Restrict);
+                */
+            /* builder.Entity<Jato>()
+                 .HasOne(c => c.)
+                 .WithMany(u => u.ListaColaboradores)
+                 .IsRequired()
+                 .OnDelete(DeleteBehavior.Restrict);
+                 */
             // Customize the ASP.NET Identity model and override the defaults if needed.
             // For example, you can rename the ASP.NET Identity table names and more.
             // Add your customizations after calling base.OnModelCreating(builder);
@@ -138,7 +152,14 @@ namespace AirUberProjeto.Data
         /// Entidade usada para criar, editar e eliminar conta de créditos
         /// </summary>
         public DbSet<ContaDeCreditos> ContaDeCreditoses { get; set; }
-
+        /// <summary>
+        /// Entidade usada para criar, editar e eliminar informação sobre acções realizáveis no sistema por um utilizador 
+        /// </summary>
+        public DbSet<Acao> Acao { get; set; }
+        /// <summary>
+        /// Entidade usada para criar, editar e eliminar informação sobre o tipo de acções que um utilizador por realizar no sistema
+        /// </summary>
+        public DbSet<TipoAcao> TipoAcao { get; set; }
         //public DbSet<Helpdesk> Helpdesk { get; set; }
 
     }

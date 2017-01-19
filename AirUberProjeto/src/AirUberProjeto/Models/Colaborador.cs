@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace AirUberProjeto.Models
 {
@@ -29,7 +30,10 @@ namespace AirUberProjeto.Models
         /// Propriedade navegacional responsável por referenciar a companhia a que o colaborador pertence.
         /// </summary>
         public virtual Companhia Companhia { get; set; }
-
+        /// <summary>
+        /// Propriedade navegacional responável por guardar todas as informações que um utilziador realizou
+        /// </summary>
+        public ICollection<Acao> ListaAcoes { get; set; }
 
 
         /// <summary>

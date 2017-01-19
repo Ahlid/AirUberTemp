@@ -1,5 +1,66 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
+@model IEnumerable<AirUberProjeto.Models.Jato>
+
 @{
+    ViewData["Title"] = "View";
 }
+
+<h2>Jatos</h2>
+<div>
+    <a asp-action="CriarJato">Criar</a> 
+    <hr />
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.JatoId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nome)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ModeloId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CompanhiaId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EmFuncionamento)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AeroportoId)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.JatoId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Modelo.TipoJato.Nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Companhia.Nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EmFuncionamento)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Aeroporto.Nome)
+                    </td>
+                    <td>
+                        <a asp-action="EditarJatos" asp-route-id=@item.JatoId>Editar</a> |
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+
