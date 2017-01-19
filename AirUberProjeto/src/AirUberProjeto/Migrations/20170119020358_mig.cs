@@ -175,27 +175,6 @@ namespace AirUberProjeto.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Acao",
-                columns: table => new
-                {
-                    AcaoId = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Detalhes = table.Column<string>(nullable: true),
-                    Target = table.Column<string>(nullable: true),
-                    TipoAcaoId = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Acao", x => x.AcaoId);
-                    table.ForeignKey(
-                        name: "FK_Acao_TipoAcao_TipoAcaoId",
-                        column: x => x.TipoAcaoId,
-                        principalTable: "TipoAcao",
-                        principalColumn: "TipoAcaoId",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Modelo",
                 columns: table => new
                 {
@@ -346,6 +325,34 @@ namespace AirUberProjeto.Migrations
                         column: x => x.ModeloId,
                         principalTable: "Modelo",
                         principalColumn: "ModeloId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Acao",
+                columns: table => new
+                {
+                    AcaoId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    ColaboradorId = table.Column<string>(nullable: true),
+                    Detalhes = table.Column<string>(nullable: true),
+                    Target = table.Column<string>(nullable: true),
+                    TipoAcaoId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Acao", x => x.AcaoId);
+                    table.ForeignKey(
+                        name: "FK_Acao_AspNetUsers_ColaboradorId",
+                        column: x => x.ColaboradorId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Acao_TipoAcao_TipoAcaoId",
+                        column: x => x.TipoAcaoId,
+                        principalTable: "TipoAcao",
+                        principalColumn: "TipoAcaoId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -542,6 +549,11 @@ namespace AirUberProjeto.Migrations
                         principalColumn: "TipoExtraId",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Acao_ColaboradorId",
+                table: "Acao",
+                column: "ColaboradorId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Acao_TipoAcaoId",

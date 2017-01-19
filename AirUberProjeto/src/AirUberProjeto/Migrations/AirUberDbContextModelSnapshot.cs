@@ -21,6 +21,8 @@ namespace AirUberProjeto.Migrations
                     b.Property<int>("AcaoId")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<string>("ColaboradorId");
+
                     b.Property<string>("Detalhes");
 
                     b.Property<string>("Target");
@@ -28,6 +30,8 @@ namespace AirUberProjeto.Migrations
                     b.Property<int>("TipoAcaoId");
 
                     b.HasKey("AcaoId");
+
+                    b.HasIndex("ColaboradorId");
 
                     b.HasIndex("TipoAcaoId");
 
@@ -568,6 +572,10 @@ namespace AirUberProjeto.Migrations
 
             modelBuilder.Entity("AirUberProjeto.Models.Acao", b =>
                 {
+                    b.HasOne("AirUberProjeto.Models.Colaborador")
+                        .WithMany("ListaAcoes")
+                        .HasForeignKey("ColaboradorId");
+
                     b.HasOne("AirUberProjeto.Models.TipoAcao", "TipoAcao")
                         .WithMany()
                         .HasForeignKey("TipoAcaoId")

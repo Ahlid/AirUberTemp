@@ -31,5 +31,6 @@ namespace AirUberProjeto.Models
         /// Propriedade navegacional de um tipo de acão
         /// </summary>
         public virtual TipoAcao TipoAcao { get; set; }
+
     }
 }

@@ -43,7 +43,8 @@ namespace AirUberProjeto.Models
         public Colaborador()
         {
             // por omissão um colaborador não é admin
-            IsAdministrador = false; 
+            IsAdministrador = false;
+            ListaAcoes = new List<Acao>();
         }
     }
 }

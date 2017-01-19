@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using AirUberProjeto.Data;
 using AirUberProjeto.Models;
 using AirUberProjeto.Models.CompanhiaViewModels;
+using AirUberProjeto.Services;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -33,6 +34,10 @@ namespace AirUberProjeto.Controllers
         /// User manager que vai permitir utilizar metodos feitos pela windows de forma a controlar os user.
         /// </summary>
         private readonly UserManager<ApplicationUser> _userManager;
+        /// <summary>
+        /// Server para enviar os emails.
+        /// </summary>
+        private readonly IEmailSender _emailSender;
 
 
 
@@ -42,11 +47,14 @@ namespace AirUberProjeto.Controllers
         /// <param name="context">O contexto da aplicação</param>
         /// <param name="userManager">O manager dos utilizadores</param>
         /// <param name="environment">O ambiente da aplicação</param>
-        public CompanhiaController(AirUberDbContext context, UserManager<ApplicationUser> userManager, IHostingEnvironment environment)
+        /// <param name="emailSender">O email sender a usar para enviar os emails</param>
+        public CompanhiaController(AirUberDbContext context, UserManager<ApplicationUser> userManager, 
+                                   IHostingEnvironment environment, IEmailSender emailSender)
         {
             _context = context;
             _userManager = userManager;
             _environment = environment;
+            _emailSender = emailSender;
         }
 
         /// <summary>
@@ -146,6 +154,11 @@ namespace AirUberProjeto.Controllers
         }
 
 
+        /***********************
+         *       Jatos         *
+         *                     *
+         ***********************/
+
         /// <summary>
         /// Apresenta a página com todos os jatos da companhia 
         /// </summary>
@@ -161,7 +174,6 @@ namespace AirUberProjeto.Controllers
                                                     .Include(j => j.Companhia)
                                                     .Include(j => j.Aeroporto)
                                                     .Where(j => j.CompanhiaId == companhia.CompanhiaId);
-                                                    // IR BUSCAR A COMPANHIA E SO DEVOLVE OS JATOS DA COMPANHIAL
             return View(jatos);
         }
 
@@ -283,17 +295,17 @@ namespace AirUberProjeto.Controllers
             {
                 Colaborador colaborador = (Colaborador)_userManager.GetUserAsync(this.User).Result;
 
+                Companhia companhia = (_context.Companhia.Select(c => c).Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
+
                 //logger
                 addAcaoColaborador(new Acao()
                 {
-                    TipoAcaoId = 1,  // create
+                    TipoAcaoId = 3,  // insert
                     Target = "Criar Jato",
                     Detalhes = "O colaborador " + colaborador.Nome + " " + colaborador.Apelido + ", que pertence " +
-                                "à companhia de nome " + colaborador.Companhia.Nome + " tentou criar um jato",
+                                "à companhia de nome " + companhia.Nome + " tentou criar um jato",
 
                 }, colaborador);
-
-                Companhia companhia = (_context.Companhia.Select(c => c).Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
 
                 Jato jato = new Jato()
                 {
@@ -314,6 +326,261 @@ namespace AirUberProjeto.Controllers
 
             return RedirectToAction("CriarJato");
         }
+
+
+        [HttpGet]
+        public IActionResult ApagarJato (int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var jato = _context.Jato.Select(j => j)
+                                    .Include(j => j.Aeroporto)
+                                    .Include(j => j.Companhia)
+                                    .Include(j => j.Modelo)
+                                    .Include(j => j.Modelo.TipoJato)
+                                    .SingleOrDefault(j => j.JatoId == id);
+            if (jato == null)
+            {
+                return NotFound();
+            }
+            return View(jato);
+        }
+
+        [HttpPost, ActionName("ApagarJato")]
+        [ValidateAntiForgeryToken]
+        public IActionResult ApagarJatoConfirmacao (int? id)
+        {
+
+            var jato = _context.Jato.SingleOrDefault(j => j.JatoId == id);
+
+            _context.Jato.Remove(jato);
+            _context.SaveChanges();
+
+            return RedirectToAction("VerJatos");
+        }
+
+
+        /***********************
+         *    Colaboradores    *
+         *                     *
+         ***********************/
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public IActionResult VerColaboradores()
+        {
+            Colaborador colaborador = (Colaborador)_userManager.GetUserAsync(this.User).Result;
+            Companhia companhia = (_context.Companhia.Select(c => c)
+                                                     .Include(c => c.ListaColaboradores)
+                                                     .Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
+
+            return View(companhia.ListaColaboradores);
+        }
+
+        [HttpGet]
+        public IActionResult AdicionarColaborador()
+        {
+            Colaborador colaborador = (Colaborador)_userManager.GetUserAsync(this.User).Result;
+
+            ViewData["CompanhiaId"] = new SelectList(_context.Companhia.Select(c => c)
+                                                                       .Where(c => c.CompanhiaId == colaborador.CompanhiaId), 
+                                                                       "CompanhiaId", "Nome");
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AdicionarColaborador(CriarColaboradorViewModel viewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                Colaborador colaborador = (Colaborador)_userManager.GetUserAsync(this.User).Result;
+
+                Companhia companhia = (_context.Companhia.Select(c => c).Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
+                
+                //logger
+                addAcaoColaborador(new Acao()
+                {
+                    TipoAcaoId = 3,  // insert
+                    Target = "Criar Colaborador",
+                    Detalhes = "O colaborador " + colaborador.Nome + " " + colaborador.Apelido + ", que pertence " +
+                                "à companhia de nome " + companhia.Nome + " tentou criar um colaborador",
+
+                }, colaborador);
+                
+
+                Colaborador novoColaborador = new Colaborador()
+                {
+                    Nome = viewModel.PrimeiroNome,
+                    Apelido = viewModel.Apelido,
+                    Email = viewModel.Email,
+                    //CompanhiaId = viewModel.CompanhiaId,  // Se usar o ID é apresentado um erro!
+                    Companhia = companhia,
+                    IsAdministrador = viewModel.IsAdministrador,
+                    UserName = viewModel.Email,
+                };
+
+                //criar utilizador colaborador, para se poder autenticar
+                var result = await _userManager.CreateAsync(novoColaborador, viewModel.Password);
+                if (result.Succeeded)
+                {
+                    await _userManager.AddToRoleAsync(novoColaborador, novoColaborador.IsAdministrador ? Roles.ROLE_COLABORADOR_ADMIN : Roles.ROLE_COLABORADOR);//atribui a role
+
+
+                    // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=532713
+                    // Send an email with this link
+                    var code = await _userManager.GenerateEmailConfirmationTokenAsync(novoColaborador);
+                    var callbackUrl = Url.Action("ConfirmEmail", "Autenticacao", new { userId = novoColaborador.Id, code = code }, protocol: HttpContext.Request.Scheme);
+                    await _emailSender.SendEmailAsync(novoColaborador.Email, "Confirm your account",
+                        $"Please confirm your account by clicking this link: <a href='{callbackUrl}'>link</a>");
+                    //await _signInManager.SignInAsync(novoColaborador, isPersistent: false);//para ele depois fazer login, regista-se e fica logo loged-in
+                    //_logger.LogInformation(3, "User created a new account with password.");
+                }
+
+
+
+                companhia.ListaColaboradores.Add(novoColaborador);
+
+                _context.Update(companhia);
+                _context.SaveChanges();
+                return RedirectToAction("VerColaboradores");
+            }
+
+            return RedirectToAction("AdicionarColaborador");
+        }
+
+        /// <summary>
+        /// Apresenta a página para editar os dados de um colaborador
+        /// </summary>
+        /// <param name="id">identificador único de um colaborador</param>
+        /// <returns>View para visualizar a página de edição de jatos</returns>
+        [HttpGet]
+        public IActionResult EditarColaborador(string id)
+        {
+            if(id != null)
+            {
+                Colaborador colaborador = (Colaborador)_userManager.GetUserAsync(this.User).Result;
+
+                Companhia companhia = (_context.Companhia.Select(c => c).Include(c => c.Pais)
+                                                                 .Include(c => c.Estado)
+                                                                 .Include(c => c.ContaDeCreditos)
+                                                                 .Include(c => c.ListaReservas)
+                                                                 .Include(c => c.ListaColaboradores)
+                                                                 .Include(c => c.ListaJatos)
+                                                                 .Include(c => c.ListaExtras)
+                                                                 .Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
+
+                Colaborador colaboradorAEditar = (_context.Colaborador.Select(c => c)
+                                                               .Include(c => c.Companhia)
+                                                               .Where(c => c.Id == id)).Single();
+
+                //logger
+                addAcaoColaborador(new Acao()
+                {
+                    TipoAcaoId = 3,  // insert
+                    Target = "Editar Colaborador",
+                    Detalhes = "O colaborador " + colaborador.Nome + " " + colaborador.Apelido + ", que pertence " +
+                                "à companhia de nome " + companhia.Nome + " tentou editar o colaborador " + colaboradorAEditar.Nome + " " + colaboradorAEditar.Apelido,
+
+                }, colaborador);
+
+                ViewBag.companhia = companhia.Nome;
+
+                return View(colaboradorAEditar);
+            }
+            return NotFound();
+        }
+
+
+        [HttpPost]
+        public IActionResult EditarColaborador(EditarColaboradorViewModel viewModel)
+        {
+            if (ModelState.IsValid) // se os dados forem válidos
+            {
+                Colaborador colaborador = (Colaborador)_userManager.GetUserAsync(this.User).Result;
+                Companhia companhia = (_context.Companhia.Select(c => c).Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
+
+                Colaborador colaboradorAEditar = (_context.Colaborador.Select(c => c)
+                                                                .Include(c => c.Companhia)
+                                                                .Where(c => c.Id == viewModel.Id)).Single();
+
+                colaboradorAEditar.Nome = viewModel.Nome;
+                colaboradorAEditar.Apelido = viewModel.Apelido;
+                colaboradorAEditar.Email = viewModel.Email;
+                colaboradorAEditar.IsAdministrador = viewModel.IsAdministrador;
+                
+
+                /*
+                 * Acção - logger
+                 * */
+                _context.Update(colaboradorAEditar);
+                _context.SaveChanges();
+                return RedirectToAction("VerColaboradores");
+            }
+
+            return RedirectToAction("EditarColaborador");
+
+        }
+
+
+        [HttpGet]
+        public IActionResult ApagarColaborador(string id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var colaborador = _context.Colaborador.Select(c => c)
+                                      .Include(c => c.Companhia)
+                                      .SingleOrDefault(c => c.Id == id);
+            if (colaborador == null)
+            {
+                return NotFound();
+            }
+            return View(colaborador);
+        }
+
+        [HttpPost, ActionName("ApagarColaborador")]
+        [ValidateAntiForgeryToken]
+        public IActionResult ApagarColaboradorConfirmacao(string id)
+        {
+
+            var colaborador = _context.Colaborador.SingleOrDefault(j => j.Id == id);
+
+            _context.Colaborador.Remove(colaborador);
+            _context.SaveChanges();
+
+            return RedirectToAction("VerColaboradores");
+        }
+
+        /*
+
+                [HttpPost, ActionName("ApagarJato")]
+                [ValidateAntiForgeryToken]
+                public IActionResult ApagarJatoConfirmacao(int? id)
+                {
+
+                    var jato = _context.Jato.SingleOrDefault(j => j.JatoId == id);
+
+                    _context.Jato.Remove(jato);
+                    _context.SaveChanges();
+
+                    return RedirectToAction("VerJatos");
+                }
+
+
+
+            */
+
+
+
+
 
         private void addAcaoColaborador (Acao acao, Colaborador colaborador)
         {

@@ -1,0 +1,80 @@
+﻿<!--model AirUberProjeto.Models.Colaborador -->
+@using AirUberProjeto.Models.CompanhiaViewModels
+@model AirUberProjeto.Models.CompanhiaViewModels.CriarColaboradorViewModel
+
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<form asp-action="AdicionarColaborador">
+    <div class="form-horizontal">
+        <h4>Colaborador</h4>
+        <hr />
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="PrimeiroNome" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="PrimeiroNome" class="form-control" />
+                <span asp-validation-for="PrimeiroNome" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Apelido" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Apelido" class="form-control" />
+                <span asp-validation-for="Apelido" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Email" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="CompanhiaId" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <select asp-for="CompanhiaId" class="form-control" asp-items="ViewBag.CompanhiaId" disabled></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <div class="checkbox">
+                    <input asp-for="IsAdministrador" />
+                    <label asp-for="IsAdministrador"></label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Password" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="ConfirmPassword" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="ConfirmPassword" class="form-control" />
+                <span asp-validation-for="ConfirmPassword" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
