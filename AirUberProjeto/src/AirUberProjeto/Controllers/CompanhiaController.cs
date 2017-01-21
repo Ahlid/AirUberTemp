@@ -559,25 +559,227 @@ namespace AirUberProjeto.Controllers
             return RedirectToAction("VerColaboradores");
         }
 
+
+        /***********************
+         *       Extras        *
+         *                     *
+         ***********************/
+
+        [HttpGet] 
+        public IActionResult VerExtras()
+        {
+
+            Colaborador colaborador = (Colaborador)_userManager.GetUserAsync(this.User).Result;
+
+            Companhia companhia = (_context.Companhia.Select(c => c)
+                                                     .Include(c => c.ListaExtras)
+                                                     .Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
+
+            var extras = _context.Extra.Select(j => j)
+                                      .Include(j => j.Companhia)
+                                      .Include(j => j.TipoExtra)
+                                      .Where(j => j.CompanhiaId == companhia.CompanhiaId);
+        
+            return View(extras);
+        }
+
+        [HttpGet]
+        public IActionResult CriarExtra()
+        {
+            Colaborador colaborador = (Colaborador)_userManager.GetUserAsync(this.User).Result;
+
+            Companhia companhia = (_context.Companhia.Select(c => c)
+                                                     .Include(c => c.ListaExtras)
+                                                     .Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
+
+
+            ViewData["CompanhiaId"] = new SelectList(_context.Companhia.Select(c => c).Where(c => c.CompanhiaId == companhia.CompanhiaId), "CompanhiaId", "Nome");
+            ViewData["TipoExtraId"] = new SelectList(_context.TipoExtra, "TipoExtraId", "Nome");
+            return View();
+        }
+
         /*
+         * 
+         * 
+         * 
+         * 
+         * Problema com valores decimais com '.'
+         * 
+         * 
+         * 
+         * 
+         * 
+         * 
+         */ 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult CriarExtra(CriarExtraViewModel viewModel)
+        {
+           
+            if (ModelState.IsValid)
+            {
 
-                [HttpPost, ActionName("ApagarJato")]
-                [ValidateAntiForgeryToken]
-                public IActionResult ApagarJatoConfirmacao(int? id)
+                // é recebido o objecto da classe view model
+                Colaborador colaborador = (Colaborador)_userManager.GetUserAsync(this.User).Result;
+
+                Companhia companhia = (_context.Companhia.Select(c => c).Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
+
+
+                Extra extra = new Extra()
                 {
-
-                    var jato = _context.Jato.SingleOrDefault(j => j.JatoId == id);
-
-                    _context.Jato.Remove(jato);
-                    _context.SaveChanges();
-
-                    return RedirectToAction("VerJatos");
-                }
+                    CompanhiaId = viewModel.CompanhiaId,
+                    Nome = viewModel.Nome,
+                    TipoExtraId = viewModel.TipoExtraId,
+                    Valor = Convert.ToDecimal(viewModel.Valor)
+                };
 
 
+                companhia.ListaExtras.Add(extra);
+                _context.Update(companhia);
+                _context.SaveChanges();
 
-            */
+                return RedirectToAction("VerExtras");
+            }
+            ViewData["CompanhiaId"] = new SelectList(_context.Companhia, "CompanhiaId", "Contact", viewModel.CompanhiaId);
+            ViewData["TipoExtraId"] = new SelectList(_context.TipoExtra, "TipoExtraId", "Nome", viewModel.TipoExtraId);
+            return RedirectToAction("CriarExtra");
+        }
 
+
+        [HttpGet]
+        public IActionResult EditarExtra(int id)
+        {
+            var extra = _context.Extra.Single(e => e.ExtraId == id);
+            if(extra != null)
+            {
+
+                Colaborador colaborador = (Colaborador)_userManager.GetUserAsync(this.User).Result;
+
+                Companhia companhia = (_context.Companhia.Select(c => c)
+                                                         .Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
+
+                ViewBag.companhia = companhia.Nome;
+                ViewBag.tipos = new SelectList(_context.TipoExtra, "TipoExtraId", "Nome");
+               
+                return View(extra);
+            }
+
+            return NotFound();
+        }
+           
+        [HttpPost]
+        public IActionResult EditarExtra(EditarExtraViewModel viewModel)
+        {
+            if (ModelState.IsValid) // se os dados forem válidos
+            {
+                //Colaborador colaborador = (Colaborador)_userManager.GetUserAsync(this.User).Result;
+                //Companhia companhia = (_context.Companhia.Select(c => c).Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
+
+                Extra extraAEditar = (_context.Extra.Select(c => c).Where(c => c.ExtraId == viewModel.ExtraId)).Single();
+
+                extraAEditar.Nome = viewModel.Nome;
+                extraAEditar.TipoExtraId = viewModel.TipoExtraId;
+                extraAEditar.Valor = viewModel.Valor;
+               
+                /*
+                 * Acção - logger
+                 * */
+
+                _context.Update(extraAEditar);
+                _context.SaveChanges();
+                return RedirectToAction("VerExtras");
+            }
+
+            return RedirectToAction("EditarExtra");
+
+        }
+
+
+        [HttpGet]
+        public IActionResult ApagarExtra(int id)
+        {
+
+            var extra = _context.Extra.Include(e => e.Companhia)
+                                      .Include(e => e.TipoExtra)
+                                      .Single(e => e.ExtraId == id);
+
+            if (extra == null)
+            {
+                return NotFound();
+            }
+
+            ViewData["TipoExtraId"] = new SelectList(_context.TipoExtra, "TipoExtraId", "Nome");
+            return View(extra);
+        }
+
+        [HttpPost, ActionName("ApagarExtra")]
+        [ValidateAntiForgeryToken]
+        public IActionResult ApagarExtraConfirmacao(int id)
+        {
+
+            var extra = _context.Extra.Single(e => e.ExtraId == id);
+
+            _context.Extra.Remove(extra);
+            _context.SaveChanges();
+
+            return RedirectToAction("VerExtras");
+        }
+
+
+        /***********************
+         *       Modelos       *
+         *                     *
+         ***********************/
+
+        [HttpGet]
+        public IActionResult VerModelos()
+        {
+            var modelos = _context.Modelo.Select(m => m)
+                                         .Include(m => m.TipoJato);
+
+
+            return View(modelos);
+        }
+
+        [HttpGet]
+        public IActionResult AdicionarModelo()
+        {
+
+            ViewBag.tipos = new SelectList(_context.TipoJato, "TipoJatoId", "Nome");
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult AdicionarModelo(CriarModeloViewModel viewModel)
+        {
+            if (ModelState.IsValid)
+            {
+
+                Modelo modelo = new Modelo()
+                {
+                    Capacidade = viewModel.Capacidade,
+                    Alcance = viewModel.Alcance,
+                    VelocidadeMaxima = viewModel.VelocidadeMaxima,
+                    PesoMaximaBagagens = viewModel.PesoMaximaBagagens,
+                    NumeroMotores = viewModel.NumeroMotores,
+                    AltitudeIdeal = viewModel.AltitudeIdeal,
+                    AlturaCabine = viewModel.AlturaCabine,
+                    LarguraCabine = viewModel.LarguraCabine,
+                    ComprimentoCabine = viewModel.ComprimentoCabine,
+                    Descricao = viewModel.Descricao,
+                    TipoJatoId = viewModel.TipoJatoId,
+                    
+                };
+
+
+                _context.Add(modelo);
+                _context.SaveChanges();
+
+                return RedirectToAction("VerModelos");
+            }
+            ViewBag.tipos = new SelectList(_context.TipoJato, "TipoJatoId", "Nome");
+            return RedirectToAction("AdicionarModelo");
+        }
 
 
 

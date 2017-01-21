@@ -1741,6 +1741,61 @@
             Identificador único do aeroporto onde o jato se encontra
             </summary>
         </member>
+        <member name="P:AirUberProjeto.Models.CompanhiaViewModels.CriarModeloViewModel.Capacidade">
+            <summary>
+            Propriedade responsável por guardar o número máximo de pessoas que um modelo de jato suporta.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.CompanhiaViewModels.CriarModeloViewModel.Alcance">
+            <summary>
+            Propriedade responsável por guardar valor do alcance máximo, em Km, de um modelo.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.CompanhiaViewModels.CriarModeloViewModel.VelocidadeMaxima">
+            <summary>
+            Propriedade responsável por guardar o valor da velocidade máxima, em Km/H, de um modelo.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.CompanhiaViewModels.CriarModeloViewModel.PesoMaximaBagagens">
+            <summary>
+            Propriedade responsável por guardar o valor do peso máximo em bagagens, em Kg, de um modelo.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.CompanhiaViewModels.CriarModeloViewModel.NumeroMotores">
+            <summary>
+            Propriedade responsável por guardar o número de motores de um modelo.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.CompanhiaViewModels.CriarModeloViewModel.AltitudeIdeal">
+            <summary>
+            Propriedade responsável por guardar o valor da altura ideal, em Metros, de um modelo.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.CompanhiaViewModels.CriarModeloViewModel.AlturaCabine">
+            <summary>
+            Propriedade responsável por guardar o valor da altura da cabine, em Metros, de um modelo.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.CompanhiaViewModels.CriarModeloViewModel.LarguraCabine">
+            <summary>
+            Propriedade responsável por guardar o valor da largura da cabine, em Metros, de um modelo.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.CompanhiaViewModels.CriarModeloViewModel.ComprimentoCabine">
+            <summary>
+            Propriedade responsável por guardar o valor do comprimento da cabine, em Metros, de um modelo.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.CompanhiaViewModels.CriarModeloViewModel.Descricao">
+            <summary>
+            Propriedade responsável por guardar a descrição de um modelo.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.CompanhiaViewModels.CriarModeloViewModel.TipoJatoId">
+            <summary>
+            Identificador unívoco do tipo de jato que o modelo é.
+            </summary>
+        </member>
         <member name="P:AirUberProjeto.Models.CompanhiaViewModels.EditarColaboradorViewModel.ColaboradorId">
             <summary>
             Identificador único do colaborador a ser editado

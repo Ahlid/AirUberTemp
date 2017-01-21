@@ -1746,7 +1746,7 @@
             Identificador único do colaborador a ser editado
             </summary>
         </member>
-        <member name="P:AirUberProjeto.Models.CompanhiaViewModels.EditarColaboradorViewModel.PrimeiroNome">
+        <member name="P:AirUberProjeto.Models.CompanhiaViewModels.EditarColaboradorViewModel.Nome">
             <summary>
             Nome do cliente
             </summary>

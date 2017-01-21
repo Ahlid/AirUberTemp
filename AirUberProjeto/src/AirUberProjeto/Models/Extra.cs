@@ -31,6 +31,7 @@ namespace AirUberProjeto.Models
         /// Propriedade responsável por guardar o valor de um extra.
         /// </summary>
         [Display (Name = "Custo")]
+        [Required(ErrorMessage = "Price is required")]
         public decimal Valor { get; set; }
 
         // Propriedades Virtuais
