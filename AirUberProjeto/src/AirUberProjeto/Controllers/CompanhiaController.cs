@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using AirUberProjeto.Data;
@@ -7,6 +8,7 @@ using AirUberProjeto.Models;
 using AirUberProjeto.Models.CompanhiaViewModels;
 using AirUberProjeto.Services;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -93,6 +95,19 @@ namespace AirUberProjeto.Controllers
                 Colaborador = colaborador,
                 Companhia = companhia,
             };
+
+
+            /*
+             * Existe um problema com as notificações, porque como nao ficam associadas a uma companhia mas sim a um user.
+             * Estas terão que ficar associadas ao colaborador admin que é criado ao mesmo tempo que a companhia.
+             * 
+             * Logo ou terei que ir buscar o id do colaborador admin e depois ir buscar as notificações que têm o id dele.
+             * Ou então é adicionado o campo companhia nas notificacoes, e assim cada user tem as suas notificacoes.
+             * 
+             * 
+             * Actualmente apenas o colaborador admin ve as notifiacções adicionadas
+             * 
+             */ 
 
 
             List<Notificacao> notificacoes = _context.Notificacao.Where(n => n.UtilizadorId == colaborador.Id).ToList();
@@ -335,7 +350,7 @@ namespace AirUberProjeto.Controllers
             {
                 return NotFound();
             }
-
+            
             var jato = _context.Jato.Select(j => j)
                                     .Include(j => j.Aeroporto)
                                     .Include(j => j.Companhia)
@@ -354,12 +369,22 @@ namespace AirUberProjeto.Controllers
         public IActionResult ApagarJatoConfirmacao (int? id)
         {
 
+            Colaborador colaborador = (Colaborador)_userManager.GetUserAsync(this.User).Result;
+
+            Companhia companhia = (_context.Companhia.Select(c => c).Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
+
             var jato = _context.Jato.SingleOrDefault(j => j.JatoId == id);
 
-            _context.Jato.Remove(jato);
-            _context.SaveChanges();
+            bool existe = companhia.ListaJatos.Any(c => c.JatoId == jato.JatoId);    // verifica se a companhia tem aquele aviao
 
-            return RedirectToAction("VerJatos");
+            if (existe)
+            {
+                _context.Jato.Remove(jato);
+                _context.SaveChanges();
+
+                return RedirectToAction("VerJatos");
+            }
+            return NotFound();
         }
 
 
@@ -551,12 +576,23 @@ namespace AirUberProjeto.Controllers
         public IActionResult ApagarColaboradorConfirmacao(string id)
         {
 
-            var colaborador = _context.Colaborador.SingleOrDefault(j => j.Id == id);
+            Colaborador colaborador = (Colaborador)_userManager.GetUserAsync(this.User).Result;
 
-            _context.Colaborador.Remove(colaborador);
-            _context.SaveChanges();
+            Companhia companhia = (_context.Companhia.Select(c => c).Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
 
-            return RedirectToAction("VerColaboradores");
+            var colaboradorAEliminar = _context.Colaborador.SingleOrDefault(j => j.Id == id);
+
+            bool existe = companhia.ListaColaboradores.Any(c => c.Id == colaboradorAEliminar.Id);    // verifica se o colaborador a eliminar faz parte da companhia logada
+
+            if (existe)
+            {
+                _context.Colaborador.Remove(colaboradorAEliminar);
+                _context.SaveChanges();
+
+                return RedirectToAction("VerColaboradores");
+            }
+            return NotFound();
+
         }
 
 
@@ -717,12 +753,32 @@ namespace AirUberProjeto.Controllers
         public IActionResult ApagarExtraConfirmacao(int id)
         {
 
+            Colaborador colaborador = (Colaborador)_userManager.GetUserAsync(this.User).Result;
+
+            Companhia companhia = (_context.Companhia.Select(c => c).Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
+
+            var extra = _context.Extra.Single(e => e.ExtraId == id);
+
+            bool existe = companhia.ListaExtras.Any(c => c.ExtraId == extra.ExtraId);    // verifica se o colaborador a eliminar faz parte da companhia logada
+
+            if (existe)
+            {
+                _context.Extra.Remove(extra);
+                _context.SaveChanges();
+
+                return RedirectToAction("VerExtras");
+            }
+            return NotFound();
+
+
+            /*
             var extra = _context.Extra.Single(e => e.ExtraId == id);
 
             _context.Extra.Remove(extra);
             _context.SaveChanges();
 
             return RedirectToAction("VerExtras");
+            */
         }
 
 
@@ -782,11 +838,137 @@ namespace AirUberProjeto.Controllers
         }
 
 
+        /// <summary>
+        /// Permite alterar a imagem de perfil do cliente
+        /// </summary>
+        /// <param name="file">ficheiro de imagem que irá substituir a imagem de perfil</param>
+        /// <returns>Um redirecionamento para a ação editar perfil</returns>
+        [HttpPost]
+        public async Task<IActionResult> AlterarImagemPerfil(IFormFile file)
+        {
+            if (file == null)
+            {
+                return RedirectToAction(nameof(CompanhiaController.EditarPerfilCompanhia), "Companhia");
+            }
 
 
+            string extension = Path.GetExtension(file.FileName);
+            if (extension != ".jpg" && extension != ".png")
+                return null;
+
+            Colaborador colaborador = (Colaborador)_userManager.GetUserAsync(this.User).Result;
+            Companhia companhia = (_context.Companhia.Select(c => c).Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
+
+
+            string fileName = "imagem-perfil" + extension;
+            string folderName = Path.Combine("companhias", "company-" + companhia.Email);
+            string relativePathToFile = Path.Combine(folderName, fileName);
+
+            string forderPath = Path.Combine(_environment.WebRootPath, folderName);
+            string absolutePathToFile = Path.Combine(_environment.WebRootPath, relativePathToFile);
+
+            //Cria a directoria caso ainda não exista
+            Directory.CreateDirectory(forderPath);
+
+            //Transmite o ficheiro através de um FileStream
+            using (var fileStream = new FileStream(absolutePathToFile, FileMode.Create))
+            {
+                await file.CopyToAsync(fileStream);
+            }
+
+            companhia.RelativePathImagemPerfil = relativePathToFile;
+            _context.Update(companhia);
+            _context.SaveChanges();
+
+            return RedirectToAction(nameof(CompanhiaController.EditarPerfilCompanhia), "Companhia");
+        }
+
+
+        /// <summary>
+        /// Permite alterar a imagem do jato
+        /// </summary>
+        /// <param name="file">ficheiro de imagem que irá substituir a imagem do jato</param>
+        /// <param name="id">id do jato a que a se irá alterar a foto</param>
+        /// <returns>Um redirecionamento para a ação editar jato</returns>
+        [HttpPost]
+        public async Task<IActionResult> AlterarImagemJato(IFormFile file, int id)
+        {
+            if (file == null)
+            {
+                // permite ficar na mesma página, para alterar a imagem, pq não foi alterada
+                return RedirectToAction("EditarJatos", new { id = id });    
+            }
+
+
+            string extension = Path.GetExtension(file.FileName);
+            if (extension != ".jpg" && extension != ".png")
+                return null;
+
+
+            Colaborador colaborador = (Colaborador)_userManager.GetUserAsync(this.User).Result;
+            Companhia companhia = (_context.Companhia.Select(c => c).Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
+
+            Jato jato = (_context.Jato.Select(c => c).Include(c => c.Aeroporto)
+                                                     .Include(c => c.Companhia)
+                                                     .Include(c => c.Modelo)
+                                                     .Where(c => c.JatoId == id))
+                                                     .Single();
+
+
+            string fileName = "imagem-jato" + extension;
+            string folderName = Path.Combine("jatos", "airplaine-" + jato.Nome);
+            string relativePathToFile = Path.Combine(folderName, fileName);
+
+            string forderPath = Path.Combine(_environment.WebRootPath, folderName);
+            string absolutePathToFile = Path.Combine(_environment.WebRootPath, relativePathToFile);
+
+            //Cria a directoria caso ainda não exista
+            Directory.CreateDirectory(forderPath);
+
+            //Transmite o ficheiro através de um FileStream
+            using (var fileStream = new FileStream(absolutePathToFile, FileMode.Create))
+            {
+                await file.CopyToAsync(fileStream);
+            }
+
+            jato.RelativePathImagemPerfil = relativePathToFile;
+            _context.Update(jato);
+            _context.SaveChanges();
+
+            return RedirectToAction(nameof(CompanhiaController.VerJatos), "Companhia"); 
+        }
+
+
+
+
+        
         private void addAcaoColaborador (Acao acao, Colaborador colaborador)
         {
             colaborador.ListaAcoes.Add(acao);
+        }
+
+
+        /// <summary>
+        /// Permite marcar uma notificação como lida através do seu ID
+        /// </summary>
+        /// <param name="id">Id da notificação ao qual se quer marcar como lida</param>
+        /// <returns>Variavel booleana que indica se houve sucesso a marcar a notificação como lida</returns>
+        [HttpPost]
+        public bool MarcarNotificacaoLida(int id)
+        {
+            try
+            {
+                Notificacao notificacao = _context.Notificacao.First(n => n.NotificacaoId == id);
+                notificacao.Lida = true;
+                _context.Notificacao.Update(notificacao);
+                _context.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
         }
 
     }

@@ -33,6 +33,9 @@ namespace AirUberProjeto.Models
         /// <summary>
         /// Propriedade navegacional responável por guardar todas as informações que um utilziador realizou
         /// </summary>
+        /// <remarks>
+        /// Histórico de acções
+        /// </remarks>
         public ICollection<Acao> ListaAcoes { get; set; }
 
 

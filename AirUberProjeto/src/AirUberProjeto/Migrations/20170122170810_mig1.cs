@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace AirUberProjeto.Migrations
 {
-    public partial class mig : Migration
+    public partial class mig1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -149,7 +149,8 @@ namespace AirUberProjeto.Migrations
                     Morada = table.Column<string>(nullable: false),
                     Nif = table.Column<string>(nullable: false),
                     Nome = table.Column<string>(nullable: false),
-                    PaisId = table.Column<int>(nullable: false)
+                    PaisId = table.Column<int>(nullable: false),
+                    RelativePathImagemPerfil = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -303,7 +304,8 @@ namespace AirUberProjeto.Migrations
                     CompanhiaId = table.Column<int>(nullable: false),
                     EmFuncionamento = table.Column<bool>(nullable: false),
                     ModeloId = table.Column<int>(nullable: false),
-                    Nome = table.Column<string>(nullable: false)
+                    Nome = table.Column<string>(nullable: false),
+                    RelativePathImagemPerfil = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

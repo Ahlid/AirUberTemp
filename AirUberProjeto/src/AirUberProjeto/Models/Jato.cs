@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.IO;
 
 namespace AirUberProjeto.Models
 {
@@ -27,7 +28,6 @@ namespace AirUberProjeto.Models
         /// <summary>
         /// Identificador unívoco da companhia a que o jato pertence.
         /// </summary>
-        
         [Display(Name = "Companhia")]
         [Required]
         public int CompanhiaId { get; set; }
@@ -44,6 +44,10 @@ namespace AirUberProjeto.Models
         /// </summary>
         [Display (Name = "Aeroporto")]
         public int AeroportoId { get; set; }
+        /// <summary>
+        /// Caminho de onde a imagem do jato está localizada no projecto
+        /// </summary>
+        public string RelativePathImagemPerfil { get; set; }
 
         // Propriedades Virtuais
         /// <summary>
@@ -74,6 +78,7 @@ namespace AirUberProjeto.Models
             //valor inicial a false, porque a companhia inicialmente nao esta activa
             EmFuncionamento = false;
             ListaDisponibilidade = new List<Disponibilidade>();
+            RelativePathImagemPerfil = Path.Combine("images", "aviao-default.svg");
         }
     }
 }

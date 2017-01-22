@@ -8,8 +8,8 @@ using AirUberProjeto.Data;
 namespace AirUberProjeto.Migrations
 {
     [DbContext(typeof(AirUberDbContext))]
-    [Migration("20170119020358_mig")]
-    partial class mig
+    [Migration("20170122170810_mig1")]
+    partial class mig1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -167,6 +167,8 @@ namespace AirUberProjeto.Migrations
 
                     b.Property<int>("PaisId");
 
+                    b.Property<string>("RelativePathImagemPerfil");
+
                     b.HasKey("CompanhiaId");
 
                     b.HasIndex("ContaDeCreditosId");
@@ -262,6 +264,8 @@ namespace AirUberProjeto.Migrations
 
                     b.Property<string>("Nome")
                         .IsRequired();
+
+                    b.Property<string>("RelativePathImagemPerfil");
 
                     b.HasKey("JatoId");
 

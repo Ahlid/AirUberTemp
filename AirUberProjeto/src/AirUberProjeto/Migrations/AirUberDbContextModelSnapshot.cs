@@ -166,6 +166,8 @@ namespace AirUberProjeto.Migrations
 
                     b.Property<int>("PaisId");
 
+                    b.Property<string>("RelativePathImagemPerfil");
+
                     b.HasKey("CompanhiaId");
 
                     b.HasIndex("ContaDeCreditosId");
@@ -261,6 +263,8 @@ namespace AirUberProjeto.Migrations
 
                     b.Property<string>("Nome")
                         .IsRequired();
+
+                    b.Property<string>("RelativePathImagemPerfil");
 
                     b.HasKey("JatoId");
 
