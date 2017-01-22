@@ -57,7 +57,7 @@ namespace AirUberProjeto.Controllers
         /// <summary>
         /// A acção index é a ação default do controlador e redireciona para a ação Perfil
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Retorna a view retornada pela acção Perfil</returns>
         [HttpGet]
         public IActionResult Index()
         {

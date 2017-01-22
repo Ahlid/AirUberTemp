@@ -13,6 +13,8 @@ using AirUberProjeto.Data;
 using AirUberProjeto.Models;
 using AirUberProjeto.Services;
 using Microsoft.AspNetCore.Mvc;
+using System.Globalization;
+using Microsoft.AspNetCore.Localization;
 
 namespace AirUberProjeto
 {
@@ -40,7 +42,7 @@ namespace AirUberProjeto
             Configuration = builder.Build();
         }
 
-        
+
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -62,9 +64,6 @@ namespace AirUberProjeto
             services.AddTransient<ISmsSender, AuthMessageSender>();
 
 
-         
-            
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -74,6 +73,7 @@ namespace AirUberProjeto
             loggerFactory.AddDebug();
 
             app.UseApplicationInsightsRequestTelemetry();
+
 
             if (env.IsDevelopment())
             {

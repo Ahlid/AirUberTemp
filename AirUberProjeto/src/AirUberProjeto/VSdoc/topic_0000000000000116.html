@@ -3,7 +3,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="GENERATOR" content="VSdocman - documentation generator; http://www.helixoft.com" />
-	<title>AuthMessageSender.SendEmailAsync Method</title>
+	<title>Estado.EstadoId Property</title>
 
 	<link rel="stylesheet" type="text/css" href="msdn10_lightweight/msdn10_lightweight.css"></link>
 	<script src="msdn10_lightweight/msdn10_lightweight.js" type="text/javascript"></script>
@@ -59,7 +59,7 @@ function replaceTitleAndUrl(win, title, url) {
 <!--HEADER START-->
   <div id="header">
   	<div id="runningHeaderText">AirUberProjeto Reference</div>
-  	<h1 class="title">AuthMessageSender.SendEmailAsync Method</h1>
+  	<h1 class="title">Estado.EstadoId Property</h1>
   	<div id="headerLinks">
 
 	<a href="#seeAlsoSection">See Also</a>
@@ -73,10 +73,11 @@ function replaceTitleAndUrl(win, title, url) {
       <div id="mainBody">
         <p />
        
+        Identificador unívoco de um estado, sendo chave primária na base de dados.
 
 
         <p /><strong>Namespace:</strong>
-<a href="topic_0000000000000110.html">AirUberProjeto.Services</a>
+<a href="topic_00000000000000CC.html">AirUberProjeto.Models</a>
 
 
 
@@ -131,7 +132,7 @@ function replaceTitleAndUrl(win, title, url) {
 				</div>
 				
 				<div class="codeSnippetCode codeVB">
-					<pre xml:space="preserve" class="brush: vb">Public Function SendEmailAsync( _&nbsp;<br />   ByVal <i>email</i> As <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a>, _&nbsp;<br />   ByVal <i>subject</i> As <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a>, _&nbsp;<br />   ByVal <i>message</i> As <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a> _&nbsp;<br />) As <a target="_top" href="http://msdn2.microsoft.com/en-us/library/dd321424.aspx">Task</a>(Of <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.threading.tasks.task.aspx">Task</a>) Implements  _&nbsp;<br />   <a target="_top" href="topic_0000000000000112.html" onclick="this.target='';return true;">IEmailSender.SendEmailAsync</a></pre>			
+					<pre xml:space="preserve" class="brush: vb">Public Property EstadoId() As <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.int32.aspx">Integer</a></pre>			
 				</div>
 				<div class="codeSnippetCode codeNA">
 					<pre xml:space="preserve">This language is not supported or no code example is available.</pre>			
@@ -167,7 +168,7 @@ function replaceTitleAndUrl(win, title, url) {
 				</div>
 				
 				<div class="codeSnippetCode codeCsharp">
-					<pre xml:space="preserve" class="brush: csharp">public <a target="_top" href="http://msdn2.microsoft.com/en-us/library/dd321424.aspx">Task</a>&lt;<a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.threading.tasks.task.aspx">Task</a>&gt; SendEmailAsync(&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">string</a> <i>email</i>,&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">string</a> <i>subject</i>,&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">string</a> <i>message</i>&nbsp;<br />)</pre>			
+					<pre xml:space="preserve" class="brush: csharp">public <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.int32.aspx">int</a> EstadoId {get; set;}</pre>			
 				</div>
 				<div class="codeSnippetCode codeNA">
 					<pre xml:space="preserve">This language is not supported or no code example is available.</pre>			
@@ -203,7 +204,7 @@ function replaceTitleAndUrl(win, title, url) {
 				</div>
 				
 				<div class="codeSnippetCode codeCpp">
-					<pre xml:space="preserve" class="brush: cpp">public: &nbsp;<br /><a target="_top" href="http://msdn2.microsoft.com/en-us/library/dd321424.aspx">Task</a>&lt;<a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.threading.tasks.task.aspx">Task</a>^&gt;^ SendEmailAsync(&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a>^ <i>email</i>,&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a>^ <i>subject</i>,&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a>^ <i>message</i>&nbsp;<br />) </pre>			
+					<pre xml:space="preserve" class="brush: cpp">public: &nbsp;<br />property <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.int32.aspx">int</a> EstadoId {&nbsp;<br /> <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.int32.aspx">int</a> get( );&nbsp;<br /> void set(&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.int32.aspx">int</a> value&nbsp;<br /> );&nbsp;<br />}</pre>			
 				</div>
 				<div class="codeSnippetCode codeNA">
 					<pre xml:space="preserve">This language is not supported or no code example is available.</pre>			
@@ -239,7 +240,7 @@ function replaceTitleAndUrl(win, title, url) {
 				</div>
 				
 				<div class="codeSnippetCode codeJScript">
-					<pre xml:space="preserve" class="brush: js">JScript does not support generic types and methods.</pre>			
+					<pre xml:space="preserve" class="brush: js">public function get EstadoId() : <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.int32.aspx">int</a>;&nbsp;<br />public function set EstadoId(value : <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.int32.aspx">int</a>);</pre>			
 				</div>
 				<div class="codeSnippetCode codeNA">
 					<pre xml:space="preserve">This language is not supported or no code example is available.</pre>			
@@ -250,60 +251,7 @@ function replaceTitleAndUrl(win, title, url) {
 	</div>
 
 
-<h4 class="subHeading">
-	Parameters</h4><dl paramName="email">
-	<dt>
-		<span class="parameter">
-			email
-		</span>
-	</dt>
-	<dd>
-		<p>
-			Type: <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">string</a> 
-		</p>
-		<p>
-			 
-		</p>
-	</dd>
-</dl>
-<dl paramName="subject">
-	<dt>
-		<span class="parameter">
-			subject
-		</span>
-	</dt>
-	<dd>
-		<p>
-			Type: <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">string</a> 
-		</p>
-		<p>
-			 
-		</p>
-	</dd>
-</dl>
-<dl paramName="message">
-	<dt>
-		<span class="parameter">
-			message
-		</span>
-	</dt>
-	<dd>
-		<p>
-			Type: <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">string</a> 
-		</p>
-		<p>
-			 
-		</p>
-	</dd>
-</dl>
 
-<p />
-<p />
-
-
-	<h4 class="subHeading">
-		Implements</h4><a href="topic_0000000000000112.html">IEmailSender.SendEmailAsync</a>
-<br />
 
 
 
@@ -401,12 +349,12 @@ function replaceTitleAndUrl(win, title, url) {
 		<div>
 			<h4 class="subHeading">
 				Reference</h4>
-			<a href="topic_0000000000000115.html">AuthMessageSender Class</a><br />
-<a href="topic_0000000000000115_members--.html">AuthMessageSender Members</a><br />
+			<a href="topic_0000000000000115.html">Estado Class</a><br />
+<a href="topic_0000000000000115_members--.html">Estado Members</a><br />
 
 
 
-<a href="topic_0000000000000110.html">AirUberProjeto.Services Namespace</a><br />
+<a href="topic_00000000000000CC.html">AirUberProjeto.Models Namespace</a><br />
 
 
 			

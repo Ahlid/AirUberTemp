@@ -1,0 +1,94 @@
+﻿@model AirUberProjeto.Models.Modelo
+
+@{
+    ViewData["Title"] = "View";
+}
+
+<h2>View</h2>
+
+<form asp-controller="Companhia" asp-action="AdicionarModelo" method="post" class="form-vertical">
+    <div class="form-horizontal">
+        <h4>Modelo</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="TipoJatoId" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <select asp-for="TipoJatoId" class="form-control" asp-items="ViewBag.tipos"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Capacidade" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Capacidade" type="text" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Alcance" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Alcance" type="text" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="VelocidadeMaxima" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="VelocidadeMaxima" type="text" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="PesoMaximaBagagens" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="PesoMaximaBagagens" type="text" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="NumeroMotores" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="NumeroMotores" type="text" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="AltitudeIdeal" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="AltitudeIdeal" type="text" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="AlturaCabine" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="AlturaCabine" type="text" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="LarguraCabine" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="LarguraCabine" type="text" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="ComprimentoCabine" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="ComprimentoCabine" type="text" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Descricao" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Descricao" type="text" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="VerModelos">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
