@@ -971,5 +971,48 @@ namespace AirUberProjeto.Controllers
 
         }
 
+
+        /*
+         * Testes mockups
+         */ 
+
+        public IActionResult VerExtrasMockup()
+        {
+            Colaborador colaborador = (Colaborador)_userManager.GetUserAsync(this.User).Result;
+
+            Companhia companhia = (_context.Companhia.Select(c => c)
+                                                     .Include(c => c.ListaExtras)
+                                                     .Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
+
+            var extras = _context.Extra.Select(j => j)
+                                      .Include(j => j.Companhia)
+                                      .Include(j => j.TipoExtra)
+                                      .Where(j => j.CompanhiaId == companhia.CompanhiaId);
+
+            return View(extras);
+        }
+
+        public IActionResult VerJatosMockup()
+        {
+            Colaborador colaborador = (Colaborador)_userManager.GetUserAsync(this.User).Result;
+            Companhia companhia = (_context.Companhia.Select(c => c).Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
+
+            var jatos = _context.Jato.Select(j => j).Include(j => j.Modelo)
+                                                    .Include(j => j.Modelo.TipoJato)
+                                                    .Include(j => j.Companhia)
+                                                    .Include(j => j.Aeroporto)
+                                                    .Where(j => j.CompanhiaId == companhia.CompanhiaId);
+            return View(jatos);
+        }
+
+        public IActionResult VerColaboradoresMockup()
+        {
+            Colaborador colaborador = (Colaborador)_userManager.GetUserAsync(this.User).Result;
+            Companhia companhia = (_context.Companhia.Select(c => c)
+                                                     .Include(c => c.ListaColaboradores)
+                                                     .Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
+
+            return View(companhia.ListaColaboradores);
+        }
     }
 }

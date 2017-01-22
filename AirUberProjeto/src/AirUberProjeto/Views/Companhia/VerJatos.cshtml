@@ -17,9 +17,6 @@
                     @Html.Raw("Photo")
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.JatoId)
-                </th>
-                <th>
                     @Html.DisplayNameFor(model => model.Nome)
                 </th>
                 <th>
@@ -45,9 +42,6 @@
                         <img class="img-thumbnail" src="..\@item.RelativePathImagemPerfil" width="80" alt="airplane photo">
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.JatoId)
-                    </td>
-                    <td>
                         @Html.DisplayFor(modelItem => item.Nome)
                     </td>
                     <td>
@@ -57,7 +51,8 @@
                         @Html.DisplayFor(modelItem => item.Companhia.Nome)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.EmFuncionamento)
+                        @(item.EmFuncionamento ? "Sim" : "Não")
+                        
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Aeroporto.Nome)
