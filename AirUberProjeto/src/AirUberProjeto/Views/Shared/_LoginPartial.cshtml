@@ -29,6 +29,25 @@
             <li><a class="w3-hover-white w3-hover-text-indigo w3-text-white" asp-area="" asp-controller="Cliente" asp-action="Viajar">Viajar</a></li>
         }
         
+        @if (User.IsInRole(Roles.ROLE_COLABORADOR_ADMIN))
+        {
+            <li><a class="w3-hover-white w3-hover-text-indigo w3-text-white" asp-area="" asp-controller="Companhia" asp-action="Index">Ver perfil</a></li>
+            <li><a class="w3-hover-white w3-hover-text-indigo w3-text-white" asp-area="" asp-controller="Companhia" asp-action="Viagens">Viagens</a></li>
+            <li><a class="w3-hover-white w3-hover-text-indigo w3-text-white" asp-area="" asp-controller="Companhia" asp-action="VerColaboradores">Colaboradores</a></li>
+            <li><a class="w3-hover-white w3-hover-text-indigo w3-text-white" asp-area="" asp-controller="Companhia" asp-action="VerJatos">Aviões</a></li>
+            <li><a class="w3-hover-white w3-hover-text-indigo w3-text-white" asp-area="" asp-controller="Companhia" asp-action="VerExtras">Extras</a></li>
+            <li><a class="w3-hover-white w3-hover-text-indigo w3-text-white" asp-area="" asp-controller="Companhia" asp-action="Transacoes">Transações</a></li>
+        }
+
+        @if (User.IsInRole(Roles.ROLE_COLABORADOR))
+        {
+            <li><a class="w3-hover-white w3-hover-text-indigo w3-text-white" asp-area="" asp-controller="Companhia" asp-action="Index">Ver perfil</a></li>
+            <li><a class="w3-hover-white w3-hover-text-indigo w3-text-white" asp-area="" asp-controller="Companhia" asp-action="Viagens">Viagens</a></li>
+            <li><a class="w3-hover-white w3-hover-text-indigo w3-text-white" asp-area="" asp-controller="Companhia" asp-action="VerJatos">Aviões</a></li>
+            <li><a class="w3-hover-white w3-hover-text-indigo w3-text-white" asp-area="" asp-controller="Companhia" asp-action="VerExtras">Extras</a></li>
+            <li><a class="w3-hover-white w3-hover-text-indigo w3-text-white" asp-area="" asp-controller="Companhia" asp-action="Transacoes">Transações</a></li>
+        }
+
         @if (!User.IsInRole(Roles.ROLE_HELPDESK))
         {
             <li><a class="w3-hover-white w3-hover-text-indigo w3-text-white" asp-area="" asp-controller="Home" asp-action="About">Sobre Nos</a></li>

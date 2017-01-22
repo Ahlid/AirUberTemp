@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace AirUberProjeto.Models
 {
@@ -14,7 +15,7 @@ namespace AirUberProjeto.Models
         /// <summary>
         /// Propriedade responsável por guardar o nome de um jato.
         /// </summary>
-        [Display (Name = "Jato")]
+        [Display (Name = "Nome do Jato")]
         [Required]  
         public string Nome { get; set; }
         /// <summary>
@@ -26,6 +27,7 @@ namespace AirUberProjeto.Models
         /// <summary>
         /// Identificador unívoco da companhia a que o jato pertence.
         /// </summary>
+        
         [Display(Name = "Companhia")]
         [Required]
         public int CompanhiaId { get; set; }
@@ -37,6 +39,11 @@ namespace AirUberProjeto.Models
         /// nas listagem de voos possíveis para os dados introduzidos pelo cliente.
         /// </remarks>
         public bool EmFuncionamento { get; set; }
+        /// <summary>
+        /// Identificador único do aeroporto onde o jato se encontra
+        /// </summary>
+        [Display (Name = "Aeroporto")]
+        public int AeroportoId { get; set; }
 
         // Propriedades Virtuais
         /// <summary>
@@ -47,6 +54,14 @@ namespace AirUberProjeto.Models
         /// Propriedade navegacional responsável por referenciar a companhia a que o jato pertence.
         /// </summary>
         public virtual Companhia Companhia { get; set; }
+        /// <summary>
+        /// Propriedade navegacional responsável por referencer o aeroporto a que se encontra o jato
+        /// </summary>
+        public virtual Aeroporto Aeroporto { get; set; }
+        /// <summary>
+        /// Propriedade navegacional responsável por guardar todos os intervalos de tempo que um jato está ou não disponível
+        /// </summary>
+        public virtual ICollection<Disponibilidade> ListaDisponibilidade { get; set; }
 
 
 
@@ -58,6 +73,7 @@ namespace AirUberProjeto.Models
         {
             //valor inicial a false, porque a companhia inicialmente nao esta activa
             EmFuncionamento = false;
+            ListaDisponibilidade = new List<Disponibilidade>();
         }
     }
 }

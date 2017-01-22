@@ -3,7 +3,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="GENERATOR" content="VSdocman - documentation generator; http://www.helixoft.com" />
-	<title>AutenticacaoController.RegisterCliente (String) Method</title>
+	<title>_context Field</title>
 
 	<link rel="stylesheet" type="text/css" href="msdn10_lightweight/msdn10_lightweight.css"></link>
 	<script src="msdn10_lightweight/msdn10_lightweight.js" type="text/javascript"></script>
@@ -59,7 +59,7 @@ function replaceTitleAndUrl(win, title, url) {
 <!--HEADER START-->
   <div id="header">
   	<div id="runningHeaderText">AirUberProjeto Reference</div>
-  	<h1 class="title">AutenticacaoController.RegisterCliente (String) Method</h1>
+  	<h1 class="title">_context Field</h1>
   	<div id="headerLinks">
 
 	<a href="#seeAlsoSection">See Also</a>
@@ -73,7 +73,7 @@ function replaceTitleAndUrl(win, title, url) {
       <div id="mainBody">
         <p />
        
-        Método responsável pelo pedido da pagina de registo de cliente.
+        O contexto da aplicação para poder aceder a dados.
 
 
         <p /><strong>Namespace:</strong>
@@ -132,7 +132,7 @@ function replaceTitleAndUrl(win, title, url) {
 				</div>
 				
 				<div class="codeSnippetCode codeVB">
-					<pre xml:space="preserve" class="brush: vb">&lt;HttpGet()&gt; _&nbsp;<br />&lt;AllowAnonymous()&gt; _&nbsp;<br />Public Function RegisterCliente( _&nbsp;<br />   Optional ByVal <i>returnUrl</i> As <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a> = null _&nbsp;<br />) As <a target="_top" href="http://msdn2.microsoft.com/en-us/library/microsoft.aspnetcore.mvc.iactionresult.aspx">IActionResult</a></pre>			
+					<pre xml:space="preserve" class="brush: vb">Private ReadOnly _context As <a target="_top" href="topic_0000000000000065.html" onclick="this.target='';return true;">AirUberDbContext</a></pre>			
 				</div>
 				<div class="codeSnippetCode codeNA">
 					<pre xml:space="preserve">This language is not supported or no code example is available.</pre>			
@@ -168,7 +168,7 @@ function replaceTitleAndUrl(win, title, url) {
 				</div>
 				
 				<div class="codeSnippetCode codeCsharp">
-					<pre xml:space="preserve" class="brush: csharp">[HttpGet()]&nbsp;<br />[AllowAnonymous()]&nbsp;<br />public <a target="_top" href="http://msdn2.microsoft.com/en-us/library/microsoft.aspnetcore.mvc.iactionresult.aspx">IActionResult</a> RegisterCliente(&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">string</a> <i>returnUrl</i> = null&nbsp;<br />)</pre>			
+					<pre xml:space="preserve" class="brush: csharp">private readonly <a target="_top" href="topic_0000000000000065.html" onclick="this.target='';return true;">AirUberDbContext</a> _context</pre>			
 				</div>
 				<div class="codeSnippetCode codeNA">
 					<pre xml:space="preserve">This language is not supported or no code example is available.</pre>			
@@ -204,7 +204,7 @@ function replaceTitleAndUrl(win, title, url) {
 				</div>
 				
 				<div class="codeSnippetCode codeCpp">
-					<pre xml:space="preserve" class="brush: cpp">[HttpGet()]&nbsp;<br />[AllowAnonymous()]&nbsp;<br />public: &nbsp;<br /><a target="_top" href="http://msdn2.microsoft.com/en-us/library/microsoft.aspnetcore.mvc.iactionresult.aspx">IActionResult</a>^ RegisterCliente(&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a>^ <i>returnUrl</i>&nbsp;<br />) </pre>			
+					<pre xml:space="preserve" class="brush: cpp">private: &nbsp;<br /><a target="_top" href="topic_0000000000000065.html" onclick="this.target='';return true;">AirUberDbContext</a>^ _context;</pre>			
 				</div>
 				<div class="codeSnippetCode codeNA">
 					<pre xml:space="preserve">This language is not supported or no code example is available.</pre>			
@@ -240,7 +240,7 @@ function replaceTitleAndUrl(win, title, url) {
 				</div>
 				
 				<div class="codeSnippetCode codeJScript">
-					<pre xml:space="preserve" class="brush: js">public &nbsp;<br />   HttpGet()&nbsp;<br />   AllowAnonymous()&nbsp;<br />function RegisterCliente(&nbsp;<br />    <i>returnUrl</i> : <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a>&nbsp;<br />) : <a target="_top" href="http://msdn2.microsoft.com/en-us/library/microsoft.aspnetcore.mvc.iactionresult.aspx">IActionResult</a>;</pre>			
+					<pre xml:space="preserve" class="brush: js">private readonly _context : <a target="_top" href="topic_0000000000000065.html" onclick="this.target='';return true;">AirUberDbContext</a></pre>			
 				</div>
 				<div class="codeSnippetCode codeNA">
 					<pre xml:space="preserve">This language is not supported or no code example is available.</pre>			
@@ -251,29 +251,7 @@ function replaceTitleAndUrl(win, title, url) {
 	</div>
 
 
-<h4 class="subHeading">
-	Parameters</h4><dl paramName="returnUrl">
-	<dt>
-		<span class="parameter">
-			returnUrl
-		</span>
-	</dt>
-	<dd>
-		<p>
-			Type: <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">string</a> 
-		</p>
-		<p>
-			O url de retorno que é a pagina de onde veio 
-		</p>
-	</dd>
-</dl>
 
-<p />
-<p />
-
-	<h4 class="subHeading">
-		Return Value</h4>
-  A view de registo do cliente
 
 
 
@@ -399,4 +377,3 @@ function replaceTitleAndUrl(win, title, url) {
 		</script>	
   </body>
 </html>
-

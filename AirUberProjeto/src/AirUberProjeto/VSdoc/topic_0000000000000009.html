@@ -3,7 +3,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="GENERATOR" content="VSdocman - documentation generator; http://www.helixoft.com" />
-	<title>AutenticacaoController.RegisterCompanhia (RegisterCompanhiaViewModel, String) Method</title>
+	<title>AutenticacaoController.Login (LoginViewModel, String) Method</title>
 
 	<link rel="stylesheet" type="text/css" href="msdn10_lightweight/msdn10_lightweight.css"></link>
 	<script src="msdn10_lightweight/msdn10_lightweight.js" type="text/javascript"></script>
@@ -59,7 +59,7 @@ function replaceTitleAndUrl(win, title, url) {
 <!--HEADER START-->
   <div id="header">
   	<div id="runningHeaderText">AirUberProjeto Reference</div>
-  	<h1 class="title">AutenticacaoController.RegisterCompanhia (RegisterCompanhiaViewModel, String) Method</h1>
+  	<h1 class="title">AutenticacaoController.Login (LoginViewModel, String) Method</h1>
   	<div id="headerLinks">
 
 	<a href="#seeAlsoSection">See Also</a>
@@ -73,7 +73,7 @@ function replaceTitleAndUrl(win, title, url) {
       <div id="mainBody">
         <p />
        
-        Método responsável pelo tratamento de dados para o registo de uma companhia.
+        Método responsável pelo pedido de login do utilizador, verificando os dados e autorizando ou não o login.
 
 
         <p /><strong>Namespace:</strong>
@@ -132,7 +132,7 @@ function replaceTitleAndUrl(win, title, url) {
 				</div>
 				
 				<div class="codeSnippetCode codeVB">
-					<pre xml:space="preserve" class="brush: vb">&lt;HttpPost()&gt; _&nbsp;<br />&lt;AllowAnonymous()&gt; _&nbsp;<br />&lt;ValidateAntiForgeryToken()&gt; _&nbsp;<br />Public Function RegisterCompanhia( _&nbsp;<br />   ByVal <i>model</i> As <a target="_top" href="topic_0000000000000069.html" onclick="this.target='';return true;">RegisterCompanhiaViewModel</a>, _&nbsp;<br />   Optional ByVal <i>returnUrl</i> As <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a> = null _&nbsp;<br />) As <a target="_top" href="http://msdn2.microsoft.com/en-us/library/dd321424.aspx">Task</a>(Of <a target="_top" href="http://msdn2.microsoft.com/en-us/library/microsoft.aspnetcore.mvc.iactionresult.aspx">IActionResult</a>)</pre>			
+					<pre xml:space="preserve" class="brush: vb">&lt;HttpPost()&gt; _&nbsp;<br />&lt;AllowAnonymous()&gt; _&nbsp;<br />&lt;ValidateAntiForgeryToken()&gt; _&nbsp;<br />Public Function Login( _&nbsp;<br />   ByVal <i>model</i> As <a target="_top" href="topic_0000000000000086.html" onclick="this.target='';return true;">LoginViewModel</a>, _&nbsp;<br />   Optional ByVal <i>returnUrl</i> As <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a> = null _&nbsp;<br />) As <a target="_top" href="http://msdn2.microsoft.com/en-us/library/dd321424.aspx">Task</a>(Of <a target="_top" href="http://msdn2.microsoft.com/en-us/library/microsoft.aspnetcore.mvc.iactionresult.aspx">IActionResult</a>)</pre>			
 				</div>
 				<div class="codeSnippetCode codeNA">
 					<pre xml:space="preserve">This language is not supported or no code example is available.</pre>			
@@ -168,7 +168,7 @@ function replaceTitleAndUrl(win, title, url) {
 				</div>
 				
 				<div class="codeSnippetCode codeCsharp">
-					<pre xml:space="preserve" class="brush: csharp">[HttpPost()]&nbsp;<br />[AllowAnonymous()]&nbsp;<br />[ValidateAntiForgeryToken()]&nbsp;<br />public <a target="_top" href="http://msdn2.microsoft.com/en-us/library/dd321424.aspx">Task</a>&lt;<a target="_top" href="http://msdn2.microsoft.com/en-us/library/microsoft.aspnetcore.mvc.iactionresult.aspx">IActionResult</a>&gt; RegisterCompanhia(&nbsp;<br />   <a target="_top" href="topic_0000000000000069.html" onclick="this.target='';return true;">RegisterCompanhiaViewModel</a> <i>model</i>,&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">string</a> <i>returnUrl</i> = null&nbsp;<br />)</pre>			
+					<pre xml:space="preserve" class="brush: csharp">[HttpPost()]&nbsp;<br />[AllowAnonymous()]&nbsp;<br />[ValidateAntiForgeryToken()]&nbsp;<br />public <a target="_top" href="http://msdn2.microsoft.com/en-us/library/dd321424.aspx">Task</a>&lt;<a target="_top" href="http://msdn2.microsoft.com/en-us/library/microsoft.aspnetcore.mvc.iactionresult.aspx">IActionResult</a>&gt; Login(&nbsp;<br />   <a target="_top" href="topic_0000000000000086.html" onclick="this.target='';return true;">LoginViewModel</a> <i>model</i>,&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">string</a> <i>returnUrl</i> = null&nbsp;<br />)</pre>			
 				</div>
 				<div class="codeSnippetCode codeNA">
 					<pre xml:space="preserve">This language is not supported or no code example is available.</pre>			
@@ -204,7 +204,7 @@ function replaceTitleAndUrl(win, title, url) {
 				</div>
 				
 				<div class="codeSnippetCode codeCpp">
-					<pre xml:space="preserve" class="brush: cpp">[HttpPost()]&nbsp;<br />[AllowAnonymous()]&nbsp;<br />[ValidateAntiForgeryToken()]&nbsp;<br />public: &nbsp;<br /><a target="_top" href="http://msdn2.microsoft.com/en-us/library/dd321424.aspx">Task</a>&lt;<a target="_top" href="http://msdn2.microsoft.com/en-us/library/microsoft.aspnetcore.mvc.iactionresult.aspx">IActionResult</a>^&gt;^ RegisterCompanhia(&nbsp;<br />   <a target="_top" href="topic_0000000000000069.html" onclick="this.target='';return true;">RegisterCompanhiaViewModel</a>^ <i>model</i>,&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a>^ <i>returnUrl</i>&nbsp;<br />) </pre>			
+					<pre xml:space="preserve" class="brush: cpp">[HttpPost()]&nbsp;<br />[AllowAnonymous()]&nbsp;<br />[ValidateAntiForgeryToken()]&nbsp;<br />public: &nbsp;<br /><a target="_top" href="http://msdn2.microsoft.com/en-us/library/dd321424.aspx">Task</a>&lt;<a target="_top" href="http://msdn2.microsoft.com/en-us/library/microsoft.aspnetcore.mvc.iactionresult.aspx">IActionResult</a>^&gt;^ Login(&nbsp;<br />   <a target="_top" href="topic_0000000000000086.html" onclick="this.target='';return true;">LoginViewModel</a>^ <i>model</i>,&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a>^ <i>returnUrl</i>&nbsp;<br />) </pre>			
 				</div>
 				<div class="codeSnippetCode codeNA">
 					<pre xml:space="preserve">This language is not supported or no code example is available.</pre>			
@@ -260,10 +260,10 @@ function replaceTitleAndUrl(win, title, url) {
 	</dt>
 	<dd>
 		<p>
-			Type: <a target="_top" href="topic_0000000000000069.html" onclick="this.target='';return true;">RegisterCompanhiaViewModel</a> 
+			Type: <a target="_top" href="topic_0000000000000086.html" onclick="this.target='';return true;">LoginViewModel</a> 
 		</p>
 		<p>
-			Os dados para o registo da companhia. 
+			O login model com os dados necessarios para o login 
 		</p>
 	</dd>
 </dl>
@@ -278,7 +278,7 @@ function replaceTitleAndUrl(win, title, url) {
 			Type: <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">string</a> 
 		</p>
 		<p>
-			O url de retorno que é a pagina de onde veio. 
+			O url de retorno que é a pagina de onde veio 
 		</p>
 	</dd>
 </dl>
@@ -288,7 +288,7 @@ function replaceTitleAndUrl(win, title, url) {
 
 	<h4 class="subHeading">
 		Return Value</h4>
-  A view de registo caso os dados sejam inválidos, um redrecionamento para a home page caso sejam válidos
+  A View Login caso seja inválido, um redirecionamento caso seja login válido
 
 
 
