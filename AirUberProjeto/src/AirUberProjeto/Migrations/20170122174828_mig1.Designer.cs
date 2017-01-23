@@ -8,9 +8,10 @@ using AirUberProjeto.Data;
 namespace AirUberProjeto.Migrations
 {
     [DbContext(typeof(AirUberDbContext))]
-    partial class AirUberDbContextModelSnapshot : ModelSnapshot
+    [Migration("20170122174828_mig1")]
+    partial class mig1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.1")
@@ -196,9 +197,9 @@ namespace AirUberProjeto.Migrations
                     b.Property<int>("DisponibilidadeId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Fim");
+                    b.Property<DateTime>("Fim");
 
-                    b.Property<string>("Inicio");
+                    b.Property<DateTime>("Inicio");
 
                     b.Property<int?>("JatoId");
 

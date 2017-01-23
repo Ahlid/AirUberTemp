@@ -385,6 +385,28 @@
             <param name="id">identificador único de um colaborador</param>
             <returns>View para visualizar a página de edição de jatos</returns>
         </member>
+        <member name="M:AirUberProjeto.Controllers.CompanhiaController.AlterarImagemPerfil(Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            Permite alterar a imagem de perfil do cliente
+            </summary>
+            <param name="file">ficheiro de imagem que irá substituir a imagem de perfil</param>
+            <returns>Um redirecionamento para a ação editar perfil</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.CompanhiaController.AlterarImagemJato(Microsoft.AspNetCore.Http.IFormFile,System.Int32)">
+            <summary>
+            Permite alterar a imagem do jato
+            </summary>
+            <param name="file">ficheiro de imagem que irá substituir a imagem do jato</param>
+            <param name="id">id do jato a que a se irá alterar a foto</param>
+            <returns>Um redirecionamento para a ação editar jato</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.CompanhiaController.MarcarNotificacaoLida(System.Int32)">
+            <summary>
+            Permite marcar uma notificação como lida através do seu ID
+            </summary>
+            <param name="id">Id da notificação ao qual se quer marcar como lida</param>
+            <returns>Variavel booleana que indica se houve sucesso a marcar a notificação como lida</returns>
+        </member>
         <member name="T:AirUberProjeto.Controllers.HelpdeskController">
             <summary>
             Classe responsável por receber todos os pedidos do browser e tratar dos mesmos.
@@ -781,6 +803,9 @@
             <summary>
             Propriedade navegacional responsável por referenciar a lista de reservas de um cliente.
             </summary>
+            <remarks>
+            Histórico de viagens
+            </remarks>
         </member>
         <member name="P:AirUberProjeto.Models.Cliente.ContaDeCreditos">
             <summary>
@@ -821,6 +846,9 @@
             <summary>
             Propriedade navegacional responável por guardar todas as informações que um utilziador realizou
             </summary>
+            <remarks>
+            Histórico de acções
+            </remarks>
         </member>
         <member name="M:AirUberProjeto.Models.Colaborador.#ctor">
             <summary>
@@ -883,6 +911,11 @@
             Identificador unívoco do estado que representa a situação actual da companhia no sistema.
             </summary>
         </member>
+        <member name="P:AirUberProjeto.Models.Companhia.RelativePathImagemPerfil">
+            <summary>
+            Caminho de onde a imagem de perfil da companhia está localizada no projecto
+            </summary>
+        </member>
         <member name="P:AirUberProjeto.Models.Companhia.Pais">
             <summary>
             Propriedade navegacional responsável por referenciar o país a que uma companhia pertence.
@@ -902,6 +935,9 @@
             <summary>
             Propriedade navegacional responsável por referenciar a lista de reservas de uma companhia.
             </summary>
+            <remarks>
+            Histórico de viagens
+            </remarks>
         </member>
         <member name="P:AirUberProjeto.Models.Companhia.ListaColaboradores">
             <summary>
@@ -1163,6 +1199,11 @@
         <member name="P:AirUberProjeto.Models.Jato.AeroportoId">
             <summary>
             Identificador único do aeroporto onde o jato se encontra
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Jato.RelativePathImagemPerfil">
+            <summary>
+            Caminho de onde a imagem do jato está localizada no projecto
             </summary>
         </member>
         <member name="P:AirUberProjeto.Models.Jato.Modelo">

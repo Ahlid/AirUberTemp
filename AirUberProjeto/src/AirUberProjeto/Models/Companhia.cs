@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.IO;
 
 namespace AirUberProjeto.Models
 {
@@ -61,6 +62,10 @@ namespace AirUberProjeto.Models
         /// </summary>
         [Display (Name = "Estado")]
         public int EstadoId { get; set; }
+        /// <summary>
+        /// Caminho de onde a imagem de perfil da companhia está localizada no projecto
+        /// </summary>
+        public string RelativePathImagemPerfil { get; set; }
 
         // Propriedades Virtuais
         /// <summary>
@@ -79,6 +84,9 @@ namespace AirUberProjeto.Models
         /// <summary>
         /// Propriedade navegacional responsável por referenciar a lista de reservas de uma companhia.
         /// </summary>
+        /// <remarks>
+        /// Histórico de viagens
+        /// </remarks>
         [Display(Name = "Viagens")]
         public virtual ICollection<Reserva> ListaReservas { get; set; }
         /// <summary>
@@ -113,6 +121,7 @@ namespace AirUberProjeto.Models
             ListaExtras = new List<Extra>();
             DataCriacao = DateTime.Now;
             EstadoId = 2;   // Pendente
+            RelativePathImagemPerfil = Path.Combine("images", "perfil-default.jpg");
         }
     }
 }

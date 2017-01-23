@@ -33,6 +33,9 @@ namespace AirUberProjeto.Models
         /// <summary>
         /// Propriedade navegacional responsável por referenciar a lista de reservas de um cliente.
         /// </summary>
+        /// <remarks>
+        /// Histórico de viagens
+        /// </remarks>
         [Display (Name = "Viagens")]    
         public virtual ICollection<Reserva> ListaReservas { get; set; }
         /// <summary>

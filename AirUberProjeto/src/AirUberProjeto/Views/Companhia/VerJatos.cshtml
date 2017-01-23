@@ -15,57 +15,60 @@
     <hr />
     <table class="table">
         <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.JatoId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Nome)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ModeloId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CompanhiaId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.EmFuncionamento)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AeroportoId)
-            </th>
-            <th></th>
-        </tr>
+
+            <tr>
+                <th>
+                    @Html.Raw("Photo")
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nome)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ModeloId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CompanhiaId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EmFuncionamento)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AeroportoId)
+                </th>
+                <th></th>
+            </tr>
         </thead>
         <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.JatoId)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Nome)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Modelo.TipoJato.Nome)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Companhia.Nome)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.EmFuncionamento)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Aeroporto.Nome)
-                </td>
-                <td>
-                    <a asp-action="EditarJatos" asp-route-id=@item.JatoId>Editar</a> |
-                    <a asp-action="ApagarJato" asp-route-id=@item.JatoId>Apagar</a>
-                    <a onClick="mostrarDisp(@item.JatoId)">Disponibilidade</a>
-                </td>
-            </tr>
-        }
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <img class="img-thumbnail" src="..\@item.RelativePathImagemPerfil" width="80" alt="airplane photo">
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Modelo.TipoJato.Nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Companhia.Nome)
+                    </td>
+                    <td>
+                        @(item.EmFuncionamento ? "Sim" : "Não")
+                        
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Aeroporto.Nome)
+                    </td>
+                    <td>
+                        <a asp-action="EditarJatos" asp-route-id=@item.JatoId>Editar</a> |
+                        <a asp-action="ApagarJato" asp-route-id=@item.JatoId>Apagar</a>
+                        <a onClick="mostrarDisp(@item.JatoId)">Disponibilidade</a>
+                    </td>
+                </tr>
+            }
+
         </tbody>
     </table>
 

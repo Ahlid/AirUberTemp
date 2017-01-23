@@ -314,6 +314,11 @@ namespace AirUberProjeto.Controllers
                 if (result.Succeeded)
                 {
 
+                    Notificacao notificacao1 = new Notificacao() { Mensagem = "Bem vindo à plataforma", Tipo = Notificacao.TYPE_INFO, Lida = false, UtilizadorId = user.Id };
+                    _context.Notificacao.Add(notificacao1);
+
+                    Notificacao notificacao2 = new Notificacao() { Mensagem = "Confirme o seu email", Tipo = Notificacao.TYPE_WARNING, Lida = false, UtilizadorId = user.Id };
+                    _context.Notificacao.Add(notificacao2);
 
                     await _userManager.AddToRoleAsync(user, Roles.ROLE_COLABORADOR_ADMIN);//atribui a role
 
