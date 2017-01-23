@@ -3,6 +3,9 @@
 @{
     ViewData["Title"] = "View";
 }
+<script src="~/js/Moment.js"></script>
+<link type="text/css" rel="stylesheet" href="~/css/fullcalendar.css"/>
+<script src="~/js/fullcalendar.js" ></script>
 
 <h2>Jatos</h2>
 <div>
@@ -12,6 +15,7 @@
     <hr />
     <table class="table">
         <thead>
+
             <tr>
                 <th>
                     @Html.Raw("Photo")
@@ -60,11 +64,196 @@
                     <td>
                         <a asp-action="EditarJatos" asp-route-id=@item.JatoId>Editar</a> |
                         <a asp-action="ApagarJato" asp-route-id=@item.JatoId>Apagar</a>
+                        <a onClick="mostrarDisp(@item.JatoId)">Disponibilidade</a>
                     </td>
                 </tr>
             }
+
         </tbody>
     </table>
 
 
 
+</div>
+    
+
+
+<script>
+    var JATO_ATUAL = {id:0};
+    $(document).ready(function () {
+
+
+        
+        /* initialize the calendar
+        -----------------------------------------------------------------*/
+        $('#dispoibilidade').fullCalendar({
+            header: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'month,agendaWeek,agendaDay'
+            },
+            editable:true,
+            allDaySlot: false,
+            droppable: true,
+            defaultView: 'agendaWeek',
+            scrollTime: "08:00:00",
+            slotDuration: '00:30:00',
+            axisFormat: 'H:mm:ss',
+            timeFormat: {
+                agenda: 'H:mm:ss',
+                month: 'H:mm:ss'
+            },
+            slotEventOverlap: false,
+            monthNames: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Octubro", "Novembro", "Dezembro"],
+            monthNamesShort: ['Jan', 'Feb', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dez'],
+            dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sabado'],
+            dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'],
+            buttonText: {
+                today: 'Hoje',
+                month: 'Mes',
+                week: 'Semana',
+                day: 'Dia'
+            },
+            dayClick: function (date, jsEvent, view) {
+                if ($("#dispoibilidade").fullCalendar('getView').name == "month") {
+                    $("#dispoibilidade").fullCalendar('changeView', 'agendaWeek');
+                    $("#dispoibilidade").fullCalendar('gotoDate', date);
+                } else {
+                 
+                        var start = date;
+                        var a = start.clone();
+                        a.add(2, 'hour');
+                     
+                            if (view.name == 'agendaWeek') {
+
+                                var title = 'Disponível';
+
+                                var start = date.format('YYYY-MM-DD H:mm:ss');;
+                                var a = moment(date.format()).add(1, 'hour');
+
+                                $('#calendar').fullCalendar('renderEvent', {
+                                    title: title,
+                                    start: start,
+                                    end: a.format('YYYY-MM-DD H:mm:ss'),
+                                    allDay: false
+                                }, true);
+                                console.log(JATO_ATUAL.id);
+                                $.ajax({
+                                    url: '/Companhia/AdicionarDisponibilidade',
+                                    data: 'IdJato=' + JATO_ATUAL.id + '&Inicio=' + start + '&Fim=' + a.format('YYYY-MM-DD H:mm:ss'),
+                                    type: 'POST',
+                                    dataType: 'json',
+                                    success: function(response) {
+                                        console.log(response);
+                                        reload(JATO_ATUAL.id);
+                                    },
+                                    error: function(e) {
+                                        console.log(e.responseText);
+                                        reload(JATO_ATUAL.id);
+                                    }
+                                });
+
+                            }
+                        
+                }
+            },
+            eventResize: function (event, delta, revertFunc) {
+
+                $.ajax({
+                    url: '/Companhia/EditarDisponibilidade',
+                    data: 'Inicio=' + event.start.format('YYYY-MM-DD H:mm:ss') + '&Fim=' + event.end.format('YYYY-MM-DD H:mm:ss') + '&idDisp=' + event.idDisp + "&jatoId=" + JATO_ATUAL.id,
+                    type: 'POST',
+                    dataType: 'json',
+                    success: function (response) {
+                        console.log('ok');
+                        reload(JATO_ATUAL.id);
+                    },
+                    error: function (e) {
+                        console.log(e.responseText);
+                    }
+                });
+
+            },
+            eventClick: function (event, jsEvent, view) {
+                console.log(event);
+                $.ajax({
+                    url: '/Companhia/ApagarDisponibilidade',
+                    data: 'idDisp=' + event.idDisp + '&idJato=' + JATO_ATUAL.id,
+                    type: 'POST',
+                    dataType: 'json',
+                    success: function (response) {
+                        console.log(response);
+                        reload(JATO_ATUAL.id);
+                    },
+                    error: function (e) {
+                        console.log(e.responseText);
+                    }
+                });
+
+            }
+        });
+
+        $('#disp').on('shown.bs.modal', function oi() {
+            console.log('done');
+            $("#dispoibilidade").fullCalendar('render');
+            $("#dispoibilidade").fullCalendar('refetchEvents');
+            $("#dispoibilidade").fullCalendar('changeView', 'month');
+            $("#dispoibilidade").fullCalendar('today');
+            });
+    });
+    function mostrarDisp(id) {
+
+        JATO_ATUAL.id = id;
+        $("#dispoibilidade").fullCalendar('removeEvents');
+        var freshevents;
+        $.ajax({
+            url: '/Companhia/VerDisponibilidade',
+            type: 'GET', // Send post data
+            data: 'jatoId=' + id,
+            async: false,
+            success: function (s) {
+                console.log(s+"dsads");
+                freshevents = s;
+                $('#dispoibilidade').fullCalendar('addEventSource', JSON.parse(freshevents));
+                $('#disp').modal('show');
+                console.log(id);
+            }
+        });
+
+
+    }
+
+    function reload(id) {
+
+        JATO_ATUAL.id = id;
+        $("#dispoibilidade").fullCalendar('removeEvents');
+        var freshevents;
+        $.ajax({
+            url: '/Companhia/VerDisponibilidade',
+            type: 'GET', // Send post data
+            data: 'jatoId=' + id,
+            async: false,
+            success: function (s) {
+              
+                freshevents = s;
+                $('#dispoibilidade').fullCalendar('addEventSource', JSON.parse(freshevents));
+              
+            }
+        });
+
+
+    }
+
+
+   
+</script>
+    
+
+<div id="disp" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-body row" style="background: white;">
+          
+            <div id="dispoibilidade"></div>
+        </div>
+    </div>
+</div>
