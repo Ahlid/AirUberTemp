@@ -18,14 +18,14 @@ namespace AirUberProjeto.Models
         /// <remarks>
         /// Disponível a partir desta data
         /// </remarks>
-        public DateTime Inicio { get; set; }
+        public string Inicio { get; set; }
         /// <summary>
         /// Data de fim
         /// </summary>
         /// <remarks>
         /// Indisponível a partir desta data
         /// </remarks>
-        public DateTime Fim { get; set; }
+        public string Fim { get; set; }
         
     }
 }
