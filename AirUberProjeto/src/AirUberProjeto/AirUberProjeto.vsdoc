@@ -30,7 +30,7 @@
 <filters />]]></add>
     <add key="VBdocman_linkForExternalNotInFramework"><![CDATA[0]]></add>
     <add key="VBdocman_rootNamespaceText"><![CDATA[]]></add>
-    <add key="VBdocman_comPrivate"><![CDATA[0]]></add>
+    <add key="VBdocman_comPrivate"><![CDATA[-1]]></add>
     <add key="VBdocman_comNonCommented"><![CDATA[-1]]></add>
     <add key="VBdocman_comDeclare"><![CDATA[-1]]></add>
     <add key="VBdocman_supportedXnaFramework"><![CDATA[]]></add>
@@ -42,7 +42,7 @@
     <add key="VBdocman_fileNamingConvention"><![CDATA[1]]></add>
     <add key="VBdocman_conditionalConstants"><![CDATA[]]></add>
     <add key="VBdocman_comWriteDescription"><![CDATA[0]]></add>
-    <add key="VBdocman_comFriend"><![CDATA[0]]></add>
+    <add key="VBdocman_comFriend"><![CDATA[-1]]></add>
     <add key="VBdocman_comVariable"><![CDATA[-1]]></add>
     <add key="VBdocman_showFormsSeparate"><![CDATA[0]]></add>
     <add key="VBdocman_comObject"><![CDATA[-1]]></add>

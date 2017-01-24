@@ -18,10 +18,20 @@ using Microsoft.AspNetCore.Localization;
 
 namespace AirUberProjeto
 {
+    /// <summary>
+    /// Startup
+    /// </summary>
     public class Startup
     {
+        /// <summary>
+        /// Configuration
+        /// </summary>
         public IConfigurationRoot Configuration { get; }
 
+        /// <summary>
+        /// Startup method
+        /// </summary>
+        /// <param name="env">application environment</param>
         public Startup(IHostingEnvironment env)
         {
             var builder = new ConfigurationBuilder()
@@ -43,8 +53,13 @@ namespace AirUberProjeto
         }
 
 
-
-        // This method gets called by the runtime. Use this method to add services to the container.
+        /// <summary>
+        /// Configure Services
+        /// </summary>
+        /// <remarks>
+        /// This method gets called by the runtime. Use this method to add services to the container.
+        /// </remarks>
+        /// <param name="services">Services</param>
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
@@ -65,8 +80,16 @@ namespace AirUberProjeto
 
 
         }
-
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        /// <summary>
+        /// Configure
+        /// </summary>
+        /// <remarks>
+        /// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        /// </remarks>
+        /// <param name="app">application builder</param>
+        /// <param name="env">application environment</param>
+        /// <param name="loggerFactory">logger factory</param>
+        /// <param name="context">application context</param>
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, AirUberDbContext context)
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));

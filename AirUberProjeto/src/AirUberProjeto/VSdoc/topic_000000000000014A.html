@@ -3,7 +3,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="GENERATOR" content="VSdocman - documentation generator; http://www.helixoft.com" />
-	<title>Reserva.AeroportoPartidaId Property</title>
+	<title>ApplicationUser.Ativo Property</title>
 
 	<link rel="stylesheet" type="text/css" href="msdn10_lightweight/msdn10_lightweight.css"></link>
 	<script src="msdn10_lightweight/msdn10_lightweight.js" type="text/javascript"></script>
@@ -59,7 +59,7 @@ function replaceTitleAndUrl(win, title, url) {
 <!--HEADER START-->
   <div id="header">
   	<div id="runningHeaderText">AirUberProjeto Reference</div>
-  	<h1 class="title">Reserva.AeroportoPartidaId Property</h1>
+  	<h1 class="title">ApplicationUser.Ativo Property</h1>
   	<div id="headerLinks">
 
 	<a href="#seeAlsoSection">See Also</a>
@@ -73,11 +73,11 @@ function replaceTitleAndUrl(win, title, url) {
       <div id="mainBody">
         <p />
        
-        Identificador unívoco do aeroporto de partida da reserva.
+        Propriedade responsável por indicar se um utilizador está activo ou desactivado.
 
 
         <p /><strong>Namespace:</strong>
-<a href="topic_00000000000000CC.html">AirUberProjeto.Models</a>
+<a href="topic_0000000000000135.html">AirUberProjeto.Models</a>
 
 
 
@@ -132,7 +132,7 @@ function replaceTitleAndUrl(win, title, url) {
 				</div>
 				
 				<div class="codeSnippetCode codeVB">
-					<pre xml:space="preserve" class="brush: vb">&lt;Display(Name = &quot;Aeroporto Partida&quot;)&gt; _&nbsp;<br />&lt;Required()&gt; _&nbsp;<br />Public Property AeroportoPartidaId() As <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.int32.aspx">Integer</a></pre>			
+					<pre xml:space="preserve" class="brush: vb">Public Property Ativo() As <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.boolean.aspx">Boolean</a></pre>			
 				</div>
 				<div class="codeSnippetCode codeNA">
 					<pre xml:space="preserve">This language is not supported or no code example is available.</pre>			
@@ -168,7 +168,7 @@ function replaceTitleAndUrl(win, title, url) {
 				</div>
 				
 				<div class="codeSnippetCode codeCsharp">
-					<pre xml:space="preserve" class="brush: csharp">[Display(Name = &quot;Aeroporto Partida&quot;)]&nbsp;<br />[Required()]&nbsp;<br />public <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.int32.aspx">int</a> AeroportoPartidaId {get; set;}</pre>			
+					<pre xml:space="preserve" class="brush: csharp">public <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.boolean.aspx">bool</a> Ativo {get; set;}</pre>			
 				</div>
 				<div class="codeSnippetCode codeNA">
 					<pre xml:space="preserve">This language is not supported or no code example is available.</pre>			
@@ -204,7 +204,7 @@ function replaceTitleAndUrl(win, title, url) {
 				</div>
 				
 				<div class="codeSnippetCode codeCpp">
-					<pre xml:space="preserve" class="brush: cpp">[Display(Name = &quot;Aeroporto Partida&quot;)]&nbsp;<br />[Required()]&nbsp;<br />public: &nbsp;<br />property <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.int32.aspx">int</a> AeroportoPartidaId {&nbsp;<br /> <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.int32.aspx">int</a> get( );&nbsp;<br /> void set(&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.int32.aspx">int</a> value&nbsp;<br /> );&nbsp;<br />}</pre>			
+					<pre xml:space="preserve" class="brush: cpp">public: &nbsp;<br />property <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.boolean.aspx">bool</a> Ativo {&nbsp;<br /> <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.boolean.aspx">bool</a> get( );&nbsp;<br /> void set(&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.boolean.aspx">bool</a> value&nbsp;<br /> );&nbsp;<br />}</pre>			
 				</div>
 				<div class="codeSnippetCode codeNA">
 					<pre xml:space="preserve">This language is not supported or no code example is available.</pre>			
@@ -240,7 +240,7 @@ function replaceTitleAndUrl(win, title, url) {
 				</div>
 				
 				<div class="codeSnippetCode codeJScript">
-					<pre xml:space="preserve" class="brush: js">public &nbsp;<br />   Display(Name = &quot;Aeroporto Partida&quot;)&nbsp;<br />   Required()&nbsp;<br />function get AeroportoPartidaId() : <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.int32.aspx">int</a>;&nbsp;<br />public &nbsp;<br />   Display(Name = &quot;Aeroporto Partida&quot;)&nbsp;<br />   Required()&nbsp;<br />function set AeroportoPartidaId(value : <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.int32.aspx">int</a>);</pre>			
+					<pre xml:space="preserve" class="brush: js">public function get Ativo() : <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.boolean.aspx">boolean</a>;&nbsp;<br />public function set Ativo(value : <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.boolean.aspx">boolean</a>);</pre>			
 				</div>
 				<div class="codeSnippetCode codeNA">
 					<pre xml:space="preserve">This language is not supported or no code example is available.</pre>			
@@ -273,6 +273,16 @@ function replaceTitleAndUrl(win, title, url) {
 
 
 
+<div class="section_container">
+	<div class="section_heading">
+		<span><a href="javascript:void(0)" title="Collapse" onclick="toggleSection(this);">Remarks</a></span>
+		<div><hr /></div>
+	</div>
+
+	<div id="remarksSection" class="section">	
+			Caso um utilizador esteja desactivado este não conseguirá fazer login no sistema.
+	</div>					
+</div>
 
 
 
@@ -349,12 +359,12 @@ function replaceTitleAndUrl(win, title, url) {
 		<div>
 			<h4 class="subHeading">
 				Reference</h4>
-			<a href="topic_0000000000000146.html">Reserva Class</a><br />
-<a href="topic_0000000000000146_members--.html">Reserva Members</a><br />
+			<a href="topic_0000000000000146.html">ApplicationUser Class</a><br />
+<a href="topic_0000000000000146_members--.html">ApplicationUser Members</a><br />
 
 
 
-<a href="topic_00000000000000CC.html">AirUberProjeto.Models Namespace</a><br />
+<a href="topic_0000000000000135.html">AirUberProjeto.Models Namespace</a><br />
 
 
 			
