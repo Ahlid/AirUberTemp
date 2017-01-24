@@ -5,7 +5,9 @@ using System.Threading.Tasks;
 
 namespace AirUberProjeto.Models
 {
-    
+    /// <summary>
+    /// Classe responsável por indicar intervalos de tempo que simbolizam a disponibilidade
+    /// </summary>
     public class Disponibilidade
     {
         /// <summary>

@@ -3,7 +3,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="GENERATOR" content="VSdocman - documentation generator; http://www.helixoft.com" />
-	<title>ManageController.AddPhoneNumber (AddPhoneNumberViewModel) Method</title>
+	<title>CompanhiaController.AlterarImagemPerfil Method</title>
 
 	<link rel="stylesheet" type="text/css" href="msdn10_lightweight/msdn10_lightweight.css"></link>
 	<script src="msdn10_lightweight/msdn10_lightweight.js" type="text/javascript"></script>
@@ -59,7 +59,7 @@ function replaceTitleAndUrl(win, title, url) {
 <!--HEADER START-->
   <div id="header">
   	<div id="runningHeaderText">AirUberProjeto Reference</div>
-  	<h1 class="title">ManageController.AddPhoneNumber (AddPhoneNumberViewModel) Method</h1>
+  	<h1 class="title">CompanhiaController.AlterarImagemPerfil Method</h1>
   	<div id="headerLinks">
 
 	<a href="#seeAlsoSection">See Also</a>
@@ -73,6 +73,7 @@ function replaceTitleAndUrl(win, title, url) {
       <div id="mainBody">
         <p />
        
+        Permite alterar a imagem de perfil da companhia
 
 
         <p /><strong>Namespace:</strong>
@@ -131,7 +132,7 @@ function replaceTitleAndUrl(win, title, url) {
 				</div>
 				
 				<div class="codeSnippetCode codeVB">
-					<pre xml:space="preserve" class="brush: vb">&lt;HttpPost()&gt; _&nbsp;<br />&lt;ValidateAntiForgeryToken()&gt; _&nbsp;<br />Public Function AddPhoneNumber( _&nbsp;<br />   ByVal <i>model</i> As <a target="_top" href="topic_00000000000000AF.html" onclick="this.target='';return true;">AddPhoneNumberViewModel</a> _&nbsp;<br />) As <a target="_top" href="http://msdn2.microsoft.com/en-us/library/dd321424.aspx">Task</a>(Of <a target="_top" href="http://msdn2.microsoft.com/en-us/library/microsoft.aspnetcore.mvc.iactionresult.aspx">IActionResult</a>)</pre>			
+					<pre xml:space="preserve" class="brush: vb">&lt;HttpPost()&gt; _&nbsp;<br />Public Function AlterarImagemPerfil( _&nbsp;<br />   ByVal <i>file</i> As <a target="_top" href="http://msdn2.microsoft.com/en-us/library/microsoft.aspnetcore.http.iformfile.aspx">IFormFile</a> _&nbsp;<br />) As <a target="_top" href="http://msdn2.microsoft.com/en-us/library/dd321424.aspx">Task</a>(Of <a target="_top" href="http://msdn2.microsoft.com/en-us/library/microsoft.aspnetcore.mvc.iactionresult.aspx">IActionResult</a>)</pre>			
 				</div>
 				<div class="codeSnippetCode codeNA">
 					<pre xml:space="preserve">This language is not supported or no code example is available.</pre>			
@@ -167,7 +168,7 @@ function replaceTitleAndUrl(win, title, url) {
 				</div>
 				
 				<div class="codeSnippetCode codeCsharp">
-					<pre xml:space="preserve" class="brush: csharp">[HttpPost()]&nbsp;<br />[ValidateAntiForgeryToken()]&nbsp;<br />public <a target="_top" href="http://msdn2.microsoft.com/en-us/library/dd321424.aspx">Task</a>&lt;<a target="_top" href="http://msdn2.microsoft.com/en-us/library/microsoft.aspnetcore.mvc.iactionresult.aspx">IActionResult</a>&gt; AddPhoneNumber(&nbsp;<br />   <a target="_top" href="topic_00000000000000AF.html" onclick="this.target='';return true;">AddPhoneNumberViewModel</a> <i>model</i>&nbsp;<br />)</pre>			
+					<pre xml:space="preserve" class="brush: csharp">[HttpPost()]&nbsp;<br />public <a target="_top" href="http://msdn2.microsoft.com/en-us/library/dd321424.aspx">Task</a>&lt;<a target="_top" href="http://msdn2.microsoft.com/en-us/library/microsoft.aspnetcore.mvc.iactionresult.aspx">IActionResult</a>&gt; AlterarImagemPerfil(&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/microsoft.aspnetcore.http.iformfile.aspx">IFormFile</a> <i>file</i>&nbsp;<br />)</pre>			
 				</div>
 				<div class="codeSnippetCode codeNA">
 					<pre xml:space="preserve">This language is not supported or no code example is available.</pre>			
@@ -203,7 +204,7 @@ function replaceTitleAndUrl(win, title, url) {
 				</div>
 				
 				<div class="codeSnippetCode codeCpp">
-					<pre xml:space="preserve" class="brush: cpp">[HttpPost()]&nbsp;<br />[ValidateAntiForgeryToken()]&nbsp;<br />public: &nbsp;<br /><a target="_top" href="http://msdn2.microsoft.com/en-us/library/dd321424.aspx">Task</a>&lt;<a target="_top" href="http://msdn2.microsoft.com/en-us/library/microsoft.aspnetcore.mvc.iactionresult.aspx">IActionResult</a>^&gt;^ AddPhoneNumber(&nbsp;<br />   <a target="_top" href="topic_00000000000000AF.html" onclick="this.target='';return true;">AddPhoneNumberViewModel</a>^ <i>model</i>&nbsp;<br />) </pre>			
+					<pre xml:space="preserve" class="brush: cpp">[HttpPost()]&nbsp;<br />public: &nbsp;<br /><a target="_top" href="http://msdn2.microsoft.com/en-us/library/dd321424.aspx">Task</a>&lt;<a target="_top" href="http://msdn2.microsoft.com/en-us/library/microsoft.aspnetcore.mvc.iactionresult.aspx">IActionResult</a>^&gt;^ AlterarImagemPerfil(&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/microsoft.aspnetcore.http.iformfile.aspx">IFormFile</a>^ <i>file</i>&nbsp;<br />) </pre>			
 				</div>
 				<div class="codeSnippetCode codeNA">
 					<pre xml:space="preserve">This language is not supported or no code example is available.</pre>			
@@ -251,18 +252,18 @@ function replaceTitleAndUrl(win, title, url) {
 
 
 <h4 class="subHeading">
-	Parameters</h4><dl paramName="model">
+	Parameters</h4><dl paramName="file">
 	<dt>
 		<span class="parameter">
-			model
+			file
 		</span>
 	</dt>
 	<dd>
 		<p>
-			Type: <a target="_top" href="topic_00000000000000AF.html" onclick="this.target='';return true;">AddPhoneNumberViewModel</a> 
+			Type: <a target="_top" href="http://msdn2.microsoft.com/en-us/library/microsoft.aspnetcore.http.iformfile.aspx">IFormFile</a> 
 		</p>
 		<p>
-			 
+			ficheiro de imagem que irá substituir a imagem de perfil 
 		</p>
 	</dd>
 </dl>
@@ -270,6 +271,9 @@ function replaceTitleAndUrl(win, title, url) {
 <p />
 <p />
 
+	<h4 class="subHeading">
+		Return Value</h4>
+  Um redirecionamento para a ação editar perfil
 
 
 
@@ -367,8 +371,8 @@ function replaceTitleAndUrl(win, title, url) {
 		<div>
 			<h4 class="subHeading">
 				Reference</h4>
-			<a href="topic_0000000000000042.html">ManageController Class</a><br />
-<a href="topic_0000000000000042_members--.html">ManageController Members</a><br />
+			<a href="topic_000000000000002A.html">CompanhiaController Class</a><br />
+<a href="topic_000000000000002A_members--.html">CompanhiaController Members</a><br />
 
 
 

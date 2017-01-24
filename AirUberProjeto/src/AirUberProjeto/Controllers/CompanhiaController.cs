@@ -349,7 +349,11 @@ namespace AirUberProjeto.Controllers
             return RedirectToAction("CriarJato");
         }
 
-
+        /// <summary>
+        /// Apresenta a página para apagar um jato
+        /// </summary>
+        /// <param name="id">id do jato</param>
+        /// <returns>View para apagar jatos</returns>
         [HttpGet]
         public IActionResult ApagarJato(int? id)
         {
@@ -371,6 +375,11 @@ namespace AirUberProjeto.Controllers
             return View(jato);
         }
 
+        /// <summary>
+        /// Trata de um pedido de eliminação de um jato 
+        /// </summary>
+        /// <param name="id">id do jato</param>
+        /// <returns>A view de criação de um jato</returns>
         [HttpPost, ActionName("ApagarJato")]
         [ValidateAntiForgeryToken]
         public IActionResult ApagarJatoConfirmacao(int? id)
@@ -401,9 +410,9 @@ namespace AirUberProjeto.Controllers
          ***********************/
 
         /// <summary>
-        /// 
+        /// Apresenta a página com todos os colaboradores
         /// </summary>
-        /// <returns></returns>
+        /// <returns>View para criar jatos</returns>
         [HttpGet]
         public IActionResult VerColaboradores()
         {
@@ -415,6 +424,10 @@ namespace AirUberProjeto.Controllers
             return View(companhia.ListaColaboradores);
         }
 
+        /// <summary>
+        /// Apresenta a página para criar colaboradores de uma companhia
+        /// </summary>
+        /// <returns>View para criar colaboradores</returns>
         [HttpGet]
         public IActionResult AdicionarColaborador()
         {
@@ -426,6 +439,11 @@ namespace AirUberProjeto.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Trata de um pedido para adicionar um colaborador
+        /// </summary>
+        /// <param name="viewModel">ViewModel do pedido de criação de um colaborador</param>
+        /// <returns>A view de criação de um colaborador</returns>
         [HttpPost]
         public async Task<IActionResult> AdicionarColaborador(CriarColaboradorViewModel viewModel)
         {
@@ -494,7 +512,7 @@ namespace AirUberProjeto.Controllers
         /// <summary>
         /// Apresenta a página para editar os dados de um colaborador
         /// </summary>
-        /// <param name="id">identificador único de um colaborador</param>
+        /// <param name="id">id do colaborador</param>
         /// <returns>View para visualizar a página de edição de jatos</returns>
         [HttpGet]
         public IActionResult EditarColaborador(string id)
@@ -535,6 +553,11 @@ namespace AirUberProjeto.Controllers
         }
 
 
+        /// <summary>
+        /// Tratar de um pedido de edição dos dados de um colaborador
+        /// </summary>
+        /// <param name="viewModel">viewModel do pedido de alteração de dados</param>
+        /// <returns>A view de edição de um colaborador</returns>
         [HttpPost]
         public IActionResult EditarColaborador(EditarColaboradorViewModel viewModel)
         {
@@ -566,7 +589,11 @@ namespace AirUberProjeto.Controllers
 
         }
 
-
+        /// <summary>
+        /// Apresenta a página para apagar um colaborador
+        /// </summary>
+        /// <param name="id">id do colaborador</param>
+        /// <returns>View para apagar colaboradores</returns>
         [HttpGet]
         public IActionResult ApagarColaborador(string id)
         {
@@ -585,6 +612,12 @@ namespace AirUberProjeto.Controllers
             return View(colaborador);
         }
 
+
+        /// <summary>
+        /// Trata de um pedido de eliminação de um colaborador
+        /// </summary>
+        /// <param name="id">id do colaborador</param>
+        /// <returns>A view de eliminação de um colaborador</returns>
         [HttpPost, ActionName("ApagarColaborador")]
         [ValidateAntiForgeryToken]
         public IActionResult ApagarColaboradorConfirmacao(string id)
@@ -615,6 +648,10 @@ namespace AirUberProjeto.Controllers
          *                     *
          ***********************/
 
+        /// <summary>
+        /// Apresenta a página para ver todos os extras de uma companhia
+        /// </summary>
+        /// <returns>View para ver extras</returns>
         [HttpGet]
         public IActionResult VerExtras()
         {
@@ -633,6 +670,10 @@ namespace AirUberProjeto.Controllers
             return View(extras);
         }
 
+        /// <summary>
+        /// Apresenta a página para criar extras para um companhia
+        /// </summary>
+        /// <returns>View para criar extras</returns>
         [HttpGet]
         public IActionResult CriarExtra()
         {
@@ -664,6 +705,12 @@ namespace AirUberProjeto.Controllers
          * 
          */
 
+
+        /// <summary>
+        /// Trata de um pedido de criação de um extra
+        /// </summary>
+        /// <param name="viewModel">viewModel do pedido de criação de um extra</param>
+        /// <returns>A view de criação de um extra</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult CriarExtra(CriarExtraViewModel viewModel)
@@ -700,6 +747,11 @@ namespace AirUberProjeto.Controllers
         }
 
 
+        /// <summary>
+        /// Apresenta a página para editar extras de uma companhia
+        /// </summary>
+        /// <param name="id">id extra</param>
+        /// <returns>View para editar extras colaboradores</returns>
         [HttpGet]
         public IActionResult EditarExtra(int id)
         {
@@ -721,6 +773,12 @@ namespace AirUberProjeto.Controllers
             return NotFound();
         }
 
+
+        /// <summary>
+        /// Trata de um pedido de alteração de dados de um extra
+        /// </summary>
+        /// <param name="viewModel">viewModel do pedido de alteração de dados</param>
+        /// <returns>A view de edição de extras</returns>
         [HttpPost]
         public IActionResult EditarExtra(EditarExtraViewModel viewModel)
         {
@@ -748,7 +806,11 @@ namespace AirUberProjeto.Controllers
 
         }
 
-
+        /// <summary>
+        /// Apresenta a página para apagar um extra
+        /// </summary>
+        /// <param name="id">id do extra</param>
+        /// <returns>View para apagar um extra</returns>
         [HttpGet]
         public IActionResult ApagarExtra(int id)
         {
@@ -766,6 +828,12 @@ namespace AirUberProjeto.Controllers
             return View(extra);
         }
 
+ 
+        /// <summary>
+        /// Trata de um pedido de eliminação de um extra
+        /// </summary>
+        /// <param name="id">id do extra</param>
+        /// <returns>A view de eliminação de um extra</returns>
         [HttpPost, ActionName("ApagarExtra")]
         [ValidateAntiForgeryToken]
         public IActionResult ApagarExtraConfirmacao(int id)
@@ -805,6 +873,10 @@ namespace AirUberProjeto.Controllers
          *                     *
          ***********************/
 
+        /// <summary>
+        /// Apresenta a página para com todos os modelos de aviões
+        /// </summary>
+        /// <returns>View para ver modelos</returns>
         [HttpGet]
         public IActionResult VerModelos()
         {
@@ -815,6 +887,10 @@ namespace AirUberProjeto.Controllers
             return View(modelos);
         }
 
+        /// <summary>
+        /// Apresenta a página para adicionar um modelo
+        /// </summary>
+        /// <returns>View para adicionar modelo</returns>
         [HttpGet]
         public IActionResult AdicionarModelo()
         {
@@ -823,6 +899,12 @@ namespace AirUberProjeto.Controllers
             return View();
         }
 
+
+        /// <summary>
+        /// Trata de um pedido de criação de um modelo 
+        /// </summary>
+        /// <param name="viewModel">viewModel do pedido de criação de um modelo</param>
+        /// <returns>A view de criação de um modelo</returns>
         [HttpPost]
         public IActionResult AdicionarModelo(CriarModeloViewModel viewModel)
         {
@@ -857,7 +939,7 @@ namespace AirUberProjeto.Controllers
 
 
         /// <summary>
-        /// Permite alterar a imagem de perfil do cliente
+        /// Permite alterar a imagem de perfil da companhia
         /// </summary>
         /// <param name="file">ficheiro de imagem que irá substituir a imagem de perfil</param>
         /// <returns>Um redirecionamento para a ação editar perfil</returns>
@@ -933,8 +1015,9 @@ namespace AirUberProjeto.Controllers
                                                      .Single();
 
 
-            string fileName = "imagem-jato" + extension;
-            string folderName = Path.Combine("jatos", "airplaine-" + jato.Nome);
+            string fileName = "imagem-jato-" + jato.Nome + extension;
+            //string folderName = Path.Combine("jatos", "airplaine-" + jato.Nome);
+            string folderName = Path.Combine("companhias", "company-" + companhia.Email);
             string relativePathToFile = Path.Combine(folderName, fileName);
 
             string forderPath = Path.Combine(_environment.WebRootPath, folderName);
@@ -956,6 +1039,13 @@ namespace AirUberProjeto.Controllers
             return RedirectToAction(nameof(CompanhiaController.VerJatos), "Companhia"); 
         }
         
+
+
+        /// <summary>
+        /// Adiciona à lista de acções de um colaborador uma acção realizada por ele 
+        /// </summary>
+        /// <param name="acao">acao</param>
+        /// <param name="colaborador">colaborador</param>
         private void addAcaoColaborador (Acao acao, Colaborador colaborador)
 
         {
@@ -963,7 +1053,11 @@ namespace AirUberProjeto.Controllers
         }
 
 
-
+        /// <summary>
+        /// Retorna uma string json com toda informação à cerca da disponibilidade de um jato.
+        /// </summary>
+        /// <param name="jatoId">id do jato</param>
+        /// <returns>string json</returns>
         [HttpGet]
         public string VerDisponibilidade(int jatoId)
         {
@@ -1003,12 +1097,17 @@ namespace AirUberProjeto.Controllers
             return "[" + json + "]";
         }
 
+        /// <summary>
+        /// Indica um intervalo de tempo que o jato estará disponível.
+        /// </summary>
+        /// <param name="IdJato">id jato</param>
+        /// <param name="Inicio">data início da disponibilidade</param>
+        /// <param name="Fim">data fim da disponibilidade</param>
+        /// <returns>Retorna no final o id mais a data de inicio da disponibilidade</returns>
         [HttpPost]
         public string AdicionarDisponibilidade(int IdJato, string Inicio, string Fim)
+
         {
-
-
-
 
             Jato jato = _context.Jato
                 .Where(j => j.JatoId == IdJato)
@@ -1025,6 +1124,12 @@ namespace AirUberProjeto.Controllers
             return IdJato + " " + Inicio;
         }
 
+        /// <summary>
+        /// Apaga um intervalo de tempo que um jato estava disponível
+        /// </summary>
+        /// <param name="idJato">id do jato</param>
+        /// <param name="idDisp">id da disponibilidade</param>
+        /// <returns>Retorna true se o jato já estaria disponível naquele intervalo de tempo, se não retorna false</returns>
         [HttpPost]
         public bool ApagarDisponibilidade(int idJato, int idDisp)
         {
@@ -1054,9 +1159,14 @@ namespace AirUberProjeto.Controllers
             return false;
         }
 
-
-
-
+        /// <summary>
+        /// Modifica um intervalo de tempo em que o jato está disponível
+        /// </summary>
+        /// <param name="Inicio">nova data início</param>
+        /// <param name="Fim">nova data fim</param>
+        /// <param name="idDisp">id disponibilidade</param>
+        /// <param name="jatoId">id jato</param>
+        /// <returns>Retorna true se a disponibilidade for modificada, se não retorna false</returns>
         [HttpPost]
         public bool EditarDisponibilidade(string Inicio, string Fim, int idDisp, int jatoId)
         {
@@ -1113,49 +1223,5 @@ namespace AirUberProjeto.Controllers
 
         }
 
-
-        /*
-         * Testes mockups
-         */ 
-
-        public IActionResult VerExtrasMockup()
-        {
-            Colaborador colaborador = (Colaborador)_userManager.GetUserAsync(this.User).Result;
-
-            Companhia companhia = (_context.Companhia.Select(c => c)
-                                                     .Include(c => c.ListaExtras)
-                                                     .Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
-
-            var extras = _context.Extra.Select(j => j)
-                                      .Include(j => j.Companhia)
-                                      .Include(j => j.TipoExtra)
-                                      .Where(j => j.CompanhiaId == companhia.CompanhiaId);
-
-            return View(extras);
-        }
-
-        public IActionResult VerJatosMockup()
-        {
-            Colaborador colaborador = (Colaborador)_userManager.GetUserAsync(this.User).Result;
-            Companhia companhia = (_context.Companhia.Select(c => c).Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
-
-            var jatos = _context.Jato.Select(j => j).Include(j => j.Modelo)
-                                                    .Include(j => j.Modelo.TipoJato)
-                                                    .Include(j => j.Companhia)
-                                                    .Include(j => j.Aeroporto)
-                                                    .Where(j => j.CompanhiaId == companhia.CompanhiaId);
-            return View(jatos);
-        }
-
-        public IActionResult VerColaboradoresMockup()
-        {
-            Colaborador colaborador = (Colaborador)_userManager.GetUserAsync(this.User).Result;
-            Companhia companhia = (_context.Companhia.Select(c => c)
-                                                     .Include(c => c.ListaColaboradores)
-                                                     .Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
-
-            return View(companhia.ListaColaboradores);
-
-        }
     }
 }
