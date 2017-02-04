@@ -1271,6 +1271,11 @@
             </summary>
             <param name="context">Contexto da aplicação</param>
         </member>
+        <member name="T:AirUberProjeto.Models.Disponibilidade">
+            <summary>
+            Classe responsável por indicar intervalos de tempo que simbolizam a disponibilidade
+            </summary>
+        </member>
         <member name="P:AirUberProjeto.Models.Disponibilidade.DisponibilidadeId">
             <summary>
             Identificador único de uma disponibilidade
@@ -1918,6 +1923,11 @@
             Criar uma instância da classe PerfilViewModel.
             </summary>
         </member>
+        <member name="T:AirUberProjeto.Models.CompanhiaViewModels.CriarColaboradorViewModel">
+            <summary>
+            View Model Responsavel por criar um colaborador
+            </summary>
+        </member>
         <member name="P:AirUberProjeto.Models.CompanhiaViewModels.CriarColaboradorViewModel.PrimeiroNome">
             <summary>
             Nome do cliente
@@ -1933,6 +1943,16 @@
             Email do cliente
             </summary>
         </member>
+        <member name="P:AirUberProjeto.Models.CompanhiaViewModels.CriarColaboradorViewModel.CompanhiaId">
+            <summary>
+            Companhia
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.CompanhiaViewModels.CriarColaboradorViewModel.IsAdministrador">
+            <summary>
+            Indica se um colaborador é administrador ou não
+            </summary>
+        </member>
         <member name="P:AirUberProjeto.Models.CompanhiaViewModels.CriarColaboradorViewModel.Password">
             <summary>
             Password do cliente
@@ -1941,6 +1961,31 @@
         <member name="P:AirUberProjeto.Models.CompanhiaViewModels.CriarColaboradorViewModel.ConfirmPassword">
             <summary>
             Repetição da password do cliente
+            </summary>
+        </member>
+        <member name="T:AirUberProjeto.Models.CompanhiaViewModels.CriarExtraViewModel">
+            <summary>
+            View Model Responsavel por criar um extra
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.CompanhiaViewModels.CriarExtraViewModel.TipoExtraId">
+            <summary>
+            Identificador de um tipo de extra 
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.CompanhiaViewModels.CriarExtraViewModel.CompanhiaId">
+            <summary>
+            Identificador de uma companhia
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.CompanhiaViewModels.CriarExtraViewModel.Nome">
+            <summary>
+            Nome extra
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.CompanhiaViewModels.CriarExtraViewModel.Valor">
+            <summary>
+            Valor extra
             </summary>
         </member>
         <member name="T:AirUberProjeto.Models.CompanhiaViewModels.CriarJatoViewModel">
@@ -1972,6 +2017,11 @@
             ESTA PROPRIEDADE DEVE SAIR, PORQUE NÃO É PARA A COMPANHIA INDICAR, MAS SIM O HELPDESK
             <summary>
             Identificador único do aeroporto onde o jato se encontra
+            </summary>
+        </member>
+        <member name="T:AirUberProjeto.Models.CompanhiaViewModels.CriarModeloViewModel">
+            <summary>
+            View Model Responsavel por criar um modelo
             </summary>
         </member>
         <member name="P:AirUberProjeto.Models.CompanhiaViewModels.CriarModeloViewModel.Capacidade">
@@ -2029,6 +2079,16 @@
             Identificador unívoco do tipo de jato que o modelo é.
             </summary>
         </member>
+        <member name="T:AirUberProjeto.Models.CompanhiaViewModels.EditarColaboradorViewModel">
+            <summary>
+            View Model Responsavel por editar um colaborador
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.CompanhiaViewModels.EditarColaboradorViewModel.Id">
+            <summary>
+            Identificador de um colaborador
+            </summary>
+        </member>
         <member name="P:AirUberProjeto.Models.CompanhiaViewModels.EditarColaboradorViewModel.ColaboradorId">
             <summary>
             Identificador único do colaborador a ser editado
@@ -2047,6 +2107,16 @@
         <member name="P:AirUberProjeto.Models.CompanhiaViewModels.EditarColaboradorViewModel.Email">
             <summary>
             Email do cliente
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.CompanhiaViewModels.EditarColaboradorViewModel.CompanhiaId">
+            <summary>
+            Companhia
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.CompanhiaViewModels.EditarColaboradorViewModel.IsAdministrador">
+            <summary>
+            Indica se um colaborador é administrador ou não
             </summary>
         </member>
         <member name="T:AirUberProjeto.Models.CompanhiaViewModels.EditarCompanhiaViewModel">
@@ -2077,6 +2147,36 @@
         <member name="P:AirUberProjeto.Models.CompanhiaViewModels.EditarCompanhiaViewModel.Nif">
             <summary>
             Número de identificação fiscal da companhia
+            </summary>
+        </member>
+        <member name="T:AirUberProjeto.Models.CompanhiaViewModels.EditarExtraViewModel">
+            <summary>
+            View Model Responsavel por editar um extra
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.CompanhiaViewModels.EditarExtraViewModel.ExtraId">
+            <summary>
+            Identificador de um extra
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.CompanhiaViewModels.EditarExtraViewModel.TipoExtraId">
+            <summary>
+            Identificador do tipo de extra
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.CompanhiaViewModels.EditarExtraViewModel.CompanhiaId">
+            <summary>
+            Identificador da companhia a que pertence o extra
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.CompanhiaViewModels.EditarExtraViewModel.Nome">
+            <summary>
+            Nome extra
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.CompanhiaViewModels.EditarExtraViewModel.Valor">
+            <summary>
+            Valor extra
             </summary>
         </member>
         <member name="T:AirUberProjeto.Models.CompanhiaViewModels.EditarJatoViewModel">
