@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Org.BouncyCastle.Security;
 
 namespace AirUberProjeto.Controllers
 {
@@ -41,7 +42,7 @@ namespace AirUberProjeto.Controllers
         /// </summary>
         private readonly IEmailSender _emailSender;
 
-
+        
 
         /// <summary>
         /// Construtor do controlador Companhia
@@ -79,7 +80,6 @@ namespace AirUberProjeto.Controllers
 
 
             Colaborador colaborador = (Colaborador)_userManager.GetUserAsync(this.User).Result;
-
 
             Companhia companhia = (_context.Companhia.Select(c => c).Include(c => c.Pais)
                                                              .Include(c => c.Estado)
@@ -667,6 +667,7 @@ namespace AirUberProjeto.Controllers
                     Nome = viewModel.Nome,
                     TipoExtraId = viewModel.TipoExtraId,
                     Valor = Convert.ToDecimal(viewModel.Valor)
+                    
                 };
 
 
@@ -823,7 +824,7 @@ namespace AirUberProjeto.Controllers
                     LarguraCabine = viewModel.LarguraCabine,
                     ComprimentoCabine = viewModel.ComprimentoCabine,
                     Descricao = viewModel.Descricao,
-                    TipoJatoId = viewModel.TipoJatoId,
+                    TipoJatoId = viewModel.TipoJatoId
                     
                 };
 
