@@ -13,7 +13,10 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+
 using Org.BouncyCastle.Security;
+
+using Newtonsoft.Json;
 
 namespace AirUberProjeto.Controllers
 {
@@ -37,6 +40,7 @@ namespace AirUberProjeto.Controllers
         /// User manager que vai permitir utilizar metodos feitos pela windows de forma a controlar os user.
         /// </summary>
         private readonly UserManager<ApplicationUser> _userManager;
+
         /// <summary>
         /// Server para enviar os emails.
         /// </summary>
@@ -51,8 +55,8 @@ namespace AirUberProjeto.Controllers
         /// <param name="userManager">O manager dos utilizadores</param>
         /// <param name="environment">O ambiente da aplicação</param>
         /// <param name="emailSender">O email sender a usar para enviar os emails</param>
-        public CompanhiaController(AirUberDbContext context, UserManager<ApplicationUser> userManager, 
-                                   IHostingEnvironment environment, IEmailSender emailSender)
+        public CompanhiaController(AirUberDbContext context, UserManager<ApplicationUser> userManager,
+            IHostingEnvironment environment, IEmailSender emailSender)
         {
             _context = context;
             _userManager = userManager;
@@ -79,16 +83,16 @@ namespace AirUberProjeto.Controllers
         {
 
 
-            Colaborador colaborador = (Colaborador)_userManager.GetUserAsync(this.User).Result;
+            Colaborador colaborador = (Colaborador) _userManager.GetUserAsync(this.User).Result;
 
             Companhia companhia = (_context.Companhia.Select(c => c).Include(c => c.Pais)
-                                                             .Include(c => c.Estado)
-                                                             .Include(c => c.ContaDeCreditos)
-                                                             .Include(c => c.ListaReservas)
-                                                             .Include(c => c.ListaColaboradores)
-                                                             .Include(c => c.ListaJatos)
-                                                             .Include(c => c.ListaExtras)
-                                                             .Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
+                .Include(c => c.Estado)
+                .Include(c => c.ContaDeCreditos)
+                .Include(c => c.ListaReservas)
+                .Include(c => c.ListaColaboradores)
+                .Include(c => c.ListaJatos)
+                .Include(c => c.ListaExtras)
+                .Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
 
             PerfilCompanhiaViewModel perfilViewModel = new PerfilCompanhiaViewModel()
             {
@@ -128,16 +132,16 @@ namespace AirUberProjeto.Controllers
         [HttpGet]
         public IActionResult EditarPerfilCompanhia()
         {
-            Colaborador colaborador = (Colaborador)_userManager.GetUserAsync(this.User).Result;
+            Colaborador colaborador = (Colaborador) _userManager.GetUserAsync(this.User).Result;
 
             Companhia companhia = (_context.Companhia.Select(c => c).Include(c => c.Pais)
-                                                             .Include(c => c.Estado)
-                                                             .Include(c => c.ContaDeCreditos)
-                                                             .Include(c => c.ListaReservas)
-                                                             .Include(c => c.ListaColaboradores)
-                                                             .Include(c => c.ListaJatos)
-                                                             .Include(c => c.ListaExtras)
-                                                             .Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
+                .Include(c => c.Estado)
+                .Include(c => c.ContaDeCreditos)
+                .Include(c => c.ListaReservas)
+                .Include(c => c.ListaColaboradores)
+                .Include(c => c.ListaJatos)
+                .Include(c => c.ListaExtras)
+                .Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
             return View(companhia);
         }
 
@@ -150,11 +154,12 @@ namespace AirUberProjeto.Controllers
         [HttpPost]
         public IActionResult EditarPerfilCompanhia(EditarCompanhiaViewModel viewModel)
         {
-           
+
             if (ModelState.IsValid) // se os dados forem válidos
             {
-                Colaborador colaborador = (Colaborador)_userManager.GetUserAsync(this.User).Result;
-                Companhia companhia = (_context.Companhia.Select(c => c).Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
+                Colaborador colaborador = (Colaborador) _userManager.GetUserAsync(this.User).Result;
+                Companhia companhia =
+                    (_context.Companhia.Select(c => c).Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
 
                 companhia.Nome = viewModel.Nome;
                 companhia.Nif = viewModel.Nif;
@@ -164,7 +169,7 @@ namespace AirUberProjeto.Controllers
                 ViewData["Success"] = true;
                 return View(companhia);
             }
-            
+
             return RedirectToAction("EditarPerfilCompanhia");
         }
 
@@ -181,14 +186,15 @@ namespace AirUberProjeto.Controllers
         [HttpGet]
         public IActionResult VerJatos()
         {
-            Colaborador colaborador = (Colaborador)_userManager.GetUserAsync(this.User).Result;
-            Companhia companhia = (_context.Companhia.Select(c => c).Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
+            Colaborador colaborador = (Colaborador) _userManager.GetUserAsync(this.User).Result;
+            Companhia companhia =
+                (_context.Companhia.Select(c => c).Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
 
             var jatos = _context.Jato.Select(j => j).Include(j => j.Modelo)
-                                                    .Include(j => j.Modelo.TipoJato)
-                                                    .Include(j => j.Companhia)
-                                                    .Include(j => j.Aeroporto)
-                                                    .Where(j => j.CompanhiaId == companhia.CompanhiaId);
+                .Include(j => j.Modelo.TipoJato)
+                .Include(j => j.Companhia)
+                .Include(j => j.Aeroporto)
+                .Where(j => j.CompanhiaId == companhia.CompanhiaId);
             return View(jatos);
         }
 
@@ -202,30 +208,30 @@ namespace AirUberProjeto.Controllers
         public IActionResult EditarJatos(int? id)
         {
 
-            if(id != null) //se o id do jato existe, ou seja, se foi selecionado um jato
+            if (id != null) //se o id do jato existe, ou seja, se foi selecionado um jato
             {
-                Colaborador colaborador = (Colaborador)_userManager.GetUserAsync(this.User).Result;
+                Colaborador colaborador = (Colaborador) _userManager.GetUserAsync(this.User).Result;
 
                 Companhia companhia = (_context.Companhia.Select(c => c).Include(c => c.Pais)
-                                                                 .Include(c => c.Estado)
-                                                                 .Include(c => c.ContaDeCreditos)
-                                                                 .Include(c => c.ListaReservas)
-                                                                 .Include(c => c.ListaColaboradores)
-                                                                 .Include(c => c.ListaJatos)
-                                                                 .Include(c => c.ListaExtras)
-                                                                 .Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
+                    .Include(c => c.Estado)
+                    .Include(c => c.ContaDeCreditos)
+                    .Include(c => c.ListaReservas)
+                    .Include(c => c.ListaColaboradores)
+                    .Include(c => c.ListaJatos)
+                    .Include(c => c.ListaExtras)
+                    .Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
 
                 Jato jato = (_context.Jato.Select(c => c).Include(c => c.Aeroporto)
-                                                         .Include(c => c.Companhia)
-                                                         .Include(c => c.Modelo)
-                                                         .Where(c => c.JatoId == id)).Single();
+                    .Include(c => c.Companhia)
+                    .Include(c => c.Modelo)
+                    .Where(c => c.JatoId == id)).Single();
 
-                var aeroportos = _context.Aeroporto.Select(a => new { Id = a.AeroportoId, Valor = a.Nome });
+                var aeroportos = _context.Aeroporto.Select(a => new {Id = a.AeroportoId, Valor = a.Nome});
 
                 var modelos = (from Modelo in _context.Modelo
-                               join TipoJato in _context.TipoJato
-                                   on Modelo.TipoJatoId equals TipoJato.TipoJatoId
-                               select new { Modelo.ModeloId, TipoJato.Nome });
+                    join TipoJato in _context.TipoJato
+                    on Modelo.TipoJatoId equals TipoJato.TipoJatoId
+                    select new {Modelo.ModeloId, TipoJato.Nome});
 
                 ViewBag.aeroportos = new SelectList(aeroportos, "Id", "Valor");
                 ViewBag.companhia = companhia.Nome;
@@ -233,7 +239,7 @@ namespace AirUberProjeto.Controllers
 
                 return View(jato);
             }
-           
+
             return NotFound();
         }
 
@@ -248,19 +254,20 @@ namespace AirUberProjeto.Controllers
         {
             if (ModelState.IsValid) // se os dados forem válidos
             {
-                Colaborador colaborador = (Colaborador)_userManager.GetUserAsync(this.User).Result;
-                Companhia companhia = (_context.Companhia.Select(c => c).Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
+                Colaborador colaborador = (Colaborador) _userManager.GetUserAsync(this.User).Result;
+                Companhia companhia =
+                    (_context.Companhia.Select(c => c).Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
 
                 Jato jato = (_context.Jato.Select(c => c).Include(c => c.Aeroporto)
-                                                         .Include(c => c.Companhia)
-                                                         .Include(c => c.Modelo)
-                                                         .Where(c => c.JatoId == viewModel.JatoId))
-                                                         .Single();
+                        .Include(c => c.Companhia)
+                        .Include(c => c.Modelo)
+                        .Where(c => c.JatoId == viewModel.JatoId))
+                    .Single();
 
                 jato.Nome = viewModel.Nome;
                 jato.AeroportoId = viewModel.AeroportoId;
                 jato.ModeloId = viewModel.ModeloId;
-                
+
                 _context.Update(jato);
                 _context.SaveChanges();
                 return RedirectToAction("VerJatos");
@@ -277,18 +284,19 @@ namespace AirUberProjeto.Controllers
         public IActionResult CriarJato()
         {
 
-            Colaborador colaborador = (Colaborador)_userManager.GetUserAsync(this.User).Result;
-            Companhia companhia = (_context.Companhia.Select(c => c).Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
+            Colaborador colaborador = (Colaborador) _userManager.GetUserAsync(this.User).Result;
+            Companhia companhia =
+                (_context.Companhia.Select(c => c).Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
 
-            var aeroportos = _context.Aeroporto.Select(a => new { Id = a.AeroportoId, Valor = a.Nome });
+            var aeroportos = _context.Aeroporto.Select(a => new {Id = a.AeroportoId, Valor = a.Nome});
 
             //var modelos = _context.Modelo.Select(m => new { Id = m.ModeloId, Valor = m.Descricao });
 
             // o nome do modelo esta no tipo de jato e é necessário o join, porque estão em tabelas separadas
             var modelos = (from Modelo in _context.Modelo
-                         join TipoJato in _context.TipoJato
-                             on Modelo.TipoJatoId equals TipoJato.TipoJatoId
-                         select new { Modelo.ModeloId, TipoJato.Nome });
+                join TipoJato in _context.TipoJato
+                on Modelo.TipoJatoId equals TipoJato.TipoJatoId
+                select new {Modelo.ModeloId, TipoJato.Nome});
 
             ViewBag.aeroportos = new SelectList(aeroportos, "Id", "Valor");
             ViewBag.companhia = companhia.Nome;
@@ -308,17 +316,18 @@ namespace AirUberProjeto.Controllers
         {
             if (ModelState.IsValid) // se os dados forem válidos
             {
-                Colaborador colaborador = (Colaborador)_userManager.GetUserAsync(this.User).Result;
+                Colaborador colaborador = (Colaborador) _userManager.GetUserAsync(this.User).Result;
 
-                Companhia companhia = (_context.Companhia.Select(c => c).Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
+                Companhia companhia =
+                    (_context.Companhia.Select(c => c).Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
 
                 //logger
                 addAcaoColaborador(new Acao()
                 {
-                    TipoAcaoId = 3,  // insert
+                    TipoAcaoId = 3, // insert
                     Target = "Criar Jato",
                     Detalhes = "O colaborador " + colaborador.Nome + " " + colaborador.Apelido + ", que pertence " +
-                                "à companhia de nome " + companhia.Nome + " tentou criar um jato",
+                               "à companhia de nome " + companhia.Nome + " tentou criar um jato",
 
                 }, colaborador);
 
@@ -342,9 +351,13 @@ namespace AirUberProjeto.Controllers
             return RedirectToAction("CriarJato");
         }
 
-
+        /// <summary>
+        /// Apresenta a página para apagar um jato
+        /// </summary>
+        /// <param name="id">id do jato</param>
+        /// <returns>View para apagar jatos</returns>
         [HttpGet]
-        public IActionResult ApagarJato (int? id)
+        public IActionResult ApagarJato(int? id)
         {
             if (id == null)
             {
@@ -352,11 +365,11 @@ namespace AirUberProjeto.Controllers
             }
             
             var jato = _context.Jato.Select(j => j)
-                                    .Include(j => j.Aeroporto)
-                                    .Include(j => j.Companhia)
-                                    .Include(j => j.Modelo)
-                                    .Include(j => j.Modelo.TipoJato)
-                                    .SingleOrDefault(j => j.JatoId == id);
+                .Include(j => j.Aeroporto)
+                .Include(j => j.Companhia)
+                .Include(j => j.Modelo)
+                .Include(j => j.Modelo.TipoJato)
+                .SingleOrDefault(j => j.JatoId == id);
             if (jato == null)
             {
                 return NotFound();
@@ -364,9 +377,14 @@ namespace AirUberProjeto.Controllers
             return View(jato);
         }
 
+        /// <summary>
+        /// Trata de um pedido de eliminação de um jato 
+        /// </summary>
+        /// <param name="id">id do jato</param>
+        /// <returns>A view de criação de um jato</returns>
         [HttpPost, ActionName("ApagarJato")]
         [ValidateAntiForgeryToken]
-        public IActionResult ApagarJatoConfirmacao (int? id)
+        public IActionResult ApagarJatoConfirmacao(int? id)
         {
 
             Colaborador colaborador = (Colaborador)_userManager.GetUserAsync(this.User).Result;
@@ -394,50 +412,60 @@ namespace AirUberProjeto.Controllers
          ***********************/
 
         /// <summary>
-        /// 
+        /// Apresenta a página com todos os colaboradores
         /// </summary>
-        /// <returns></returns>
+        /// <returns>View para criar jatos</returns>
         [HttpGet]
         public IActionResult VerColaboradores()
         {
-            Colaborador colaborador = (Colaborador)_userManager.GetUserAsync(this.User).Result;
+            Colaborador colaborador = (Colaborador) _userManager.GetUserAsync(this.User).Result;
             Companhia companhia = (_context.Companhia.Select(c => c)
-                                                     .Include(c => c.ListaColaboradores)
-                                                     .Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
+                .Include(c => c.ListaColaboradores)
+                .Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
 
             return View(companhia.ListaColaboradores);
         }
 
+        /// <summary>
+        /// Apresenta a página para criar colaboradores de uma companhia
+        /// </summary>
+        /// <returns>View para criar colaboradores</returns>
         [HttpGet]
         public IActionResult AdicionarColaborador()
         {
-            Colaborador colaborador = (Colaborador)_userManager.GetUserAsync(this.User).Result;
+            Colaborador colaborador = (Colaborador) _userManager.GetUserAsync(this.User).Result;
 
             ViewData["CompanhiaId"] = new SelectList(_context.Companhia.Select(c => c)
-                                                                       .Where(c => c.CompanhiaId == colaborador.CompanhiaId), 
-                                                                       "CompanhiaId", "Nome");
+                    .Where(c => c.CompanhiaId == colaborador.CompanhiaId),
+                "CompanhiaId", "Nome");
             return View();
         }
 
+        /// <summary>
+        /// Trata de um pedido para adicionar um colaborador
+        /// </summary>
+        /// <param name="viewModel">ViewModel do pedido de criação de um colaborador</param>
+        /// <returns>A view de criação de um colaborador</returns>
         [HttpPost]
         public async Task<IActionResult> AdicionarColaborador(CriarColaboradorViewModel viewModel)
         {
             if (ModelState.IsValid)
             {
-                Colaborador colaborador = (Colaborador)_userManager.GetUserAsync(this.User).Result;
+                Colaborador colaborador = (Colaborador) _userManager.GetUserAsync(this.User).Result;
 
-                Companhia companhia = (_context.Companhia.Select(c => c).Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
-                
+                Companhia companhia =
+                    (_context.Companhia.Select(c => c).Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
+
                 //logger
                 addAcaoColaborador(new Acao()
                 {
-                    TipoAcaoId = 3,  // insert
+                    TipoAcaoId = 3, // insert
                     Target = "Criar Colaborador",
                     Detalhes = "O colaborador " + colaborador.Nome + " " + colaborador.Apelido + ", que pertence " +
-                                "à companhia de nome " + companhia.Nome + " tentou criar um colaborador",
+                               "à companhia de nome " + companhia.Nome + " tentou criar um colaborador",
 
                 }, colaborador);
-                
+
 
                 Colaborador novoColaborador = new Colaborador()
                 {
@@ -454,13 +482,17 @@ namespace AirUberProjeto.Controllers
                 var result = await _userManager.CreateAsync(novoColaborador, viewModel.Password);
                 if (result.Succeeded)
                 {
-                    await _userManager.AddToRoleAsync(novoColaborador, novoColaborador.IsAdministrador ? Roles.ROLE_COLABORADOR_ADMIN : Roles.ROLE_COLABORADOR);//atribui a role
+                    await
+                        _userManager.AddToRoleAsync(novoColaborador,
+                            novoColaborador.IsAdministrador ? Roles.ROLE_COLABORADOR_ADMIN : Roles.ROLE_COLABORADOR);
+                        //atribui a role
 
 
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=532713
                     // Send an email with this link
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(novoColaborador);
-                    var callbackUrl = Url.Action("ConfirmEmail", "Autenticacao", new { userId = novoColaborador.Id, code = code }, protocol: HttpContext.Request.Scheme);
+                    var callbackUrl = Url.Action("ConfirmEmail", "Autenticacao",
+                        new {userId = novoColaborador.Id, code = code}, protocol: HttpContext.Request.Scheme);
                     await _emailSender.SendEmailAsync(novoColaborador.Email, "Confirm your account",
                         $"Please confirm your account by clicking this link: <a href='{callbackUrl}'>link</a>");
                     //await _signInManager.SignInAsync(novoColaborador, isPersistent: false);//para ele depois fazer login, regista-se e fica logo loged-in
@@ -482,35 +514,36 @@ namespace AirUberProjeto.Controllers
         /// <summary>
         /// Apresenta a página para editar os dados de um colaborador
         /// </summary>
-        /// <param name="id">identificador único de um colaborador</param>
+        /// <param name="id">id do colaborador</param>
         /// <returns>View para visualizar a página de edição de jatos</returns>
         [HttpGet]
         public IActionResult EditarColaborador(string id)
         {
-            if(id != null)
+            if (id != null)
             {
-                Colaborador colaborador = (Colaborador)_userManager.GetUserAsync(this.User).Result;
+                Colaborador colaborador = (Colaborador) _userManager.GetUserAsync(this.User).Result;
 
                 Companhia companhia = (_context.Companhia.Select(c => c).Include(c => c.Pais)
-                                                                 .Include(c => c.Estado)
-                                                                 .Include(c => c.ContaDeCreditos)
-                                                                 .Include(c => c.ListaReservas)
-                                                                 .Include(c => c.ListaColaboradores)
-                                                                 .Include(c => c.ListaJatos)
-                                                                 .Include(c => c.ListaExtras)
-                                                                 .Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
+                    .Include(c => c.Estado)
+                    .Include(c => c.ContaDeCreditos)
+                    .Include(c => c.ListaReservas)
+                    .Include(c => c.ListaColaboradores)
+                    .Include(c => c.ListaJatos)
+                    .Include(c => c.ListaExtras)
+                    .Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
 
                 Colaborador colaboradorAEditar = (_context.Colaborador.Select(c => c)
-                                                               .Include(c => c.Companhia)
-                                                               .Where(c => c.Id == id)).Single();
+                    .Include(c => c.Companhia)
+                    .Where(c => c.Id == id)).Single();
 
                 //logger
                 addAcaoColaborador(new Acao()
                 {
-                    TipoAcaoId = 3,  // insert
+                    TipoAcaoId = 3, // insert
                     Target = "Editar Colaborador",
                     Detalhes = "O colaborador " + colaborador.Nome + " " + colaborador.Apelido + ", que pertence " +
-                                "à companhia de nome " + companhia.Nome + " tentou editar o colaborador " + colaboradorAEditar.Nome + " " + colaboradorAEditar.Apelido,
+                               "à companhia de nome " + companhia.Nome + " tentou editar o colaborador " +
+                               colaboradorAEditar.Nome + " " + colaboradorAEditar.Apelido,
 
                 }, colaborador);
 
@@ -522,23 +555,29 @@ namespace AirUberProjeto.Controllers
         }
 
 
+        /// <summary>
+        /// Tratar de um pedido de edição dos dados de um colaborador
+        /// </summary>
+        /// <param name="viewModel">viewModel do pedido de alteração de dados</param>
+        /// <returns>A view de edição de um colaborador</returns>
         [HttpPost]
         public IActionResult EditarColaborador(EditarColaboradorViewModel viewModel)
         {
             if (ModelState.IsValid) // se os dados forem válidos
             {
-                Colaborador colaborador = (Colaborador)_userManager.GetUserAsync(this.User).Result;
-                Companhia companhia = (_context.Companhia.Select(c => c).Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
+                Colaborador colaborador = (Colaborador) _userManager.GetUserAsync(this.User).Result;
+                Companhia companhia =
+                    (_context.Companhia.Select(c => c).Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
 
                 Colaborador colaboradorAEditar = (_context.Colaborador.Select(c => c)
-                                                                .Include(c => c.Companhia)
-                                                                .Where(c => c.Id == viewModel.Id)).Single();
+                    .Include(c => c.Companhia)
+                    .Where(c => c.Id == viewModel.Id)).Single();
 
                 colaboradorAEditar.Nome = viewModel.Nome;
                 colaboradorAEditar.Apelido = viewModel.Apelido;
                 colaboradorAEditar.Email = viewModel.Email;
                 colaboradorAEditar.IsAdministrador = viewModel.IsAdministrador;
-                
+
 
                 /*
                  * Acção - logger
@@ -552,7 +591,11 @@ namespace AirUberProjeto.Controllers
 
         }
 
-
+        /// <summary>
+        /// Apresenta a página para apagar um colaborador
+        /// </summary>
+        /// <param name="id">id do colaborador</param>
+        /// <returns>View para apagar colaboradores</returns>
         [HttpGet]
         public IActionResult ApagarColaborador(string id)
         {
@@ -562,8 +605,8 @@ namespace AirUberProjeto.Controllers
             }
 
             var colaborador = _context.Colaborador.Select(c => c)
-                                      .Include(c => c.Companhia)
-                                      .SingleOrDefault(c => c.Id == id);
+                .Include(c => c.Companhia)
+                .SingleOrDefault(c => c.Id == id);
             if (colaborador == null)
             {
                 return NotFound();
@@ -571,6 +614,12 @@ namespace AirUberProjeto.Controllers
             return View(colaborador);
         }
 
+
+        /// <summary>
+        /// Trata de um pedido de eliminação de um colaborador
+        /// </summary>
+        /// <param name="id">id do colaborador</param>
+        /// <returns>A view de eliminação de um colaborador</returns>
         [HttpPost, ActionName("ApagarColaborador")]
         [ValidateAntiForgeryToken]
         public IActionResult ApagarColaboradorConfirmacao(string id)
@@ -601,35 +650,45 @@ namespace AirUberProjeto.Controllers
          *                     *
          ***********************/
 
-        [HttpGet] 
+        /// <summary>
+        /// Apresenta a página para ver todos os extras de uma companhia
+        /// </summary>
+        /// <returns>View para ver extras</returns>
+        [HttpGet]
         public IActionResult VerExtras()
         {
 
-            Colaborador colaborador = (Colaborador)_userManager.GetUserAsync(this.User).Result;
+            Colaborador colaborador = (Colaborador) _userManager.GetUserAsync(this.User).Result;
 
             Companhia companhia = (_context.Companhia.Select(c => c)
-                                                     .Include(c => c.ListaExtras)
-                                                     .Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
+                .Include(c => c.ListaExtras)
+                .Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
 
             var extras = _context.Extra.Select(j => j)
-                                      .Include(j => j.Companhia)
-                                      .Include(j => j.TipoExtra)
-                                      .Where(j => j.CompanhiaId == companhia.CompanhiaId);
-        
+                .Include(j => j.Companhia)
+                .Include(j => j.TipoExtra)
+                .Where(j => j.CompanhiaId == companhia.CompanhiaId);
+
             return View(extras);
         }
 
+        /// <summary>
+        /// Apresenta a página para criar extras para um companhia
+        /// </summary>
+        /// <returns>View para criar extras</returns>
         [HttpGet]
         public IActionResult CriarExtra()
         {
-            Colaborador colaborador = (Colaborador)_userManager.GetUserAsync(this.User).Result;
+            Colaborador colaborador = (Colaborador) _userManager.GetUserAsync(this.User).Result;
 
             Companhia companhia = (_context.Companhia.Select(c => c)
-                                                     .Include(c => c.ListaExtras)
-                                                     .Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
+                .Include(c => c.ListaExtras)
+                .Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
 
 
-            ViewData["CompanhiaId"] = new SelectList(_context.Companhia.Select(c => c).Where(c => c.CompanhiaId == companhia.CompanhiaId), "CompanhiaId", "Nome");
+            ViewData["CompanhiaId"] =
+                new SelectList(_context.Companhia.Select(c => c).Where(c => c.CompanhiaId == companhia.CompanhiaId),
+                    "CompanhiaId", "Nome");
             ViewData["TipoExtraId"] = new SelectList(_context.TipoExtra, "TipoExtraId", "Nome");
             return View();
         }
@@ -646,19 +705,27 @@ namespace AirUberProjeto.Controllers
          * 
          * 
          * 
-         */ 
+         */
+
+
+        /// <summary>
+        /// Trata de um pedido de criação de um extra
+        /// </summary>
+        /// <param name="viewModel">viewModel do pedido de criação de um extra</param>
+        /// <returns>A view de criação de um extra</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult CriarExtra(CriarExtraViewModel viewModel)
         {
-           
+
             if (ModelState.IsValid)
             {
 
                 // é recebido o objecto da classe view model
-                Colaborador colaborador = (Colaborador)_userManager.GetUserAsync(this.User).Result;
+                Colaborador colaborador = (Colaborador) _userManager.GetUserAsync(this.User).Result;
 
-                Companhia companhia = (_context.Companhia.Select(c => c).Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
+                Companhia companhia =
+                    (_context.Companhia.Select(c => c).Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
 
 
                 Extra extra = new Extra()
@@ -683,27 +750,38 @@ namespace AirUberProjeto.Controllers
         }
 
 
+        /// <summary>
+        /// Apresenta a página para editar extras de uma companhia
+        /// </summary>
+        /// <param name="id">id extra</param>
+        /// <returns>View para editar extras colaboradores</returns>
         [HttpGet]
         public IActionResult EditarExtra(int id)
         {
             var extra = _context.Extra.Single(e => e.ExtraId == id);
-            if(extra != null)
+            if (extra != null)
             {
 
-                Colaborador colaborador = (Colaborador)_userManager.GetUserAsync(this.User).Result;
+                Colaborador colaborador = (Colaborador) _userManager.GetUserAsync(this.User).Result;
 
                 Companhia companhia = (_context.Companhia.Select(c => c)
-                                                         .Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
+                    .Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
 
                 ViewBag.companhia = companhia.Nome;
                 ViewBag.tipos = new SelectList(_context.TipoExtra, "TipoExtraId", "Nome");
-               
+
                 return View(extra);
             }
 
             return NotFound();
         }
-           
+
+
+        /// <summary>
+        /// Trata de um pedido de alteração de dados de um extra
+        /// </summary>
+        /// <param name="viewModel">viewModel do pedido de alteração de dados</param>
+        /// <returns>A view de edição de extras</returns>
         [HttpPost]
         public IActionResult EditarExtra(EditarExtraViewModel viewModel)
         {
@@ -717,7 +795,7 @@ namespace AirUberProjeto.Controllers
                 extraAEditar.Nome = viewModel.Nome;
                 extraAEditar.TipoExtraId = viewModel.TipoExtraId;
                 extraAEditar.Valor = viewModel.Valor;
-               
+
                 /*
                  * Acção - logger
                  * */
@@ -731,14 +809,18 @@ namespace AirUberProjeto.Controllers
 
         }
 
-
+        /// <summary>
+        /// Apresenta a página para apagar um extra
+        /// </summary>
+        /// <param name="id">id do extra</param>
+        /// <returns>View para apagar um extra</returns>
         [HttpGet]
         public IActionResult ApagarExtra(int id)
         {
 
             var extra = _context.Extra.Include(e => e.Companhia)
-                                      .Include(e => e.TipoExtra)
-                                      .Single(e => e.ExtraId == id);
+                .Include(e => e.TipoExtra)
+                .Single(e => e.ExtraId == id);
 
             if (extra == null)
             {
@@ -749,6 +831,12 @@ namespace AirUberProjeto.Controllers
             return View(extra);
         }
 
+ 
+        /// <summary>
+        /// Trata de um pedido de eliminação de um extra
+        /// </summary>
+        /// <param name="id">id do extra</param>
+        /// <returns>A view de eliminação de um extra</returns>
         [HttpPost, ActionName("ApagarExtra")]
         [ValidateAntiForgeryToken]
         public IActionResult ApagarExtraConfirmacao(int id)
@@ -788,16 +876,24 @@ namespace AirUberProjeto.Controllers
          *                     *
          ***********************/
 
+        /// <summary>
+        /// Apresenta a página para com todos os modelos de aviões
+        /// </summary>
+        /// <returns>View para ver modelos</returns>
         [HttpGet]
         public IActionResult VerModelos()
         {
             var modelos = _context.Modelo.Select(m => m)
-                                         .Include(m => m.TipoJato);
+                .Include(m => m.TipoJato);
 
 
             return View(modelos);
         }
 
+        /// <summary>
+        /// Apresenta a página para adicionar um modelo
+        /// </summary>
+        /// <returns>View para adicionar modelo</returns>
         [HttpGet]
         public IActionResult AdicionarModelo()
         {
@@ -806,6 +902,12 @@ namespace AirUberProjeto.Controllers
             return View();
         }
 
+
+        /// <summary>
+        /// Trata de um pedido de criação de um modelo 
+        /// </summary>
+        /// <param name="viewModel">viewModel do pedido de criação de um modelo</param>
+        /// <returns>A view de criação de um modelo</returns>
         [HttpPost]
         public IActionResult AdicionarModelo(CriarModeloViewModel viewModel)
         {
@@ -824,8 +926,10 @@ namespace AirUberProjeto.Controllers
                     LarguraCabine = viewModel.LarguraCabine,
                     ComprimentoCabine = viewModel.ComprimentoCabine,
                     Descricao = viewModel.Descricao,
+
                     TipoJatoId = viewModel.TipoJatoId
-                    
+
+
                 };
 
 
@@ -840,7 +944,7 @@ namespace AirUberProjeto.Controllers
 
 
         /// <summary>
-        /// Permite alterar a imagem de perfil do cliente
+        /// Permite alterar a imagem de perfil da companhia
         /// </summary>
         /// <param name="file">ficheiro de imagem que irá substituir a imagem de perfil</param>
         /// <returns>Um redirecionamento para a ação editar perfil</returns>
@@ -916,8 +1020,9 @@ namespace AirUberProjeto.Controllers
                                                      .Single();
 
 
-            string fileName = "imagem-jato" + extension;
-            string folderName = Path.Combine("jatos", "airplaine-" + jato.Nome);
+            string fileName = "imagem-jato-" + jato.Nome + extension;
+            //string folderName = Path.Combine("jatos", "airplaine-" + jato.Nome);
+            string folderName = Path.Combine("companhias", "company-" + companhia.Email);
             string relativePathToFile = Path.Combine(folderName, fileName);
 
             string forderPath = Path.Combine(_environment.WebRootPath, folderName);
@@ -938,14 +1043,165 @@ namespace AirUberProjeto.Controllers
 
             return RedirectToAction(nameof(CompanhiaController.VerJatos), "Companhia"); 
         }
-
-
-
-
         
+
+
+        /// <summary>
+        /// Adiciona à lista de acções de um colaborador uma acção realizada por ele 
+        /// </summary>
+        /// <param name="acao">acao</param>
+        /// <param name="colaborador">colaborador</param>
         private void addAcaoColaborador (Acao acao, Colaborador colaborador)
+
         {
             colaborador.ListaAcoes.Add(acao);
+        }
+
+
+        /// <summary>
+        /// Retorna uma string json com toda informação à cerca da disponibilidade de um jato.
+        /// </summary>
+        /// <param name="jatoId">id do jato</param>
+        /// <returns>string json</returns>
+        [HttpGet]
+        public string VerDisponibilidade(int jatoId)
+        {
+
+            Jato jato = _context.Jato
+                .Where(j => j.JatoId == jatoId)
+                .Include(j => j.ListaDisponibilidade)
+                .Single();
+
+
+
+            string json = "";
+
+            foreach (Disponibilidade d in jato.ListaDisponibilidade)
+            {
+                if (!json.Equals(""))
+                {
+                    json += ",";
+                }
+                var k =
+                    new
+                    {
+                        idJato = jatoId,
+                        idDisp = d.DisponibilidadeId,
+                        start = d.Inicio,
+                        end = d.Fim,
+                        title = "disponibilidade"
+                    };
+
+
+                json += JsonConvert.SerializeObject(k);
+
+            }
+
+
+
+            return "[" + json + "]";
+        }
+
+        /// <summary>
+        /// Indica um intervalo de tempo que o jato estará disponível.
+        /// </summary>
+        /// <param name="IdJato">id jato</param>
+        /// <param name="Inicio">data início da disponibilidade</param>
+        /// <param name="Fim">data fim da disponibilidade</param>
+        /// <returns>Retorna no final o id mais a data de inicio da disponibilidade</returns>
+        [HttpPost]
+        public string AdicionarDisponibilidade(int IdJato, string Inicio, string Fim)
+
+        {
+
+            Jato jato = _context.Jato
+                .Where(j => j.JatoId == IdJato)
+                .Include(j => j.ListaDisponibilidade)
+                .Single();
+
+
+            Disponibilidade d = new Disponibilidade {Inicio = Inicio, Fim = Fim};
+            jato.ListaDisponibilidade.Add(d);
+            _context.Update(jato);
+            _context.SaveChanges();
+
+
+            return IdJato + " " + Inicio;
+        }
+
+        /// <summary>
+        /// Apaga um intervalo de tempo que um jato estava disponível
+        /// </summary>
+        /// <param name="idJato">id do jato</param>
+        /// <param name="idDisp">id da disponibilidade</param>
+        /// <returns>Retorna true se o jato já estaria disponível naquele intervalo de tempo, se não retorna false</returns>
+        [HttpPost]
+        public bool ApagarDisponibilidade(int idJato, int idDisp)
+        {
+
+            Jato jato = _context.Jato
+                .Where(j => j.JatoId == idJato)
+                .Include(j => j.ListaDisponibilidade)
+                .Single();
+
+
+
+
+
+            foreach (Disponibilidade d in jato.ListaDisponibilidade)
+            {
+                if (d.DisponibilidadeId == idDisp)
+                {
+                    jato.ListaDisponibilidade.Remove(d);
+                    _context.Update(jato);
+                    _context.SaveChanges();
+                    return true;
+                }
+            }
+
+
+
+            return false;
+        }
+
+        /// <summary>
+        /// Modifica um intervalo de tempo em que o jato está disponível
+        /// </summary>
+        /// <param name="Inicio">nova data início</param>
+        /// <param name="Fim">nova data fim</param>
+        /// <param name="idDisp">id disponibilidade</param>
+        /// <param name="jatoId">id jato</param>
+        /// <returns>Retorna true se a disponibilidade for modificada, se não retorna false</returns>
+        [HttpPost]
+        public bool EditarDisponibilidade(string Inicio, string Fim, int idDisp, int jatoId)
+        {
+
+
+            Jato jato = _context.Jato
+                .Where(j => j.JatoId == jatoId)
+                .Include(j => j.ListaDisponibilidade)
+                .Single();
+
+
+
+
+
+            foreach (Disponibilidade d in jato.ListaDisponibilidade)
+            {
+                if (d.DisponibilidadeId == idDisp)
+                {
+                    d.Fim = Fim;
+                    d.Inicio = Inicio;
+                    _context.Update(d);
+                    _context.SaveChanges();
+                    return true;
+                }
+            }
+
+
+
+            return false;
+
         }
 
 
@@ -972,48 +1228,5 @@ namespace AirUberProjeto.Controllers
 
         }
 
-
-        /*
-         * Testes mockups
-         */ 
-
-        public IActionResult VerExtrasMockup()
-        {
-            Colaborador colaborador = (Colaborador)_userManager.GetUserAsync(this.User).Result;
-
-            Companhia companhia = (_context.Companhia.Select(c => c)
-                                                     .Include(c => c.ListaExtras)
-                                                     .Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
-
-            var extras = _context.Extra.Select(j => j)
-                                      .Include(j => j.Companhia)
-                                      .Include(j => j.TipoExtra)
-                                      .Where(j => j.CompanhiaId == companhia.CompanhiaId);
-
-            return View(extras);
-        }
-
-        public IActionResult VerJatosMockup()
-        {
-            Colaborador colaborador = (Colaborador)_userManager.GetUserAsync(this.User).Result;
-            Companhia companhia = (_context.Companhia.Select(c => c).Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
-
-            var jatos = _context.Jato.Select(j => j).Include(j => j.Modelo)
-                                                    .Include(j => j.Modelo.TipoJato)
-                                                    .Include(j => j.Companhia)
-                                                    .Include(j => j.Aeroporto)
-                                                    .Where(j => j.CompanhiaId == companhia.CompanhiaId);
-            return View(jatos);
-        }
-
-        public IActionResult VerColaboradoresMockup()
-        {
-            Colaborador colaborador = (Colaborador)_userManager.GetUserAsync(this.User).Result;
-            Companhia companhia = (_context.Companhia.Select(c => c)
-                                                     .Include(c => c.ListaColaboradores)
-                                                     .Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
-
-            return View(companhia.ListaColaboradores);
-        }
     }
 }

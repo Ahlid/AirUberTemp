@@ -15,6 +15,43 @@
             </summary>
             <param name="args"></param>
         </member>
+        <member name="T:AirUberProjeto.Startup">
+            <summary>
+            Startup
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Startup.Configuration">
+            <summary>
+            Configuration
+            </summary>
+        </member>
+        <member name="M:AirUberProjeto.Startup.#ctor(Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
+            <summary>
+            Startup method
+            </summary>
+            <param name="env">application environment</param>
+        </member>
+        <member name="M:AirUberProjeto.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Configure Services
+            </summary>
+            <remarks>
+            This method gets called by the runtime. Use this method to add services to the container.
+            </remarks>
+            <param name="services">Services</param>
+        </member>
+        <member name="M:AirUberProjeto.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IHostingEnvironment,Microsoft.Extensions.Logging.ILoggerFactory,AirUberProjeto.Data.AirUberDbContext)">
+            <summary>
+            Configure
+            </summary>
+            <remarks>
+            This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            </remarks>
+            <param name="app">application builder</param>
+            <param name="env">application environment</param>
+            <param name="loggerFactory">logger factory</param>
+            <param name="context">application context</param>
+        </member>
         <member name="T:AirUberProjeto.Controllers.AutenticacaoController">
             <summary>
             Controlador responsável pela autenticação dos utilizadores web do sistema.
@@ -372,22 +409,136 @@
             <param name="viewModel">ViewModel do pedido de criação de dados</param>
             <returns>A view de criação de um jato</returns>
         </member>
+        <member name="M:AirUberProjeto.Controllers.CompanhiaController.ApagarJato(System.Nullable{System.Int32})">
+            <summary>
+            Apresenta a página para apagar um jato
+            </summary>
+            <param name="id">id do jato</param>
+            <returns>View para apagar jatos</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.CompanhiaController.ApagarJatoConfirmacao(System.Nullable{System.Int32})">
+            <summary>
+            Trata de um pedido de eliminação de um jato 
+            </summary>
+            <param name="id">id do jato</param>
+            <returns>A view de criação de um jato</returns>
+        </member>
         <member name="M:AirUberProjeto.Controllers.CompanhiaController.VerColaboradores">
             <summary>
-            
+            Apresenta a página com todos os colaboradores
             </summary>
-            <returns></returns>
+            <returns>View para criar jatos</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.CompanhiaController.AdicionarColaborador">
+            <summary>
+            Apresenta a página para criar colaboradores de uma companhia
+            </summary>
+            <returns>View para criar colaboradores</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.CompanhiaController.AdicionarColaborador(AirUberProjeto.Models.CompanhiaViewModels.CriarColaboradorViewModel)">
+            <summary>
+            Trata de um pedido para adicionar um colaborador
+            </summary>
+            <param name="viewModel">ViewModel do pedido de criação de um colaborador</param>
+            <returns>A view de criação de um colaborador</returns>
         </member>
         <member name="M:AirUberProjeto.Controllers.CompanhiaController.EditarColaborador(System.String)">
             <summary>
             Apresenta a página para editar os dados de um colaborador
             </summary>
-            <param name="id">identificador único de um colaborador</param>
+            <param name="id">id do colaborador</param>
             <returns>View para visualizar a página de edição de jatos</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.CompanhiaController.EditarColaborador(AirUberProjeto.Models.CompanhiaViewModels.EditarColaboradorViewModel)">
+            <summary>
+            Tratar de um pedido de edição dos dados de um colaborador
+            </summary>
+            <param name="viewModel">viewModel do pedido de alteração de dados</param>
+            <returns>A view de edição de um colaborador</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.CompanhiaController.ApagarColaborador(System.String)">
+            <summary>
+            Apresenta a página para apagar um colaborador
+            </summary>
+            <param name="id">id do colaborador</param>
+            <returns>View para apagar colaboradores</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.CompanhiaController.ApagarColaboradorConfirmacao(System.String)">
+            <summary>
+            Trata de um pedido de eliminação de um colaborador
+            </summary>
+            <param name="id">id do colaborador</param>
+            <returns>A view de eliminação de um colaborador</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.CompanhiaController.VerExtras">
+            <summary>
+            Apresenta a página para ver todos os extras de uma companhia
+            </summary>
+            <returns>View para ver extras</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.CompanhiaController.CriarExtra">
+            <summary>
+            Apresenta a página para criar extras para um companhia
+            </summary>
+            <returns>View para criar extras</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.CompanhiaController.CriarExtra(AirUberProjeto.Models.CompanhiaViewModels.CriarExtraViewModel)">
+            <summary>
+            Trata de um pedido de criação de um extra
+            </summary>
+            <param name="viewModel">viewModel do pedido de criação de um extra</param>
+            <returns>A view de criação de um extra</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.CompanhiaController.EditarExtra(System.Int32)">
+            <summary>
+            Apresenta a página para editar extras de uma companhia
+            </summary>
+            <param name="id">id extra</param>
+            <returns>View para editar extras colaboradores</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.CompanhiaController.EditarExtra(AirUberProjeto.Models.CompanhiaViewModels.EditarExtraViewModel)">
+            <summary>
+            Trata de um pedido de alteração de dados de um extra
+            </summary>
+            <param name="viewModel">viewModel do pedido de alteração de dados</param>
+            <returns>A view de edição de extras</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.CompanhiaController.ApagarExtra(System.Int32)">
+            <summary>
+            Apresenta a página para apagar um extra
+            </summary>
+            <param name="id">id do extra</param>
+            <returns>View para apagar um extra</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.CompanhiaController.ApagarExtraConfirmacao(System.Int32)">
+            <summary>
+            Trata de um pedido de eliminação de um extra
+            </summary>
+            <param name="id">id do extra</param>
+            <returns>A view de eliminação de um extra</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.CompanhiaController.VerModelos">
+            <summary>
+            Apresenta a página para com todos os modelos de aviões
+            </summary>
+            <returns>View para ver modelos</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.CompanhiaController.AdicionarModelo">
+            <summary>
+            Apresenta a página para adicionar um modelo
+            </summary>
+            <returns>View para adicionar modelo</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.CompanhiaController.AdicionarModelo(AirUberProjeto.Models.CompanhiaViewModels.CriarModeloViewModel)">
+            <summary>
+            Trata de um pedido de criação de um modelo 
+            </summary>
+            <param name="viewModel">viewModel do pedido de criação de um modelo</param>
+            <returns>A view de criação de um modelo</returns>
         </member>
         <member name="M:AirUberProjeto.Controllers.CompanhiaController.AlterarImagemPerfil(Microsoft.AspNetCore.Http.IFormFile)">
             <summary>
-            Permite alterar a imagem de perfil do cliente
+            Permite alterar a imagem de perfil da companhia
             </summary>
             <param name="file">ficheiro de imagem que irá substituir a imagem de perfil</param>
             <returns>Um redirecionamento para a ação editar perfil</returns>
@@ -399,6 +550,47 @@
             <param name="file">ficheiro de imagem que irá substituir a imagem do jato</param>
             <param name="id">id do jato a que a se irá alterar a foto</param>
             <returns>Um redirecionamento para a ação editar jato</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.CompanhiaController.addAcaoColaborador(AirUberProjeto.Models.Acao,AirUberProjeto.Models.Colaborador)">
+            <summary>
+            Adiciona à lista de acções de um colaborador uma acção realizada por ele 
+            </summary>
+            <param name="acao">acao</param>
+            <param name="colaborador">colaborador</param>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.CompanhiaController.VerDisponibilidade(System.Int32)">
+            <summary>
+            Retorna uma string json com toda informação à cerca da disponibilidade de um jato.
+            </summary>
+            <param name="jatoId">id do jato</param>
+            <returns>string json</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.CompanhiaController.AdicionarDisponibilidade(System.Int32,System.String,System.String)">
+            <summary>
+            Indica um intervalo de tempo que o jato estará disponível.
+            </summary>
+            <param name="IdJato">id jato</param>
+            <param name="Inicio">data início da disponibilidade</param>
+            <param name="Fim">data fim da disponibilidade</param>
+            <returns>Retorna no final o id mais a data de inicio da disponibilidade</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.CompanhiaController.ApagarDisponibilidade(System.Int32,System.Int32)">
+            <summary>
+            Apaga um intervalo de tempo que um jato estava disponível
+            </summary>
+            <param name="idJato">id do jato</param>
+            <param name="idDisp">id da disponibilidade</param>
+            <returns>Retorna true se o jato já estaria disponível naquele intervalo de tempo, se não retorna false</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.CompanhiaController.EditarDisponibilidade(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            Modifica um intervalo de tempo em que o jato está disponível
+            </summary>
+            <param name="Inicio">nova data início</param>
+            <param name="Fim">nova data fim</param>
+            <param name="idDisp">id disponibilidade</param>
+            <param name="jatoId">id jato</param>
+            <returns>Retorna true se a disponibilidade for modificada, se não retorna false</returns>
         </member>
         <member name="M:AirUberProjeto.Controllers.CompanhiaController.MarcarNotificacaoLida(System.Int32)">
             <summary>
@@ -1079,6 +1271,11 @@
             </summary>
             <param name="context">Contexto da aplicação</param>
         </member>
+        <member name="T:AirUberProjeto.Models.Disponibilidade">
+            <summary>
+            Classe responsável por indicar intervalos de tempo que simbolizam a disponibilidade
+            </summary>
+        </member>
         <member name="P:AirUberProjeto.Models.Disponibilidade.DisponibilidadeId">
             <summary>
             Identificador único de uma disponibilidade
@@ -1726,6 +1923,11 @@
             Criar uma instância da classe PerfilViewModel.
             </summary>
         </member>
+        <member name="T:AirUberProjeto.Models.CompanhiaViewModels.CriarColaboradorViewModel">
+            <summary>
+            View Model Responsavel por criar um colaborador
+            </summary>
+        </member>
         <member name="P:AirUberProjeto.Models.CompanhiaViewModels.CriarColaboradorViewModel.PrimeiroNome">
             <summary>
             Nome do cliente
@@ -1741,6 +1943,16 @@
             Email do cliente
             </summary>
         </member>
+        <member name="P:AirUberProjeto.Models.CompanhiaViewModels.CriarColaboradorViewModel.CompanhiaId">
+            <summary>
+            Companhia
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.CompanhiaViewModels.CriarColaboradorViewModel.IsAdministrador">
+            <summary>
+            Indica se um colaborador é administrador ou não
+            </summary>
+        </member>
         <member name="P:AirUberProjeto.Models.CompanhiaViewModels.CriarColaboradorViewModel.Password">
             <summary>
             Password do cliente
@@ -1749,6 +1961,31 @@
         <member name="P:AirUberProjeto.Models.CompanhiaViewModels.CriarColaboradorViewModel.ConfirmPassword">
             <summary>
             Repetição da password do cliente
+            </summary>
+        </member>
+        <member name="T:AirUberProjeto.Models.CompanhiaViewModels.CriarExtraViewModel">
+            <summary>
+            View Model Responsavel por criar um extra
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.CompanhiaViewModels.CriarExtraViewModel.TipoExtraId">
+            <summary>
+            Identificador de um tipo de extra 
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.CompanhiaViewModels.CriarExtraViewModel.CompanhiaId">
+            <summary>
+            Identificador de uma companhia
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.CompanhiaViewModels.CriarExtraViewModel.Nome">
+            <summary>
+            Nome extra
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.CompanhiaViewModels.CriarExtraViewModel.Valor">
+            <summary>
+            Valor extra
             </summary>
         </member>
         <member name="T:AirUberProjeto.Models.CompanhiaViewModels.CriarJatoViewModel">
@@ -1780,6 +2017,11 @@
             ESTA PROPRIEDADE DEVE SAIR, PORQUE NÃO É PARA A COMPANHIA INDICAR, MAS SIM O HELPDESK
             <summary>
             Identificador único do aeroporto onde o jato se encontra
+            </summary>
+        </member>
+        <member name="T:AirUberProjeto.Models.CompanhiaViewModels.CriarModeloViewModel">
+            <summary>
+            View Model Responsavel por criar um modelo
             </summary>
         </member>
         <member name="P:AirUberProjeto.Models.CompanhiaViewModels.CriarModeloViewModel.Capacidade">
@@ -1837,6 +2079,16 @@
             Identificador unívoco do tipo de jato que o modelo é.
             </summary>
         </member>
+        <member name="T:AirUberProjeto.Models.CompanhiaViewModels.EditarColaboradorViewModel">
+            <summary>
+            View Model Responsavel por editar um colaborador
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.CompanhiaViewModels.EditarColaboradorViewModel.Id">
+            <summary>
+            Identificador de um colaborador
+            </summary>
+        </member>
         <member name="P:AirUberProjeto.Models.CompanhiaViewModels.EditarColaboradorViewModel.ColaboradorId">
             <summary>
             Identificador único do colaborador a ser editado
@@ -1855,6 +2107,16 @@
         <member name="P:AirUberProjeto.Models.CompanhiaViewModels.EditarColaboradorViewModel.Email">
             <summary>
             Email do cliente
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.CompanhiaViewModels.EditarColaboradorViewModel.CompanhiaId">
+            <summary>
+            Companhia
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.CompanhiaViewModels.EditarColaboradorViewModel.IsAdministrador">
+            <summary>
+            Indica se um colaborador é administrador ou não
             </summary>
         </member>
         <member name="T:AirUberProjeto.Models.CompanhiaViewModels.EditarCompanhiaViewModel">
@@ -1885,6 +2147,36 @@
         <member name="P:AirUberProjeto.Models.CompanhiaViewModels.EditarCompanhiaViewModel.Nif">
             <summary>
             Número de identificação fiscal da companhia
+            </summary>
+        </member>
+        <member name="T:AirUberProjeto.Models.CompanhiaViewModels.EditarExtraViewModel">
+            <summary>
+            View Model Responsavel por editar um extra
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.CompanhiaViewModels.EditarExtraViewModel.ExtraId">
+            <summary>
+            Identificador de um extra
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.CompanhiaViewModels.EditarExtraViewModel.TipoExtraId">
+            <summary>
+            Identificador do tipo de extra
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.CompanhiaViewModels.EditarExtraViewModel.CompanhiaId">
+            <summary>
+            Identificador da companhia a que pertence o extra
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.CompanhiaViewModels.EditarExtraViewModel.Nome">
+            <summary>
+            Nome extra
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.CompanhiaViewModels.EditarExtraViewModel.Valor">
+            <summary>
+            Valor extra
             </summary>
         </member>
         <member name="T:AirUberProjeto.Models.CompanhiaViewModels.EditarJatoViewModel">

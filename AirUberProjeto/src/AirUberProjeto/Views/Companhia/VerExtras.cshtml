@@ -4,42 +4,44 @@
     ViewData["Title"] = "VerExtras";
 }
 
-<h2>Extras</h2>
 
-<p>
-    <a asp-action="CriarExtra">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Nome)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Valor)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TipoExtra.Nome)
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model) {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Nome)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Valor)<span> €</span>
-                </td>
-                <th>
-                    @Html.DisplayFor(model => item.TipoExtra.Nome)
-                </th>
-                <td>
-                    <a asp-action="EditarExtra" asp-route-id="@item.ExtraId">Editar</a> |
-                    <a asp-action="ApagarExtra" asp-route-id="@item.ExtraId">Apagar</a>
-                </td>
-            </tr>
-}
-    </tbody>
-</table>
+<div class="container" style="margin-top: 20px">
+        <div class="row">
+            <div class="col-md-6">
+                <a asp-action="CriarExtra"><img class="img-thumbnail" src="~/images/plus.png" width="40" alt="criar"></a>
+                <!--
+                    <div >
+                        <form asp-controller="Companhia" asp-action="ProcurarExtras">
+                            <!-- search --><!--
+                            <input type=image src="~/images/aviao-default.svg" width="40" alt="Submit feedback">
+                            <input type="text" name="SearchString">
+                        </form>
+                    </div>-->
+            </div>
+            <div class="col-md-6">
+                <h1>Extras</h1>
+            </div>
+        </div>
+    <div class="w3-center w3-row-padding">
+        @foreach (var item in Model)
+        {
+            <div class="w3-col l4 w3">
+                <div class="w3-col l12 w3-card-4 w3-margin w3-container" style="height: 220px">
+                    <div style="float: right; padding: 10px;">
+                        <a asp-action="EditarExtra" asp-route-id="@item.ExtraId"><img class="img-thumbnail" src="~/images/edit.png" width="40" alt="editar"></a>
+                        <a asp-action="ApagarExtra" asp-route-id="@item.ExtraId"><img class="img-thumbnail" src="~/images/delete.png" width="40" alt="apagar"></a>
+                    </div>
+                    <div style="clear: both;">
+                            <h2 class="w3-center">@item.Nome</h2>
+                            <h3 class="w3-center"><strong>Preço: </strong>@item.Valor € <span>(x Créditos)</span></h3>
+                            <h5 class="w3-center"><strong>Tipo de extra: </strong> @item.TipoExtra.Nome</h5>
+                        <div>
+                            <img class="img-thumbnail" src="~/images/aviao-default.svg" width="40" alt="plus">
+                            <!-- Lista de aviões que suportam o extra -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

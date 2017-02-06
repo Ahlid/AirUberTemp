@@ -50,7 +50,7 @@ namespace AirUberProjeto.Test.Mocks
 
         public static Extra Extra = new Extra
         {
-            ExtraId = 1,
+            ExtraId = 2,
             Nome = "Extra1",
             CompanhiaId = 1,
             Valor = 2.6m,

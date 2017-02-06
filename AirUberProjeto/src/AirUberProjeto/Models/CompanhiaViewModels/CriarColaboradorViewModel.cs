@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace AirUberProjeto.Models.CompanhiaViewModels
 {
+    /// <summary>
+    /// View Model Responsavel por criar um colaborador
+    /// </summary>
     public class CriarColaboradorViewModel
     {
         /// <summary>
@@ -27,11 +30,14 @@ namespace AirUberProjeto.Models.CompanhiaViewModels
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
-
-        //Companhia
+        /// <summary>
+        /// Companhia
+        /// </summary>
         [Display(Name = "Companhia")]
         public int CompanhiaId { get; set; }
-
+        /// <summary>
+        /// Indica se um colaborador é administrador ou não
+        /// </summary>
         [Display(Name = "É administrador?")]
         public bool IsAdministrador { get; set; }
 
@@ -51,12 +57,6 @@ namespace AirUberProjeto.Models.CompanhiaViewModels
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
-
-
-
-        //public bool isAtivo { get; set; }     ???
-
-
 
     }
 }

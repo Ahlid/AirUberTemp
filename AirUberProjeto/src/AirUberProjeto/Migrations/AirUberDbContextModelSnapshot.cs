@@ -196,9 +196,9 @@ namespace AirUberProjeto.Migrations
                     b.Property<int>("DisponibilidadeId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime>("Fim");
+                    b.Property<string>("Fim");
 
-                    b.Property<DateTime>("Inicio");
+                    b.Property<string>("Inicio");
 
                     b.Property<int?>("JatoId");
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Linq;
 using System.Threading.Tasks;
 using AirUberProjeto.Controllers;
@@ -44,18 +45,19 @@ namespace AirUberProjeto.Test.Controllers
                 .ToAction("PerfilCompanhia");
 
 
-        [Fact]
-        public void PerfilCompanhiaTest()
-            => MyController<CompanhiaController>
-                .Instance()
-                .WithDbContext(dbContext => dbContext 
-                    .WithEntities(entities => entities.AddRange(
-                        companhiaTeste, colaboradorTeste)))
-                .Calling(c => c.PerfilCompanhia())
-                .ShouldReturn()
-                .View()
-                .WithModelOfType<PerfilCompanhiaViewModel>()
-                .Passing(model => model.Companhia == companhiaTeste && model.Colaborador == colaboradorTeste);
+[Fact]
+public void PerfilCompanhiaTest()
+    => MyController<CompanhiaController>
+        .Instance()
+        .WithDbContext(dbContext => dbContext 
+            .WithEntities(entities => entities.AddRange(
+                companhiaTeste, colaboradorTeste)))
+        .Calling(c => c.PerfilCompanhia())
+        .ShouldReturn()
+        .View()
+        .WithModelOfType<PerfilCompanhiaViewModel>()
+        .Passing(model => model.Companhia == companhiaTeste && 
+                    model.Colaborador == colaboradorTeste);
 
 
 
@@ -76,7 +78,7 @@ namespace AirUberProjeto.Test.Controllers
         public void EditarPerfilCompanhiaPostTest()
             => MyController<CompanhiaController>
                 .Instance()
-                 .WithDbContext(dbContext => dbContext 
+                    .WithDbContext(dbContext => dbContext 
                     .WithEntities(entities => entities.AddRange(
                         companhiaTeste)))
                 .Calling(c => c.EditarPerfilCompanhia(new EditarCompanhiaViewModel()
@@ -87,7 +89,7 @@ namespace AirUberProjeto.Test.Controllers
                     Nif = "16151651",
                 }))
                 .ShouldReturn()
-                .View();//o caso de inssucesso é um redirect
+                .View();
 
         [Fact]
         public void UploadImageShouldReturnRedirectTest()
@@ -130,7 +132,13 @@ namespace AirUberProjeto.Test.Controllers
             MyController<CompanhiaController>.Instance()
                 .WithDbContext(dbContext => dbContext
                     .WithEntities(entities => entities.AddRange(
-                        new Notificacao { Lida = false, Mensagem = "Test", NotificacaoId = 1, Tipo = "teste" })))
+                        new Notificacao
+                        {
+                            Lida = false,
+                            Mensagem = "Test",
+                            NotificacaoId = 1,
+                            Tipo = "teste"
+                        })))
                 .Calling(c => c.MarcarNotificacaoLida(1))
                 .ShouldReturn()
                 .ResultOfType<bool>()
@@ -170,7 +178,7 @@ namespace AirUberProjeto.Test.Controllers
         public void EditarJatoPostTest()
             => MyController<CompanhiaController>
                 .Instance()
-                 .WithDbContext(dbContext => dbContext
+                    .WithDbContext(dbContext => dbContext
                     .WithEntities(entities => entities.AddRange(
                         companhiaTeste, modeloJato5Teste, jato5Teste)))
                 .Calling(c => c.EditarJatos(new EditarJatoViewModel()
@@ -242,24 +250,25 @@ namespace AirUberProjeto.Test.Controllers
 
 
         [Fact]
-        public void VerJatoGet()
-               => MyController<CompanhiaController>
-                   .Instance()
-                   .WithDbContext(dbContext => dbContext
-                       .WithEntities(entities => entities.AddRange(
-                           companhiaTeste, modeloJato5Teste, jato5Teste)))
-                   .Calling(c => c.VerColaboradores())
-                   .ShouldReturn().View();
+        public void VerColaboradorGet()
+                => MyController<CompanhiaController>
+                    .Instance()
+                    .WithDbContext(dbContext => dbContext
+                        .WithEntities(entities => entities.AddRange(
+                            companhiaTeste, modeloJato5Teste, jato5Teste)))
+                    .Calling(c => c.VerColaboradores())
+                    .ShouldReturn().View();
 
         [Fact]
         public void AdicionarColaboradorGet()
-           => MyController<CompanhiaController>
-               .Instance()
-               .WithDbContext(dbContext => dbContext
-                   .WithEntities(entities => entities.AddRange(
-                       companhiaTeste, colaborador2Teste, modeloJato5Teste, jato5Teste)))
-               .Calling(c => c.AdicionarColaborador())
-               .ShouldReturn().View();
+            => MyController<CompanhiaController>
+                .Instance()
+                .WithDbContext(dbContext => dbContext
+                    .WithEntities(entities => entities.AddRange(
+                        companhiaTeste, colaborador2Teste, 
+                        modeloJato5Teste, jato5Teste)))
+                .Calling(c => c.AdicionarColaborador())
+                .ShouldReturn().View();
 
         [Fact]
         public void AdicionarColaboradorPost()
@@ -267,7 +276,10 @@ namespace AirUberProjeto.Test.Controllers
                 .Instance()
                 .WithDbContext(dbContext => dbContext
                     .WithEntities(entities => entities.AddRange(
-                        companhiaTeste, colaborador2Teste,  modeloJato5Teste, jato5Teste)))
+                        companhiaTeste, 
+                        colaborador2Teste,  
+                        modeloJato5Teste, 
+                        jato5Teste)))
                 .Calling(c => c.AdicionarColaborador(new CriarColaboradorViewModel
                 {
                     CompanhiaId = 1,
@@ -283,58 +295,57 @@ namespace AirUberProjeto.Test.Controllers
 
         [Fact]
         public void EditarColaboradorGet()
-           => MyController<CompanhiaController>
-               .Instance()
-               .WithDbContext(dbContext => dbContext
-                   .WithEntities(entities => entities.AddRange(
-                       companhiaTeste, colaborador2Teste, modeloJato5Teste, jato5Teste)))
-               .Calling(c => c.EditarColaborador("2"))
-               .ShouldReturn().View().WithModelOfType<Colaborador>();
+            => MyController<CompanhiaController>
+                .Instance()
+                .WithDbContext(dbContext => dbContext
+                    .WithEntities(entities => entities.AddRange(
+                        companhiaTeste, colaborador2Teste, modeloJato5Teste, jato5Teste)))
+                .Calling(c => c.EditarColaborador("2"))
+                .ShouldReturn().View().WithModelOfType<Colaborador>();
 
 
-
-        //Não funciona
+        
         [Fact]
         public void EditarColaboradorPost()
-           => MyController<CompanhiaController>
-               .Instance()
-               .WithDbContext(dbContext => dbContext
-                   .WithEntities(entities => entities.AddRange(
-                       companhiaTeste, colaborador2Teste, modeloJato5Teste, jato5Teste)))
-               .Calling(c => c.EditarColaborador(new EditarColaboradorViewModel()
-               {
-                   CompanhiaId = 1,
-                   Apelido = "ColaboradorTeste2",
-                   Email = "teste@testes.pt",
-                   IsAdministrador = true,
-                   Id = "2",
-                   Nome = "Colaborador1",
-                   ColaboradorId = "2"
-               }))
-               .ShouldReturn().Redirect().ToAction("VerColaboradores");
+            => MyController<CompanhiaController>
+                .Instance()
+                .WithDbContext(dbContext => dbContext
+                    .WithEntities(entities => entities.AddRange(
+                        companhiaTeste, colaborador2Teste, modeloJato5Teste, jato5Teste)))
+                .Calling(c => c.EditarColaborador(new EditarColaboradorViewModel()
+                {
+                    CompanhiaId = 1,
+                    Apelido = "ColaboradorTeste2",
+                    Email = "teste@testes.pt",
+                    IsAdministrador = true,
+                    Id = "2",
+                    Nome = "Colaborador1",
+                    ColaboradorId = "2"
+                }))
+                .ShouldReturn().Redirect().ToAction("VerColaboradores");
 
 
         [Fact]
         public void ApagarColaboradorGet()
-           => MyController<CompanhiaController>
-               .Instance()
-               .WithDbContext(dbContext => dbContext
-                   .WithEntities(entities => entities.AddRange(
-                       companhiaTeste, colaborador2Teste, modeloJato5Teste, jato5Teste)))
-               .Calling(c => c.ApagarColaborador("1"))
-               .ShouldReturn().View().WithModelOfType<Colaborador>();
+            => MyController<CompanhiaController>
+                .Instance()
+                .WithDbContext(dbContext => dbContext
+                    .WithEntities(entities => entities.AddRange(
+                        companhiaTeste, colaborador2Teste, modeloJato5Teste, jato5Teste)))
+                .Calling(c => c.ApagarColaborador("1"))
+                .ShouldReturn().View().WithModelOfType<Colaborador>();
 
 
 
         [Fact]
         public void ApagarColaboradorPost()
-           => MyController<CompanhiaController>
-               .Instance()
-               .WithDbContext(dbContext => dbContext
-                   .WithEntities(entities => entities.AddRange(
-                       companhiaTeste, colaborador2Teste, modeloJato5Teste, jato5Teste)))
-               .Calling(c => c.ApagarColaboradorConfirmacao("2"))
-               .ShouldReturn().Redirect().ToAction("VerColaboradores");
+            => MyController<CompanhiaController>
+                .Instance()
+                .WithDbContext(dbContext => dbContext
+                    .WithEntities(entities => entities.AddRange(
+                        companhiaTeste, colaborador2Teste, modeloJato5Teste, jato5Teste)))
+                .Calling(c => c.ApagarColaboradorConfirmacao("2"))
+                .ShouldReturn().Redirect().ToAction("VerColaboradores");
 
 
         //EXTRAS
@@ -342,13 +353,13 @@ namespace AirUberProjeto.Test.Controllers
 
         [Fact]
         public void VerExtrasGet()
-               => MyController<CompanhiaController>
-                   .Instance()
-                   .WithDbContext(dbContext => dbContext
-                       .WithEntities(entities => entities.AddRange(
-                           companhiaTeste, extraTeste, tipoExtraTeste, modeloJato5Teste, jato5Teste)))
-                   .Calling(c => c.VerExtras())
-                   .ShouldReturn().View();
+                => MyController<CompanhiaController>
+                    .Instance()
+                    .WithDbContext(dbContext => dbContext
+                        .WithEntities(entities => entities.AddRange(
+                            companhiaTeste, extraTeste, tipoExtraTeste, modeloJato5Teste, jato5Teste)))
+                    .Calling(c => c.VerExtras())
+                    .ShouldReturn().View();
 
         [Fact]
         public void CriarExtra()
@@ -362,24 +373,31 @@ namespace AirUberProjeto.Test.Controllers
                 .View();
 
 
+
+
         [Fact]
         public void CriarExtraPost()
             => MyController<CompanhiaController>
                 .Instance()
                 .WithDbContext(dbContext => dbContext
                     .WithEntities(entities => entities.AddRange(
-                        companhiaTeste, tipoExtraTeste, modeloJato5Teste, jato5Teste)))
+                        companhiaTeste,
+                        tipoExtraTeste,
+                        modeloJato5Teste,
+                        extraTeste,
+                        jato5Teste)))
                 .Calling(c => c.CriarExtra(new CriarExtraViewModel
                 {
+                    
                     CompanhiaId = 1,
                     Valor = 2.6m,
                     Nome = "Teste2",
                     TipoExtraId = 1
-                    
-                    
+
+
                 }))
                 .ShouldReturn()
-                .Redirect().ToAction("VerExtras");
+                .Redirect().ToAction("VerExtras");  
 
 
 
@@ -390,7 +408,7 @@ namespace AirUberProjeto.Test.Controllers
                 .WithDbContext(dbContext => dbContext
                     .WithEntities(entities => entities.AddRange(
                         companhiaTeste, extraTeste, tipoExtraTeste, modeloJato5Teste, jato5Teste)))
-                .Calling(c => c.ApagarExtra(1))
+                .Calling(c => c.ApagarExtra(extraTeste.ExtraId))
                 .ShouldReturn()
                 .View()
                 .WithModelOfType<Extra>();
@@ -403,7 +421,7 @@ namespace AirUberProjeto.Test.Controllers
                 .WithDbContext(dbContext => dbContext
                     .WithEntities(entities => entities.AddRange(
                         companhiaTeste, extraTeste, tipoExtraTeste, modeloJato5Teste, jato5Teste)))
-                .Calling(c => c.ApagarExtraConfirmacao(1))
+                .Calling(c => c.ApagarExtraConfirmacao(extraTeste.ExtraId))
                 .ShouldReturn().Redirect().ToAction("VerExtras");
 
 
@@ -411,13 +429,13 @@ namespace AirUberProjeto.Test.Controllers
 
         [Fact]
         public void VerModelosGet()
-               => MyController<CompanhiaController>
-                   .Instance()
-                   .WithDbContext(dbContext => dbContext
-                       .WithEntities(entities => entities.AddRange(
-                           companhiaTeste, extraTeste, tipoExtraTeste, modeloJato5Teste, jato5Teste)))
-                   .Calling(c => c.VerModelos())
-                   .ShouldReturn().View();
+                => MyController<CompanhiaController>
+                    .Instance()
+                    .WithDbContext(dbContext => dbContext
+                        .WithEntities(entities => entities.AddRange(
+                            companhiaTeste, extraTeste, tipoExtraTeste, modeloJato5Teste, jato5Teste)))
+                    .Calling(c => c.VerModelos())
+                    .ShouldReturn().View();
 
         [Fact]
         public void AdicionarModeloGet()
@@ -432,12 +450,12 @@ namespace AirUberProjeto.Test.Controllers
 
         [Fact]
         public void AdicionarModeloPost()
-           => MyController<CompanhiaController>
-               .Instance()
-               .WithDbContext(dbContext => dbContext
-                   .WithEntities(entities => entities.AddRange(
-                       companhiaTeste, extraTeste, tipoExtraTeste, modeloJato5Teste, jato5Teste)))
-               .Calling(c => c.AdicionarModelo(new CriarModeloViewModel
+            => MyController<CompanhiaController>
+                .Instance()
+                .WithDbContext(dbContext => dbContext
+                    .WithEntities(entities => entities.AddRange(
+                        companhiaTeste, extraTeste, tipoExtraTeste, modeloJato5Teste, jato5Teste)))
+                .Calling(c => c.AdicionarModelo(new CriarModeloViewModel
 
                         {
         
@@ -453,8 +471,8 @@ namespace AirUberProjeto.Test.Controllers
                             VelocidadeMaxima = 1500,
                             TipoJatoId = 1
                         }))
-               .ShouldReturn()
-               .Redirect().ToAction("VerModelos");
+                .ShouldReturn()
+                .Redirect().ToAction("VerModelos");
 
 
     }

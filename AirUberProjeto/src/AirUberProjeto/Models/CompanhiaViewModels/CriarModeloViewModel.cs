@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace AirUberProjeto.Models.CompanhiaViewModels
 {
+    /// <summary>
+    /// View Model Responsavel por criar um modelo
+    /// </summary>
     public class CriarModeloViewModel
     {
 
