@@ -40,7 +40,7 @@
             </remarks>
             <param name="services">Services</param>
         </member>
-        <member name="M:AirUberProjeto.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IHostingEnvironment,Microsoft.Extensions.Logging.ILoggerFactory,AirUberProjeto.Data.AirUberDbContext)">
+        <member name="M:AirUberProjeto.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IHostingEnvironment,Microsoft.Extensions.Logging.ILoggerFactory,AirUberProjeto.Data.AirUberDbContext,Microsoft.AspNetCore.Identity.UserManager{AirUberProjeto.Models.ApplicationUser})">
             <summary>
             Configure
             </summary>
@@ -316,6 +316,30 @@
             </summary>
             <param name="file">ficheiro de imagem que irá substituir a imagem de perfil</param>
             <returns>Um redirecionamento para a ação editar perfil</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.ClienteController.VerViagens">
+            <summary>
+            Responsável por redireccionar o utilizador para a página que apresenta a informação de todas as viagens feitas na companhia.
+            </summary>
+            <returns>Retorna a view das viagens</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.ClienteController.VerOferta">
+            <summary>
+            Responsável por redireccionar o utilizador para a página que apresenta a informação de uma oferta
+            </summary>
+            <returns>Retorna a view das ofertas</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.ClienteController.ProcurarOfertas">
+            <summary>
+            Responsável por redireccionar o utilizador para a página de pesquisa de ofertas
+            </summary>
+            <returns>Retorna a view da procura de ofertas</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.ClienteController.ProcurarOfertas(System.Int32)">
+            <summary>
+            Responsável por redireccionar o utilizador para a página de pesquisa de ofertas
+            </summary>
+            <returns>Retorna a view da procura de ofertas</returns>
         </member>
         <member name="T:AirUberProjeto.Controllers.CompanhiaController">
             <summary>
@@ -598,6 +622,12 @@
             </summary>
             <param name="id">Id da notificação ao qual se quer marcar como lida</param>
             <returns>Variavel booleana que indica se houve sucesso a marcar a notificação como lida</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.CompanhiaController.VerViagens">
+            <summary>
+            Responsável por redireccionar o utilizador para a página que apresenta a informação de todas as viagens feitas na companhia.
+            </summary>
+            <returns>Retorna a view das viagens</returns>
         </member>
         <member name="T:AirUberProjeto.Controllers.HelpdeskController">
             <summary>
@@ -1179,7 +1209,7 @@
             Classe responsável por popular a base de dados numa fase inicial.
             </summary>
         </member>
-        <member name="M:AirUberProjeto.Models.DbInitializer.Initialize(AirUberProjeto.Data.AirUberDbContext)">
+        <member name="M:AirUberProjeto.Models.DbInitializer.Initialize(AirUberProjeto.Data.AirUberDbContext,Microsoft.AspNetCore.Identity.UserManager{AirUberProjeto.Models.ApplicationUser})">
             <summary>
             Método reponsável por inserir em todas as tabelas da base de dados caso não haja já valores na tabela.
             </summary>
@@ -1265,7 +1295,7 @@
             </summary>
             <param name="context">Contexto da aplicação</param>
         </member>
-        <member name="M:AirUberProjeto.Models.DbInitializer.inicializarViagens(AirUberProjeto.Data.AirUberDbContext)">
+        <member name="M:AirUberProjeto.Models.DbInitializer.inicializarViagens(AirUberProjeto.Data.AirUberDbContext,Microsoft.AspNetCore.Identity.UserManager{AirUberProjeto.Models.ApplicationUser})">
             <summary>
             Responsável por inserir na base de dados várias viagens caso não exista nenhuma viagem na base de dados
             </summary>

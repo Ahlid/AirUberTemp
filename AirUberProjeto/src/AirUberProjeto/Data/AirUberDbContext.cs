@@ -23,13 +23,20 @@ namespace AirUberProjeto.Data
             : base(options)
         {
         }
-
+        
         /// <summary>
         /// Create model
         /// </summary>
         /// <param name="builder">builder model</param>
         protected override void OnModelCreating(ModelBuilder builder)
         {
+
+            foreach (var relationship in builder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))
+            {
+                relationship.DeleteBehavior = DeleteBehavior.Restrict;
+            }
+
+
             base.OnModelCreating(builder);
             
             builder.Entity<ApplicationUser>().HasKey(p => p.Id);
@@ -71,18 +78,15 @@ namespace AirUberProjeto.Data
                 .IsRequired()
                 .OnDelete(DeleteBehavior.Restrict);
 
+            /*
 
-           /* builder.Entity<Jato>()
+            builder.Entity<Jato>()
                 .HasOne(c => c.Companhia)
                 .WithMany()
-                .OnDelete(DeleteBehavior.Restrict);
+                .WillCascadeOnDelete(false);
                 */
-            /* builder.Entity<Jato>()
-                 .HasOne(c => c.)
-                 .WithMany(u => u.ListaColaboradores)
-                 .IsRequired()
-                 .OnDelete(DeleteBehavior.Restrict);
-                 */
+
+
             // Customize the ASP.NET Identity model and override the defaults if needed.
             // For example, you can rename the ASP.NET Identity table names and more.
             // Add your customizations after calling base.OnModelCreating(builder);
