@@ -23,7 +23,7 @@ namespace AirUberProjeto.Controllers
     [Authorize(Roles = Roles.ROLE_CLIENTE)]
     public class ClienteController : Controller
     {
-        
+
         /// <summary>
         /// Utilizado para sabermos o caminho absoluto da pasta wwwRoot
         /// </summary>
@@ -40,15 +40,16 @@ namespace AirUberProjeto.Controllers
         private readonly UserManager<ApplicationUser> _userManager;
 
 
-        
+
         /// <summary>
         /// Construtor do controlador
         /// </summary>
         /// <param name="context">O DB context da aplicação</param>
         /// <param name="userManager">O manager dos utilizadores</param>
         /// <param name="environment">O ambiente da aplicação</param>
-        public ClienteController(AirUberDbContext context, UserManager<ApplicationUser> userManager, IHostingEnvironment environment)
-        { 
+        public ClienteController(AirUberDbContext context, UserManager<ApplicationUser> userManager,
+            IHostingEnvironment environment)
+        {
             _environment = environment;
             _context = context;
             _userManager = userManager;
@@ -64,7 +65,7 @@ namespace AirUberProjeto.Controllers
             return RedirectToAction("Perfil");
         }
 
-         
+
 
         /// <summary>
         /// Apresenta a página de perfil do cliente tendo em conta o utilizador atual
@@ -76,11 +77,11 @@ namespace AirUberProjeto.Controllers
             string idCliente = _userManager.GetUserAsync(this.User).Result.Id;
 
             Cliente cliente = (_context.Cliente
-                                    .Include(c => c.ContaDeCreditos)
-                                    .Include(c => c.ListaReservas)
-                                    .Where(c => c.Id == idCliente)
-                                    .Select(c => c))
-                                    .Single() ;
+                    .Include(c => c.ContaDeCreditos)
+                    .Include(c => c.ListaReservas)
+                    .Where(c => c.Id == idCliente)
+                    .Select(c => c))
+                .Single();
 
             PerfilViewModel viewModel = new PerfilViewModel()
             {
@@ -90,8 +91,8 @@ namespace AirUberProjeto.Controllers
 
 
 
-            List<Notificacao> notificacoes =  _context.Notificacao.Where((n) =>
-                n.UtilizadorId == cliente.Id
+            List<Notificacao> notificacoes = _context.Notificacao.Where((n) =>
+                        n.UtilizadorId == cliente.Id
             ).ToList();
 
             foreach (Notificacao notificacao in notificacoes)
@@ -125,7 +126,7 @@ namespace AirUberProjeto.Controllers
             {
                 return false;
             }
-            
+
         }
 
 
@@ -136,7 +137,7 @@ namespace AirUberProjeto.Controllers
         [HttpGet]
         public IActionResult EditarPerfil()
         {
-            Cliente cliente = (Cliente)_userManager.GetUserAsync(this.User).Result;
+            Cliente cliente = (Cliente) _userManager.GetUserAsync(this.User).Result;
 
             return View(cliente);
         }
@@ -161,9 +162,9 @@ namespace AirUberProjeto.Controllers
                 ViewData["Success"] = true;
                 return View(cliente);
             }
-            
-             return RedirectToAction(nameof(ClienteController.EditarPerfil), "Cliente");
-            
+
+            return RedirectToAction(nameof(ClienteController.EditarPerfil), "Cliente");
+
         }
 
 
@@ -173,7 +174,7 @@ namespace AirUberProjeto.Controllers
         /// <param name="file">ficheiro de imagem que irá substituir a imagem de perfil</param>
         /// <returns>Um redirecionamento para a ação editar perfil</returns>
         [HttpPost]
-        public async Task<IActionResult> AlterarImagemPerfil (IFormFile file)
+        public async Task<IActionResult> AlterarImagemPerfil(IFormFile file)
         {
             if (file == null)
             {
@@ -185,7 +186,7 @@ namespace AirUberProjeto.Controllers
             if (extension != ".jpg" && extension != ".png")
                 return null;
 
-            Cliente cliente = (Cliente)_userManager.GetUserAsync(this.User).Result;
+            Cliente cliente = (Cliente) _userManager.GetUserAsync(this.User).Result;
 
             string fileName = "imagem-perfil" + extension;
             string folderName = Path.Combine("clientes", "client-" + cliente.Email);
@@ -196,7 +197,7 @@ namespace AirUberProjeto.Controllers
 
             //Cria a directoria caso ainda não exista
             Directory.CreateDirectory(forderPath);
-            
+
             //Transmite o ficheiro através de um FileStream
             using (var fileStream = new FileStream(absolutePathToFile, FileMode.Create))
             {
@@ -209,6 +210,75 @@ namespace AirUberProjeto.Controllers
 
             return RedirectToAction(nameof(ClienteController.EditarPerfil), "Cliente");
         }
+
+
+        //Viagens
+
+        /// <summary>
+        /// Responsável por redireccionar o utilizador para a página que apresenta a informação de todas as viagens feitas na companhia.
+        /// </summary>
+        /// <returns>Retorna a view das viagens</returns>
+        public IActionResult VerViagens()
+        {
+
+            Cliente cliente = (Cliente) _userManager.GetUserAsync(this.User).Result;
+
+
+            var viagens = _context.Reserva.Select(c => c)
+                .Include(a => a.AeroportoDestino)
+                .Include(a => a.AeroportoPartida)
+                .Include(a => a.Cliente)
+                .Include(a => a.Jato)
+                .Include(a => a.Jato.Companhia)
+                .Include(r => r.ListaExtras)
+                .Where(c => c.Cliente.Id == cliente.Id).ToList();
+            return View(viagens);
+        }
+
+        /// <summary>
+        /// Responsável por redireccionar o utilizador para a página que apresenta a informação de uma oferta
+        /// </summary>
+        /// <returns>Retorna a view das ofertas</returns>
+        public IActionResult VerOferta()
+        {
+
+
+
+
+            return View();
+
+        }
+
+
+        /// <summary>
+        /// Responsável por redireccionar o utilizador para a página de pesquisa de ofertas
+        /// </summary>
+        /// <returns>Retorna a view da procura de ofertas</returns>
+        public IActionResult ProcurarOfertas()
+        {
+            //TODO: filtrar pelas disponíbilidades dos jatos que estão nas localizações
+
+            var aeroportos = _context.Jato.Select(c => c.Aeroporto).ToList();
+            return View(aeroportos);
+
+        }
+
+        /// <summary>
+        /// Responsável por redireccionar o utilizador para a página de pesquisa de ofertas
+        /// </summary>
+        /// <returns>Retorna a view da procura de ofertas</returns>
+        [HttpPost]
+        public IActionResult ProcurarOfertas(int id)
+        {
+            //TODO: verificar se o o id existe, redirecionar para a lista de jatos disponíveis.
+
+
+            var viagens = _context.Aeroporto.Select(c => c).ToList();
+            return View(viagens);
+
+        }
+
+
 
     }
 }

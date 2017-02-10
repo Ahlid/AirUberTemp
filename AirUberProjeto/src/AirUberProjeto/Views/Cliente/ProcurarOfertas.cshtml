@@ -1,0 +1,90 @@
+﻿@model IEnumerable<Aeroporto>
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+<h1>
+    Selecione um ponto de partida dos disponíveis
+</h1>
+
+<div id="map" style="height: 666px"></div>
+<script>
+
+    var aeroportos = [];
+
+    @foreach (Aeroporto aeroporto in Model)
+    {
+        <text>
+
+                aeroportos.push({
+                    "id": @aeroporto.AeroportoId,
+                    "nome": "@Html.Raw(aeroporto.Nome)"
+                });
+
+        </text>
+    }
+
+    var map;
+
+    function onMapReady() {
+
+        aeroportos.forEach(function(aeroporto) {
+
+            var request = {
+                location: map.getCenter(),
+                radius: '500',
+                query: aeroporto.nome
+            };
+
+            var service = new google.maps.places.PlacesService(map);
+            service.textSearch(request,
+                function(results, status) {
+                    var marker = marcarAeroporto(results, status);
+                    if (marker != null) {
+
+                        marker.addListener('click',
+                            function() {
+
+                                alert(aeroporto.id);
+
+                            });
+
+                    }
+
+                });
+        });
+
+    }
+
+    function initMap() {
+
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: -33.8666, lng: 151.1958},
+            zoom: 15
+        });
+
+        onMapReady(map);
+    }
+
+    function marcarAeroporto(results, status) {
+        if (status == google.maps.places.PlacesServiceStatus.OK) {
+            var marker = new google.maps.Marker({
+                map: map,
+                place: {
+                    placeId: results[0].place_id,
+                    location: results[0].geometry.location
+                }
+            });
+
+            return marker;
+        }
+    }
+
+
+
+
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDYVgZdHbUzDY2KEBmmpB66hNLV0GLuMG4&callback=initMap&libraries=places">
+</script>

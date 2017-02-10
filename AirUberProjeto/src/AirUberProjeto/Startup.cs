@@ -14,6 +14,7 @@ using AirUberProjeto.Models;
 using AirUberProjeto.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Globalization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Localization;
 
 namespace AirUberProjeto
@@ -90,7 +91,7 @@ namespace AirUberProjeto
         /// <param name="env">application environment</param>
         /// <param name="loggerFactory">logger factory</param>
         /// <param name="context">application context</param>
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, AirUberDbContext context)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, AirUberDbContext context, UserManager<ApplicationUser> userManager )
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
@@ -124,7 +125,7 @@ namespace AirUberProjeto
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
 
-            DbInitializer.Initialize(context);
+            DbInitializer.Initialize(context, userManager);
             DbInitializer.AddRoles(app.ApplicationServices, context).Wait();
             
         }

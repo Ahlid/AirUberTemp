@@ -33,6 +33,7 @@
 /// <reference path="js/fullcalendar.js" />
 /// <reference path="js/jquery-3.1.1.min.js" />
 /// <reference path="js/moment.js" />
+/// <reference path="js/rating.min.js" />
 /// <reference path="js/site.js" />
 /// <reference path="lib/bootstrap/dist/js/bootstrap.js" />
 /// <reference path="lib/jquery/dist/jquery.js" />

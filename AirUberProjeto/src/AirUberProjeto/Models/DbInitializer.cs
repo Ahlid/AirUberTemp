@@ -19,7 +19,7 @@ namespace AirUberProjeto.Models
         /// Método reponsável por inserir em todas as tabelas da base de dados caso não haja já valores na tabela.
         /// </summary>
         /// <param name="context">Contexto da aplicação.</param>
-        public static void Initialize(AirUberDbContext context)
+        public static void Initialize(AirUberDbContext context, UserManager<ApplicationUser> userManager)
         {
             context.Database.EnsureCreated();
             //context.SaveChanges();
@@ -64,7 +64,7 @@ namespace AirUberProjeto.Models
             inicializarColaboradores(context);  // apagar - apenas testes
             context.SaveChanges();
 
-            inicializarViagens(context);    // apagar - apenas testes
+            inicializarViagens(context, userManager);    // apagar - apenas testes
             context.SaveChanges();
 
         }
@@ -573,7 +573,7 @@ namespace AirUberProjeto.Models
         /// Responsável por inserir na base de dados várias viagens caso não exista nenhuma viagem na base de dados
         /// </summary>
         /// <param name="context">Contexto da aplicação</param>
-        private static void inicializarViagens(AirUberDbContext context)
+        private static void inicializarViagens(AirUberDbContext context, UserManager<ApplicationUser> userManager)
         {
 
             //aqui associar uma lista de extras ao jato
@@ -585,9 +585,22 @@ namespace AirUberProjeto.Models
                 };
 
                 //Novo cliente
-                Cliente Miguel = new Cliente() { Nome = "Miguel", Apelido = "Esteves", Ativo = true, ContaDeCreditos = conta1,
-                    DataCriacao = DateTime.Now, Contacto = "2222", Email ="Qualquer"};
-
+                Cliente Miguel = new Cliente() {
+                    Nome = "Miguel",
+                    Apelido = "Esteves",
+                    Ativo = true,
+                    ContaDeCreditos = conta1,
+                    DataCriacao = DateTime.Now,
+                    Contacto = "2222",
+                    Email ="miguel@teste.pt",
+                    UserName = "miguel@teste.pt"
+                };
+                
+                //var result = userManager.CreateAsync(Miguel, "ost:43636/Acc").Result;
+                /*if (result.Succeeded)
+                {
+                    userManager.AddToRoleAsync(Miguel, Roles.ROLE_CLIENTE);
+                }*/
                 context.Cliente.Add(Miguel);
                 context.SaveChanges();
 
@@ -599,8 +612,7 @@ namespace AirUberProjeto.Models
                      AeroportoDestinoId = 2,
                      JatoId = 1,
                      Cliente = Miguel,
-                     Custo = 3500.5m,
-
+                     Custo = 3500.5m
                  };
                 Reserva reserva2 = new Reserva()
                 {
@@ -611,7 +623,7 @@ namespace AirUberProjeto.Models
                     JatoId = 1,
                     Cliente = Miguel,
                     Custo = 7483.23m,
-                    Avaliacao = 5,
+                    Avaliacao = 5
                 };
                 context.Reserva.Add(reserva1);
                 context.Reserva.Add(reserva2);
