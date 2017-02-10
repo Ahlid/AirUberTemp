@@ -606,7 +606,7 @@ namespace AirUberProjeto.Controllers
                 .Include(c => c.Companhia)
                 .SingleOrDefault(c => c.Id == id);
             if (colaborador == null)
-            {
+            {   
                 return NotFound();
             }
             return View(colaborador);
@@ -698,7 +698,7 @@ namespace AirUberProjeto.Controllers
          * 
          * Problema com valores decimais com '.'
          * 
-         * 
+         *  
          * 
          * 
          * 

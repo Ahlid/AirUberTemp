@@ -11,5 +11,6 @@
     <WebStackScaffolding_DbContextTypeFullName>AirUberProjeto.Data.AirUberDbContext</WebStackScaffolding_DbContextTypeFullName>
     <WebStackScaffolding_IsAsyncSelected>False</WebStackScaffolding_IsAsyncSelected>
     <WebStackScaffolding_IsViewGenerationSelected>True</WebStackScaffolding_IsViewGenerationSelected>
+    <NameOfLastUsedPublishProfile>Tiago</NameOfLastUsedPublishProfile>
   </PropertyGroup>
 </Project>

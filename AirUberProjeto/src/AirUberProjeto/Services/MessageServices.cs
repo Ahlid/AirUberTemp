@@ -16,22 +16,30 @@ namespace AirUberProjeto.Services
     {
         public async Task<Task> SendEmailAsync(string email, string subject, string message)
         {
-            var emailMessage = new MimeMessage();
-
-            emailMessage.From.Add(new MailboxAddress("AirUber", "AirUberNoReply@gmail.com"));
-            emailMessage.To.Add(new MailboxAddress("", email));
-            emailMessage.Subject = subject;
-            var bodyBuilder = new BodyBuilder {HtmlBody = @message};
-            emailMessage.Body = bodyBuilder.ToMessageBody();
-
-
-
-            using (var client = new SmtpClient())
+            try
             {
-                client.Connect("smtp.gmail.com", 587, false);
-                client.Authenticate("AirUberNoReply@gmail.com", "ESW123A12");
-                await client.SendAsync(emailMessage).ConfigureAwait(false);
-                await client.DisconnectAsync(true).ConfigureAwait(false);
+                var emailMessage = new MimeMessage();
+
+                emailMessage.From.Add(new MailboxAddress("AirUber", "AirUberNoReply@gmail.com"));
+                emailMessage.To.Add(new MailboxAddress("", email));
+                emailMessage.Subject = subject;
+                var bodyBuilder = new BodyBuilder {HtmlBody = @message};
+                emailMessage.Body = bodyBuilder.ToMessageBody();
+
+
+
+                using (var client = new SmtpClient())
+                {
+                    client.Connect("smtp.gmail.com", 587, false);
+                    client.Authenticate("AirUberNoReply@gmail.com", "ESW123A12");
+                    await client.SendAsync(emailMessage).ConfigureAwait(false);
+                    await client.DisconnectAsync(true).ConfigureAwait(false);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                
             }
             return Task.FromResult(0);
         }
