@@ -323,7 +323,7 @@
             </summary>
             <returns>Retorna a view das viagens</returns>
         </member>
-        <member name="M:AirUberProjeto.Controllers.ClienteController.VerOferta">
+        <member name="M:AirUberProjeto.Controllers.ClienteController.VerOferta(System.Int32,System.DateTime,System.Double,System.Double,System.Int32)">
             <summary>
             Responsável por redireccionar o utilizador para a página que apresenta a informação de uma oferta
             </summary>
@@ -336,6 +336,18 @@
             <returns>Retorna a view da procura de ofertas</returns>
         </member>
         <member name="M:AirUberProjeto.Controllers.ClienteController.ProcurarOfertas(System.Int32)">
+            <summary>
+            Responsável por redireccionar o utilizador para a página de pesquisa de ofertas
+            </summary>
+            <returns>Retorna a view da procura de ofertas</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.ClienteController.VerJatos(System.Int32,System.DateTime,System.Double,System.Double)">
+            <summary>
+            Responsável por redireccionar o utilizador para a página de pesquisa de ofertas
+            </summary>
+            <returns>Retorna a view da procura de ofertas</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.ClienteController.ReservaConcluida(System.Int32,System.DateTime,System.Double,System.Double)">
             <summary>
             Responsável por redireccionar o utilizador para a página de pesquisa de ofertas
             </summary>
@@ -628,6 +640,40 @@
             Responsável por redireccionar o utilizador para a página que apresenta a informação de todas as viagens feitas na companhia.
             </summary>
             <returns>Retorna a view das viagens</returns>
+        </member>
+        <member name="T:AirUberProjeto.Controllers.CreditosController">
+            <summary>
+            Controlador responsável pela gestão de creditos
+            </summary>
+        </member>
+        <member name="F:AirUberProjeto.Controllers.CreditosController._context">
+            <summary>
+            O contexto da aplicação para poder aceder a dados.
+            </summary>
+        </member>
+        <member name="F:AirUberProjeto.Controllers.CreditosController._userManager">
+            <summary>
+            User manager que vai permitir utilizar metodos feitos pela windows de forma a controlar os user.
+            </summary>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.CreditosController.#ctor(AirUberProjeto.Data.AirUberDbContext,Microsoft.AspNetCore.Identity.UserManager{AirUberProjeto.Models.ApplicationUser})">
+            <summary>
+            Construtor do controlador
+            </summary>
+            <param name="context">O DB context da aplicação</param>
+            <param name="userManager">O manager dos utilizadores</param>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.CreditosController.Index">
+            <summary>
+            A acção index é a ação default do controlador e redireciona para a ação comprar
+            </summary>
+            <returns>Retorna a view retornada pela acção comprar</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.CreditosController.Comprar">
+            <summary>
+            A acção comprar para poder comprar creditos
+            </summary>
+            <returns>Retorna a view Comprar</returns>
         </member>
         <member name="T:AirUberProjeto.Controllers.HelpdeskController">
             <summary>
@@ -1138,6 +1184,11 @@
             Caminho de onde a imagem de perfil da companhia está localizada no projecto
             </summary>
         </member>
+        <member name="P:AirUberProjeto.Models.Companhia.Descricao">
+            <summary>
+            Caminho de onde a imagem de perfil da companhia está localizada no projecto
+            </summary>
+        </member>
         <member name="P:AirUberProjeto.Models.Companhia.Pais">
             <summary>
             Propriedade navegacional responsável por referenciar o país a que uma companhia pertence.
@@ -1431,6 +1482,16 @@
         <member name="P:AirUberProjeto.Models.Jato.RelativePathImagemPerfil">
             <summary>
             Caminho de onde a imagem do jato está localizada no projecto
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Jato.CreditosPorKilometro">
+            <summary>
+            Preço em crédidos por Kilometro
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Jato.CreditosBase">
+            <summary>
+            Preço base em créditos
             </summary>
         </member>
         <member name="P:AirUberProjeto.Models.Jato.Modelo">
@@ -2164,6 +2225,11 @@
             Morada da companhia
             </summary>
         </member>
+        <member name="P:AirUberProjeto.Models.CompanhiaViewModels.EditarCompanhiaViewModel.Descricao">
+            <summary>
+            Descrição da companhia
+            </summary>
+        </member>
         <member name="P:AirUberProjeto.Models.CompanhiaViewModels.EditarCompanhiaViewModel.Contact">
             <summary>
             Contacto da companhia
@@ -2242,6 +2308,16 @@
         <member name="P:AirUberProjeto.Models.CompanhiaViewModels.EditarJatoViewModel.AeroportoId">
             <summary>
             Identificador único do aeroporto onde o jato se encontra
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.CompanhiaViewModels.EditarJatoViewModel.CreditosBase">
+            <summary>
+            Preço base em créditos
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.CompanhiaViewModels.EditarJatoViewModel.CreditosPorKilometro">
+            <summary>
+            Preço em crédidos por Kilometro
             </summary>
         </member>
         <member name="T:AirUberProjeto.Models.CompanhiaViewModels.PerfilCompanhiaViewModel">

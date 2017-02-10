@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace AirUberProjeto.Controllers
 {
@@ -63,7 +64,22 @@ namespace AirUberProjeto.Controllers
             return View();
         }
 
+        [HttpPost]
+        public string Carregar(int amount)
+        {
 
+
+            Cliente cliente = (Cliente) _userManager.GetUserAsync(this.User).Result;
+
+            cliente = _context.Cliente.Select(c=>c).Include(c => c.ContaDeCreditos).Single(c => c.Id == cliente.Id);
+            cliente.ContaDeCreditos.JetCashActual += amount;
+            _context.Update(cliente);
+            _context.SaveChanges();
+
+            //todo adcionar ao historico
+
+            return "okokoko";
+        }
 
     }
 }
