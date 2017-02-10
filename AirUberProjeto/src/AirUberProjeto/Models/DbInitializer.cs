@@ -365,6 +365,8 @@ namespace AirUberProjeto.Models
             {
                 ContaDeCreditos conta1 = new ContaDeCreditos()
                 {
+                    
+                    
                     JetCashActual = 1000000
                 };
 
@@ -461,11 +463,11 @@ namespace AirUberProjeto.Models
         {
             if (!context.Extra.Any())
             {
-                Extra extra1 = new Models.Extra() { TipoExtraId = 1, CompanhiaId = 1, Valor = 50.00m };
-                Extra extra2 = new Models.Extra() { TipoExtraId = 2, CompanhiaId = 1, Valor = 100.00m };
-                Extra extra3 = new Models.Extra() { TipoExtraId = 3, CompanhiaId = 2, Valor = 150.00m };
-                Extra extra4 = new Models.Extra() { TipoExtraId = 4, CompanhiaId = 1, Valor = 500.00m };
-                Extra extra5 = new Models.Extra() { TipoExtraId = 4, CompanhiaId = 2, Valor = 700.00m };
+                Extra extra1 = new Models.Extra() { TipoExtraId = 1, CompanhiaId = 1, Nome = "Cervejinha", Valor = 50.00m };
+                Extra extra2 = new Models.Extra() { TipoExtraId = 2, CompanhiaId = 1, Nome = "Massagem", Valor = 100.00m };
+                Extra extra3 = new Models.Extra() { TipoExtraId = 3, CompanhiaId = 2, Nome = "Massagem", Valor = 150.00m };
+                Extra extra4 = new Models.Extra() { TipoExtraId = 4, CompanhiaId = 1, Nome = "Champagne", Valor = 500.00m };
+                Extra extra5 = new Models.Extra() { TipoExtraId = 4, CompanhiaId = 2, Nome = "Lapdance", Valor = 700.00m };
 
                 List<Extra> extrasTAP = new List<Extra>() { extra1, extra2, extra4 };
                 List<Extra> extrasRyanair = new List<Extra>() { extra3, extra5 };

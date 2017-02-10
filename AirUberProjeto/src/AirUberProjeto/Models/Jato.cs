@@ -49,6 +49,20 @@ namespace AirUberProjeto.Models
         /// </summary>
         public string RelativePathImagemPerfil { get; set; }
 
+        /// <summary>
+        /// Preço em crédidos por Kilometro
+        /// </summary>
+        [Display(Name = "Preço em crédidos por Kilometro")]
+        public double CreditosPorKilometro { get; set; }
+
+        /// <summary>
+        /// Preço base em créditos
+        /// </summary>
+        [Display(Name = "Preço base em créditos")]
+        public double CreditosBase { get; set; }
+
+
+
         // Propriedades Virtuais
         /// <summary>
         /// Propriedade navegacional responsável por referenciar o modelo que o jato é.

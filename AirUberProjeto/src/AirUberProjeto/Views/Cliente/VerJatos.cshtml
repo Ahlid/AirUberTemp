@@ -1,0 +1,64 @@
+﻿@using System.Globalization
+@using System.Threading.Tasks
+@model AirUberProjeto.Models.ClienteViewModels.VerJatoViewModel
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+
+
+
+<div class="container" style="margin-top: 20px">
+
+    <h1>Jatos disponíveis para a data escolhida</h1>
+
+    <div class="w3-center w3-row-padding">
+        @foreach (Jato jato in Model.JatodDisponiveis)
+        {
+            <div class="w3-col l4 w3">
+                <div class="w3-col l12 w3-card-4 w3-margin w3-container" style="padding: 20px; text-align:left">
+                    
+                    <div style="padding-right: 50%">
+                        <img class="img-rounded" style="background-color: aliceblue; " src="..\..\@jato.RelativePathImagemPerfil" width="100%" alt="airplane photo" />
+                    </div>
+                    <ul class="list-unstyled" style="margin-top: 10px">
+                        <li>
+                            <strong>Jato: </strong>
+                            <span>@jato.Nome</span>
+                        </li>
+                        <li>
+                            <strong>Tipo de avião: </strong>
+                            <span>@jato.Modelo.TipoJato.Nome</span>
+                        </li>
+                        <li>
+                            <strong>Posição actual: </strong>
+                            <span>@jato.Aeroporto.Nome</span>
+                        </li>
+                        <li>
+                            <strong>Créditos base: </strong>
+                            <span>@jato.CreditosBase€</span>
+                        </li>
+                        <li>
+                            <strong>Créditos por kilometro: </strong>
+                            <span>@jato.CreditosPorKilometro€</span>
+                        </li>
+                    </ul>
+                    
+                    <script>
+                        function verOferta() {
+                            window.location.replace('VerOferta?id=@Model.AeroportoId&data=@Html.Raw(DateTime.Parse(Model.DataPartida.ToString(), CultureInfo.InvariantCulture))&lat=@Model.Latitude&long=@Model.Longitude&jatoId=@jato.JatoId');
+                        }
+
+                    </script>
+                        
+                    <button style="float: right" onclick="verOferta()" class="btn-link">Ver Oferta</button>
+                 
+                </div>
+            </div>
+        }
+        
+    </div>
+</div>
+

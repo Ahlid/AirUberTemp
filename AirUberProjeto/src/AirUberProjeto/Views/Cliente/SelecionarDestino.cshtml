@@ -1,0 +1,176 @@
+﻿@using System.Globalization
+
+
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<style>
+    /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+    #map {
+        height: 100%;
+    }
+    /* Optional: Makes the sample page fill the window. */
+    html, body, #MasterContainer {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+
+    body {
+        padding: 50px 0 0 0;
+    }
+
+    #pac-container {
+        padding-bottom: 12px;
+        margin-right: 12px;
+    }
+
+    .pac-controls {
+        display: inline-block;
+        padding: 5px 11px;
+        background-color: #fff;
+        font-family: Roboto;
+        font-size: 15px;
+        font-weight: 300;
+        margin-left: 12px;
+        padding: 0 11px 0 13px;
+        text-overflow: ellipsis;
+    }
+
+        .pac-controls label {
+            font-family: Roboto;
+            font-size: 13px;
+        }
+
+    #pac-input:focus {
+        border-color: #4d90fe;
+    }
+
+
+
+    #target {
+        width: 345px;
+    }
+</style>
+
+
+<div id="controlos" style="display: none; margin-top: 10px">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h2>Selecione o destino</h2>
+        </div>
+        <div class="panel-body">
+            <input id="controlo-pesquisa" style="width: 400px;" class="controls form-control" type="text" placeholder="Pesquisar localizações" /><br />
+        </div>
+   </div>
+</div>
+
+<div id="map" />
+
+
+<script>
+
+
+    var map;
+
+    function construirSearchBar(id) {
+        // Create the search box and link it to the UI element.
+        var input = document.getElementById(id);
+        var searchBox = new google.maps.places.Autocomplete(input);
+        
+        
+        var markers = [];
+        // Listen for the event fired when the user selects a prediction and retrieve
+        // more details for that place.
+        searchBox.addListener('place_changed', function () {
+            var place = searchBox.getPlace();
+            console.log("here");
+            if (place == null) {
+                return;
+            }
+            
+            // Clear out the old markers.
+            markers.forEach(function(marker) {
+                marker.setMap(null);
+            });
+            markers = [];
+
+            // For each place, get the icon, name and location.
+            var bounds = new google.maps.LatLngBounds();
+            
+            if (!place.geometry) {
+                console.log("Returned place contains no geometry");
+                return;
+            }  
+
+            var marker = new google.maps.Marker({
+                map: map,
+                animation: google.maps.Animation.DROP,
+                title: place.name,
+                position: place.geometry.location
+            });
+
+            // Create a marker for each place.
+            markers.push(marker);
+
+            marker.addListener('click', function () {
+                onSelecionarDestino(
+                    place.geometry.location.lat(),
+                            place.geometry.location.lng());
+
+                console.log(place.name);
+            });
+
+            if (place.geometry.viewport) {
+                // Only geocodes have viewport.
+                bounds.union(place.geometry.viewport);
+            } else {
+                bounds.extend(place.geometry.location);
+            }
+          
+            map.fitBounds(bounds);
+        });
+    }
+
+    function onSelecionarDestino(lat,long) {
+
+        window.location.replace('VerJatos?id=@ViewData["id"]&data=@Html.Raw(DateTime.Parse(ViewData["data"].ToString(), CultureInfo.InvariantCulture))&lat='+lat+'&long='+long);
+
+    }
+
+ 
+
+    function onMapReady() {
+
+        var div = document.getElementById("controlos");
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(div);
+
+        div.style.display = 'block';
+
+        construirSearchBar('controlo-pesquisa');
+
+    }
+
+    function initMap() {
+
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: 39.628659, lng: -8.240542},
+            zoom: 4
+        });
+
+        google.maps.event.addListenerOnce(map, 'idle', function(){
+            onMapReady(map);
+        });
+
+    }
+
+
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBy5Uk0EZNtonr8d-3LV4i5b9xo3fx61rU&callback=initMap&libraries=places">
+</script>

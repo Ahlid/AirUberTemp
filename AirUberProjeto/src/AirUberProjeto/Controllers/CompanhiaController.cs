@@ -166,6 +166,8 @@ namespace AirUberProjeto.Controllers
                 companhia.Nome = viewModel.Nome;
                 companhia.Nif = viewModel.Nif;
                 companhia.Contact = viewModel.Contact;
+                companhia.Descricao = viewModel.Descricao;
+                
                 _context.Update(companhia);
                 _context.SaveChanges();
                 ViewData["Success"] = true;
@@ -269,6 +271,8 @@ namespace AirUberProjeto.Controllers
                 jato.Nome = viewModel.Nome;
                 jato.AeroportoId = viewModel.AeroportoId;
                 jato.ModeloId = viewModel.ModeloId;
+                jato.CreditosBase = viewModel.CreditosBase;
+                jato.CreditosPorKilometro = viewModel.CreditosPorKilometro;
 
                 _context.Update(jato);
                 _context.SaveChanges();
@@ -333,6 +337,9 @@ namespace AirUberProjeto.Controllers
 
                 }, colaborador);
 
+
+                string relativePathToFile = Path.Combine("images", "aviao-default.svg");
+
                 Jato jato = new Jato()
                 {
                     Companhia = companhia,
@@ -341,6 +348,7 @@ namespace AirUberProjeto.Controllers
                     CompanhiaId = viewModel.CompanhiaId,
                     EmFuncionamento = false,
                     ModeloId = viewModel.ModeloId,
+                    RelativePathImagemPerfil = relativePathToFile
                 };
 
                 companhia.ListaJatos.Add(jato);
