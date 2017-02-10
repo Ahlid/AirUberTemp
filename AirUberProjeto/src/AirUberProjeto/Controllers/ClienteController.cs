@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -13,6 +15,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace AirUberProjeto.Controllers
 {
@@ -88,8 +92,6 @@ namespace AirUberProjeto.Controllers
                 Cliente = cliente,
                 NumeroViagens = cliente.ListaReservas.Count
             };
-
-
 
             List<Notificacao> notificacoes = _context.Notificacao.Where((n) =>
                         n.UtilizadorId == cliente.Id
@@ -223,7 +225,6 @@ namespace AirUberProjeto.Controllers
 
             Cliente cliente = (Cliente) _userManager.GetUserAsync(this.User).Result;
 
-
             var viagens = _context.Reserva.Select(c => c)
                 .Include(a => a.AeroportoDestino)
                 .Include(a => a.AeroportoPartida)
@@ -232,23 +233,129 @@ namespace AirUberProjeto.Controllers
                 .Include(a => a.Jato.Companhia)
                 .Include(r => r.ListaExtras)
                 .Where(c => c.Cliente.Id == cliente.Id).ToList();
+
             return View(viagens);
+
         }
+
+        private double DegreesToRadians(double angle)
+        {
+            return Math.PI * angle / 180.0;
+        }
+
+        private double RadiansToDegrees(double angle)
+        {
+            return angle * (180.0 / Math.PI);
+        }
+
+        public double distFrom(double lat1, double lng1, double lat2, double lng2)
+        {
+            double earthRadius = 3958.75;
+            double dLat = DegreesToRadians(lat2 - lat1);
+            double dLng = DegreesToRadians(lng2 - lng1);
+            double sindLat = Math.Sin(dLat / 2);
+            double sindLng = Math.Sin(dLng / 2);
+            double a = Math.Pow(sindLat, 2) + Math.Pow(sindLng, 2)
+                    * Math.Cos(DegreesToRadians(lat1)) * Math.Cos(DegreesToRadians(lat2));
+            double c = 2 * Math.Atan2(Math.Sqrt(a), Math.Sqrt(1 - a));
+            double dist = earthRadius * c;
+
+            return dist;
+        }
+
 
         /// <summary>
         /// Responsável por redireccionar o utilizador para a página que apresenta a informação de uma oferta
         /// </summary>
         /// <returns>Retorna a view das ofertas</returns>
-        public IActionResult VerOferta()
+        public IActionResult VerOferta(int id, DateTime data, double lat, double lon, int jatoid)
         {
 
+            try
+            {
+
+                Aeroporto aeroporto = _context.Aeroporto.Single(a => a.AeroportoId == id);
+                
+
+                Jato Jato = _context.Jato
+                    .Select(c => c)
+                    .Include(a => a.Companhia)
+                    .Include(a => a.Modelo)
+                    .Include(a => a.Aeroporto)
+                    .Include(a => a.Companhia.ListaExtras)
+                    .Include(a => a.Companhia.ListaReservas)
+                    .First(a => a.JatoId == jatoid);
+
+                if (Jato == null)
+                    return RedirectToAction("Index");
+
+                if (Jato.RelativePathImagemPerfil == null)
+                    Jato.RelativePathImagemPerfil = Path.Combine("images", "aviao-default.svg");
+
+                ICollection<Reserva> Reservas = Jato.Companhia.ListaReservas;
+                int reservasAvalidas = Reservas.Count(c => c.Avaliacao >= 0 && c.Avaliacao < 6);
+
+                int estrelas = 0;
+
+                if (reservasAvalidas == 0)
+                {
+                    estrelas = 5;
+                }
+                else {
+                    estrelas = Reservas.Where(c => c.Avaliacao >= 0 && c.Avaliacao < 6).Select(c => c.Avaliacao).Sum() / reservasAvalidas;
+                }
+
+                VerOfertaViewModel verOfertaViewModel = new VerOfertaViewModel()
+                {
+                    Jato = Jato,
+                    Partida = Jato.Aeroporto.Nome,
+                    Chegada = "Aeroporto Paris",
+                    DataPartida = DateTime.Now,
+                    Estrelas = estrelas,
+                    Kilometros = distFrom(aeroporto.Latitude, 
+                                            aeroporto.Longitude,
+                                            lat, 
+                                            lon)
+                };
 
 
+                return View(verOfertaViewModel);
+            }
+            catch (Exception ex)
+            {
+                return RedirectToAction("Index");
+            }
+
+        }
+
+        public IEnumerable<Aeroporto> AeroportosDisponiveis(DateTime data)
+        {
+
+            IEnumerable<Jato> jatosDIsponiveis = _context.Jato
+                .Include(c => c.ListaDisponibilidade)
+                .Include(c => c.Aeroporto)
+                .Where(c => jatoDisponivel(c, data)).ToList();
+
+            IEnumerable<Aeroporto> aeroportos = jatosDIsponiveis
+                .Select(c => c.Aeroporto)
+                .Distinct()
+                .ToList();
+
+            return aeroportos;
+
+        }
+
+        public IActionResult SelecionarDestino(int id, DateTime data)
+        {
+
+            //todo validar
+
+            ViewData["id"] = id;
+            ViewData["data"] = data;
 
             return View();
 
         }
-
 
         /// <summary>
         /// Responsável por redireccionar o utilizador para a página de pesquisa de ofertas
@@ -256,10 +363,8 @@ namespace AirUberProjeto.Controllers
         /// <returns>Retorna a view da procura de ofertas</returns>
         public IActionResult ProcurarOfertas()
         {
-            //TODO: filtrar pelas disponíbilidades dos jatos que estão nas localizações
 
-            var aeroportos = _context.Jato.Select(c => c.Aeroporto).ToList();
-            return View(aeroportos);
+            return View();
 
         }
 
@@ -279,6 +384,69 @@ namespace AirUberProjeto.Controllers
         }
 
 
+        private bool jatoDisponivel(Jato jato, DateTime DataReserva)
+        {
+            foreach (Disponibilidade disponibilidade in jato.ListaDisponibilidade)
+            {
+                
+                DateTime d1 = Convert.ToDateTime(disponibilidade.Inicio);
+
+                DateTime d2 = Convert.ToDateTime(disponibilidade.Fim);
+
+                if (DataReserva.Ticks > d1.Ticks && DataReserva.Ticks < d2.Ticks)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+
+        }
+
+        /// <summary>
+        /// Responsável por redireccionar o utilizador para a página de pesquisa de ofertas
+        /// </summary>
+        /// <returns>Retorna a view da procura de ofertas</returns>
+        [HttpGet]
+        public IActionResult VerJatos(int id, DateTime data, double lat, double lon)
+        {
+            //todo: validar dadods
+
+            
+
+            IEnumerable<Jato> jatos = _context.Jato.Include(c => c.ListaDisponibilidade)
+                .Include(c => c.Modelo)
+                .Include(c => c.Modelo.TipoJato)
+                .Include(c => c.Companhia)
+                .Include(c => c.Aeroporto)
+                .Where(c => c.AeroportoId == id)
+                .Where(c => jatoDisponivel(c, data)).ToList();
+
+            VerJatoViewModel viewModel = new VerJatoViewModel()
+            {
+                AeroportoId = id,
+                DataPartida = data,
+                Latitude = lat,
+                Longitude = lon,
+                JatodDisponiveis = jatos
+            };
+
+            return View(viewModel);
+
+        }
+
+        /// <summary>
+        /// Responsável por redireccionar o utilizador para a página de pesquisa de ofertas
+        /// </summary>
+        /// <returns>Retorna a view da procura de ofertas</returns>
+        [HttpGet]
+        public IActionResult ReservaConcluida(int id, DateTime data, double lat, double lon)
+        {
+            return View();
+        }
+
 
     }
+
 }
+

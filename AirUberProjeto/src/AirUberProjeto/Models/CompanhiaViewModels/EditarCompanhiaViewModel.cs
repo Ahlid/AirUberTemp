@@ -21,6 +21,11 @@ namespace AirUberProjeto.Models.CompanhiaViewModels
         public string Morada { get; set; }
 
         /// <summary>
+        /// Descrição da companhia
+        /// </summary>
+        public string Descricao { get; set; }
+
+        /// <summary>
         /// Contacto da companhia
         /// </summary>
         public string Contact { get; set; }

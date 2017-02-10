@@ -1,72 +1,114 @@
-﻿
+﻿@using System.Globalization
+@using System.Threading.Tasks
+@using AirUberProjeto.Models.ClienteViewModels
+@model AirUberProjeto.Models.ClienteViewModels.VerOfertaViewModel
 
 @{
     ViewBag.Title = "Oferta";
     Layout = "_Layout";
 
-    var teste = new
-    {
-        firstProperty = "First",
-        secondProperty = 2,
-        thirdProperty = true
-    };
-
-
 }
-
 
 
 <div class="container" style="margin-top: 20px">
     <div class="row">
         <div class="col-md-4">
-            <img class="img-thumbnail" src="http://epocanegocios.globo.com/Revista/Epocanegocios2/foto/0,,50605816,00.jpg" alt="...">
+            <img class="img-thumbnail" src="..\..\@Model.Jato.RelativePathImagemPerfil" alt="...">
             
             <div style="padding: 20px; height: 200px">
                 <div id="map" style="height: 100%"></div>
             </div>
 
-        
         </div>
         <div class="col-md-8">
             <h1 class="media-heading">Companhia</h1>
             
-            <label style="display: block; margin-bottom: 0px">Avaliação</label>
+            <label style="display: block; margin-bottom: 0">Avaliação</label>
             <ul id="el" class="c-rating"></ul>
             
    
-            <label style="display: block; margin-bottom: 0px">Informação</label>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam elementum mattis metus vel viverra. Quisque lacinia orci leo, porta lobortis eros lobortis in. Maecenas venenatis velit purus, vel laoreet odio pharetra at. Nam felis nunc, facilisis sed ligula aliquet, eleifend pretium purus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent lacus lectus, viverra nec sagittis id, auctor ac leo. Fusce non tortor massa. Donec tincidunt mi eget risus convallis, nec dictum metus mollis. Ut varius urna vel dui sagittis, in faucibus lacus dapibus. Aliquam in elit ac ante convallis ullamcorper sit amet aliquet lectus. In pretium nunc erat, eu gravida augue blandit a.
-           
+            <label style="display: block; margin-bottom: 0">Informação</label>
+            @Model.Jato.Companhia.Descricao
+            
+            <label style="display: block; margin-bottom: 0">Créditos Base</label>
+            @Model.Jato.CreditosBase
+            
+            <label style="display: block; margin-bottom: 0">Créditos Por kilometro</label>
+            @Model.Jato.CreditosPorKilometro
+            
+            <label style="display: block; margin-bottom: 0">Kilometros de viagem</label>
+            @Math.Round(Model.Kilometros, 2)km
             
             <div class="col-md-12" style="margin-top: 30px; padding-left: 0">
+                
+                <script>
+                    var extras = {};
 
-                <h4 class="media-heading">Selecione os extras que pretende:</h4>
+                    @foreach (Extra extra in Model.Jato.Companhia.ListaExtras)
+                    {
+                        <text>
+                            extras["CheckBox @extra.ExtraId"] = {
+                                id: @extra.ExtraId,
+                                nome: "@extra.Nome",
+                                valor: parseFloat("@extra.Valor".replace(',', '.'))
+                            };
+                        </text>
+                    }
+
+                    function calcularCreditos() {
+
+                        var creditos = parseFloat("@Model.Jato.CreditosBase".replace(',', '.'));
+
+                        creditos += parseFloat("@(Model.Kilometros * Model.Jato.CreditosPorKilometro)"
+                            .replace(',', '.'));
+
+                        for (var key in extras){
+
+                            if (document.getElementById(key).checked) {
+                                creditos += extras[key].valor;
+                            }
+                        }
+
+                        document.getElementById("TotalAPagar").innerHTML = creditos.toFixed(2) + "€";
+
+                    }
+
+                </script>
+
+                
 
                 <div>
                     <form asp-controller="Cliente" asp-action="Reservar" style="margin-top: 10px" method="post">
                         <div>
-                            <ul class="list-group">
-                                
-                                
-                            @for (var i = 1; i < 5; i++)
+                            @if (Model.Jato.Companhia.ListaExtras.Count > 0)
                             {
-                                <li class="col-md-12 list-group-item">
-                                    <label >Extra @i</label>
-                                    <input style="margin-left: 20px;float: right" asp-for="@teste.thirdProperty" type="checkbox" />
-
-                                    <span class="badge">42€</span>
-                                    
-                                    
-
-                                </li>
+                                <h4 class="media-heading">Selecione os extras que pretende:</h4>
                             }
+                            else
+                            {
+                                <h4 class="media-heading">A oferta não incluí extras.</h4>
+                            }
+
+                            <ul class="list-group">
+
+                                @foreach (Extra extra in Model.Jato.Companhia.ListaExtras)
+                                {
+
+                                    <li class="col-md-12 list-group-item">
+                                        <label>@extra.Nome</label>
+                                        <input id="CheckBox @extra.ExtraId" style="margin-left: 20px; float: right" type="checkbox" onclick="calcularCreditos()"/>
+                                        <span class="badge">@extra.Valor€</span>
+                                    </li>
+                                }
+
+
                             </ul>
                             <label style="padding-left: 0">Observações</label><br/>
-                            <textarea name="Text1" cols="40" rows="5"></textarea><br />
-                            
-                            <label style="padding-left: 0">Crédito total</label> <span class="badge">5460€</span><br />
-                          
-                            <input style="margin-top: 20px" type="submit" value="Reservar" class="btn btn-default" />
+                            <textarea name="Text1" cols="40" rows="5"></textarea><br/>
+
+                            <label style="padding-left: 0">Crédito total</label> <span id="TotalAPagar" class="badge">@Model.Jato.CreditosBase.ToString().Replace(',', '.')</span><br/>
+
+                            <input style="margin-top: 20px" type="submit" value="Reservar" class="btn btn-default"/>
 
                         </div>
 
@@ -78,38 +120,43 @@
         </div>
 
     </div>
+
 </div>
 
 
 <script>
-      function initMap() {
+
+    calcularCreditos();
+
+    function initMap() {
         var directionsService = new google.maps.DirectionsService;
         var directionsDisplay = new google.maps.DirectionsRenderer;
         var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 7,
-          draggable: false,
-          zoomControl: false,
-          scrollwheel: false,
-          disableDoubleClickZoom: true,
+            zoom: 7,
+            draggable: true,
+            zoomControl: false,
+            scrollwheel: false,
+            disableDoubleClickZoom: true,
             disableDefaultUI: true
 
         });
-        
-          directionsService.route({
-                  origin: "Lisbon airport",
-                  destination: "Paris airport",
-                  travelMode: 'WALKING'
-              },
-              function(response, status) {
-                  if (status === 'OK') {
-                      directionsDisplay.setDirections(response);
-                  } else {
-                      window.alert('Directions request failed due to ' + status);
-                  }
-              });
-          directionsDisplay.setMap(map);
 
-      }
+        directionsService.route({
+            origin: "@Html.Raw(Model.Partida)",
+            destination: "@Html.Raw(Model.Chegada)",
+                travelMode: 'WALKING'
+            },
+            function(response, status) {
+                if (status === 'OK') {
+                    directionsDisplay.setDirections(response);
+                } else {
+                    window.alert('Directions request failed due to ' + status);
+                }
+            });
+        directionsDisplay.setMap(map);
+
+    }
+
 </script>
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDYVgZdHbUzDY2KEBmmpB66hNLV0GLuMG4&callback=initMap">
@@ -123,7 +170,7 @@
     var el = document.querySelector('#el');
 
     // current rating, or initial rating
-    var currentRating = 3;
+    var currentRating = @Model.Estrelas;
 
     // max rating, i.e. number of stars you want
     var maxRating = 5;
