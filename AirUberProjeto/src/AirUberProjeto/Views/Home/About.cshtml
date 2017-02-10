@@ -17,6 +17,9 @@
         <a href="javascript:void(0)" onclick="openCity(event, 'perfilCliente');">
             <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding">Perfil Cliente</div>
         </a>
+        <a href="javascript:void(0)" onclick="openCity(event, 'perfilCompanhia');">
+            <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding">Perfil Companhia</div>
+        </a>
     </div>
 
     <div id="autenticacao"  class="w3-container city" style="display: none">
@@ -210,95 +213,199 @@
         
     </div>
 
-    <div id="perfilCliente" class="w3-container city" style="display: none">
-        <div style="padding-top: 20px" class="panel-group" id="accordionCliente">
+<div id="perfilCliente" class="w3-container city" style="display: none">
+    <div style="padding-top: 20px" class="panel-group" id="accordionCliente">
+
+        <div class="panel panel-default ">
+            <div class="panel-heading w3-hover-indigo">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordionCliente" href="#collapse1_cliente">
+                        Ver Perfil
+                    </a>
+                </h4>
+            </div>
+            <div id="collapse1_cliente" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <p>Para visualizar o perfil é necessário clicar sobre o item 'Ver Perfil' que esta presenta na barra de navegação.
+                        Em baixo segue-se um exemplo de uma página de perfil.</p>
+                    <p><img class="w3-round  w3-border" style="width: 60%;" src="../images/tutorial/Cliente_Visualizar_Perfil.png" /></p>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading w3-hover-indigo">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordionCliente" href="#collapse2_cliente">
+                        Editar Perfil
+                    </a>
+                </h4>
+            </div>
+            <div id="collapse2_cliente" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <p>Para editar o perfil é necessário estar na página do perfil (figura apresentada em baixo) e depois é necessário clicar sobre
+                        o link 'Editar Perfil' que está em baixo do nome do cliente</p>
+                    <p><img class="w3-round  w3-border" style="width: 60%;" src="../images/tutorial/Cliente_Visualizar_Perfil.png" /></p>
+                    <p>Depois de clicado no link 'Editar Perfil' o cliente é redirecionado para a página de editar perfil onde apenas é necessário
+                        inserir os novos dados e guardar.</p>
+                    <p><img class="w3-round  w3-border" style="width: 60%;" src="../images/tutorial/Cliente_Editar_Perfil.png" /></p>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading w3-hover-indigo">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordionCliente" href="#collapse3_cliente">
+                        Modificar Password
+                    </a>
+                </h4>
+            </div>
+            <div id="collapse3_cliente" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <p>Para modificador a password é necessária estar na página do perfil (figura apresentada em baixo) e depois é necessário clicar sobre
+                        o link 'Editar Perfil' que está em baixo do nome do cliente.</p>
+                    <p><img class="w3-round  w3-border" style="width: 60%;" src="../images/tutorial/Cliente_Visualizar_Perfil.png" /></p>
+                    <p>Depois de clicado no link 'Editar Perfil' o cliente é redirecionado para a página de editar perfil onde apenas é necessário
+                        inserir os novos dados e guardar.</p>
+                    <p><img class="w3-round  w3-border" style="width: 60%;" src="../images/tutorial/Cliente_Editar_Perfil.png" /></p>
+                    <p>Depois em baixo da foto do cliente está o link 'Alterar Password' que redireciona depois para a página onde é 
+                        possível alterar a password.</p>
+                    <p><img class="w3-round  w3-border" style="width: 60%;" src="../images/tutorial/Cliente_Modificar_Password.png" /></p>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading w3-hover-indigo">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordionCliente" href="#collapse4_cliente">
+                        Visualizar Notificações
+                    </a>
+                </h4>
+            </div>
+            <div id="collapse4_cliente" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <p>É necessário entrar na página de perfil do cliente que se encontra acessível através do item 'Ver Perfil' na barra de navegação.
+                        Depois como é possível visualizar na figura as notificações são apresentadas do lado direito da página de perfil numa caixa.</p>
+                    <p><img class="w3-round  w3-border" style="width: 60%;" src="../images/tutorial/Cliente_Visualizar_Perfil.png" /></p>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading w3-hover-indigo">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordionCliente" href="#collapse5_cliente">
+                        Marcar notificação como lida
+                    </a>
+                </h4>
+            </div>
+            <div id="collapse5_cliente" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <p>É necessário entrar na página de perfil do cliente que se encontra acessível através do item 'Ver Perfil' na barra de navegação.
+                        Depois para marcar uma notificação como lida basta clicar na cruz que esta presenta numa notificação.</p>
+                    <p><img class="w3-round  w3-border" style="width: 60%;" src="../images/tutorial/Cliente_Visualizar_Perfil.png" /></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    
+    <div id="perfilCompanhia" class="w3-container city" style="display: none">
+        <div style="padding-top: 20px" class="panel-group" id="accordionCompanhia">
 
             <div class="panel panel-default ">
                 <div class="panel-heading w3-hover-indigo">
                     <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordionCliente" href="#collapse1_cliente">
+                        <a data-toggle="collapse" data-parent="#accordionCompanhia" href="#collapse1_companhia">
                             Ver Perfil
                         </a>
                     </h4>
                 </div>
-                <div id="collapse1_cliente" class="panel-collapse collapse">
+                <div id="collapse1_companhia" class="panel-collapse collapse">
                     <div class="panel-body">
-                        <p>Para visualizar o perfil é necessário clicar sobre o item 'Ver Perfil' que esta presenta na barra de navegação.
-                           Em baixo segue-se um exemplo de uma página de perfil.</p>
-                        <p><img class="w3-round  w3-border" style="width: 60%;" src="../images/tutorial/Cliente_Visualizar_Perfil.png" /></p>
+                        <p>
+                            Para visualizar o perfil é necessário clicar sobre o item 'Ver Perfil' que esta presenta na barra de navegação.
+                            Em baixo segue-se um exemplo de uma página de perfil.
+                        </p>
+                        <p><img class="w3-round  w3-border" style="width: 60%;" src="../images/tutorial/Companhia/VerPeril.png" /></p>
                     </div>
                 </div>
             </div>
-            <div class="panel panel-default">
+            <div class="panel panel-default ">
                 <div class="panel-heading w3-hover-indigo">
                     <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordionCliente" href="#collapse2_cliente">
+                        <a data-toggle="collapse" data-parent="#accordionCompanhia" href="#collapse2_companhia">
                             Editar Perfil
                         </a>
                     </h4>
                 </div>
-                <div id="collapse2_cliente" class="panel-collapse collapse">
+                <div id="collapse2_companhia" class="panel-collapse collapse">
                     <div class="panel-body">
-                        <p>Para editar o perfil é necessário estar na página do perfil (figura apresentada em baixo) e depois é necessário clicar sobre
-                           o link 'Editar Perfil' que está em baixo do nome do cliente</p>
-                        <p><img class="w3-round  w3-border" style="width: 60%;" src="../images/tutorial/Cliente_Visualizar_Perfil.png" /></p>
-                        <p>Depois de clicado no link 'Editar Perfil' o cliente é redirecionado para a página de editar perfil onde apenas é necessário
-                           inserir os novos dados e guardar.</p>
-                        <p><img class="w3-round  w3-border" style="width: 60%;" src="../images/tutorial/Cliente_Editar_Perfil.png" /></p>
+                        <p>
+                            Para editar o perfil basta estar na pagina de perfil e carregar o link editar perfil. Irá aparecer um formulário como o da imagem abaixo, onde pode editar os seus dados da companhia. Atenção que apenas admnistradores podem editar estes dados.
+                        </p>
+                        <p><img class="w3-round  w3-border" style="width: 60%;" src="../images/tutorial/Companhia/EditarPeril.png" /></p>
                     </div>
                 </div>
             </div>
-            <div class="panel panel-default">
+            <div class="panel panel-default ">
                 <div class="panel-heading w3-hover-indigo">
                     <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordionCliente" href="#collapse3_cliente">
-                            Modificar Password
+                        <a data-toggle="collapse" data-parent="#accordionCompanhia" href="#collapse3_companhia">
+                            Gerir Colaboradores
                         </a>
                     </h4>
                 </div>
-                <div id="collapse3_cliente" class="panel-collapse collapse">
+                <div id="collapse3_companhia" class="panel-collapse collapse">
                     <div class="panel-body">
-                        <p>Para modificador a password é necessária estar na página do perfil (figura apresentada em baixo) e depois é necessário clicar sobre
-                            o link 'Editar Perfil' que está em baixo do nome do cliente.</p>
-                        <p><img class="w3-round  w3-border" style="width: 60%;" src="../images/tutorial/Cliente_Visualizar_Perfil.png" /></p>
-                        <p>Depois de clicado no link 'Editar Perfil' o cliente é redirecionado para a página de editar perfil onde apenas é necessário
-                            inserir os novos dados e guardar.</p>
-                        <p><img class="w3-round  w3-border" style="width: 60%;" src="../images/tutorial/Cliente_Editar_Perfil.png" /></p>
-                        <p>Depois em baixo da foto do cliente está o link 'Alterar Password' que redireciona depois para a página onde é 
-                            possível alterar a password.</p>
-                        <p><img class="w3-round  w3-border" style="width: 60%;" src="../images/tutorial/Cliente_Modificar_Password.png" /></p>
+                        <p>
+                            Para gerir colaboradores de uma companhia é preciso estar numa conta com direitos de adiministrador da mesma. Aqui podemos então criar, remover e editar colaboradores. Explicado abaixo nas imagens.
+
+                        </p>
+                        <p><img class="w3-round  w3-border" style="width: 60%;" src="../images/tutorial/Companhia/Gerir Colaboradores/main.png" /></p>
+                        <p><img class="w3-round  w3-border" style="width: 60%;" src="../images/tutorial/Companhia/Gerir Colaboradores/create.png" /></p>
+
                     </div>
                 </div>
             </div>
-            <div class="panel panel-default">
+            <div class="panel panel-default ">
                 <div class="panel-heading w3-hover-indigo">
                     <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordionCliente" href="#collapse4_cliente">
-                            Visualizar Notificações
+                        <a data-toggle="collapse" data-parent="#accordionCompanhia" href="#collapse4_companhia">
+                            Gerir Jatos
                         </a>
                     </h4>
                 </div>
-                <div id="collapse4_cliente" class="panel-collapse collapse">
+                <div id="collapse4_companhia" class="panel-collapse collapse">
                     <div class="panel-body">
-                        <p>É necessário entrar na página de perfil do cliente que se encontra acessível através do item 'Ver Perfil' na barra de navegação.
-                           Depois como é possível visualizar na figura as notificações são apresentadas do lado direito da página de perfil numa caixa.</p>
-                        <p><img class="w3-round  w3-border" style="width: 60%;" src="../images/tutorial/Cliente_Visualizar_Perfil.png" /></p>
+                        <p>
+                            Aqui podemos então criar, remover e editar jatos. Podemos ainda editar a sua disponibilidade. Todos os modelos de aviões são partilhados. Se tem um que ainda não existe pode tambem criar um que irá ser partilhado com outras companhias.
+                            Explicado abaixo nas imagens.
+
+                        </p>
+                        <p><img class="w3-round  w3-border" style="width: 60%;" src="../images/tutorial/Companhia/gerir avioes/main.png" /></p>
+                        <p><img class="w3-round  w3-border" style="width: 60%;" src="../images/tutorial/Companhia/gerir avioes/create.png" /></p>
+                        <p><img class="w3-round  w3-border" style="width: 60%;" src="../images/tutorial/Companhia/gerir avioes/disp.png" /></p>
+
                     </div>
                 </div>
             </div>
-            <div class="panel panel-default">
+            <div class="panel panel-default ">
                 <div class="panel-heading w3-hover-indigo">
                     <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordionCliente" href="#collapse5_cliente">
-                            Marcar notificação como lida
+                        <a data-toggle="collapse" data-parent="#accordionCompanhia" href="#collapse5_companhia">
+                            Gerir Extras
                         </a>
                     </h4>
                 </div>
-                <div id="collapse5_cliente" class="panel-collapse collapse">
+                <div id="collapse5_companhia" class="panel-collapse collapse">
                     <div class="panel-body">
-                        <p>É necessário entrar na página de perfil do cliente que se encontra acessível através do item 'Ver Perfil' na barra de navegação.
-                           Depois para marcar uma notificação como lida basta clicar na cruz que esta presenta numa notificação.</p>
-                        <p><img class="w3-round  w3-border" style="width: 60%;" src="../images/tutorial/Cliente_Visualizar_Perfil.png" /></p>
+                        <p>
+                            Aqui pode decidir que extras a sua companhia disponibiliza aos seus clientes durante o voo para ele escolher.
+                            Pode decidir o preço de cada extra e o jato para o mesmo.
+                            As imagens abaixo explicam como funciona.
+                        </p>
+                        <p><img class="w3-round  w3-border" style="width: 60%;" src="../images/tutorial/Companhia/gerir extras/main.png" /></p>
+                        <p><img class="w3-round  w3-border" style="width: 60%;" src="../images/tutorial/Companhia/gerir extras/create.png" /></p>
+
                     </div>
                 </div>
             </div>

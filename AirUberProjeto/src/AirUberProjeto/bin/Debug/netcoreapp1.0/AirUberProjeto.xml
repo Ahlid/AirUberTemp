@@ -347,12 +347,15 @@
             </summary>
             <returns>Retorna a view da procura de ofertas</returns>
         </member>
+<<<<<<< HEAD
         <member name="M:AirUberProjeto.Controllers.ClienteController.VerOferta(System.Int32,System.DateTime,System.Double,System.Double,System.Int32)">
             <summary>
             Responsável por redireccionar o utilizador para a página que apresenta a informação de uma oferta
             </summary>
             <returns>Retorna a view das ofertas</returns>
         </member>
+=======
+>>>>>>> 04e4eac5abd029a7219aed441eceb5f63406a50e
         <member name="M:AirUberProjeto.Controllers.ClienteController.ReservaConcluida(System.Int32,System.DateTime,System.Double,System.Double)">
             <summary>
             Responsável por redireccionar o utilizador para a página de pesquisa de ofertas
@@ -646,6 +649,40 @@
             Responsável por redireccionar o utilizador para a página que apresenta a informação de todas as viagens feitas na companhia.
             </summary>
             <returns>Retorna a view das viagens</returns>
+        </member>
+        <member name="T:AirUberProjeto.Controllers.CreditosController">
+            <summary>
+            Controlador responsável pela gestão de creditos
+            </summary>
+        </member>
+        <member name="F:AirUberProjeto.Controllers.CreditosController._context">
+            <summary>
+            O contexto da aplicação para poder aceder a dados.
+            </summary>
+        </member>
+        <member name="F:AirUberProjeto.Controllers.CreditosController._userManager">
+            <summary>
+            User manager que vai permitir utilizar metodos feitos pela windows de forma a controlar os user.
+            </summary>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.CreditosController.#ctor(AirUberProjeto.Data.AirUberDbContext,Microsoft.AspNetCore.Identity.UserManager{AirUberProjeto.Models.ApplicationUser})">
+            <summary>
+            Construtor do controlador
+            </summary>
+            <param name="context">O DB context da aplicação</param>
+            <param name="userManager">O manager dos utilizadores</param>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.CreditosController.Index">
+            <summary>
+            A acção index é a ação default do controlador e redireciona para a ação comprar
+            </summary>
+            <returns>Retorna a view retornada pela acção comprar</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.CreditosController.Comprar">
+            <summary>
+            A acção comprar para poder comprar creditos
+            </summary>
+            <returns>Retorna a view Comprar</returns>
         </member>
         <member name="T:AirUberProjeto.Controllers.HelpdeskController">
             <summary>
