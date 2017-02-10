@@ -55,7 +55,8 @@ $(function() {
         } else if (!isCvvValid) {
             alert("Wrong CVV");
         } else {
-
+            $('#payment').hide();
+            $('#loading').show();
             
             // Everything is correct. Add your form submission code here.
             $.ajax({
@@ -67,6 +68,17 @@ $(function() {
                     console.log(s);
                     $('#closeModal').click();
                     $('.modal-backdrop')[0].remove();
+                    $('#payment').show();
+                    $('#loading').hide();
+                    document.getElementById('callback-payment').innerHTML = '<div class="alert alert-success"> <strong>Success!</strong> Conta carregada com sucesso. Possui agora ' + s + ' cr\u00E9ditos.</div>';
+                    setTimeout(function() {
+
+                      
+
+                            document.getElementById('callback-payment').innerHTML = '';
+                        },
+                        4500);
+
 
                 }
             });

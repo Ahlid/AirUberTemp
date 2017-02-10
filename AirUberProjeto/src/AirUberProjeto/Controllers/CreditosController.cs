@@ -78,7 +78,7 @@ namespace AirUberProjeto.Controllers
 
             //todo adcionar ao historico
 
-            return "okokoko";
+            return ""+cliente.ContaDeCreditos.JetCashActual;
         }
 
     }
