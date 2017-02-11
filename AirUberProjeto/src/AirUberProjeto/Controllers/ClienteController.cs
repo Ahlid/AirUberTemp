@@ -284,8 +284,7 @@ namespace AirUberProjeto.Controllers
 
         private TipoDisponibilidade JatoDisponivelPontual(int jatoId, int aeroportoPartidaId, DateTime dataReserva)
         {
-
-            //todo verificar se a data é posterior a hoje + offset
+            
             if(dataReserva.Ticks < DateTime.Now.Ticks)
                 return TipoDisponibilidade.NaoDisponivel;
 
@@ -294,10 +293,7 @@ namespace AirUberProjeto.Controllers
                 .Include(j => j.Companhia)
                 .Include(j => j.Companhia.ListaReservas)
                 .Single(j => j.JatoId == jatoId);
-
-            Aeroporto aeroporto = _context.Aeroporto
-                .Single(j => j.AeroportoId == aeroportoPartidaId);
-
+            
             foreach (Disponibilidade disponibilidade in jato.ListaDisponibilidade)
             {
 
@@ -309,13 +305,22 @@ namespace AirUberProjeto.Controllers
                 //Data enquadra-se na disponibilidade
                 if (p1 && p2)
                 {
+                    bool existeReserva = jato.Companhia.ListaReservas
+                        .Where(r => r.JatoId == jatoId)
+                        .Any(r => r.DataChegada.Ticks >= dataReserva.Ticks &&
+                                r.DataPartida.Ticks <= dataReserva.Ticks);
+
+                    if (existeReserva)
+                    {
+                        return TipoDisponibilidade.NaoDisponivel;
+                    }
 
                     //Última reserva antes da data
                     Reserva reserva = jato.Companhia.ListaReservas
-                    .Where(r => r.DataChegada.Ticks < dataReserva.Ticks)
-                    .OrderByDescending(r => r.DataChegada.Ticks).FirstOrDefault();
-
- 
+                        .Where(r => r.JatoId == jatoId)
+                        .Where(r => r.DataChegada.Ticks < dataReserva.Ticks)
+                        .OrderByDescending(r => r.DataChegada.Ticks).FirstOrDefault();
+                    
                     double tempoDePreparacao = 0; //todo: = jato.TempoPreparacao;
                     double tempoDeDeslocacao;
                     double tempoTotalDispendido;
@@ -375,10 +380,7 @@ namespace AirUberProjeto.Controllers
                     {
                         return TipoDisponibilidade.DisponivelDeslocacao;
                     }
-
                 }
-
-
             }
 
             return TipoDisponibilidade.NaoDisponivel;
@@ -419,12 +421,26 @@ namespace AirUberProjeto.Controllers
                 }
 
 
-                //todo verificar se interseta uma reserva
+                bool existeReserva = jato.Companhia.ListaReservas
+                         .Where(r => r.JatoId == jatoId)
+                         .Any(r => 
+                                (r.DataChegada.Ticks >= dataReserva.Ticks &&
+                                 r.DataPartida.Ticks <= dataReserva.Ticks) ||
+                                 (r.DataChegada.Ticks >= dataReserva.Ticks + tempoTotalDispendido &&
+                                 r.DataPartida.Ticks <= dataReserva.Ticks + tempoTotalDispendido)
+                         );
+
+                if (existeReserva)
+                {
+                    return TipoDisponibilidade.NaoDisponivel;
+                }
+
 
 
 
                 //Última reserva antes da data
                 Reserva reservaAnterior = jato.Companhia.ListaReservas
+                    .Where(r => r.JatoId == jatoId)
                     .Where(r => r.DataChegada.Ticks < dataReserva.Ticks)
                     .OrderByDescending(r => r.DataChegada.Ticks).FirstOrDefault();
 
@@ -579,29 +595,7 @@ namespace AirUberProjeto.Controllers
 
             return false;
         }
-
-
-        /// <summary>
-        /// Verifica a disponibilidade de um jato numa data
-        /// </summary>
-        /// <returns>true se o jato estiver disponível na data, false senão</returns>
-        private bool jatoDisponivel(Jato jato, DateTime dataReserva)
-        {
-            foreach (Disponibilidade disponibilidade in jato.ListaDisponibilidade)
-            {
-
-                DateTime d1 = Convert.ToDateTime(disponibilidade.Inicio);
-                DateTime d2 = Convert.ToDateTime(disponibilidade.Fim);
-
-                if (dataReserva.Ticks > d1.Ticks && dataReserva.Ticks < d2.Ticks)
-                {
-                    return true;
-                }
-
-            }
-            
-            return false;
-        }
+        
 
         private double DegreesToRadians(double angle)
         {

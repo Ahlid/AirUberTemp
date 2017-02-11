@@ -40,11 +40,7 @@
             </remarks>
             <param name="services">Services</param>
         </member>
-<<<<<<< HEAD
-        <member name="M:AirUberProjeto.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IHostingEnvironment,Microsoft.Extensions.Logging.ILoggerFactory,AirUberProjeto.Data.AirUberDbContext)">
-=======
         <member name="M:AirUberProjeto.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IHostingEnvironment,Microsoft.Extensions.Logging.ILoggerFactory,AirUberProjeto.Data.AirUberDbContext,Microsoft.AspNetCore.Identity.UserManager{AirUberProjeto.Models.ApplicationUser})">
->>>>>>> 37fd73eecd0e0f16db62881884a7782f69d99ec5
             <summary>
             Configure
             </summary>
@@ -321,17 +317,16 @@
             <param name="file">ficheiro de imagem que irá substituir a imagem de perfil</param>
             <returns>Um redirecionamento para a ação editar perfil</returns>
         </member>
+        <member name="T:AirUberProjeto.Controllers.ClienteController.TipoDisponibilidade">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="M:AirUberProjeto.Controllers.ClienteController.VerViagens">
             <summary>
             Responsável por redireccionar o utilizador para a página que apresenta a informação de todas as viagens feitas na companhia.
             </summary>
             <returns>Retorna a view das viagens</returns>
-        </member>
-        <member name="M:AirUberProjeto.Controllers.ClienteController.VerOferta(System.Int32,System.DateTime,System.Double,System.Double,System.Int32)">
-            <summary>
-            Responsável por redireccionar o utilizador para a página que apresenta a informação de uma oferta
-            </summary>
-            <returns>Retorna a view das ofertas</returns>
         </member>
         <member name="M:AirUberProjeto.Controllers.ClienteController.ProcurarOfertas">
             <summary>
@@ -345,17 +340,23 @@
             </summary>
             <returns>Retorna a view da procura de ofertas</returns>
         </member>
-        <member name="M:AirUberProjeto.Controllers.ClienteController.VerJatos(System.Int32,System.DateTime,System.Double,System.Double)">
+        <member name="M:AirUberProjeto.Controllers.ClienteController.VerJatos(System.Int32,System.Int32,System.DateTime)">
             <summary>
             Responsável por redireccionar o utilizador para a página de pesquisa de ofertas
             </summary>
             <returns>Retorna a view da procura de ofertas</returns>
         </member>
-        <member name="M:AirUberProjeto.Controllers.ClienteController.ReservaConcluida(System.Int32,System.DateTime,System.Double,System.Double)">
+        <member name="M:AirUberProjeto.Controllers.ClienteController.VerOferta(System.Int32,System.Int32,System.DateTime,System.Int32)">
             <summary>
-            Responsável por redireccionar o utilizador para a página de pesquisa de ofertas
+            Responsável por redireccionar o utilizador para a página que apresenta a informação de uma oferta
             </summary>
-            <returns>Retorna a view da procura de ofertas</returns>
+            <returns>Retorna a view das ofertas</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.ClienteController.ReservaConcluida(System.Int32,System.Int32,System.DateTime,System.Int32,System.Collections.Generic.List{System.Int32})">
+            <summary>
+            Responsável por redireccionar o utilizador para a página de reserva concluída
+            </summary>
+            <returns>Retorna de reserva concluída</returns>
         </member>
         <member name="T:AirUberProjeto.Controllers.CompanhiaController">
             <summary>
@@ -1772,6 +1773,21 @@
             Propriedade responsável por guardar a data de chegada da reserva.
             </summary>
         </member>
+        <member name="P:AirUberProjeto.Models.Reserva.Aprovada">
+            <summary>
+            Propriedade que indica se a reserva foi aprovada.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Reserva.Paga">
+            <summary>
+            Propriedade que indica se a reserva foi paga.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Reserva.Realizada">
+            <summary>
+            Propriedade que indica se a reserva foi realizada
+            </summary>
+        </member>
         <member name="P:AirUberProjeto.Models.Reserva.AeroportoPartidaId">
             <summary>
             Identificador unívoco do aeroporto de partida da reserva.
@@ -1868,7 +1884,7 @@
         </member>
         <member name="P:AirUberProjeto.Models.TipoAcao.TipoAcaoId">
             <summary>
-            Identificador unívoco de um tipo de extra
+            Identificador unívoco de um tipo de uma ação
             </summary>
         </member>
         <member name="P:AirUberProjeto.Models.TipoAcao.Nome">

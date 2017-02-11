@@ -322,12 +322,6 @@
             
             </summary>
         </member>
-        <member name="M:AirUberProjeto.Controllers.ClienteController.jatoDisponivel(AirUberProjeto.Models.Jato,System.DateTime)">
-            <summary>
-            Verifica a disponibilidade de um jato numa data
-            </summary>
-            <returns>true se o jato estiver disponível na data, false senão</returns>
-        </member>
         <member name="M:AirUberProjeto.Controllers.ClienteController.VerViagens">
             <summary>
             Responsável por redireccionar o utilizador para a página que apresenta a informação de todas as viagens feitas na companhia.
