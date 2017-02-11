@@ -1,0 +1,92 @@
+﻿@model IEnumerable<AirUberProjeto.Models.Reserva>
+
+@{
+    ViewBag.Title = "Viagens";
+    Layout = "_Layout";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Jato.Companhia)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Cliente)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AeroportoPartida)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AeroportoDestino)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DataPartida)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DataChegada)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ListaExtras)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Jato)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Custo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Avaliacao)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(model => item.Jato.Companhia.Nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Cliente.Nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AeroportoPartida.Nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AeroportoDestino.Nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DataPartida)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DataChegada)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ListaExtras.Count)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Jato.Nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Custo)
+                    </td>
+                    <td>
+                        @if (item.Avaliacao < 0)
+                        {
+                            @Html.Raw("Por avaliar")
+                        }
+                        else
+                        {
+                            @Html.DisplayFor(modelItem => item.Avaliacao)
+                        }
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -8,8 +8,8 @@ using AirUberProjeto.Data;
 namespace AirUberProjeto.Migrations
 {
     [DbContext(typeof(AirUberDbContext))]
-    [Migration("20170123233918_nome")]
-    partial class nome
+    [Migration("20170124152601_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

@@ -1,0 +1,256 @@
+﻿
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<style>
+    /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+    #map {
+        height: 100%;
+    }
+    /* Optional: Makes the sample page fill the window. */
+    html, body, #MasterContainer {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+
+    body {
+        padding: 50px 0 0 0;
+    }
+
+    #pac-container {
+        padding-bottom: 12px;
+        margin-right: 12px;
+    }
+
+    .pac-controls {
+        display: inline-block;
+        padding: 5px 11px;
+
+        background-color: #fff;
+        font-family: Roboto;
+        font-size: 15px;
+        font-weight: 300;
+        margin-left: 12px;
+        padding: 0 11px 0 13px;
+        text-overflow: ellipsis;
+    }
+
+    .pac-controls label {
+        font-family: Roboto;
+        font-size: 13px;
+    }
+
+    #pac-input:focus {
+        border-color: #4d90fe;
+    }
+
+    
+
+    #target {
+        width: 345px;
+    }
+</style>
+
+
+<div id="controlos" style="display: none; margin-top: 10px">
+    <div class="panel panel-default" style="width: 600px">
+        <div class="panel-heading">
+            <h3>Selecione a data e o ponto de partida</h3>
+        </div>
+        <div class="panel-body">
+            <div class="input-group">
+                <span id="title" class="input-group-addon">Data de partida</span>
+                <input id="controlo-data" style="width: 400px;" class="controls form-control" type="datetime-local" />
+            </div>
+            <input id="controlo-pesquisa" style="margin-top: 10px;width: 400px;" class="controls form-control" type="text" placeholder="Pesquisar localizações" /><br />
+        </div></div>
+</div>
+
+        <div id="map" />
+
+
+        <script>
+
+            var aeroportos = [];
+
+            var markersAeroporto = [];
+
+
+            var map;
+
+            //Quando o datetime picker altera de valor
+            $('#controlo-data').on('input', function () {
+
+                $.get("AeroportosDisponiveis?data=" + $(this).val(), function (data, status) {
+
+                    if (status !== 'success') {
+                        return;
+                    }
+
+                    for (var i = 0; i < data.length; i++) {
+                        aeroportos.push({
+                            "id": data[i].aeroportoId,
+                            "nome": data[i].nome
+                        });
+                    }
+
+                    marcarAeroportos();
+
+                });
+
+            });
+
+
+
+
+            function construirSearchBar(id) {
+                // Create the search box and link it to the UI element.
+                var input = document.getElementById(id);
+                var searchBox = new google.maps.places.SearchBox(input);
+
+                // Bias the SearchBox results towards current map's viewport.
+                map.addListener('bounds_changed', function () {
+                    searchBox.setBounds(map.getBounds());
+                });
+
+                var markers = [];
+                // Listen for the event fired when the user selects a prediction and retrieve
+                // more details for that place.
+                searchBox.addListener('places_changed', function () {
+                    var places = searchBox.getPlaces();
+
+                    if (places.length == 0) {
+                        return;
+                    }
+
+                    // Clear out the old markers.
+                    markers.forEach(function (marker) {
+                        marker.setMap(null);
+                    });
+                    markers = [];
+
+                    // For each place, get the icon, name and location.
+                    var bounds = new google.maps.LatLngBounds();
+                    places.forEach(function (place) {
+                        if (!place.geometry) {
+                            console.log("Returned place contains no geometry");
+                            return;
+                        }
+                        var icon = {
+                            url: place.icon,
+                            size: new google.maps.Size(71, 71),
+                            origin: new google.maps.Point(0, 0),
+                            anchor: new google.maps.Point(17, 34),
+                            scaledSize: new google.maps.Size(25, 25)
+                        };
+
+                        // Create a marker for each place.
+                        markers.push(new google.maps.Marker({
+                            map: map,
+                            icon: icon,
+                            title: place.name,
+                            position: place.geometry.location
+                        }));
+
+                        if (place.geometry.viewport) {
+                            // Only geocodes have viewport.
+                            bounds.union(place.geometry.viewport);
+                        } else {
+                            bounds.extend(place.geometry.location);
+                        }
+                    });
+                    map.fitBounds(bounds);
+                });
+            }
+
+            function onSelecionarAeroporto(id) {
+
+                window.location.replace('SelecionarDestino?id=' + id + '&data=' + $('#controlo-data').val());
+
+            }
+
+            function marcarAeroporto(results, status) {
+                if (status == google.maps.places.PlacesServiceStatus.OK) {
+                    var marker = new google.maps.Marker({
+                        map: map,
+                        place: {
+                            placeId: results[0].place_id,
+                            location: results[0].geometry.location
+                        }
+                    });
+
+                    return marker;
+                }
+            }
+
+            function marcarAeroportos() {
+
+                markersAeroporto.forEach(function (marker) {
+                    marker.setMap(null);
+                });
+                markersAeroporto = [];
+
+
+                aeroportos.forEach(function (aeroporto) {
+
+                    var request = {
+                        location: map.getCenter(),
+                        radius: '500',
+                        query: aeroporto.nome
+                    };
+
+                    var service = new google.maps.places.PlacesService(map);
+                    service.textSearch(request,
+                        function (results, status) {
+                            var marker = marcarAeroporto(results, status);
+                            if (marker != null) {
+
+                                markersAeroporto.push(marker);
+
+                                marker.addListener('click',
+                                    function () {
+                                        onSelecionarAeroporto(aeroporto.id);
+                                    });
+
+
+                            }
+
+                        });
+                });
+            }
+
+            function onMapReady() {
+
+                var div = document.getElementById("controlos");
+                map.controls[google.maps.ControlPosition.TOP_LEFT].push(div);
+
+                div.style.display = 'block';
+
+                construirSearchBar('controlo-pesquisa');
+
+            }
+
+            function initMap() {
+
+                map = new google.maps.Map(document.getElementById('map'), {
+                    center: { lat: 39.628659, lng: -8.240542 },
+                    zoom: 4
+                });
+
+                google.maps.event.addListenerOnce(map, 'idle', function () {
+                    onMapReady(map);
+                });
+
+            }
+
+
+        </script>
+       <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBy5Uk0EZNtonr8d-3LV4i5b9xo3fx61rU&callback=initMap&libraries=places">
+</script>

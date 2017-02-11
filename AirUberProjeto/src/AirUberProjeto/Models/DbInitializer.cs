@@ -19,7 +19,7 @@ namespace AirUberProjeto.Models
         /// Método reponsável por inserir em todas as tabelas da base de dados caso não haja já valores na tabela.
         /// </summary>
         /// <param name="context">Contexto da aplicação.</param>
-        public static void Initialize(AirUberDbContext context)
+        public static void Initialize(AirUberDbContext context, UserManager<ApplicationUser> userManager)
         {
             context.Database.EnsureCreated();
             //context.SaveChanges();
@@ -64,7 +64,7 @@ namespace AirUberProjeto.Models
             inicializarColaboradores(context);  // apagar - apenas testes
             context.SaveChanges();
 
-            inicializarViagens(context);    // apagar - apenas testes
+            inicializarViagens(context, userManager);    // apagar - apenas testes
             context.SaveChanges();
 
         }
@@ -365,6 +365,8 @@ namespace AirUberProjeto.Models
             {
                 ContaDeCreditos conta1 = new ContaDeCreditos()
                 {
+                    
+                    
                     JetCashActual = 1000000
                 };
 
@@ -461,11 +463,11 @@ namespace AirUberProjeto.Models
         {
             if (!context.Extra.Any())
             {
-                Extra extra1 = new Models.Extra() { TipoExtraId = 1, CompanhiaId = 1, Valor = 50.00m };
-                Extra extra2 = new Models.Extra() { TipoExtraId = 2, CompanhiaId = 1, Valor = 100.00m };
-                Extra extra3 = new Models.Extra() { TipoExtraId = 3, CompanhiaId = 2, Valor = 150.00m };
-                Extra extra4 = new Models.Extra() { TipoExtraId = 4, CompanhiaId = 1, Valor = 500.00m };
-                Extra extra5 = new Models.Extra() { TipoExtraId = 4, CompanhiaId = 2, Valor = 700.00m };
+                Extra extra1 = new Models.Extra() { TipoExtraId = 1, CompanhiaId = 1, Nome = "Cervejinha", Valor = 50.00m };
+                Extra extra2 = new Models.Extra() { TipoExtraId = 2, CompanhiaId = 1, Nome = "Massagem", Valor = 100.00m };
+                Extra extra3 = new Models.Extra() { TipoExtraId = 3, CompanhiaId = 2, Nome = "Massagem", Valor = 150.00m };
+                Extra extra4 = new Models.Extra() { TipoExtraId = 4, CompanhiaId = 1, Nome = "Champagne", Valor = 500.00m };
+                Extra extra5 = new Models.Extra() { TipoExtraId = 4, CompanhiaId = 2, Nome = "Lapdance", Valor = 700.00m };
 
                 List<Extra> extrasTAP = new List<Extra>() { extra1, extra2, extra4 };
                 List<Extra> extrasRyanair = new List<Extra>() { extra3, extra5 };
@@ -573,7 +575,7 @@ namespace AirUberProjeto.Models
         /// Responsável por inserir na base de dados várias viagens caso não exista nenhuma viagem na base de dados
         /// </summary>
         /// <param name="context">Contexto da aplicação</param>
-        private static void inicializarViagens(AirUberDbContext context)
+        private static void inicializarViagens(AirUberDbContext context, UserManager<ApplicationUser> userManager)
         {
 
             //aqui associar uma lista de extras ao jato
@@ -585,9 +587,22 @@ namespace AirUberProjeto.Models
                 };
 
                 //Novo cliente
-                Cliente Miguel = new Cliente() { Nome = "Miguel", Apelido = "Esteves", Ativo = true, ContaDeCreditos = conta1,
-                    DataCriacao = DateTime.Now, Contacto = "2222", Email ="Qualquer"};
-
+                Cliente Miguel = new Cliente() {
+                    Nome = "Miguel",
+                    Apelido = "Esteves",
+                    Ativo = true,
+                    ContaDeCreditos = conta1,
+                    DataCriacao = DateTime.Now,
+                    Contacto = "2222",
+                    Email ="miguel@teste.pt",
+                    UserName = "miguel@teste.pt"
+                };
+                
+                //var result = userManager.CreateAsync(Miguel, "ost:43636/Acc").Result;
+                /*if (result.Succeeded)
+                {
+                    userManager.AddToRoleAsync(Miguel, Roles.ROLE_CLIENTE);
+                }*/
                 context.Cliente.Add(Miguel);
                 context.SaveChanges();
 
@@ -599,8 +614,7 @@ namespace AirUberProjeto.Models
                      AeroportoDestinoId = 2,
                      JatoId = 1,
                      Cliente = Miguel,
-                     Custo = 3500.5m,
-
+                     Custo = 3500.5m
                  };
                 Reserva reserva2 = new Reserva()
                 {
@@ -611,7 +625,7 @@ namespace AirUberProjeto.Models
                     JatoId = 1,
                     Cliente = Miguel,
                     Custo = 7483.23m,
-                    Avaliacao = 5,
+                    Avaliacao = 5
                 };
                 context.Reserva.Add(reserva1);
                 context.Reserva.Add(reserva2);

@@ -7,12 +7,16 @@ using AirUberProjeto.Data;
 using AirUberProjeto.Models;
 using AirUberProjeto.Models.CompanhiaViewModels;
 using AirUberProjeto.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+
+using Org.BouncyCastle.Security;
+
 using Newtonsoft.Json;
 
 namespace AirUberProjeto.Controllers
@@ -20,6 +24,7 @@ namespace AirUberProjeto.Controllers
     /// <summary>
     /// Classe responsável por receber todos os pedidos do browser e tratar dos mesmos relativamente às companhias
     /// </summary>
+    [Authorize(Roles = Roles.ROLE_COLABORADOR_ADMIN + ", " + Roles.ROLE_COLABORADOR)]
     public class CompanhiaController : Controller
     {
 
@@ -43,7 +48,7 @@ namespace AirUberProjeto.Controllers
         /// </summary>
         private readonly IEmailSender _emailSender;
 
-
+        
 
         /// <summary>
         /// Construtor do controlador Companhia
@@ -81,7 +86,6 @@ namespace AirUberProjeto.Controllers
 
 
             Colaborador colaborador = (Colaborador) _userManager.GetUserAsync(this.User).Result;
-
 
             Companhia companhia = (_context.Companhia.Select(c => c).Include(c => c.Pais)
                 .Include(c => c.Estado)
@@ -162,6 +166,8 @@ namespace AirUberProjeto.Controllers
                 companhia.Nome = viewModel.Nome;
                 companhia.Nif = viewModel.Nif;
                 companhia.Contact = viewModel.Contact;
+                companhia.Descricao = viewModel.Descricao;
+                
                 _context.Update(companhia);
                 _context.SaveChanges();
                 ViewData["Success"] = true;
@@ -265,6 +271,8 @@ namespace AirUberProjeto.Controllers
                 jato.Nome = viewModel.Nome;
                 jato.AeroportoId = viewModel.AeroportoId;
                 jato.ModeloId = viewModel.ModeloId;
+                jato.CreditosBase = viewModel.CreditosBase;
+                jato.CreditosPorKilometro = viewModel.CreditosPorKilometro;
 
                 _context.Update(jato);
                 _context.SaveChanges();
@@ -329,6 +337,9 @@ namespace AirUberProjeto.Controllers
 
                 }, colaborador);
 
+
+                string relativePathToFile = Path.Combine("images", "aviao-default.svg");
+
                 Jato jato = new Jato()
                 {
                     Companhia = companhia,
@@ -337,6 +348,7 @@ namespace AirUberProjeto.Controllers
                     CompanhiaId = viewModel.CompanhiaId,
                     EmFuncionamento = false,
                     ModeloId = viewModel.ModeloId,
+                    RelativePathImagemPerfil = relativePathToFile
                 };
 
                 companhia.ListaJatos.Add(jato);
@@ -606,7 +618,7 @@ namespace AirUberProjeto.Controllers
                 .Include(c => c.Companhia)
                 .SingleOrDefault(c => c.Id == id);
             if (colaborador == null)
-            {
+            {   
                 return NotFound();
             }
             return View(colaborador);
@@ -698,7 +710,7 @@ namespace AirUberProjeto.Controllers
          * 
          * Problema com valores decimais com '.'
          * 
-         * 
+         *  
          * 
          * 
          * 
@@ -732,6 +744,7 @@ namespace AirUberProjeto.Controllers
                     Nome = viewModel.Nome,
                     TipoExtraId = viewModel.TipoExtraId,
                     Valor = Convert.ToDecimal(viewModel.Valor)
+                    
                 };
 
 
@@ -923,7 +936,9 @@ namespace AirUberProjeto.Controllers
                     LarguraCabine = viewModel.LarguraCabine,
                     ComprimentoCabine = viewModel.ComprimentoCabine,
                     Descricao = viewModel.Descricao,
-                    TipoJatoId = viewModel.TipoJatoId,
+
+                    TipoJatoId = viewModel.TipoJatoId
+
 
                 };
 
@@ -1222,6 +1237,31 @@ namespace AirUberProjeto.Controllers
             }
 
         }
+
+        //Viagens
+
+        /// <summary>
+        /// Responsável por redireccionar o utilizador para a página que apresenta a informação de todas as viagens feitas na companhia.
+        /// </summary>
+        /// <returns>Retorna a view das viagens</returns>
+        public IActionResult VerViagens()
+        {
+            Colaborador colaborador = (Colaborador)_userManager.GetUserAsync(this.User).Result;
+            Companhia companhia = (_context.Companhia.Select(c => c).Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
+
+
+            var viagens = _context.Reserva.Select(c => c)
+                                          .Include(a => a.AeroportoDestino)
+                                          .Include(a => a.AeroportoPartida)
+                                          .Include(a => a.Cliente)
+                                          .Include(a => a.Jato)
+                                          .Include(a => a.Jato.Companhia)
+                                          .Include(r => r.ListaExtras)
+                                          .Where(c => c.Jato.Companhia.CompanhiaId == companhia.CompanhiaId).ToList();
+            return View(viagens);
+        }
+
+
 
     }
 }

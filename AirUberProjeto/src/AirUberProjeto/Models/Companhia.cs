@@ -67,6 +67,11 @@ namespace AirUberProjeto.Models
         /// </summary>
         public string RelativePathImagemPerfil { get; set; }
 
+        /// <summary>
+        /// Caminho de onde a imagem de perfil da companhia está localizada no projecto
+        /// </summary>
+        public string Descricao { get; set; }
+
         // Propriedades Virtuais
         /// <summary>
         /// Propriedade navegacional responsável por referenciar o país a que uma companhia pertence.

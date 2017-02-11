@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -34,5 +35,18 @@ namespace AirUberProjeto.Models.CompanhiaViewModels
         /// Identificador único do aeroporto onde o jato se encontra
         /// </summary>
         public int AeroportoId { get; set; }
+        /// <summary>
+        /// Preço base em créditos
+        /// </summary>
+        [Display(Name = "Preço base em créditos")]
+        public double CreditosBase { get; set; }
+        /// <summary>
+        /// Preço em crédidos por Kilometro
+        /// </summary>
+        [Display(Name = "Preço em crédidos por Kilometro")]
+        public double CreditosPorKilometro { get; set; }
+
+        
+
     }
 }
