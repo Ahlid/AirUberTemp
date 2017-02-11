@@ -1,0 +1,63 @@
+﻿<Window x:Class="AirUberBackoffice.AlteracoesModelo.EditarModeloDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AirUberBackoffice.AlteracoesModelo"
+        ShowInTaskbar="False"
+        Closing="Window_Closing"
+        Title="Editar Modelos" 
+        Height="618.493" Width="537">
+    <Grid Name="GridFormModelo" DockPanel.Dock="Left"  Margin="10,10,18.4,9.2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="50"/>
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="71.265"/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Label Content="Capacidade" HorizontalAlignment="Left"   FontSize="12" Margin="10,10,0,10.2" Width="100" Grid.ColumnSpan="2" />
+        <Label Content="Alcance" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left"   FontSize="12" Margin="10,10,0,10.2" Width="100" Grid.ColumnSpan="2" />
+        <Label Content="Velocidade Máx." Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left"   FontSize="12" Margin="10,10,0,10.2" Width="100" Grid.ColumnSpan="2" />
+        <Label Content="Peso Máximo Bagagens" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left"   FontSize="12" Margin="10,10,0,10.2" Width="100" Grid.ColumnSpan="2" />
+        <Label Content="Número motores" Grid.Row="4"  FontSize="12" Margin="10,9.6,61.2,10" Width="100" Grid.ColumnSpan="2" />
+        <Label Content="Altura ideal" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Left"   FontSize="12" Margin="10,10,0,10.2" Width="100" Grid.ColumnSpan="2" />
+        <Label Content="Altura cabine" Grid.Row="6" Grid.Column="0" HorizontalAlignment="Left"   FontSize="12" Margin="10,10,0,10.2" Width="100" Grid.ColumnSpan="2" />
+        <Label Content="Largura cabine" Grid.Row="7" Grid.Column="0" HorizontalAlignment="Left"   FontSize="12" Margin="10,10,0,10.2" Width="100" Grid.ColumnSpan="2" />
+        <Label Content="Comprimento cabine" Grid.Row="8" Grid.Column="0" HorizontalAlignment="Left"   FontSize="12" Margin="10,10,0,10.2" Width="100" Grid.ColumnSpan="2" />
+        <Label Content="Descrição" Grid.Row="9" Grid.Column="0" HorizontalAlignment="Left"   FontSize="12" Margin="10,10,0,10.2" Width="100" Grid.ColumnSpan="2" />
+        <Label Content="Tipo de Jato" Grid.Row="10" Grid.Column="0" HorizontalAlignment="Left"   FontSize="12" Margin="10,10,0,10.2" Width="100" Grid.ColumnSpan="2" />
+
+
+        <TextBox Name="TextBoxCapacidade" Grid.Row="0" Grid.Column="2" Text="{Binding Path=Capacidade}" HorizontalAlignment="Left"   FontSize="12" Margin="11.8,10,0,10.2" Width="300" />
+        <TextBox Name="TextBoxAlcance" Grid.Row="1" Grid.Column="2" Text="{Binding Path=Alcance}" HorizontalAlignment="Left"   FontSize="12" Margin="11.8,10,0,10.2" Width="300" />
+        <TextBox Name="TextBoxVelocidadeMaxima" Grid.Row="2" Grid.Column="2" Text="{Binding Path=VelocidadeMaxima}" HorizontalAlignment="Left"   FontSize="12" Margin="11.8,10,0,10.2" Width="300" />
+        <TextBox Name="TextBoxPesoMaximaBagagens" Grid.Row="3" Grid.Column="2" Text="{Binding Path=PesoMaximaBagagens}" HorizontalAlignment="Left"   FontSize="12" Margin="11.8,10,0,10.2" Width="300" />
+        <TextBox Name="TextBoxNumeroMotores" Grid.Row="4" Grid.Column="2" Text="{Binding Path=NumeroMotores}" HorizontalAlignment="Left"   FontSize="12" Margin="11.8,10,0,10.2" Width="300" />
+        <TextBox Name="TextBoxAlturaIdeal" Grid.Row="5" Grid.Column="2" Text="{Binding Path=AlturaCabine}" HorizontalAlignment="Left"   FontSize="12" Margin="11.8,10,0,10.2" Width="300" />
+        <TextBox Name="TextBoxAlturaCabine" Grid.Row="6" Grid.Column="2" Text="{Binding Path=AlturaCabine}" HorizontalAlignment="Left"   FontSize="12" Margin="11.8,10,0,10.2" Width="300" />
+        <TextBox Name="TextBoxLarguraCabine" Grid.Row="7" Grid.Column="2" Text="{Binding Path=LarguraCabine}" HorizontalAlignment="Left"   FontSize="12" Margin="11.8,10,0,10.2" Width="300" />
+        <TextBox Name="TextBoxComprimentoCabine" Grid.Row="8" Grid.Column="2" Text="{Binding Path=ComprimentoCabine}" HorizontalAlignment="Left"   FontSize="12" Margin="11.8,10,0,10.2" Width="300" />
+        <TextBox Name="TextBoxDescricao" Grid.Row="9" Grid.Column="2" Text="{Binding Path=Descricao}" HorizontalAlignment="Left"   FontSize="12" Margin="11.8,10,0,10.2" Width="300" />
+        <TextBox Name="TextBoxTipoJato" Grid.Row="10" Grid.Column="2" Text="{Binding Path=TipoJatoId}" HorizontalAlignment="Left"   FontSize="12" Margin="11.8,10,0,10.2" Width="300" />
+
+
+        <StackPanel Grid.Column="2" Grid.Row="11" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="20" Margin="0,0,0,-0.4" Width="142">
+            <Button x:Name="OkButton" Click="okButton_Click" IsDefault="True" Width="60" Margin="1,0" Content="OK"/>
+            <Button x:Name="CancelButton" IsCancel="True" Width="60" Margin="10,0" Click="cancelButton_Click" Content="Cancel"/>
+        </StackPanel>
+    </Grid>
+</Window>

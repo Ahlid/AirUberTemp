@@ -64,8 +64,8 @@ namespace AirUberProjeto.Models
             inicializarColaboradores(context);  // apagar - apenas testes
             context.SaveChanges();
 
-            inicializarViagens(context, userManager);    // apagar - apenas testes
-            context.SaveChanges();
+          //  inicializarViagens(context, userManager);    // apagar - apenas testes
+          //  context.SaveChanges();
 
         }
 
@@ -190,14 +190,19 @@ namespace AirUberProjeto.Models
         {
             if (!context.Cliente.Any())
             {
+                HistoricoTransacoeMonetarias h1 = new HistoricoTransacoeMonetarias();
                 ContaDeCreditos conta1 = new ContaDeCreditos()
                 {
-                    JetCashActual = 10000
+                    JetCashActual = 10000,
+                    HistoricoTransacoeMonetarias = h1
                 };
 
+
+                HistoricoTransacoeMonetarias h2 = new HistoricoTransacoeMonetarias();
                 ContaDeCreditos conta2 = new ContaDeCreditos()
                 {
-                    JetCashActual = 15000
+                    JetCashActual = 15000,
+                    HistoricoTransacoeMonetarias = h2
                 };
 
                 context.Cliente.Add(new Cliente
@@ -363,15 +368,18 @@ namespace AirUberProjeto.Models
         {
             if (!context.Companhia.Any())
             {
+
+                HistoricoTransacoeMonetarias h1 = new HistoricoTransacoeMonetarias();
                 ContaDeCreditos conta1 = new ContaDeCreditos()
                 {
                     
-                    
+                    HistoricoTransacoeMonetarias = h1,
                     JetCashActual = 1000000
                 };
-
+                 HistoricoTransacoeMonetarias h2 = new HistoricoTransacoeMonetarias();
                 ContaDeCreditos conta2 = new ContaDeCreditos()
                 {
+                    HistoricoTransacoeMonetarias =  h2,
                     JetCashActual = 2000000
                 };
 

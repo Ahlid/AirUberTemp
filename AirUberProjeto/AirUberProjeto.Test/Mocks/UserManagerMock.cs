@@ -19,13 +19,21 @@ namespace AirUberProjeto.Test.Mocks
             Nome = "Tiago",
             Contacto = "91919191"
         };
+        public static HistoricoTransacoeMonetarias HISTORICO_TEST = new HistoricoTransacoeMonetarias();
       
+
+        public static ContaDeCreditos CONTA_CREDITOS_TEST = new ContaDeCreditos
+        {
+         HistoricoTransacoeMonetarias   = HISTORICO_TEST
+        };
 
         public UserManagerMock(IUserStore<ApplicationUser> store, IOptions<IdentityOptions> optionsAccessor, IPasswordHasher<ApplicationUser> passwordHasher, IEnumerable<IUserValidator<ApplicationUser>> userValidators, IEnumerable<IPasswordValidator<ApplicationUser>> passwordValidators, ILookupNormalizer keyNormalizer, IdentityErrorDescriber errors, IServiceProvider services, ILogger<UserManager<ApplicationUser>> logger) : base(store, optionsAccessor, passwordHasher, userValidators, passwordValidators, keyNormalizer, errors, services, logger)
         {
            
            ((Cliente) CLIENTE_TEST).ListaReservas.Add(new Reserva());
            ((Cliente) CLIENTE_TEST).ListaReservas.Add(new Reserva());
+            ((Cliente) CLIENTE_TEST).ContaDeCreditos = CONTA_CREDITOS_TEST;
+            HISTORICO_TEST.MovimentosMonetarios.Add(new MovimentoMonetario {HistoricoTransacoeMonetarias = HISTORICO_TEST, Montante = 2500, TipoMovimento = TipoMovimento.Carregamento});
 
         }
 

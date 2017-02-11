@@ -5,23 +5,10 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace AirUberProjeto.Migrations
 {
-    public partial class initial : Migration
+    public partial class historico4 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.CreateTable(
-                name: "ContaDeCreditoses",
-                columns: table => new
-                {
-                    ContaDeCreditosId = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    JetCashActual = table.Column<decimal>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ContaDeCreditoses", x => x.ContaDeCreditosId);
-                });
-
             migrationBuilder.CreateTable(
                 name: "Estado",
                 columns: table => new
@@ -33,6 +20,18 @@ namespace AirUberProjeto.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Estado", x => x.EstadoId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "HistoricoTransacoeMonetariases",
+                columns: table => new
+                {
+                    HistoricoTransacoeMonetariasId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_HistoricoTransacoeMonetariases", x => x.HistoricoTransacoeMonetariasId);
                 });
 
             migrationBuilder.CreateTable(
@@ -116,6 +115,47 @@ namespace AirUberProjeto.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "ContaDeCreditoses",
+                columns: table => new
+                {
+                    ContaDeCreditosId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    HistoricoTransacoeMonetariasId = table.Column<int>(nullable: false),
+                    JetCashActual = table.Column<decimal>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ContaDeCreditoses", x => x.ContaDeCreditosId);
+                    table.ForeignKey(
+                        name: "FK_ContaDeCreditoses_HistoricoTransacoeMonetariases_HistoricoTransacoeMonetariasId",
+                        column: x => x.HistoricoTransacoeMonetariasId,
+                        principalTable: "HistoricoTransacoeMonetariases",
+                        principalColumn: "HistoricoTransacoeMonetariasId",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "MovimentoMonetarios",
+                columns: table => new
+                {
+                    MovimentoMonetarioId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    HistoricoTransacoeMonetariasId = table.Column<int>(nullable: false),
+                    Montante = table.Column<double>(nullable: false),
+                    TipoMovimento = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_MovimentoMonetarios", x => x.MovimentoMonetarioId);
+                    table.ForeignKey(
+                        name: "FK_MovimentoMonetarios_HistoricoTransacoeMonetariases_HistoricoTransacoeMonetariasId",
+                        column: x => x.HistoricoTransacoeMonetariasId,
+                        principalTable: "HistoricoTransacoeMonetariases",
+                        principalColumn: "HistoricoTransacoeMonetariasId",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Cidade",
                 columns: table => new
                 {
@@ -132,47 +172,7 @@ namespace AirUberProjeto.Migrations
                         column: x => x.PaisId,
                         principalTable: "Pais",
                         principalColumn: "PaisId",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Companhia",
-                columns: table => new
-                {
-                    CompanhiaId = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    ContaDeCreditosId = table.Column<int>(nullable: false),
-                    Contact = table.Column<string>(nullable: false),
-                    DataCriacao = table.Column<DateTime>(nullable: false),
-                    Email = table.Column<string>(nullable: false),
-                    EstadoId = table.Column<int>(nullable: false),
-                    Morada = table.Column<string>(nullable: false),
-                    Nif = table.Column<string>(nullable: false),
-                    Nome = table.Column<string>(nullable: false),
-                    PaisId = table.Column<int>(nullable: false),
-                    RelativePathImagemPerfil = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Companhia", x => x.CompanhiaId);
-                    table.ForeignKey(
-                        name: "FK_Companhia_ContaDeCreditoses_ContaDeCreditosId",
-                        column: x => x.ContaDeCreditosId,
-                        principalTable: "ContaDeCreditoses",
-                        principalColumn: "ContaDeCreditosId",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Companhia_Estado_EstadoId",
-                        column: x => x.EstadoId,
-                        principalTable: "Estado",
-                        principalColumn: "EstadoId",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Companhia_Pais_PaisId",
-                        column: x => x.PaisId,
-                        principalTable: "Pais",
-                        principalColumn: "PaisId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -201,7 +201,7 @@ namespace AirUberProjeto.Migrations
                         column: x => x.TipoJatoId,
                         principalTable: "TipoJato",
                         principalColumn: "TipoJatoId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -222,7 +222,48 @@ namespace AirUberProjeto.Migrations
                         column: x => x.RoleId,
                         principalTable: "AspNetRoles",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Companhia",
+                columns: table => new
+                {
+                    CompanhiaId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    ContaDeCreditosId = table.Column<int>(nullable: false),
+                    Contact = table.Column<string>(nullable: false),
+                    DataCriacao = table.Column<DateTime>(nullable: false),
+                    Descricao = table.Column<string>(nullable: true),
+                    Email = table.Column<string>(nullable: false),
+                    EstadoId = table.Column<int>(nullable: false),
+                    Morada = table.Column<string>(nullable: false),
+                    Nif = table.Column<string>(nullable: false),
+                    Nome = table.Column<string>(nullable: false),
+                    PaisId = table.Column<int>(nullable: false),
+                    RelativePathImagemPerfil = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Companhia", x => x.CompanhiaId);
+                    table.ForeignKey(
+                        name: "FK_Companhia_ContaDeCreditoses_ContaDeCreditosId",
+                        column: x => x.ContaDeCreditosId,
+                        principalTable: "ContaDeCreditoses",
+                        principalColumn: "ContaDeCreditosId",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Companhia_Estado_EstadoId",
+                        column: x => x.EstadoId,
+                        principalTable: "Estado",
+                        principalColumn: "EstadoId",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Companhia_Pais_PaisId",
+                        column: x => x.PaisId,
+                        principalTable: "Pais",
+                        principalColumn: "PaisId",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -244,7 +285,7 @@ namespace AirUberProjeto.Migrations
                         column: x => x.CidadeId,
                         principalTable: "Cidade",
                         principalColumn: "CidadeId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -285,7 +326,7 @@ namespace AirUberProjeto.Migrations
                         column: x => x.ContaDeCreditosId,
                         principalTable: "ContaDeCreditoses",
                         principalColumn: "ContaDeCreditosId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_AspNetUsers_Companhia_CompanhiaId",
                         column: x => x.CompanhiaId,
@@ -302,6 +343,8 @@ namespace AirUberProjeto.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     AeroportoId = table.Column<int>(nullable: false),
                     CompanhiaId = table.Column<int>(nullable: false),
+                    CreditosBase = table.Column<double>(nullable: false),
+                    CreditosPorKilometro = table.Column<double>(nullable: false),
                     EmFuncionamento = table.Column<bool>(nullable: false),
                     ModeloId = table.Column<int>(nullable: false),
                     Nome = table.Column<string>(nullable: false),
@@ -315,19 +358,19 @@ namespace AirUberProjeto.Migrations
                         column: x => x.AeroportoId,
                         principalTable: "Aeroporto",
                         principalColumn: "AeroportoId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Jato_Companhia_CompanhiaId",
                         column: x => x.CompanhiaId,
                         principalTable: "Companhia",
                         principalColumn: "CompanhiaId",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Jato_Modelo_ModeloId",
                         column: x => x.ModeloId,
                         principalTable: "Modelo",
                         principalColumn: "ModeloId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -355,7 +398,7 @@ namespace AirUberProjeto.Migrations
                         column: x => x.TipoAcaoId,
                         principalTable: "TipoAcao",
                         principalColumn: "TipoAcaoId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -377,7 +420,7 @@ namespace AirUberProjeto.Migrations
                         column: x => x.UtilizadorId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -398,7 +441,7 @@ namespace AirUberProjeto.Migrations
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -418,7 +461,7 @@ namespace AirUberProjeto.Migrations
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -436,13 +479,13 @@ namespace AirUberProjeto.Migrations
                         column: x => x.RoleId,
                         principalTable: "AspNetRoles",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_AspNetUserRoles_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -514,7 +557,7 @@ namespace AirUberProjeto.Migrations
                         column: x => x.JatoId,
                         principalTable: "Jato",
                         principalColumn: "JatoId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -537,7 +580,7 @@ namespace AirUberProjeto.Migrations
                         column: x => x.CompanhiaId,
                         principalTable: "Companhia",
                         principalColumn: "CompanhiaId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Extra_Reserva_ReservaId",
                         column: x => x.ReservaId,
@@ -549,7 +592,7 @@ namespace AirUberProjeto.Migrations
                         column: x => x.TipoExtraId,
                         principalTable: "TipoExtra",
                         principalColumn: "TipoExtraId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
@@ -609,6 +652,11 @@ namespace AirUberProjeto.Migrations
                 column: "PaisId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_ContaDeCreditoses_HistoricoTransacoeMonetariasId",
+                table: "ContaDeCreditoses",
+                column: "HistoricoTransacoeMonetariasId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Disponibilidade_JatoId",
                 table: "Disponibilidade",
                 column: "JatoId");
@@ -647,6 +695,11 @@ namespace AirUberProjeto.Migrations
                 name: "IX_Modelo_TipoJatoId",
                 table: "Modelo",
                 column: "TipoJatoId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_MovimentoMonetarios_HistoricoTransacoeMonetariasId",
+                table: "MovimentoMonetarios",
+                column: "HistoricoTransacoeMonetariasId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Notificacao_UtilizadorId",
@@ -721,6 +774,9 @@ namespace AirUberProjeto.Migrations
                 name: "Extra");
 
             migrationBuilder.DropTable(
+                name: "MovimentoMonetarios");
+
+            migrationBuilder.DropTable(
                 name: "Notificacao");
 
             migrationBuilder.DropTable(
@@ -779,6 +835,9 @@ namespace AirUberProjeto.Migrations
 
             migrationBuilder.DropTable(
                 name: "Pais");
+
+            migrationBuilder.DropTable(
+                name: "HistoricoTransacoeMonetariases");
         }
     }
 }

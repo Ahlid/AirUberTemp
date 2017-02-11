@@ -7,26 +7,26 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAjDnng4NX7EqeSTxQbgI+jwAAAAACAAAAAAAQZgAAAAEAACAAAAALjhYvZsIyi1cxfEo5LrtL+dw+JHr8/eWvtMokt32IzgAAAAAOgAAAAAIAACAAAAB1ApsAK/LOvy2RiMjem4zLkEaN6L9UStgt4T8p5IFRcCAAAAC79PrTVkEm6I2Z5YS3VsN0J4zD3eoajmf3EqEkMtwM6kAAAADFaXYIPIk8hEPf/fdTUnLOS2JokM1gnz+Gpjcm9swrdwyTs5E8IIjnW7/ML8JEC1hZnIX1LFFuhZ6O1jr8xdPA</EncryptedPassword>
-    <_PublishTargetUrl>ftp:// ftp.myasp.net/site1/</_PublishTargetUrl>
+    <_PublishTargetUrl>ftp://ftp.myasp.net/site1/</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="AirUberProjeto.deps.json">
-      <publishTime>02/10/2017 03:05:03</publishTime>
+      <publishTime>02/10/2017 18:47:55</publishTime>
     </File>
     <File Include="AirUberProjeto.dll">
-      <publishTime>02/10/2017 03:04:48</publishTime>
+      <publishTime>02/10/2017 17:18:51</publishTime>
     </File>
     <File Include="AirUberProjeto.pdb">
-      <publishTime>02/10/2017 03:04:48</publishTime>
+      <publishTime>02/10/2017 17:18:51</publishTime>
     </File>
     <File Include="AirUberProjeto.runtimeconfig.json">
-      <publishTime>02/10/2017 03:05:03</publishTime>
+      <publishTime>02/10/2017 18:47:55</publishTime>
     </File>
     <File Include="AirUberProjeto.xml">
-      <publishTime>02/10/2017 03:04:48</publishTime>
+      <publishTime>02/10/2017 17:18:51</publishTime>
     </File>
     <File Include="appsettings.json">
-      <publishTime>02/10/2017 02:57:09</publishTime>
+      <publishTime>02/10/2017 16:08:39</publishTime>
     </File>
     <File Include="crypto.dll">
       <publishTime>06/29/2016 09:11:24</publishTime>
@@ -641,7 +641,25 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/12/2017 18:33:13</publishTime>
     </File>
     <File Include="Views/Cliente/Perfil.cshtml">
-      <publishTime>01/12/2017 18:33:13</publishTime>
+      <publishTime>02/10/2017 11:54:25</publishTime>
+    </File>
+    <File Include="Views/Cliente/ProcurarOfertas.cshtml">
+      <publishTime>02/10/2017 11:44:08</publishTime>
+    </File>
+    <File Include="Views/Cliente/ReservaConcluida.cshtml">
+      <publishTime>02/10/2017 11:44:08</publishTime>
+    </File>
+    <File Include="Views/Cliente/SelecionarDestino.cshtml">
+      <publishTime>02/10/2017 11:44:08</publishTime>
+    </File>
+    <File Include="Views/Cliente/VerJatos.cshtml">
+      <publishTime>02/10/2017 11:44:08</publishTime>
+    </File>
+    <File Include="Views/Cliente/VerOferta.cshtml">
+      <publishTime>02/10/2017 11:44:08</publishTime>
+    </File>
+    <File Include="Views/Cliente/VerViagens.cshtml">
+      <publishTime>02/10/2017 04:02:04</publishTime>
     </File>
     <File Include="Views/Companhia/AdicionarColaborador.cshtml">
       <publishTime>01/21/2017 22:17:23</publishTime>
@@ -671,10 +689,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/21/2017 22:17:23</publishTime>
     </File>
     <File Include="Views/Companhia/EditarJatos.cshtml">
-      <publishTime>01/23/2017 16:19:09</publishTime>
+      <publishTime>02/10/2017 11:44:08</publishTime>
     </File>
     <File Include="Views/Companhia/EditarPerfilCompanhia.cshtml">
-      <publishTime>01/23/2017 16:19:09</publishTime>
+      <publishTime>02/10/2017 11:44:08</publishTime>
     </File>
     <File Include="Views/Companhia/PerfilCompanhia.cshtml">
       <publishTime>01/23/2017 16:19:09</publishTime>
@@ -690,6 +708,12 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Views/Companhia/VerModelos.cshtml">
       <publishTime>01/21/2017 22:17:23</publishTime>
+    </File>
+    <File Include="Views/Companhia/VerViagens.cshtml">
+      <publishTime>02/10/2017 04:02:04</publishTime>
+    </File>
+    <File Include="Views/Creditos/Comprar.cshtml">
+      <publishTime>02/10/2017 15:28:27</publishTime>
     </File>
     <File Include="Views/Helpdesk/Clientes.cshtml">
       <publishTime>01/12/2017 18:33:13</publishTime>
@@ -740,10 +764,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/09/2017 18:28:28</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>01/22/2017 17:54:58</publishTime>
+      <publishTime>02/10/2017 11:44:08</publishTime>
     </File>
     <File Include="Views/Shared/_LoginPartial.cshtml">
-      <publishTime>01/21/2017 22:17:23</publishTime>
+      <publishTime>02/10/2017 11:44:08</publishTime>
     </File>
     <File Include="Views/Shared/_ValidationScriptsPartial.cshtml">
       <publishTime>01/09/2017 18:28:28</publishTime>
@@ -755,7 +779,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/09/2017 18:28:28</publishTime>
     </File>
     <File Include="web.config">
-      <publishTime>02/10/2017 03:05:06</publishTime>
+      <publishTime>02/10/2017 18:47:57</publishTime>
     </File>
     <File Include="wwwroot/clientes/client-artm%40m.c/imagem-perfil.jpg">
       <publishTime>01/23/2017 16:19:09</publishTime>
@@ -772,6 +796,15 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="wwwroot/companhias/company-companhia.1%40gm.com/imagem-perfil.jpg">
       <publishTime>01/23/2017 16:19:09</publishTime>
     </File>
+    <File Include="wwwroot/companhias/company-t%40t.pt/imagem-jato-Aviao1.jpg">
+      <publishTime>02/10/2017 11:44:08</publishTime>
+    </File>
+    <File Include="wwwroot/companhias/company-tiagoasmont23%40gmail.com/imagem-jato-teste.jpg">
+      <publishTime>02/10/2017 18:11:11</publishTime>
+    </File>
+    <File Include="wwwroot/css/demo.css">
+      <publishTime>02/10/2017 12:43:50</publishTime>
+    </File>
     <File Include="wwwroot/css/fullcalendar.css">
       <publishTime>01/22/2017 17:58:56</publishTime>
     </File>
@@ -781,17 +814,26 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="wwwroot/css/horizontalcards.css">
       <publishTime>01/09/2017 18:28:29</publishTime>
     </File>
+    <File Include="wwwroot/css/rating.min.css">
+      <publishTime>02/10/2017 04:02:04</publishTime>
+    </File>
     <File Include="wwwroot/css/site.css">
       <publishTime>01/09/2017 18:28:29</publishTime>
     </File>
     <File Include="wwwroot/css/site.min.css">
-      <publishTime>02/10/2017 03:05:02</publishTime>
+      <publishTime>02/10/2017 18:47:53</publishTime>
+    </File>
+    <File Include="wwwroot/css/styles.css">
+      <publishTime>02/10/2017 12:42:45</publishTime>
     </File>
     <File Include="wwwroot/favicon.ico">
       <publishTime>01/09/2017 18:28:29</publishTime>
     </File>
     <File Include="wwwroot/images/7098575-World-map-of-airline-airplane-flight-travel-plans--Stock-Vector-routes.jpg">
       <publishTime>01/09/2017 18:28:29</publishTime>
+    </File>
+    <File Include="wwwroot/images/amex.jpg">
+      <publishTime>11/03/2016 16:01:40</publishTime>
     </File>
     <File Include="wwwroot/images/aviao-default.svg">
       <publishTime>01/23/2017 16:19:09</publishTime>
@@ -811,6 +853,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="wwwroot/images/calendar.png">
       <publishTime>01/23/2017 16:19:09</publishTime>
     </File>
+    <File Include="wwwroot/images/cash.png">
+      <publishTime>02/10/2017 12:06:37</publishTime>
+    </File>
     <File Include="wwwroot/images/delete.png">
       <publishTime>01/23/2017 16:19:09</publishTime>
     </File>
@@ -826,17 +871,26 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="wwwroot/images/jet.jpg">
       <publishTime>01/09/2017 18:28:29</publishTime>
     </File>
+    <File Include="wwwroot/images/loader.gif">
+      <publishTime>02/10/2017 13:37:40</publishTime>
+    </File>
     <File Include="wwwroot/images/Logo-White.png">
       <publishTime>01/09/2017 18:28:29</publishTime>
     </File>
     <File Include="wwwroot/images/logo.png">
       <publishTime>01/09/2017 18:28:29</publishTime>
     </File>
+    <File Include="wwwroot/images/mastercard.jpg">
+      <publishTime>11/03/2016 16:01:40</publishTime>
+    </File>
     <File Include="wwwroot/images/perfil-default.jpg">
       <publishTime>01/12/2017 18:33:14</publishTime>
     </File>
     <File Include="wwwroot/images/plus.png">
       <publishTime>01/23/2017 16:19:09</publishTime>
+    </File>
+    <File Include="wwwroot/images/stars.svg">
+      <publishTime>02/10/2017 04:02:04</publishTime>
     </File>
     <File Include="wwwroot/images/timetravel.jpg">
       <publishTime>01/09/2017 18:28:29</publishTime>
@@ -925,6 +979,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="wwwroot/images/tutorial/viagens_helpdesk.png">
       <publishTime>01/09/2017 18:28:29</publishTime>
     </File>
+    <File Include="wwwroot/images/visa.jpg">
+      <publishTime>11/03/2016 16:01:40</publishTime>
+    </File>
     <File Include="wwwroot/jatos/airplaine-2131/imagem-jato.jpg">
       <publishTime>01/23/2017 16:19:09</publishTime>
     </File>
@@ -937,6 +994,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="wwwroot/jatos/airplaine-er3egtsrefwda/imagem-jato.jpg">
       <publishTime>01/23/2017 16:19:09</publishTime>
     </File>
+    <File Include="wwwroot/jatos/airplaine-JatoPaneleiro/imagem-jato.jpg">
+      <publishTime>02/10/2017 04:02:04</publishTime>
+    </File>
     <File Include="wwwroot/js/fullcalendar.js">
       <publishTime>01/22/2017 17:58:42</publishTime>
     </File>
@@ -946,8 +1006,20 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="wwwroot/js/jquery-3.1.1.min.js">
       <publishTime>01/09/2017 18:28:29</publishTime>
     </File>
+    <File Include="wwwroot/js/jquery.payform.min.js">
+      <publishTime>11/03/2016 16:01:40</publishTime>
+    </File>
     <File Include="wwwroot/js/Moment.js">
       <publishTime>01/22/2017 19:30:51</publishTime>
+    </File>
+    <File Include="wwwroot/js/pesquisa-jatos.js">
+      <publishTime>02/10/2017 11:44:08</publishTime>
+    </File>
+    <File Include="wwwroot/js/rating.min.js">
+      <publishTime>02/10/2017 04:02:04</publishTime>
+    </File>
+    <File Include="wwwroot/js/script.js">
+      <publishTime>02/10/2017 13:42:03</publishTime>
     </File>
     <File Include="wwwroot/js/site.js">
       <publishTime>01/09/2017 18:28:29</publishTime>
@@ -1052,7 +1124,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/09/2017 18:28:29</publishTime>
     </File>
     <File Include="wwwroot/_references.js">
-      <publishTime>01/23/2017 16:18:48</publishTime>
+      <publishTime>02/10/2017 12:36:35</publishTime>
     </File>
   </ItemGroup>
 </Project>
