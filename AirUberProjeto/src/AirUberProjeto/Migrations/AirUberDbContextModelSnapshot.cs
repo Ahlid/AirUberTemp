@@ -8,10 +8,9 @@ using AirUberProjeto.Data;
 namespace AirUberProjeto.Migrations
 {
     [DbContext(typeof(AirUberDbContext))]
-    [Migration("20170124152601_initial")]
-    partial class initial
+    partial class AirUberDbContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.1")
@@ -151,6 +150,8 @@ namespace AirUberProjeto.Migrations
 
                     b.Property<DateTime>("DataCriacao");
 
+                    b.Property<string>("Descricao");
+
                     b.Property<string>("Email")
                         .IsRequired();
 
@@ -257,6 +258,10 @@ namespace AirUberProjeto.Migrations
                     b.Property<int>("AeroportoId");
 
                     b.Property<int>("CompanhiaId");
+
+                    b.Property<double>("CreditosBase");
+
+                    b.Property<double>("CreditosPorKilometro");
 
                     b.Property<bool>("EmFuncionamento");
 
@@ -583,42 +588,36 @@ namespace AirUberProjeto.Migrations
 
                     b.HasOne("AirUberProjeto.Models.TipoAcao", "TipoAcao")
                         .WithMany()
-                        .HasForeignKey("TipoAcaoId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("TipoAcaoId");
                 });
 
             modelBuilder.Entity("AirUberProjeto.Models.Aeroporto", b =>
                 {
                     b.HasOne("AirUberProjeto.Models.Cidade", "Cidade")
                         .WithMany()
-                        .HasForeignKey("CidadeId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("CidadeId");
                 });
 
             modelBuilder.Entity("AirUberProjeto.Models.Cidade", b =>
                 {
                     b.HasOne("AirUberProjeto.Models.Pais", "Pais")
                         .WithMany()
-                        .HasForeignKey("PaisId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("PaisId");
                 });
 
             modelBuilder.Entity("AirUberProjeto.Models.Companhia", b =>
                 {
                     b.HasOne("AirUberProjeto.Models.ContaDeCreditos", "ContaDeCreditos")
                         .WithMany()
-                        .HasForeignKey("ContaDeCreditosId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("ContaDeCreditosId");
 
                     b.HasOne("AirUberProjeto.Models.Estado", "Estado")
                         .WithMany()
-                        .HasForeignKey("EstadoId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("EstadoId");
 
                     b.HasOne("AirUberProjeto.Models.Pais", "Pais")
                         .WithMany()
-                        .HasForeignKey("PaisId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("PaisId");
                 });
 
             modelBuilder.Entity("AirUberProjeto.Models.Disponibilidade", b =>
@@ -632,8 +631,7 @@ namespace AirUberProjeto.Migrations
                 {
                     b.HasOne("AirUberProjeto.Models.Companhia", "Companhia")
                         .WithMany("ListaExtras")
-                        .HasForeignKey("CompanhiaId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("CompanhiaId");
 
                     b.HasOne("AirUberProjeto.Models.Reserva")
                         .WithMany("ListaExtras")
@@ -641,42 +639,36 @@ namespace AirUberProjeto.Migrations
 
                     b.HasOne("AirUberProjeto.Models.TipoExtra", "TipoExtra")
                         .WithMany()
-                        .HasForeignKey("TipoExtraId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("TipoExtraId");
                 });
 
             modelBuilder.Entity("AirUberProjeto.Models.Jato", b =>
                 {
                     b.HasOne("AirUberProjeto.Models.Aeroporto", "Aeroporto")
                         .WithMany()
-                        .HasForeignKey("AeroportoId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("AeroportoId");
 
                     b.HasOne("AirUberProjeto.Models.Companhia", "Companhia")
                         .WithMany("ListaJatos")
-                        .HasForeignKey("CompanhiaId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("CompanhiaId");
 
                     b.HasOne("AirUberProjeto.Models.Modelo", "Modelo")
                         .WithMany()
-                        .HasForeignKey("ModeloId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("ModeloId");
                 });
 
             modelBuilder.Entity("AirUberProjeto.Models.Modelo", b =>
                 {
                     b.HasOne("AirUberProjeto.Models.TipoJato", "TipoJato")
                         .WithMany()
-                        .HasForeignKey("TipoJatoId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("TipoJatoId");
                 });
 
             modelBuilder.Entity("AirUberProjeto.Models.Notificacao", b =>
                 {
                     b.HasOne("AirUberProjeto.Models.ApplicationUser", "Utilizador")
                         .WithMany()
-                        .HasForeignKey("UtilizadorId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("UtilizadorId");
                 });
 
             modelBuilder.Entity("AirUberProjeto.Models.Reserva", b =>
@@ -699,53 +691,46 @@ namespace AirUberProjeto.Migrations
 
                     b.HasOne("AirUberProjeto.Models.Jato", "Jato")
                         .WithMany()
-                        .HasForeignKey("JatoId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("JatoId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRole")
                         .WithMany("Claims")
-                        .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("RoleId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityUserClaim<string>", b =>
                 {
                     b.HasOne("AirUberProjeto.Models.ApplicationUser")
                         .WithMany("Claims")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityUserLogin<string>", b =>
                 {
                     b.HasOne("AirUberProjeto.Models.ApplicationUser")
                         .WithMany("Logins")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityUserRole<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRole")
                         .WithMany("Users")
-                        .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("RoleId");
 
                     b.HasOne("AirUberProjeto.Models.ApplicationUser")
                         .WithMany("Roles")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("AirUberProjeto.Models.Cliente", b =>
                 {
                     b.HasOne("AirUberProjeto.Models.ContaDeCreditos", "ContaDeCreditos")
                         .WithMany()
-                        .HasForeignKey("ContaDeCreditosId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("ContaDeCreditosId");
                 });
 
             modelBuilder.Entity("AirUberProjeto.Models.Colaborador", b =>

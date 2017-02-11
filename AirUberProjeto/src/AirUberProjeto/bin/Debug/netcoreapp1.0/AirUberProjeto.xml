@@ -347,15 +347,12 @@
             </summary>
             <returns>Retorna a view da procura de ofertas</returns>
         </member>
-<<<<<<< HEAD
         <member name="M:AirUberProjeto.Controllers.ClienteController.VerOferta(System.Int32,System.DateTime,System.Double,System.Double,System.Int32)">
             <summary>
             Responsável por redireccionar o utilizador para a página que apresenta a informação de uma oferta
             </summary>
             <returns>Retorna a view das ofertas</returns>
         </member>
-=======
->>>>>>> 04e4eac5abd029a7219aed441eceb5f63406a50e
         <member name="M:AirUberProjeto.Controllers.ClienteController.ReservaConcluida(System.Int32,System.DateTime,System.Double,System.Double)">
             <summary>
             Responsável por redireccionar o utilizador para a página de pesquisa de ofertas
