@@ -23,8 +23,8 @@ namespace AirUberProjeto.Test
         {
             base.ConfigureServices(services);
 
-            //services.ReplaceSingleton<UserManager<ApplicationUser>,UserManagerMock>();
-            services.ReplaceSingleton<UserManager<ApplicationUser>, UserManagerMock2>();
+            services.ReplaceSingleton<UserManager<ApplicationUser>,UserManagerMock>();
+           // services.ReplaceSingleton<UserManager<ApplicationUser>, UserManagerMock2>();
         }
     }
 }

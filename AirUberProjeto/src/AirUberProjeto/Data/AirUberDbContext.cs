@@ -86,6 +86,10 @@ namespace AirUberProjeto.Data
                 .WillCascadeOnDelete(false);
                 */
 
+            foreach (var relationship in builder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))
+            {
+                relationship.DeleteBehavior = DeleteBehavior.Restrict;
+            }
 
             // Customize the ASP.NET Identity model and override the defaults if needed.
             // For example, you can rename the ASP.NET Identity table names and more.
@@ -164,6 +168,17 @@ namespace AirUberProjeto.Data
         /// Entidade usada para criar, editar e eliminar informação sobre o tipo de acções que um utilizador por realizar no sistema
         /// </summary>
         public DbSet<TipoAcao> TipoAcao { get; set; }
+
+        /// <summary>
+        /// Entidade historico transacoes
+        /// </summary>
+        public DbSet<HistoricoTransacoeMonetarias> HistoricoTransacoeMonetariases { get; set; }
+
+
+        /// <summary>
+        /// Historico Movimento Monetario
+        /// </summary>
+        public DbSet<MovimentoMonetario> MovimentoMonetarios { get; set; }
         //public DbSet<Helpdesk> Helpdesk { get; set; }
 
     }

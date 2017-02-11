@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace AirUberProjeto.Models
 {
@@ -23,7 +25,16 @@ namespace AirUberProjeto.Models
 
         
         //historico -> adicionar numa fase posterior
+        /// <summary>
+        /// Historico de transações desta conta de creditos
+        /// </summary>
+        
+        public int HistoricoTransacoeMonetariasId { get; set; }
 
+        /// <summary>
+        /// classe virtual do historico de transacoes
+        /// </summary>
+        public virtual HistoricoTransacoeMonetarias HistoricoTransacoeMonetarias { get; set; }
 
 
         /// <summary>
@@ -32,6 +43,7 @@ namespace AirUberProjeto.Models
         public ContaDeCreditos()
         {
             JetCashActual = 0.00m;
+
         }
     }
 }

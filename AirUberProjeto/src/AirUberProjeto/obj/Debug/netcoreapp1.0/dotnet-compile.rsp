@@ -246,8 +246,9 @@ C:\Users\pcts\Documents\AirUberTemp\AirUberProjeto\src\AirUberProjeto\Controller
 C:\Users\pcts\Documents\AirUberTemp\AirUberProjeto\src\AirUberProjeto\Controllers\HomeController.cs
 C:\Users\pcts\Documents\AirUberTemp\AirUberProjeto\src\AirUberProjeto\Controllers\ManageController.cs
 C:\Users\pcts\Documents\AirUberTemp\AirUberProjeto\src\AirUberProjeto\Data\AirUberDbContext.cs
-C:\Users\pcts\Documents\AirUberTemp\AirUberProjeto\src\AirUberProjeto\Migrations\20170124152601_initial.cs
-C:\Users\pcts\Documents\AirUberTemp\AirUberProjeto\src\AirUberProjeto\Migrations\20170124152601_initial.Designer.cs
+C:\Users\pcts\Documents\AirUberTemp\AirUberProjeto\src\AirUberProjeto\Migrations\20170211024227_historico4.cs
+C:\Users\pcts\Documents\AirUberTemp\AirUberProjeto\src\AirUberProjeto\Migrations\20170211024227_historico4.Designer.cs
+C:\Users\pcts\Documents\AirUberTemp\AirUberProjeto\src\AirUberProjeto\Migrations\AirUberDbContextModelSnapshot.cs
 C:\Users\pcts\Documents\AirUberTemp\AirUberProjeto\src\AirUberProjeto\Models\Acao.cs
 C:\Users\pcts\Documents\AirUberTemp\AirUberProjeto\src\AirUberProjeto\Models\Aeroporto.cs
 C:\Users\pcts\Documents\AirUberTemp\AirUberProjeto\src\AirUberProjeto\Models\ApplicationUser.cs
@@ -261,8 +262,10 @@ C:\Users\pcts\Documents\AirUberTemp\AirUberProjeto\src\AirUberProjeto\Models\Dis
 C:\Users\pcts\Documents\AirUberTemp\AirUberProjeto\src\AirUberProjeto\Models\Estado.cs
 C:\Users\pcts\Documents\AirUberTemp\AirUberProjeto\src\AirUberProjeto\Models\Extra.cs
 C:\Users\pcts\Documents\AirUberTemp\AirUberProjeto\src\AirUberProjeto\Models\Helpdesk.cs
+C:\Users\pcts\Documents\AirUberTemp\AirUberProjeto\src\AirUberProjeto\Models\HistoricoTransacoeMonetarias.cs
 C:\Users\pcts\Documents\AirUberTemp\AirUberProjeto\src\AirUberProjeto\Models\Jato.cs
 C:\Users\pcts\Documents\AirUberTemp\AirUberProjeto\src\AirUberProjeto\Models\Modelo.cs
+C:\Users\pcts\Documents\AirUberTemp\AirUberProjeto\src\AirUberProjeto\Models\MovimentoMonetario.cs
 C:\Users\pcts\Documents\AirUberTemp\AirUberProjeto\src\AirUberProjeto\Models\Notificacao.cs
 C:\Users\pcts\Documents\AirUberTemp\AirUberProjeto\src\AirUberProjeto\Models\Pais.cs
 C:\Users\pcts\Documents\AirUberTemp\AirUberProjeto\src\AirUberProjeto\Models\Reserva.cs
@@ -270,6 +273,7 @@ C:\Users\pcts\Documents\AirUberTemp\AirUberProjeto\src\AirUberProjeto\Models\Rol
 C:\Users\pcts\Documents\AirUberTemp\AirUberProjeto\src\AirUberProjeto\Models\TipoAcao.cs
 C:\Users\pcts\Documents\AirUberTemp\AirUberProjeto\src\AirUberProjeto\Models\TipoExtra.cs
 C:\Users\pcts\Documents\AirUberTemp\AirUberProjeto\src\AirUberProjeto\Models\TipoJato.cs
+C:\Users\pcts\Documents\AirUberTemp\AirUberProjeto\src\AirUberProjeto\Models\TipoMovimento.cs
 C:\Users\pcts\Documents\AirUberTemp\AirUberProjeto\src\AirUberProjeto\Models\AutenticacaoViewModels\ChangePasswordViewModel.cs
 C:\Users\pcts\Documents\AirUberTemp\AirUberProjeto\src\AirUberProjeto\Models\AutenticacaoViewModels\ForgotPasswordViewModel.cs
 C:\Users\pcts\Documents\AirUberTemp\AirUberProjeto\src\AirUberProjeto\Models\AutenticacaoViewModels\LoginViewModel.cs
