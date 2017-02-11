@@ -138,12 +138,11 @@
             scrollwheel: false,
             disableDoubleClickZoom: true,
             disableDefaultUI: true
-
         });
 
         directionsService.route({
             origin: "@Html.Raw(Model.Partida)",
-            destination: "@Html.Raw(Model.Chegada)",
+            destination: "@Html.Raw(Model.ChegadaLatitude.ToString().Replace(',', '.') + "," + Model.ChegadaLongitude.ToString().Replace(',', '.'))",
                 travelMode: 'WALKING'
             },
             function(response, status) {

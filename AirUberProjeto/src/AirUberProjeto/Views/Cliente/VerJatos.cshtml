@@ -47,8 +47,9 @@
                     </ul>
                     
                     <script>
+                        
                         function verOferta() {
-                            window.location.replace('VerOferta?id=@Model.AeroportoId&data=@Html.Raw(DateTime.Parse(Model.DataPartida.ToString(), CultureInfo.InvariantCulture))&lat=@Model.Latitude&long=@Model.Longitude&jatoId=@jato.JatoId');
+                            window.location.replace('VerOferta?id=@Model.AeroportoId&data=@Html.Raw(DateTime.Parse(Model.DataPartida.ToString(), CultureInfo.InvariantCulture))&lat=@Model.Latitude.ToString().Replace(',', '.')&lon=@Model.Longitude.ToString().Replace(',', '.')&jatoId=@jato.JatoId');
                         }
 
                     </script>

@@ -317,17 +317,17 @@
             <param name="file">ficheiro de imagem que irá substituir a imagem de perfil</param>
             <returns>Um redirecionamento para a ação editar perfil</returns>
         </member>
+        <member name="M:AirUberProjeto.Controllers.ClienteController.jatoDisponivel(AirUberProjeto.Models.Jato,System.DateTime)">
+            <summary>
+            Verifica a disponibilidade de um jato numa data
+            </summary>
+            <returns>true se o jato estiver disponível na data, false senão</returns>
+        </member>
         <member name="M:AirUberProjeto.Controllers.ClienteController.VerViagens">
             <summary>
             Responsável por redireccionar o utilizador para a página que apresenta a informação de todas as viagens feitas na companhia.
             </summary>
             <returns>Retorna a view das viagens</returns>
-        </member>
-        <member name="M:AirUberProjeto.Controllers.ClienteController.VerOferta(System.Int32,System.DateTime,System.Double,System.Double,System.Int32)">
-            <summary>
-            Responsável por redireccionar o utilizador para a página que apresenta a informação de uma oferta
-            </summary>
-            <returns>Retorna a view das ofertas</returns>
         </member>
         <member name="M:AirUberProjeto.Controllers.ClienteController.ProcurarOfertas">
             <summary>
@@ -347,6 +347,15 @@
             </summary>
             <returns>Retorna a view da procura de ofertas</returns>
         </member>
+<<<<<<< HEAD
+        <member name="M:AirUberProjeto.Controllers.ClienteController.VerOferta(System.Int32,System.DateTime,System.Double,System.Double,System.Int32)">
+            <summary>
+            Responsável por redireccionar o utilizador para a página que apresenta a informação de uma oferta
+            </summary>
+            <returns>Retorna a view das ofertas</returns>
+        </member>
+=======
+>>>>>>> 04e4eac5abd029a7219aed441eceb5f63406a50e
         <member name="M:AirUberProjeto.Controllers.ClienteController.ReservaConcluida(System.Int32,System.DateTime,System.Double,System.Double)">
             <summary>
             Responsável por redireccionar o utilizador para a página de pesquisa de ofertas

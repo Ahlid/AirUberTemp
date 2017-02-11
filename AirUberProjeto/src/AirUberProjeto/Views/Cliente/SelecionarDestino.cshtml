@@ -137,9 +137,9 @@
         });
     }
 
-    function onSelecionarDestino(lat,long) {
+    function onSelecionarDestino(lat, long) {
 
-        window.location.replace('VerJatos?id=@ViewData["id"]&data=@Html.Raw(DateTime.Parse(ViewData["data"].ToString(), CultureInfo.InvariantCulture))&lat='+lat+'&long='+long);
+        window.location.replace('VerJatos?id=@ViewData["id"]&data=@Html.Raw(DateTime.Parse(ViewData["data"].ToString(), CultureInfo.InvariantCulture))&lat='+lat+'&lon='+long);
 
     }
 
