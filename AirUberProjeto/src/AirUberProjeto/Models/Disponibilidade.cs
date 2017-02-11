@@ -28,6 +28,6 @@ namespace AirUberProjeto.Models
         /// Indisponível a partir desta data
         /// </remarks>
         public string Fim { get; set; }
-        
+
     }
 }

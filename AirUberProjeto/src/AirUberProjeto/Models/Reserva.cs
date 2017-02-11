@@ -26,6 +26,21 @@ namespace AirUberProjeto.Models
         [Required]
         public DateTime DataChegada { get; set; }
         /// <summary>
+        /// Propriedade que indica se a reserva foi aprovada.
+        /// </summary>
+        [Required]
+        public bool Aprovada { get; set; }
+        /// <summary>
+        /// Propriedade que indica se a reserva foi paga.
+        /// </summary>
+        [Required]
+        public bool Paga { get; set; }
+        /// <summary>
+        /// Propriedade que indica se a reserva foi realizada
+        /// </summary>
+        [Required]
+        public bool Realizada { get; set; }
+        /// <summary>
         /// Identificador unívoco do aeroporto de partida da reserva.
         /// </summary>
         [Display (Name = "Aeroporto Partida")]

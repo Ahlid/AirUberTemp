@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -1062,7 +1063,6 @@ namespace AirUberProjeto.Controllers
         /// <param name="acao">acao</param>
         /// <param name="colaborador">colaborador</param>
         private void addAcaoColaborador (Acao acao, Colaborador colaborador)
-
         {
             colaborador.ListaAcoes.Add(acao);
         }
@@ -1121,7 +1121,6 @@ namespace AirUberProjeto.Controllers
         /// <returns>Retorna no final o id mais a data de inicio da disponibilidade</returns>
         [HttpPost]
         public string AdicionarDisponibilidade(int IdJato, string Inicio, string Fim)
-
         {
 
             Jato jato = _context.Jato
@@ -1154,10 +1153,6 @@ namespace AirUberProjeto.Controllers
                 .Include(j => j.ListaDisponibilidade)
                 .Single();
 
-
-
-
-
             foreach (Disponibilidade d in jato.ListaDisponibilidade)
             {
                 if (d.DisponibilidadeId == idDisp)
@@ -1168,8 +1163,6 @@ namespace AirUberProjeto.Controllers
                     return true;
                 }
             }
-
-
 
             return false;
         }
@@ -1193,9 +1186,6 @@ namespace AirUberProjeto.Controllers
                 .Single();
 
 
-
-
-
             foreach (Disponibilidade d in jato.ListaDisponibilidade)
             {
                 if (d.DisponibilidadeId == idDisp)
@@ -1207,8 +1197,6 @@ namespace AirUberProjeto.Controllers
                     return true;
                 }
             }
-
-
 
             return false;
 
@@ -1262,6 +1250,78 @@ namespace AirUberProjeto.Controllers
         }
 
 
+
+        public IActionResult ValidarReservas()
+        {
+            IEnumerable<Reserva> reservas =_context.Reserva
+                .Where(r => r.Aprovada == false)
+                .Include(r => r.Jato)
+                .Include(r => r.Cliente)
+                .Include(r => r.Jato.Aeroporto);
+
+            return View(reservas);
+        }
+
+
+        [HttpPost]
+        public bool ValidarReserva(int id)
+        {
+
+            Reserva reserva = _context.Reserva
+                .Single(r => r.Aprovada == false && r.ReservaId == id);
+
+            if (reserva == null)
+                return false;
+
+            Companhia companhia = _context.Companhia
+                .Include(c => c.ContaDeCreditos)
+                .Single(c => c.CompanhiaId == reserva.JatoId);
+
+            Cliente cliente = _context.Cliente
+                .Include(c => c.ContaDeCreditos)
+                .Single(c => c.Id == reserva.ApplicationUserId);
+
+            companhia.ContaDeCreditos.JetCashActual += reserva.Custo;
+            cliente.ContaDeCreditos.JetCashActual -= reserva.Custo;
+            reserva.Aprovada = true;
+            reserva.Paga = true;
+
+            Notificacao notificacao = new Notificacao()
+            {
+                UtilizadorId = cliente.Id,
+                Lida = false,
+                Tipo = Notificacao.TYPE_SUCCESS,
+                Mensagem = "A sua viagem foi aprovada e paga com sucesso."
+            };
+
+            _context.Notificacao.Add(notificacao);
+            _context.Update(reserva);
+            _context.Update(cliente);
+            _context.Update(companhia);
+            _context.SaveChanges();
+
+            return true;
+
+        }
+
+        [HttpPost]
+        public bool RejeitarReserva(int id)
+        {
+
+            Reserva reserva = _context.Reserva
+                .Single(r => r.Aprovada == false && r.ReservaId == id);
+
+            if (reserva == null)
+                return false;
+
+            //todo: restaurar a disponibilidade ao jato
+
+            _context.Reserva.Remove(reserva);
+            _context.SaveChanges();
+
+            return true;
+
+        }
 
     }
 }

@@ -66,7 +66,6 @@ namespace AirUberProjeto.Controllers
             _logger = loggerFactory.CreateLogger<AutenticacaoController>();
             _context = context;
 
-     
 
             var res = this._userManager.FindByEmailAsync("helpdesk@airuber.com");
 
@@ -84,15 +83,10 @@ namespace AirUberProjeto.Controllers
                 var result = this._userManager.CreateAsync(h, "ost:43636/Acc").Result;
                 if (result.Succeeded)
                 {
-
-
                     this._userManager.AddToRoleAsync(h, Roles.ROLE_HELPDESK).Wait();
-
                 }
 
             }
-
-            
 
         }
 
