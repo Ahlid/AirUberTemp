@@ -64,21 +64,40 @@ namespace AirUberProjeto.Controllers
             return View();
         }
 
+        /// <summary>
+        /// A ação para poder carregar a conta
+        /// </summary>
+        /// <param name="amount">O montante a carregar</param>
+        /// <returns>Os creditos totais do utilizador</returns>
         [HttpPost]
         public string Carregar(int amount)
         {
 
-
             Cliente cliente = (Cliente) _userManager.GetUserAsync(this.User).Result;
 
-            cliente = _context.Cliente.Select(c=>c).Include(c => c.ContaDeCreditos).Single(c => c.Id == cliente.Id);
+            cliente = _context.Cliente.Select(c=>c).Include(c => c.ContaDeCreditos).Include(c => c.ContaDeCreditos.HistoricoTransacoeMonetarias).Single(c => c.Id == cliente.Id);
             cliente.ContaDeCreditos.JetCashActual += amount;
+            cliente.ContaDeCreditos.HistoricoTransacoeMonetarias.MovimentosMonetarios.Add(new MovimentoMonetario {Montante = amount, TipoMovimento = TipoMovimento.Carregamento, HistoricoTransacoeMonetariasId = cliente.ContaDeCreditos.HistoricoTransacoeMonetariasId});
+
             _context.Update(cliente);
             _context.SaveChanges();
-
-            //todo adcionar ao historico
+            
 
             return ""+cliente.ContaDeCreditos.JetCashActual;
+        }
+
+        /// <summary>
+        /// Acao responsavel para devolver uma view com as transaçoes do utilizador
+        /// </summary>
+        /// <returns>View</returns>
+        [HttpGet]
+        public IActionResult VerHistoricoTransacoes()
+        {
+            Cliente cliente = (Cliente)_userManager.GetUserAsync(this.User).Result;
+
+            cliente = _context.Cliente.Select(c => c).Include(c => c.ContaDeCreditos).Include(c => c.ContaDeCreditos.HistoricoTransacoeMonetarias).Include(c=>c.ContaDeCreditos.HistoricoTransacoeMonetarias.MovimentosMonetarios).Single(c => c.Id == cliente.Id);
+
+            return View(cliente.ContaDeCreditos.HistoricoTransacoeMonetarias.MovimentosMonetarios);
         }
 
     }

@@ -681,6 +681,19 @@
             </summary>
             <returns>Retorna a view Comprar</returns>
         </member>
+        <member name="M:AirUberProjeto.Controllers.CreditosController.Carregar(System.Int32)">
+            <summary>
+            A ação para poder carregar a conta
+            </summary>
+            <param name="amount">O montante a carregar</param>
+            <returns>Os creditos totais do utilizador</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.CreditosController.VerHistoricoTransacoes">
+            <summary>
+            Acao responsavel para devolver uma view com as transaçoes do utilizador
+            </summary>
+            <returns>View</returns>
+        </member>
         <member name="T:AirUberProjeto.Controllers.HelpdeskController">
             <summary>
             Classe responsável por receber todos os pedidos do browser e tratar dos mesmos.
@@ -923,6 +936,16 @@
         <member name="P:AirUberProjeto.Data.AirUberDbContext.TipoAcao">
             <summary>
             Entidade usada para criar, editar e eliminar informação sobre o tipo de acções que um utilizador por realizar no sistema
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Data.AirUberDbContext.HistoricoTransacoeMonetariases">
+            <summary>
+            Entidade historico transacoes
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Data.AirUberDbContext.MovimentoMonetarios">
+            <summary>
+            Historico Movimento Monetario
             </summary>
         </member>
         <member name="T:AirUberProjeto.Models.Acao">
@@ -1256,6 +1279,16 @@
             Propriedade responsável por guardar o número de créditos existentes numa conta.
             </summary>
         </member>
+        <member name="P:AirUberProjeto.Models.ContaDeCreditos.HistoricoTransacoeMonetariasId">
+            <summary>
+            Historico de transações desta conta de creditos
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.ContaDeCreditos.HistoricoTransacoeMonetarias">
+            <summary>
+            classe virtual do historico de transacoes
+            </summary>
+        </member>
         <member name="M:AirUberProjeto.Models.ContaDeCreditos.#ctor">
             <summary>
             Constructor da classe ContaDeCreditos, é responsável por inicializar o número de jetcash a 0.
@@ -1446,6 +1479,26 @@
             da classe 'ApplicationUser'.
             </summary>
         </member>
+        <member name="T:AirUberProjeto.Models.HistoricoTransacoeMonetarias">
+            <summary>
+            Classe que representa um historico de movimentos monetarios
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.HistoricoTransacoeMonetarias.HistoricoTransacoeMonetariasId">
+            <summary>
+            Id
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.HistoricoTransacoeMonetarias.MovimentosMonetarios">
+            <summary>
+            Lista de movimentos monetarios
+            </summary>
+        </member>
+        <member name="M:AirUberProjeto.Models.HistoricoTransacoeMonetarias.#ctor">
+            <summary>
+            Metodo construtor
+            </summary>
+        </member>
         <member name="T:AirUberProjeto.Models.Jato">
             <summary>
             Classe responsável por toda a informação de um Jato.
@@ -1594,6 +1647,36 @@
         <member name="P:AirUberProjeto.Models.Modelo.TipoJato">
             <summary>
             Propriedade navegacional responsável por referenciar o tipo de jato que o modelo é.
+            </summary>
+        </member>
+        <member name="T:AirUberProjeto.Models.MovimentoMonetario">
+            <summary>
+            Classe que representao um movimento monetario
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.MovimentoMonetario.MovimentoMonetarioId">
+            <summary>
+            Id
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.MovimentoMonetario.TipoMovimento">
+            <summary>
+            Tipo do movimento feito
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.MovimentoMonetario.Montante">
+            <summary>
+            Montante do movimento
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.MovimentoMonetario.HistoricoTransacoeMonetariasId">
+            <summary>
+            Historico de transações desta conta de creditos
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.MovimentoMonetario.HistoricoTransacoeMonetarias">
+            <summary>
+            classe virtual do historico de transacoes
             </summary>
         </member>
         <member name="T:AirUberProjeto.Models.Notificacao">
@@ -1823,6 +1906,31 @@
         <member name="P:AirUberProjeto.Models.TipoJato.Nome">
             <summary>
             Propriedade responsável por guardar o nome do tipo de jato.
+            </summary>
+        </member>
+        <member name="T:AirUberProjeto.Models.TipoMovimento">
+            <summary>
+            Enumerado para o tipo de movimento
+            </summary>
+        </member>
+        <member name="F:AirUberProjeto.Models.TipoMovimento.Carregamento">
+            <summary>
+            Se forr um carregamento
+            </summary>
+        </member>
+        <member name="F:AirUberProjeto.Models.TipoMovimento.Transferencia">
+            <summary>
+            Se for uma transferencia
+            </summary>
+        </member>
+        <member name="F:AirUberProjeto.Models.TipoMovimento.PagamentoServico">
+            <summary>
+            Se for o pagamento de uma reserva
+            </summary>
+        </member>
+        <member name="F:AirUberProjeto.Models.TipoMovimento.Reembolso">
+            <summary>
+            Se for reembolso
             </summary>
         </member>
         <member name="T:AirUberProjeto.Models.AutenticacaoViewModels.ChangePasswordViewModel">

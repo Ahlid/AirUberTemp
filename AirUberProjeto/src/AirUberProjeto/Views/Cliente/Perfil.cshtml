@@ -47,7 +47,7 @@
 
                 <div class="btn-group btn-group-justified" role="group" aria-label="...">
                     <a class="btn btn-primary" asp-area="" asp-controller="Creditos" asp-action="Comprar">Comprar créditos</a>
-                    <a class="btn btn-primary" asp-area="" asp-controller="Cliente" asp-action="EditarPerfil">Ver transações</a>
+                    <a class="btn btn-primary" asp-area="" asp-controller="Creditos" asp-action="VerHistoricoTransacoes">Ver transações</a>
                 </div>
             </div>
         </div>
@@ -67,7 +67,7 @@
                 </ul>
 
                 <div class="btn-group btn-group-justified" role="group" aria-label="...">
-                    <a class="btn btn-primary" asp-area="" asp-controller="Cliente" asp-action="EditarPerfil">Marcar Viagem</a>
+                    <a class="btn btn-primary" asp-area="" asp-controller="Cliente" asp-action="ProcurarOfertas">Marcar Viagem</a>
                 </div>
             </div>
         </div>
@@ -88,7 +88,8 @@
                         </div>
                     }
                 }
-
+                
+               
             </div>
         </div>
     </div>
@@ -98,6 +99,8 @@
 <script>
 
     function marcarLida(id) {
+
+
         $.ajax({
             type: "POST",
             url: "/Cliente/MarcarNotificacaoLida",

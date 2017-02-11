@@ -78,7 +78,6 @@
                 
 
                 <div>
-                    <form asp-controller="Cliente" asp-action="Reservar" style="margin-top: 10px" method="post">
                         <div>
                             @if (Model.Jato.Companhia.ListaExtras.Count > 0)
                             {
@@ -107,12 +106,35 @@
                             <textarea name="Text1" cols="40" rows="5"></textarea><br/>
 
                             <label style="padding-left: 0">Crédito total</label> <span id="TotalAPagar" class="badge">@Model.Jato.CreditosBase.ToString().Replace(',', '.')</span><br/>
+                            
+                            <script>
+                                function reservar() {
+                                    var query =
+                                        'ReservaConcluida?iddestino=@Model.AeroportoChegada.AeroportoId'+
+                                                            '&idpartida=@Model.AeroportoPartida.AeroportoId' +
+                                                            '&data=@Html.Raw(Model.DataPartida.ToString("yyyy'/'MM'/'dd"))'+
+                                                            '&jatoId=@Model.Jato.JatoId';
 
-                            <input style="margin-top: 20px" type="submit" value="Reservar" class="btn btn-default"/>
+
+                                    for (var key in extras){
+
+                                        if (document.getElementById(key).checked) {
+                                            query += '&extrasids=' + extras[key].id;
+
+                                        }
+                                    }
+
+
+
+                                    window.location.replace(query);
+                                }
+                            </script>
+                            
+
+                            <input style="margin-top: 20px" onclick="reservar()" type="submit" value="Reservar" class="btn btn-default"/>
 
                         </div>
 
-                    </form>
                 </div>
 
             </div>
@@ -141,8 +163,8 @@
         });
 
         directionsService.route({
-            origin: "@Html.Raw(Model.Partida)",
-            destination: "@Html.Raw(Model.ChegadaLatitude.ToString().Replace(',', '.') + "," + Model.ChegadaLongitude.ToString().Replace(',', '.'))",
+                origin: "@Html.Raw(Model.AeroportoPartida.Latitude.ToString().Replace(',', '.') + "," + Model.AeroportoPartida.Longitude.ToString().Replace(',', '.'))",
+                destination: "@Html.Raw(Model.AeroportoChegada.Latitude.ToString().Replace(',', '.') + "," + Model.AeroportoChegada.Longitude.ToString().Replace(',', '.'))",
                 travelMode: 'WALKING'
             },
             function(response, status) {

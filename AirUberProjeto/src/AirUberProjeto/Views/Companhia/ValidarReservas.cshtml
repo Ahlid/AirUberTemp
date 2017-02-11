@@ -1,0 +1,122 @@
+﻿@model IEnumerable<Reserva>
+
+@{
+    ViewBag.Title = "Validar Reservas";
+    Layout = "_Layout";
+}
+
+<style>
+    
+    .reserva-card {
+        padding: 20px;
+        text-align: left;
+    }
+
+    .imagem-container {
+        padding-right: 50%;
+    }
+
+    .imagem {
+        background-color: aliceblue;
+        width: 100%;
+    }
+
+    .lista {
+        margin-top: 10px;
+    }
+    .botao {
+        float: left;
+    }
+
+</style>
+
+
+<div class="container" style="margin-top: 20px">
+
+    <h1>Valide as reservas pendentes</h1>
+
+    <div class="w3-center w3-row-padding">
+
+        @foreach (Reserva reserva in Model)
+        {
+
+            <div id="reserva@(reserva.ReservaId)" class="w3-col l4 w3">
+                <div class="w3-col l12 w3-card-4 w3-margin w3-container reserva-card">
+
+                    <div class="imagem-container">
+                        <img class="img-rounded imagem" 
+                             src="..\..\@reserva.Jato.RelativePathImagemPerfil"  
+                             alt="airplane photo" />
+                    </div>
+
+                    <ul class="list-unstyled lista">
+                        <li>
+                            <strong>ID jato: </strong>
+                            <span>@reserva.Jato.JatoId</span>
+                        </li>
+                        <li>
+                            <strong>Jato: </strong>
+                            <span>@reserva.Jato.Nome</span>
+                        </li>
+                    </ul>
+
+                    <input type="button" 
+                           onclick="validarReserva(@reserva.ReservaId)" 
+                           class="btn-link botao" 
+                           value="Aceitar Reserva"/>
+
+                    <input type="button" 
+                           onclick="rejeitarReserva(@reserva.ReservaId)" 
+                           class="btn-link botao" 
+                           value="Rejeitar Reserva" />
+
+                    <input type="button" 
+                           onclick="verJato(@reserva.JatoId)" 
+                           class="btn-link botao" 
+                           value="Ver jato" />  
+                    
+                </div>
+            </div>
+
+        }
+
+    </div>
+</div>
+
+
+
+<script>
+
+    function removerReserva(id) {
+        var card = document.getElementById("reserva" + id);
+        var parent = card.parentNode;
+        parent.removeChild(card);
+    }
+
+    function validarReserva(id) {
+        $.ajax({
+            type: "POST",
+            url: "/Companhia/ValidarReserva",
+            data: { id: id },
+            dataType: "json",
+            success: function () { removerReserva(id); },
+            error: function () { alert("failed"); }
+        });
+    }
+
+    function rejeitarReserva(id) {
+        $.ajax({
+            type: "POST",
+            url: "/Companhia/RejeitarReserva",
+            data: { id: id },
+            dataType: "json",
+            success: function () { removerReserva(id); },
+            error: function () { alert("failed"); }
+        });
+    }
+
+    function verJato(id) {
+        window.location.replace('EditarJatos/' + id);
+    }
+
+</script>

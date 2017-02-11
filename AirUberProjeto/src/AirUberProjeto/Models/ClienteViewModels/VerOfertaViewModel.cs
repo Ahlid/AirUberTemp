@@ -11,9 +11,9 @@ namespace AirUberProjeto.Models.ClienteViewModels
 
         public string Partida { get; set; }
 
-        public double ChegadaLatitude { get; set; }
+        public Aeroporto AeroportoPartida { get; set; }
 
-        public double ChegadaLongitude { get; set; }
+        public Aeroporto AeroportoChegada { get; set; }
 
         public int Estrelas { get; set; }
 

@@ -66,7 +66,6 @@ namespace AirUberProjeto.Controllers
             _logger = loggerFactory.CreateLogger<AutenticacaoController>();
             _context = context;
 
-     
 
             var res = this._userManager.FindByEmailAsync("helpdesk@airuber.com");
 
@@ -84,15 +83,10 @@ namespace AirUberProjeto.Controllers
                 var result = this._userManager.CreateAsync(h, "ost:43636/Acc").Result;
                 if (result.Succeeded)
                 {
-
-
                     this._userManager.AddToRoleAsync(h, Roles.ROLE_HELPDESK).Wait();
-
                 }
 
             }
-
-            
 
         }
 
@@ -226,7 +220,9 @@ namespace AirUberProjeto.Controllers
             ViewData["ReturnUrl"] = returnUrl;
             if (ModelState.IsValid)
             {
+                HistoricoTransacoeMonetarias h1 = new HistoricoTransacoeMonetarias();
                 ContaDeCreditos conta = new ContaDeCreditos();
+                conta.HistoricoTransacoeMonetarias = h1;
                 Cliente user = new Cliente { Nome = model.Nome, Apelido = model.Apelido,  UserName = model.Email, Email = model.Email, ContaDeCreditos = conta};
                 var result = await _userManager.CreateAsync(user, model.Password);// cria um user com a pw
                 if (result.Succeeded)
@@ -296,7 +292,9 @@ namespace AirUberProjeto.Controllers
             ViewData["ReturnUrl"] = returnUrl;
             if (ModelState.IsValid)
             {
+                HistoricoTransacoeMonetarias h1 = new HistoricoTransacoeMonetarias();
                 ContaDeCreditos conta = new ContaDeCreditos();
+                conta.HistoricoTransacoeMonetarias = h1;
                 Companhia companhia = new Companhia
                 {
                     Contact = model.Contact,

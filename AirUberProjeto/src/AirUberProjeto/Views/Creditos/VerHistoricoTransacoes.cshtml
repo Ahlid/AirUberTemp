@@ -1,0 +1,38 @@
+﻿
+
+@model ICollection<MovimentoMonetario>
+        @*
+            For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+        *@
+        @{
+        }
+
+<h1 class="w3-center">Transações</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Tipo</th>
+            <th>Montante</th>
+        </tr>
+    </thead>
+    <tbody>
+    
+    <h1></h1>
+
+    @foreach (var c in Model)
+    {
+        <tr>
+            <td>@c.MovimentoMonetarioId</td>
+            <td>@c.TipoMovimento</td>
+            <td>@c.Montante Creditos</td>
+
+        </tr>
+    }
+
+    </tbody>
+</table>
+
+
+  

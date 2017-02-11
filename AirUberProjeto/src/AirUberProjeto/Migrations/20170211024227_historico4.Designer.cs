@@ -8,9 +8,10 @@ using AirUberProjeto.Data;
 namespace AirUberProjeto.Migrations
 {
     [DbContext(typeof(AirUberDbContext))]
-    partial class AirUberDbContextModelSnapshot : ModelSnapshot
+    [Migration("20170211024227_historico4")]
+    partial class historico4
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.1")
@@ -186,20 +187,14 @@ namespace AirUberProjeto.Migrations
                     b.Property<int>("ContaDeCreditosId")
                         .ValueGeneratedOnAdd();
 
-<<<<<<< HEAD
-=======
                     b.Property<int>("HistoricoTransacoeMonetariasId");
 
->>>>>>> 63e85c2b31ae5bd7b3d09fcb36f541d5c651a1ad
                     b.Property<decimal>("JetCashActual");
 
                     b.HasKey("ContaDeCreditosId");
 
-<<<<<<< HEAD
-=======
                     b.HasIndex("HistoricoTransacoeMonetariasId");
 
->>>>>>> 63e85c2b31ae5bd7b3d09fcb36f541d5c651a1ad
                     b.ToTable("ContaDeCreditoses");
                 });
 
@@ -260,8 +255,6 @@ namespace AirUberProjeto.Migrations
                     b.ToTable("Extra");
                 });
 
-<<<<<<< HEAD
-=======
             modelBuilder.Entity("AirUberProjeto.Models.HistoricoTransacoeMonetarias", b =>
                 {
                     b.Property<int>("HistoricoTransacoeMonetariasId")
@@ -272,7 +265,6 @@ namespace AirUberProjeto.Migrations
                     b.ToTable("HistoricoTransacoeMonetariases");
                 });
 
->>>>>>> 63e85c2b31ae5bd7b3d09fcb36f541d5c651a1ad
             modelBuilder.Entity("AirUberProjeto.Models.Jato", b =>
                 {
                     b.Property<int>("JatoId")
@@ -341,8 +333,6 @@ namespace AirUberProjeto.Migrations
                     b.ToTable("Modelo");
                 });
 
-<<<<<<< HEAD
-=======
             modelBuilder.Entity("AirUberProjeto.Models.MovimentoMonetario", b =>
                 {
                     b.Property<int>("MovimentoMonetarioId")
@@ -361,7 +351,6 @@ namespace AirUberProjeto.Migrations
                     b.ToTable("MovimentoMonetarios");
                 });
 
->>>>>>> 63e85c2b31ae5bd7b3d09fcb36f541d5c651a1ad
             modelBuilder.Entity("AirUberProjeto.Models.Notificacao", b =>
                 {
                     b.Property<int>("NotificacaoId")
@@ -664,8 +653,6 @@ namespace AirUberProjeto.Migrations
                         .HasForeignKey("PaisId");
                 });
 
-<<<<<<< HEAD
-=======
             modelBuilder.Entity("AirUberProjeto.Models.ContaDeCreditos", b =>
                 {
                     b.HasOne("AirUberProjeto.Models.HistoricoTransacoeMonetarias", "HistoricoTransacoeMonetarias")
@@ -673,7 +660,6 @@ namespace AirUberProjeto.Migrations
                         .HasForeignKey("HistoricoTransacoeMonetariasId");
                 });
 
->>>>>>> 63e85c2b31ae5bd7b3d09fcb36f541d5c651a1ad
             modelBuilder.Entity("AirUberProjeto.Models.Disponibilidade", b =>
                 {
                     b.HasOne("AirUberProjeto.Models.Jato")
@@ -718,8 +704,6 @@ namespace AirUberProjeto.Migrations
                         .HasForeignKey("TipoJatoId");
                 });
 
-<<<<<<< HEAD
-=======
             modelBuilder.Entity("AirUberProjeto.Models.MovimentoMonetario", b =>
                 {
                     b.HasOne("AirUberProjeto.Models.HistoricoTransacoeMonetarias", "HistoricoTransacoeMonetarias")
@@ -727,7 +711,6 @@ namespace AirUberProjeto.Migrations
                         .HasForeignKey("HistoricoTransacoeMonetariasId");
                 });
 
->>>>>>> 63e85c2b31ae5bd7b3d09fcb36f541d5c651a1ad
             modelBuilder.Entity("AirUberProjeto.Models.Notificacao", b =>
                 {
                     b.HasOne("AirUberProjeto.Models.ApplicationUser", "Utilizador")

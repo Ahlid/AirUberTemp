@@ -7,9 +7,6 @@
     Layout = "_Layout";
 }
 
-
-
-
 <div class="container" style="margin-top: 20px">
 
     <h1>Jatos disponíveis para a data escolhida</h1>
@@ -47,9 +44,11 @@
                     </ul>
                     
                     <script>
-                        
+
                         function verOferta() {
-                            window.location.replace('VerOferta?id=@Model.AeroportoId&data=@Html.Raw(DateTime.Parse(Model.DataPartida.ToString(), CultureInfo.InvariantCulture))&lat=@Model.Latitude.ToString().Replace(',', '.')&lon=@Model.Longitude.ToString().Replace(',', '.')&jatoId=@jato.JatoId');
+                            window.location.replace('VerOferta?iddestino=@Model.AeroportoDestinoId'+
+                                                            '&idpartida=@Model.AeroportoPartidaId' +
+                                                            '&data=@Html.Raw(Model.DataPartida.ToString("yyyy'/'MM'/'dd"))&jatoId=@jato.JatoId');
                         }
 
                     </script>
