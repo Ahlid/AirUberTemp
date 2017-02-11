@@ -68,7 +68,6 @@ namespace AirUberProjeto.Controllers
         public string Carregar(int amount)
         {
 
-
             Cliente cliente = (Cliente) _userManager.GetUserAsync(this.User).Result;
 
             cliente = _context.Cliente.Select(c=>c).Include(c => c.ContaDeCreditos).Single(c => c.Id == cliente.Id);

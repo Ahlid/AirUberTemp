@@ -17,12 +17,10 @@
             <li><a asp-area="" asp-controller="Helpdesk" asp-action="Clientes" class="w3-hover-white w3-hover-text-indigo w3-text-white">Clientes</a></li>
             <li><a asp-area="" asp-controller="Helpdesk" asp-action="Companhias" class="w3-hover-white w3-hover-text-indigo w3-text-white">Companhias</a></li>
             <li><a asp-area="" asp-controller="Helpdesk" asp-action="Viagens" class="w3-hover-white w3-hover-text-indigo w3-text-white">Viagens</a></li>
-            
         } 
        
         @if (User.IsInRole(Roles.ROLE_CLIENTE))
         {
-
             <li><a class="w3-hover-white w3-hover-text-indigo w3-text-white" asp-area="" asp-controller="Cliente" asp-action="Perfil">Ver perfil</a></li>
             <!-- <li><a class="w3-hover-white w3-hover-text-indigo w3-text-white" asp-area="" asp-controller="Cliente" asp-action="EditarPerfil">Editar perfil</a></li> -->
             <li><a class="w3-hover-white w3-hover-text-indigo w3-text-white" asp-area="" asp-controller="Cliente" asp-action="VerViagens">Viagens</a></li>
@@ -36,6 +34,7 @@
             <li><a class="w3-hover-white w3-hover-text-indigo w3-text-white" asp-area="" asp-controller="Companhia" asp-action="VerColaboradores">Colaboradores</a></li>
             <li><a class="w3-hover-white w3-hover-text-indigo w3-text-white" asp-area="" asp-controller="Companhia" asp-action="VerJatos">Aviões</a></li>
             <li><a class="w3-hover-white w3-hover-text-indigo w3-text-white" asp-area="" asp-controller="Companhia" asp-action="VerExtras">Extras</a></li>
+            <li><a class="w3-hover-white w3-hover-text-indigo w3-text-white" asp-area="" asp-controller="Companhia" asp-action="ValidarReservas">Validar reservas</a></li>
             <li><a class="w3-hover-white w3-hover-text-indigo w3-text-white" asp-area="" asp-controller="Companhia" asp-action="Transacoes">Transações</a></li>
         }
 

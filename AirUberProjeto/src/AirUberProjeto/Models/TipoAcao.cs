@@ -12,7 +12,7 @@ namespace AirUberProjeto.Models
     {
 
         /// <summary>
-        /// Identificador unívoco de um tipo de extra
+        /// Identificador unívoco de um tipo de uma ação
         /// </summary>
         public int TipoAcaoId { get; set; }
         /// <summary>

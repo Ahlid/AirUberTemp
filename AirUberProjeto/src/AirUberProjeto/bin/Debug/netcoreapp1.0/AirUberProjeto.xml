@@ -317,6 +317,11 @@
             <param name="file">ficheiro de imagem que irá substituir a imagem de perfil</param>
             <returns>Um redirecionamento para a ação editar perfil</returns>
         </member>
+        <member name="T:AirUberProjeto.Controllers.ClienteController.TipoDisponibilidade">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="M:AirUberProjeto.Controllers.ClienteController.jatoDisponivel(AirUberProjeto.Models.Jato,System.DateTime)">
             <summary>
             Verifica a disponibilidade de um jato numa data
@@ -341,26 +346,23 @@
             </summary>
             <returns>Retorna a view da procura de ofertas</returns>
         </member>
-        <member name="M:AirUberProjeto.Controllers.ClienteController.VerJatos(System.Int32,System.DateTime,System.Double,System.Double)">
+        <member name="M:AirUberProjeto.Controllers.ClienteController.VerJatos(System.Int32,System.Int32,System.DateTime)">
             <summary>
             Responsável por redireccionar o utilizador para a página de pesquisa de ofertas
             </summary>
             <returns>Retorna a view da procura de ofertas</returns>
         </member>
-<<<<<<< HEAD
-        <member name="M:AirUberProjeto.Controllers.ClienteController.VerOferta(System.Int32,System.DateTime,System.Double,System.Double,System.Int32)">
+        <member name="M:AirUberProjeto.Controllers.ClienteController.VerOferta(System.Int32,System.Int32,System.DateTime,System.Int32)">
             <summary>
             Responsável por redireccionar o utilizador para a página que apresenta a informação de uma oferta
             </summary>
             <returns>Retorna a view das ofertas</returns>
         </member>
-=======
->>>>>>> 04e4eac5abd029a7219aed441eceb5f63406a50e
-        <member name="M:AirUberProjeto.Controllers.ClienteController.ReservaConcluida(System.Int32,System.DateTime,System.Double,System.Double)">
+        <member name="M:AirUberProjeto.Controllers.ClienteController.ReservaConcluida(System.Int32,System.Int32,System.DateTime,System.Int32,System.Collections.Generic.List{System.Int32})">
             <summary>
-            Responsável por redireccionar o utilizador para a página de pesquisa de ofertas
+            Responsável por redireccionar o utilizador para a página de reserva concluída
             </summary>
-            <returns>Retorna a view da procura de ofertas</returns>
+            <returns>Retorna de reserva concluída</returns>
         </member>
         <member name="T:AirUberProjeto.Controllers.CompanhiaController">
             <summary>
@@ -1694,6 +1696,21 @@
             Propriedade responsável por guardar a data de chegada da reserva.
             </summary>
         </member>
+        <member name="P:AirUberProjeto.Models.Reserva.Aprovada">
+            <summary>
+            Propriedade que indica se a reserva foi aprovada.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Reserva.Paga">
+            <summary>
+            Propriedade que indica se a reserva foi paga.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Reserva.Realizada">
+            <summary>
+            Propriedade que indica se a reserva foi realizada
+            </summary>
+        </member>
         <member name="P:AirUberProjeto.Models.Reserva.AeroportoPartidaId">
             <summary>
             Identificador unívoco do aeroporto de partida da reserva.
@@ -1790,7 +1807,7 @@
         </member>
         <member name="P:AirUberProjeto.Models.TipoAcao.TipoAcaoId">
             <summary>
-            Identificador unívoco de um tipo de extra
+            Identificador unívoco de um tipo de uma ação
             </summary>
         </member>
         <member name="P:AirUberProjeto.Models.TipoAcao.Nome">

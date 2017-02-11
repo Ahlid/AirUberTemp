@@ -36,7 +36,6 @@ namespace AirUberProjeto.Data
                 relationship.DeleteBehavior = DeleteBehavior.Restrict;
             }
 
-
             base.OnModelCreating(builder);
             
             builder.Entity<ApplicationUser>().HasKey(p => p.Id);

@@ -8,9 +8,8 @@ namespace AirUberProjeto.Models.ClienteViewModels
     public class VerJatoViewModel
     {
         public IEnumerable<Jato> JatodDisponiveis { get; set; }
-        public int AeroportoId { get; set; }
+        public int AeroportoPartidaId { get; set; }
+        public int AeroportoDestinoId { get; set; }
         public DateTime DataPartida { get; set; }
-        public double Latitude { get; set; }
-        public double Longitude { get; set; }
     }
 }
