@@ -1,0 +1,483 @@
+﻿<Window x:Class="AirUberBackoffice.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AirUberBackoffice"
+        mc:Ignorable="d"
+        Loaded="MainWindow_OnLoaded"
+        Title="AirUber Backoffice - Home Page">
+    <DockPanel Name="Principal">
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="Ficheiro">
+                <MenuItem Header="Guardar" Click="onGuardarClick"/>
+                <MenuItem Header="Sair" Click="onSairClick"/>
+            </MenuItem>
+            <MenuItem Header="Viagens">
+                <MenuItem Header="Ver Viagens" Click="onVerTodasViagensClick"/>
+                <MenuItem Header="Aeroportos">
+                    <MenuItem Header="Visualizar" Click="onVerTodosAeroportosClick"/>
+                    <MenuItem Header="Criar" Click="onCriarAeroportosClick"/>
+                    <MenuItem Header="Editar" Click="onEditarAeroportosClick"/>
+                    <MenuItem Header="Eliminar" Click="onEliminarAeroportosClick"/>
+                </MenuItem>
+                <MenuItem Header="Ver Países" Click="onVerTodosPaisesClick"/>
+                <MenuItem Header="Ver Cidades" Click="onVerTodasCidadesClick"/>
+            </MenuItem>
+            <MenuItem Header="Clientes">
+                <MenuItem Header="Listar" Click="onVerTodosClientesClick"/>
+                <MenuItem Header="Editar" Click="onEditarClienteClick"/>
+                <MenuItem Header="Eliminar" Click="onEliminarClienteClick"/>
+            </MenuItem>
+            <MenuItem Header="Companhias">
+                <MenuItem Header="Ver Companhias" Click="onVerTodasCompanhiasClick"/>
+                <MenuItem Name="MenuItem_VerColaboradores" Header="Ver Colaboradores" Click="onVerColaboradoresClick"/>
+                <MenuItem Name="MenuItem_VerReservas" Header="Ver Reservas" Click="onVerReservasClick"/>
+                <MenuItem Name="MenuItem_VerJatos" Header="Ver Jatos" Click="onVerJatosClick"/>
+                <MenuItem Name="MenuItem_VerExtras" Header="Ver Extras" Click="onVerExtrasClick"/>
+            </MenuItem>
+            <MenuItem Header="Extras">
+                <MenuItem Header="Extras">
+                    <MenuItem Header="Listar" Click="onVerTodosExtrasClick"/>
+                    <MenuItem Header="Criar" Click="onCriarExtrasClick"/>
+                    <MenuItem Header="Editar" Click="onEditarExtrasClick"/>
+                    <MenuItem Header="Eliminar" Click="onEliminarExtrasClick"/>
+                </MenuItem>
+                <MenuItem Header="Tipo de Extras">
+                    <MenuItem Header="Listar" Click="onVerTipoExtrasClick"/>
+                    <MenuItem Header="Criar" Click="onCriarTipoExtrasClick"/>
+                    <MenuItem Header="Editar" Click="onEditarTipoExtrasClick"/>
+                    <MenuItem Header="Eliminar" Click="onEliminarTipoExtrasClick"/>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="Jatos">
+                <MenuItem Header="Jatos">
+                    <MenuItem Header="Listar" Click="onVerTodosJatosClick"/>
+                    <MenuItem Header="Criar" Click="onCriarJatoClick"/>
+                    <MenuItem Header="Editar" Click="onEditarJatoClick"/>
+                    <MenuItem Header="Eliminar" Click="onEliminarJatoClick"/>
+                </MenuItem>
+                <MenuItem Header="Modelos" >
+                    <MenuItem Header="Listar" Click="onVerTodosModelosJatosClick"/>
+                    <MenuItem Header="Criar" Click="onCriarModeloJatoClick"/>
+                    <MenuItem Header="Editar" Click="onEditarModeloJatoClick"/>
+                    <MenuItem Header="Eliminar" Click="onEliminarModeloJatoClick"/>
+                </MenuItem>
+                <MenuItem Header="Tipo de Jatos">
+                    <MenuItem Header="Listar" Click="onVerTipoDeJatosClick"/>
+                    <MenuItem Header="Criar" Click="onCriarTipoDeJatosClick"/>
+                    <MenuItem Header="Editar" Click="onEditarTipoDeJatosClick"/>
+                    <MenuItem Header="Eliminar" Click="onEliminarTipoDeJatosClick"/>
+                </MenuItem>
+                
+                
+                
+            </MenuItem>
+            <MenuItem Header="Ajuda">
+                <MenuItem Header="Ver Ajuda" Click="onAjudarClick"/>
+                <MenuItem Header="Sobre" Click="onSobreClick"/>
+            </MenuItem>
+        </Menu>
+        <ToolBarTray DockPanel.Dock="Top">
+            <ToolBar >
+                <Button Name="ButtonFirst" Click="onPrimeiroClick">
+                    <Image Height="17" Source="imagens/first.png" Margin="5,0" />
+                </Button>
+                <Button Name="ButtonPrevious" Click="onAnteriorClick">
+                    <Image Height="20" Source="imagens/previous.png" Margin="5,0"/>
+                </Button>
+                <Button Name="ButtonNext" Click="onSeguinteClick">
+                    <Image Height="20" Source="imagens/next.png" Margin="5,0"/>
+                </Button>
+                <Button Name="ButtonLast" Click="onUltimoClick">
+                    <Image Height="20" Source="imagens/Last.png" Margin="5,0"/>
+                </Button>
+                <Button Name="ButtonAdd" Click="onNovoClick">
+                    <Image Height="20" Source="imagens/add.png" Margin="5,0"/>
+                </Button>
+                <Button Name="ButtonEdit" Click="onEditarClick" >
+                    <Image Height="20" Source="imagens/edit.png" Margin="5,0"/>
+                </Button>
+                <Button Name="ButtonRemove" Click="onEliminarClick">
+                    <Image Height="20" Source="imagens/remove.png" Margin="5,0"/>
+                </Button>
+            </ToolBar>
+        </ToolBarTray>
+        <StatusBar DockPanel.Dock="Bottom">
+            <StatusBarItem>
+                <Label Name="GenericLabel" Content="x de y" />
+            </StatusBarItem>
+        </StatusBar>
+        <StackPanel DockPanel.Dock="Left">
+        <Grid Name="FormPaises" DataContext="{Binding ElementName=ListBoxPaises, Path=SelectedItem}"  Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="130" />
+                <ColumnDefinition Width="280"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Label Content="Identificador:" Grid.Row="0" HorizontalAlignment="Left" FontSize="12" Margin="10" />
+            <Label Content="Pais:" Grid.Row="1" HorizontalAlignment="Left" FontSize="12" Margin="10" />
+            <TextBox Name="TextBoxPais_Id"  Grid.Row="0" Grid.Column="1"  Text="{Binding Path=PaisId}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="180" IsEnabled="False" />
+            <TextBox Name="TextBoxPais_Nome"  Grid.Row="1" Grid.Column="1"  Text="{Binding Path=Nome}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="180" IsEnabled="False" />
+            <ListBox Name="ListBoxPaises" Grid.Row="0" Grid.Column="2"  Grid.RowSpan="3" Margin="10.4,10,9.6,-276.8"/>
+        </Grid>
+        <Grid Name="FormCidades" DataContext="{Binding ElementName=ListBoxCidades, Path=SelectedItem}"   Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="130" />
+                <ColumnDefinition Width="280"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Label Content="Identificador:" Grid.Row="0" HorizontalAlignment="Left" FontSize="12" Margin="10" />
+            <Label Content="Cidade:" Grid.Row="1" HorizontalAlignment="Left" FontSize="12" Margin="10" />
+            <Label Content="Pais:" Grid.Row="2" HorizontalAlignment="Left" FontSize="12" Margin="10" />
+            <TextBox Name="TextBoxCidade_Id"  Grid.Row="0" Grid.Column="1"  Text="{Binding Path=CidadeId}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="180" IsEnabled="False" />
+            <TextBox Name="TextBoxCidade_Nome"  Grid.Row="1" Grid.Column="1"  Text="{Binding Path=Nome}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="180" IsEnabled="False" />
+            <TextBox Name="TextBoxCidade_NomePais"  Grid.Row="2" Grid.Column="1"  Text="{Binding Path=Pais.Nome}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="180" IsEnabled="False" />
+            <ListBox Name="ListBoxCidades" Grid.Row="0" Grid.Column="2"  Grid.RowSpan="3" Margin="10.4,10,9.6,-276.8"/>
+        </Grid>
+        <Grid Name="FormAeroportos" DataContext="{Binding ElementName=ListBoxAeroportos, Path=SelectedItem}"  Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="130" />
+                <ColumnDefinition Width="280"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Label Content="Identificador:" Grid.Row="0" HorizontalAlignment="Left" FontSize="12" Margin="10" />
+            <Label Content="Aeroporto:" Grid.Row="1" HorizontalAlignment="Left" FontSize="12" Margin="10" />
+            <Label Content="Cidade:" Grid.Row="2" HorizontalAlignment="Left" FontSize="12" Margin="10" />
+            <Label Content="Latitude:" Grid.Row="3" HorizontalAlignment="Left" FontSize="12" Margin="10" />
+            <Label Content="Longitude:" Grid.Row="4" HorizontalAlignment="Left" FontSize="12" Margin="10" />
+            <TextBox Name="TextBoxAeroporto_Id"  Grid.Row="0" Grid.Column="1"  Text="{Binding Path=CidadeId}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="180" IsEnabled="False" />
+            <TextBox Name="TextBoxAeroporto_Nome"  Grid.Row="1" Grid.Column="1"  Text="{Binding Path=Nome}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="180" IsEnabled="False" />
+            <TextBox Name="TextBoxAeroporto_NomeCidade"  Grid.Row="2" Grid.Column="1"  Text="{Binding Path=Cidade.Nome}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="180" IsEnabled="False" />
+            <TextBox Name="TextBoxAeroporto_Latitude"  Grid.Row="3" Grid.Column="1"  Text="{Binding Path=Latitude}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="180" IsEnabled="False" />
+            <TextBox Name="TextBoxAeroporto_Longitude"  Grid.Row="4" Grid.Column="1"  Text="{Binding Path=Longitude}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="180" IsEnabled="False" />
+            <ListBox Name="ListBoxAeroportos" Grid.Row="0" Grid.Column="2"  Grid.RowSpan="3" Margin="10.4,10,9.6,-276.8"/>
+        </Grid>
+
+            
+
+        <Grid Name="FormReservas" DataContext="{Binding ElementName=ListBoxReservas, Path=SelectedItem}"  Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="130" />
+                <ColumnDefinition Width="280"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Label Content="Identificador:" Grid.Row="0" HorizontalAlignment="Left" FontSize="12" Margin="10" />
+            <Label Content="Data Partida:" Grid.Row="1" HorizontalAlignment="Left" FontSize="12" Margin="10" />
+            <Label Content="Data Chegada:" Grid.Row="2" HorizontalAlignment="Left" FontSize="12" Margin="10" />
+            <Label Content="Aeroporto Partida:" Grid.Row="3" HorizontalAlignment="Left" FontSize="12" Margin="10" />
+            <Label Content="Aeroporto Destino:" Grid.Row="4" HorizontalAlignment="Left" FontSize="12" Margin="10" />
+            <Label Content="Jato:" Grid.Row="5" HorizontalAlignment="Left" FontSize="12" Margin="10" />
+            <Label Content="Companhia:" Grid.Row="6" HorizontalAlignment="Left" FontSize="12" Margin="10" />
+            <Label Content="Cliente:" Grid.Row="7" HorizontalAlignment="Left" FontSize="12" Margin="10" />
+            <Label Content="Custo:" Grid.Row="8" HorizontalAlignment="Left" FontSize="12" Margin="10" />
+            <Label Content="Avaliacao:" Grid.Row="9" HorizontalAlignment="Left" FontSize="12" Margin="10" />
+            <TextBox Name="TextBoxReserva_Id"  Grid.Row="0" Grid.Column="1"  Text="{Binding Path=ReservaId}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="180" IsEnabled="False" />
+            <TextBox Name="TextBoxReserva_DataPartida"  Grid.Row="1" Grid.Column="1"  Text="{Binding Path=DataPartida}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="180" IsEnabled="False" />
+            <TextBox Name="TextBoxReserva_DataChegada"  Grid.Row="2" Grid.Column="1"  Text="{Binding Path=DataChegada}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="180" IsEnabled="False" />
+            <TextBox Name="TextBoxReserva_AeroportoPartida"  Grid.Row="3" Grid.Column="1"  Text="{Binding Path=AeroportoPartida.Nome}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="180" IsEnabled="False" />
+            <TextBox Name="TextBoxReserva_AeroportoDestino"  Grid.Row="4" Grid.Column="1"  Text="{Binding Path=AeroportoDestino.Nome}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="180" IsEnabled="False" />
+            <TextBox Name="TextBoxReserva_Jato"  Grid.Row="5" Grid.Column="1"  Text="{Binding Path=Jato.Nome}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="180" IsEnabled="False" />
+            <TextBox Name="TextBoxReserva_Companhia"  Grid.Row="6" Grid.Column="1"  Text="{Binding Path=Companhia.Nome}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="180" IsEnabled="False" />
+            <TextBox Name="TextBoxReserva_Cliente"  Grid.Row="7" Grid.Column="1"  Text="{Binding Path=ApplicationUserId}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="180" IsEnabled="False" />
+            <TextBox Name="TextBoxReserva_Custo"  Grid.Row="8" Grid.Column="1"  Text="{Binding Path=Custo}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="180" IsEnabled="False" />
+            <TextBox Name="TextBoxReserva_Avaliação"  Grid.Row="9" Grid.Column="1"  Text="{Binding Path=Avaliacao}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="180" IsEnabled="False" />
+            <ListBox Name="ListBoxReservas" Grid.Row="0" Grid.Column="2"  Grid.RowSpan="3" Margin="10.4,10,9.6,-276.8"/>
+        </Grid>
+
+
+
+        <Grid Name="FormClientes" DataContext="{Binding ElementName=ListBoxClientes, Path=SelectedItem}"  Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200" />
+                <ColumnDefinition Width="300"/>
+                <ColumnDefinition Width="600"/>
+                
+                    <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <!-- Falta as fotos e as listas de reservas e tal... -->
+            <Label Content="Identificador:" Grid.Row="0" HorizontalAlignment="Left" FontSize="12" Margin="10" />
+            <Label Content="Nome:" Grid.Row="1" HorizontalAlignment="Left" FontSize="12" Margin="10" />
+            <Label Content="Apelido:" Grid.Row="2" HorizontalAlignment="Left" FontSize="12" Margin="10" />
+            <Label Content="Data de Criação:" Grid.Row="3" HorizontalAlignment="Left" FontSize="12" Margin="10" />
+            <Label Content="Ativo:" Grid.Row="4" HorizontalAlignment="Left" FontSize="12" Margin="10" />
+            <Label Content="Contacto:" Grid.Row="5" HorizontalAlignment="Left" FontSize="12" Margin="10" />
+            <Label Content="Número de Créditos:" Grid.Row="6" HorizontalAlignment="Left" FontSize="12" Margin="10" />
+            
+            <TextBox Name="TextBoxCliente_Id"  Grid.Row="0" Grid.Column="1"  Text="{Binding Path=ApplicationUserId}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="250" IsEnabled="False" />
+            <TextBox Name="TextBoxCliente_Nome"  Grid.Row="1" Grid.Column="1"  Text="{Binding Path=Nome}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="250" IsEnabled="False" />
+            <TextBox Name="TextBoxCliente_Apelido"  Grid.Row="2" Grid.Column="1"  Text="{Binding Path=Apelido}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="250" IsEnabled="False" />
+            <TextBox Name="TextBoxCliente_DataCriacao"  Grid.Row="3" Grid.Column="1"  Text="{Binding Path=DataCriacao}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="250" IsEnabled="False" />
+            <!-- não deve ser uma textbox-->
+            <TextBox Name="TextBoxCliente_Ativo"  Grid.Row="4" Grid.Column="1"  Text="{Binding Path=Ativo}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="250" IsEnabled="False" />
+            <TextBox Name="TextBoxCliente_Contacto"  Grid.Row="5" Grid.Column="1"  Text="{Binding Path=Contacto}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="250" IsEnabled="False" />
+            <TextBox Name="TextBoxCliente_Creditos"  Grid.Row="6" Grid.Column="1"  Text="{Binding Path=ContaDeCreditosId}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="250" IsEnabled="False" />
+                <ListBox Name="ListBoxClientes" Grid.Row="0" Grid.Column="2"  Grid.RowSpan="3" Margin="10.4,10,9.6,-276.8"/>
+                <Image Source="{Binding Path=RelativePathImagemPerfil}"/>
+            </Grid>
+
+
+
+        <Grid Name="FormCompanhias" DataContext="{Binding ElementName=ListBoxCompanhias, Path=SelectedItem}"  Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="140" />
+                <ColumnDefinition Width="280"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <!-- Falta as fotos e as listas de reservas e tal... -->
+            <Label Content="Identificador:" Grid.Row="0" HorizontalAlignment="Left" FontSize="12" Margin="10" />
+            <Label Content="Nome:" Grid.Row="1" HorizontalAlignment="Left" FontSize="12" Margin="10" />
+            <Label Content="Morada:" Grid.Row="2" HorizontalAlignment="Left" FontSize="12" Margin="10" />
+            <Label Content="Contacto:" Grid.Row="3" HorizontalAlignment="Left" FontSize="12" Margin="10" />
+            <Label Content="Pais:" Grid.Row="4" HorizontalAlignment="Left" FontSize="12" Margin="10" />
+            <Label Content="Nif:" Grid.Row="5" HorizontalAlignment="Left" FontSize="12" Margin="10" />
+            <Label Content="Número de Créditos:" Grid.Row="6" HorizontalAlignment="Left" FontSize="12" Margin="10" />
+            <Label Content="Email:" Grid.Row="7" HorizontalAlignment="Left" FontSize="12" Margin="10" />
+            <Label Content="DataCriacao:" Grid.Row="8" HorizontalAlignment="Left" FontSize="12" Margin="10" />
+            <Label Content="Estado:" Grid.Row="9" HorizontalAlignment="Left" FontSize="12" Margin="10" />
+            <TextBox Name="TextBoxCompanhia_Id"  Grid.Row="0" Grid.Column="1"  Text="{Binding Path=CompanhiaId}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="200" IsEnabled="False" />
+            <TextBox Name="TextBoxCompanhia_Nome"  Grid.Row="1" Grid.Column="1"  Text="{Binding Path=Nome}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="200" IsEnabled="False" />
+            <TextBox Name="TextBoxCompanhia_Morada"  Grid.Row="2" Grid.Column="1"  Text="{Binding Path=Morada}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="200" IsEnabled="False" />
+            <TextBox Name="TextBoxCompanhia_Contacto"  Grid.Row="3" Grid.Column="1"  Text="{Binding Path=Contact}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="200" IsEnabled="False" />
+            <TextBox Name="TextBoxCompanhia_Pais"  Grid.Row="4" Grid.Column="1"  Text="{Binding Path=Pais.Nome}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="200" IsEnabled="False" />
+            <TextBox Name="TextBoxCompanhia_Nif"  Grid.Row="5" Grid.Column="1"  Text="{Binding Path=Nif}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="200" IsEnabled="False" />
+            <TextBox Name="TextBoxCompanhia_Creditos"  Grid.Row="6" Grid.Column="1"  Text="{Binding Path=ContaDeCreditos.JetCashActual}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="200" IsEnabled="False" />
+            <TextBox Name="TextBoxCompanhia_Email"  Grid.Row="7" Grid.Column="1"  Text="{Binding Path=Email}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="200" IsEnabled="False" />
+            <TextBox Name="TextBoxCompanhia_DataCriacao"  Grid.Row="8" Grid.Column="1"  Text="{Binding Path=DataCriacao}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="200" IsEnabled="False" />
+            <TextBox Name="TextBoxCompanhia_Estado"  Grid.Row="9" Grid.Column="1"  Text="{Binding Path=Estado.Nome}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="200" IsEnabled="False" />
+            <ListBox Name="ListBoxCompanhias" Grid.Row="0" Grid.Column="2"  Grid.RowSpan="3" Margin="10.4,10,9.6,-276.8"/>
+        </Grid>
+
+        <Grid Name="FormColaboradores" DataContext="{Binding ElementName=ListBoxColaboradores, Path=SelectedItem}"  Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="140" />
+                <ColumnDefinition Width="280"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <!-- Falta as fotos e as listas de reservas e tal... -->
+            <Label Content="Identificador:" Grid.Row="0" HorizontalAlignment="Left" FontSize="12" Margin="10" />
+            <Label Content="Nome:" Grid.Row="1" HorizontalAlignment="Left" FontSize="12" Margin="10" />
+            <Label Content="Apelido:" Grid.Row="2" HorizontalAlignment="Left" FontSize="12" Margin="10" />
+            <Label Content="Companhia:" Grid.Row="3" HorizontalAlignment="Left" FontSize="12" Margin="10" />
+            <Label Content="Administrador:" Grid.Row="4" HorizontalAlignment="Left" FontSize="12" Margin="10" />
+            <Label Content="Data Criação:" Grid.Row="5" HorizontalAlignment="Left" FontSize="12" Margin="10" />
+            <Label Content="Ativo:" Grid.Row="6" HorizontalAlignment="Left" FontSize="12" Margin="10" />
+            <TextBox Name="TextBoxColaborador_Id"  Grid.Row="0" Grid.Column="1"  Text="{Binding Path=ApplicationUserId}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="200" IsEnabled="False" />
+            <TextBox Name="TextBoxColaborador_Nome"  Grid.Row="1" Grid.Column="1"  Text="{Binding Path=Nome}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="200" IsEnabled="False" />
+            <TextBox Name="TextBoxColaborador_Apelido"  Grid.Row="2" Grid.Column="1"  Text="{Binding Path=Apelido}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="200" IsEnabled="False" />
+            <TextBox Name="TextBoxColaborador_Companhia"  Grid.Row="3" Grid.Column="1"  Text="{Binding Path=Companhia.Nome}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="200" IsEnabled="False" />
+            <TextBox Name="TextBoxColaborador_Administrador"  Grid.Row="4" Grid.Column="1"  Text="{Binding Path=IsAdministrador}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="200" IsEnabled="False" />
+            <TextBox Name="TextBoxColaborador_DataCriacao"  Grid.Row="5" Grid.Column="1"  Text="{Binding Path=DataCriacao}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="200" IsEnabled="False" />
+            <TextBox Name="TextBoxColaborador_Ativo"  Grid.Row="6" Grid.Column="1"  Text="{Binding Path=Ativo}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="200" IsEnabled="False" />
+            <ListBox Name="ListBoxColaboradores" Grid.Row="0" Grid.Column="2"  Grid.RowSpan="3" Margin="10.4,10,9.6,-276.8"/>
+        </Grid>
+
+
+        <Grid Name="FormModelos" DataContext="{Binding ElementName=ListBoxModelos, Path=SelectedItem}"  Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="140" />
+                <ColumnDefinition Width="280"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <!-- Falta as fotos e as listas de reservas e tal... -->
+            <Label Content="Identificador:" Grid.Row="0" HorizontalAlignment="Left" FontSize="12" Margin="10" />
+            <Label Content="Tipo Jato:" Grid.Row="1" HorizontalAlignment="Left" FontSize="12" Margin="10" />
+            <Label Content="Capacidade:" Grid.Row="2" HorizontalAlignment="Left" FontSize="12" Margin="10" />
+            <Label Content="Alcance:" Grid.Row="3" HorizontalAlignment="Left" FontSize="12" Margin="10" />
+            <Label Content="Velocidade Máxima:" Grid.Row="4" HorizontalAlignment="Left" FontSize="12" Margin="10" />
+            <Label Content="Peso Máximo das Bagagens:" Grid.Row="5" HorizontalAlignment="Left" FontSize="12" Margin="10" />
+            <Label Content="Número Motores:" Grid.Row="6" HorizontalAlignment="Left" FontSize="12" Margin="10" />       
+            <Label Content="Altitude Ideal:" Grid.Row="7" HorizontalAlignment="Left" FontSize="12" Margin="10" />
+            <Label Content="Altura Cabine:" Grid.Row="8" HorizontalAlignment="Left" FontSize="12" Margin="10" />
+            <Label Content="Largura Cabine:" Grid.Row="9" HorizontalAlignment="Left" FontSize="12" Margin="10" />
+            <Label Content="Comprimento Cabine:" Grid.Row="10" HorizontalAlignment="Left" FontSize="12" Margin="10" />
+            <Label Content="Descricao:" Grid.Row="11" HorizontalAlignment="Left" FontSize="12" Margin="10" />
+            <TextBox Name="TextBoxModelo_Id"  Grid.Row="0" Grid.Column="1"  Text="{Binding Path=ModeloId}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="200" IsEnabled="False" />
+            <TextBox Name="TextBoxModelo_TipoJato"  Grid.Row="1" Grid.Column="1"  Text="{Binding Path=TipoJato.Nome}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="200" IsEnabled="False" />
+            <TextBox Name="TextBoxModelo_Capacidade"  Grid.Row="2" Grid.Column="1"  Text="{Binding Path=Capacidade}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="200" IsEnabled="False" />
+            <TextBox Name="TextBoxModelo_Alcance"  Grid.Row="3" Grid.Column="1"  Text="{Binding Path=Alcance}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="200" IsEnabled="False" />
+            <TextBox Name="TextBoxModelo_VelocidadeMaxima"  Grid.Row="4" Grid.Column="1"  Text="{Binding Path=VelocidadeMaxima}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="200" IsEnabled="False" />
+            <TextBox Name="TextBoxModelo_PesoMaximaBagagens"  Grid.Row="5" Grid.Column="1"  Text="{Binding Path=PesoMaximaBagagens}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="200" IsEnabled="False" />
+            <TextBox Name="TextBoxModelo_NumeroMotores"  Grid.Row="6" Grid.Column="1"  Text="{Binding Path=NumeroMotores}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="200" IsEnabled="False" />
+            <TextBox Name="TextBoxModelo_AltitudeIdeal"  Grid.Row="7" Grid.Column="1"  Text="{Binding Path=AltitudeIdeal}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="200" IsEnabled="False" />
+            <TextBox Name="TextBoxModelo_AlturaCabine"  Grid.Row="8" Grid.Column="1"  Text="{Binding Path=AlturaCabine}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="200" IsEnabled="False" />
+            <TextBox Name="TextBoxModelo_LarguraCabine"  Grid.Row="9" Grid.Column="1"  Text="{Binding Path=LarguraCabine}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="200" IsEnabled="False" />
+            <TextBox Name="TextBoxModelo_ComprimentoCabine"  Grid.Row="10" Grid.Column="1"  Text="{Binding Path=ComprimentoCabine}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="200" IsEnabled="False" />
+            <TextBox Name="TextBoxModelo_Descricao"  Grid.Row="10" Grid.Column="1"  Text="{Binding Path=Descricao}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="200" IsEnabled="False" />
+            <ListBox Name="ListBoxModelos" Grid.Row="0" Grid.Column="2"  Grid.RowSpan="3" Margin="10.4,10,9.6,-276.8"/>
+        </Grid>
+
+
+        <Grid Name="FormTipoJatos" DataContext="{Binding ElementName=ListBoxTipoJatos, Path=SelectedItem}"  Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="140" />
+                <ColumnDefinition Width="280"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Label Content="Identificador:" Grid.Row="0" HorizontalAlignment="Left" FontSize="12" Margin="10" />
+            <Label Content="Nome:" Grid.Row="1" HorizontalAlignment="Left" FontSize="12" Margin="10" />
+            <TextBox Name="TextBoxTipoJato_Id"  Grid.Row="0" Grid.Column="1"  Text="{Binding Path=TipoJatoId}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="200" IsEnabled="False" />
+            <TextBox Name="TextBoxTipoJato_Nome"  Grid.Row="1" Grid.Column="1"  Text="{Binding Path=Nome}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="200" IsEnabled="False" />
+            <ListBox Name="ListBoxTipoJatos" Grid.Row="0" Grid.Column="2"  Grid.RowSpan="3" Margin="10.4,10,9.6,-276.8"/>
+        </Grid>
+
+
+        <Grid Name="FormJatos" DataContext="{Binding ElementName=ListBoxJatos, Path=SelectedItem}"  Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="140" />
+                <ColumnDefinition Width="280"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Label Content="Identificador:" Grid.Row="0" HorizontalAlignment="Left" FontSize="12" Margin="10" />
+            <Label Content="Nome:" Grid.Row="1" HorizontalAlignment="Left" FontSize="12" Margin="10" />
+            <Label Content="Modelo:" Grid.Row="1" HorizontalAlignment="Left" FontSize="12" Margin="10" />
+            <Label Content="Companhia:" Grid.Row="1" HorizontalAlignment="Left" FontSize="12" Margin="10" />
+            <Label Content="Em Funcionamento:" Grid.Row="1" HorizontalAlignment="Left" FontSize="12" Margin="10" />
+            <Label Content="Aeroporto:" Grid.Row="1" HorizontalAlignment="Left" FontSize="12" Margin="10" />
+            <Label Content="Foto:" Grid.Row="1" HorizontalAlignment="Left" FontSize="12" Margin="10" />
+            <TextBox Name="TextBoxTodosJato_Id"  Grid.Row="0" Grid.Column="1"  Text="{Binding Path=JatoId}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="200" IsEnabled="False" />
+            <TextBox Name="TextBoxTodosJato_Nome"  Grid.Row="1" Grid.Column="1"  Text="{Binding Path=Nome}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="200" IsEnabled="False" />
+            <TextBox Name="TextBoxTodosJato_Modelo"  Grid.Row="0" Grid.Column="1"  Text="{Binding Path=Modelo.Nome}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="200" IsEnabled="False" />
+            <TextBox Name="TextBoxTodosJato_Companhia"  Grid.Row="1" Grid.Column="1"  Text="{Binding Path=Companhia.Nome}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="200" IsEnabled="False" />
+            <TextBox Name="TextBoxTodosJato_EmFuncionamento"  Grid.Row="0" Grid.Column="1"  Text="{Binding Path=EmFuncionamento}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="200" IsEnabled="False" />
+            <TextBox Name="TextBoxTodosJato_Aeroporto"  Grid.Row="1" Grid.Column="1"  Text="{Binding Path=AeroportoNome}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="200" IsEnabled="False" />
+            <TextBox Name="TextBoxTodosJato_Foto"  Grid.Row="0" Grid.Column="1"  Text="{Binding Path=RelativePathImagemPerfil}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="200" IsEnabled="False" />
+            <ListBox Name="ListBoxTodosJatos" Grid.Row="0" Grid.Column="2"  Grid.RowSpan="3" Margin="10.4,10,9.6,-276.8"/>
+        </Grid>
+
+
+        <Grid Name="FormTipoExtras" DataContext="{Binding ElementName=ListBoxTipoExtras, Path=SelectedItem}"  Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="140" />
+                <ColumnDefinition Width="280"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Label Content="Identificador:" Grid.Row="0" HorizontalAlignment="Left" FontSize="12" Margin="10" />
+            <Label Content="Nome:" Grid.Row="1" HorizontalAlignment="Left" FontSize="12" Margin="10" />
+            <TextBox Name="TextBoxTipoExtra_Id"  Grid.Row="0" Grid.Column="1"  Text="{Binding Path=TipoExtraId}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="200" IsEnabled="False" />
+            <TextBox Name="TextBoxTipoExtra_Nome"  Grid.Row="1" Grid.Column="1"  Text="{Binding Path=Nome}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="200" IsEnabled="False" />
+            <ListBox Name="ListBoxTipoExtras" Grid.Row="0" Grid.Column="2"  Grid.RowSpan="3" Margin="10.4,10,9.6,-276.8"/>
+        </Grid>
+
+
+
+        <Grid Name="FormExtras" DataContext="{Binding ElementName=ListBoxExtras, Path=SelectedItem}"  Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="140" />
+                <ColumnDefinition Width="280"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Label Content="Identificador:" Grid.Row="0" HorizontalAlignment="Left" FontSize="12" Margin="10" />
+            <Label Content="Nome:" Grid.Row="1" HorizontalAlignment="Left" FontSize="12" Margin="10" />
+            <Label Content="Tipo Extra:" Grid.Row="2" HorizontalAlignment="Left" FontSize="12" Margin="10" />
+            <Label Content="Companhia:" Grid.Row="3" HorizontalAlignment="Left" FontSize="12" Margin="10" />
+            <Label Content="Valor:" Grid.Row="4" HorizontalAlignment="Left" FontSize="12" Margin="10" />
+            <TextBox Name="TextBoxExtra_Id"  Grid.Row="0" Grid.Column="1"  Text="{Binding Path=ExtraId}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="200" IsEnabled="False" />
+            <TextBox Name="TextBoxExtra_Nome"  Grid.Row="1" Grid.Column="1"  Text="{Binding Path=Nome}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="200" IsEnabled="False" />
+            <TextBox Name="TextBoxExtra_TipoExtra"  Grid.Row="2" Grid.Column="1"  Text="{Binding Path=TipoExtra.Nome}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="200" IsEnabled="False" />
+            <TextBox Name="TextBoxExtra_Companhia"  Grid.Row="3" Grid.Column="1"  Text="{Binding Path=Companhia.Nome}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="200" IsEnabled="False" />
+            <TextBox Name="TextBoxExtra_Valor"  Grid.Row="4" Grid.Column="1"  Text="{Binding Path=Valor}" HorizontalAlignment="Left" FontSize="12" Margin="10" Width="200" IsEnabled="False" />
+            <ListBox Name="ListBoxExtras" Grid.Row="0" Grid.Column="2"  Grid.RowSpan="3" Margin="10.4,10,9.6,-276.8"/>
+        </Grid>
+        </StackPanel>
+    </DockPanel>
+</Window>
