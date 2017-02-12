@@ -1,7 +1,11 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
+<<<<<<< HEAD
+      "C:\\Users\\artur\\.nuget\\packages"
+=======
       "C:\\Users\\Ricardo Morais\\.nuget\\packages"
+>>>>>>> 63e85c2b31ae5bd7b3d09fcb36f541d5c651a1ad
     ]
   }
 }

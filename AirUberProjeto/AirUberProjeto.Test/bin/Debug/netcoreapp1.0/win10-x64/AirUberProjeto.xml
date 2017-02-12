@@ -317,10 +317,18 @@
             <param name="file">ficheiro de imagem que irá substituir a imagem de perfil</param>
             <returns>Um redirecionamento para a ação editar perfil</returns>
         </member>
+<<<<<<< HEAD
         <member name="T:AirUberProjeto.Controllers.ClienteController.TipoDisponibilidade">
             <summary>
             
             </summary>
+=======
+        <member name="M:AirUberProjeto.Controllers.ClienteController.jatoDisponivel(AirUberProjeto.Models.Jato,System.DateTime)">
+            <summary>
+            Verifica a disponibilidade de um jato numa data
+            </summary>
+            <returns>true se o jato estiver disponível na data, false senão</returns>
+>>>>>>> a1f9c253a67da08ffcb06a2044dfce9fa01a2460
         </member>
         <member name="M:AirUberProjeto.Controllers.ClienteController.VerViagens">
             <summary>
@@ -346,7 +354,17 @@
             </summary>
             <returns>Retorna a view da procura de ofertas</returns>
         </member>
+<<<<<<< HEAD
         <member name="M:AirUberProjeto.Controllers.ClienteController.VerOferta(System.Int32,System.Int32,System.DateTime,System.Int32)">
+=======
+        <member name="M:AirUberProjeto.Controllers.ClienteController.VerOferta(System.Int32,System.DateTime,System.Double,System.Double,System.Int32)">
+            <summary>
+            Responsável por redireccionar o utilizador para a página que apresenta a informação de uma oferta
+            </summary>
+            <returns>Retorna a view das ofertas</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.ClienteController.ReservaConcluida(System.Int32,System.DateTime,System.Double,System.Double)">
+>>>>>>> a1f9c253a67da08ffcb06a2044dfce9fa01a2460
             <summary>
             Responsável por redireccionar o utilizador para a página que apresenta a informação de uma oferta
             </summary>

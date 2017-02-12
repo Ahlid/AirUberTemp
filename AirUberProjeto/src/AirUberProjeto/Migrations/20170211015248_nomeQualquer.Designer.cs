@@ -8,9 +8,10 @@ using AirUberProjeto.Data;
 namespace AirUberProjeto.Migrations
 {
     [DbContext(typeof(AirUberDbContext))]
-    partial class AirUberDbContextModelSnapshot : ModelSnapshot
+    [Migration("20170211015248_nomeQualquer")]
+    partial class nomeQualquer
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.1")
@@ -186,20 +187,10 @@ namespace AirUberProjeto.Migrations
                     b.Property<int>("ContaDeCreditosId")
                         .ValueGeneratedOnAdd();
 
-<<<<<<< HEAD
-=======
-                    b.Property<int>("HistoricoTransacoeMonetariasId");
-
->>>>>>> 63e85c2b31ae5bd7b3d09fcb36f541d5c651a1ad
                     b.Property<decimal>("JetCashActual");
 
                     b.HasKey("ContaDeCreditosId");
 
-<<<<<<< HEAD
-=======
-                    b.HasIndex("HistoricoTransacoeMonetariasId");
-
->>>>>>> 63e85c2b31ae5bd7b3d09fcb36f541d5c651a1ad
                     b.ToTable("ContaDeCreditoses");
                 });
 
@@ -260,19 +251,6 @@ namespace AirUberProjeto.Migrations
                     b.ToTable("Extra");
                 });
 
-<<<<<<< HEAD
-=======
-            modelBuilder.Entity("AirUberProjeto.Models.HistoricoTransacoeMonetarias", b =>
-                {
-                    b.Property<int>("HistoricoTransacoeMonetariasId")
-                        .ValueGeneratedOnAdd();
-
-                    b.HasKey("HistoricoTransacoeMonetariasId");
-
-                    b.ToTable("HistoricoTransacoeMonetariases");
-                });
-
->>>>>>> 63e85c2b31ae5bd7b3d09fcb36f541d5c651a1ad
             modelBuilder.Entity("AirUberProjeto.Models.Jato", b =>
                 {
                     b.Property<int>("JatoId")
@@ -341,27 +319,6 @@ namespace AirUberProjeto.Migrations
                     b.ToTable("Modelo");
                 });
 
-<<<<<<< HEAD
-=======
-            modelBuilder.Entity("AirUberProjeto.Models.MovimentoMonetario", b =>
-                {
-                    b.Property<int>("MovimentoMonetarioId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("HistoricoTransacoeMonetariasId");
-
-                    b.Property<double>("Montante");
-
-                    b.Property<int>("TipoMovimento");
-
-                    b.HasKey("MovimentoMonetarioId");
-
-                    b.HasIndex("HistoricoTransacoeMonetariasId");
-
-                    b.ToTable("MovimentoMonetarios");
-                });
-
->>>>>>> 63e85c2b31ae5bd7b3d09fcb36f541d5c651a1ad
             modelBuilder.Entity("AirUberProjeto.Models.Notificacao", b =>
                 {
                     b.Property<int>("NotificacaoId")
@@ -664,16 +621,6 @@ namespace AirUberProjeto.Migrations
                         .HasForeignKey("PaisId");
                 });
 
-<<<<<<< HEAD
-=======
-            modelBuilder.Entity("AirUberProjeto.Models.ContaDeCreditos", b =>
-                {
-                    b.HasOne("AirUberProjeto.Models.HistoricoTransacoeMonetarias", "HistoricoTransacoeMonetarias")
-                        .WithMany()
-                        .HasForeignKey("HistoricoTransacoeMonetariasId");
-                });
-
->>>>>>> 63e85c2b31ae5bd7b3d09fcb36f541d5c651a1ad
             modelBuilder.Entity("AirUberProjeto.Models.Disponibilidade", b =>
                 {
                     b.HasOne("AirUberProjeto.Models.Jato")
@@ -718,16 +665,6 @@ namespace AirUberProjeto.Migrations
                         .HasForeignKey("TipoJatoId");
                 });
 
-<<<<<<< HEAD
-=======
-            modelBuilder.Entity("AirUberProjeto.Models.MovimentoMonetario", b =>
-                {
-                    b.HasOne("AirUberProjeto.Models.HistoricoTransacoeMonetarias", "HistoricoTransacoeMonetarias")
-                        .WithMany("MovimentosMonetarios")
-                        .HasForeignKey("HistoricoTransacoeMonetariasId");
-                });
-
->>>>>>> 63e85c2b31ae5bd7b3d09fcb36f541d5c651a1ad
             modelBuilder.Entity("AirUberProjeto.Models.Notificacao", b =>
                 {
                     b.HasOne("AirUberProjeto.Models.ApplicationUser", "Utilizador")

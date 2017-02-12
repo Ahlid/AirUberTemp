@@ -315,7 +315,7 @@ namespace AirUberBackoffice
                     cliente.Nome = (string)dr["Nome"];
                     cliente.Apelido = (string)dr["Apelido"];
                     cliente.Contacto = (string)dr["Contacto"];
-
+                    cliente.Email = (string)dr["Email"];
 
                     clientes.Add(cliente);
                 }
