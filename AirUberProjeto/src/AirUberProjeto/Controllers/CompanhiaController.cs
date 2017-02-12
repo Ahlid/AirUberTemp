@@ -274,6 +274,9 @@ namespace AirUberProjeto.Controllers
                 jato.ModeloId = viewModel.ModeloId;
                 jato.CreditosBase = viewModel.CreditosBase;
                 jato.CreditosPorKilometro = viewModel.CreditosPorKilometro;
+                jato.DistanciaMaxima = viewModel.DistanciaMaxima;
+                jato.TempoPreparacao = viewModel.TempoPreparacao;
+                jato.VelocidadeMedia = viewModel.VelocidadeMedia;
 
                 _context.Update(jato);
                 _context.SaveChanges();
@@ -349,7 +352,12 @@ namespace AirUberProjeto.Controllers
                     CompanhiaId = viewModel.CompanhiaId,
                     EmFuncionamento = false,
                     ModeloId = viewModel.ModeloId,
-                    RelativePathImagemPerfil = relativePathToFile
+                    RelativePathImagemPerfil = relativePathToFile,
+                    CreditosBase = viewModel.CreditosBase,
+                    CreditosPorKilometro = viewModel.CreditosPorKilometro,
+                    DistanciaMaxima = viewModel.DistanciaMaxima,
+                    TempoPreparacao = viewModel.TempoPreparacao,
+                    VelocidadeMedia = viewModel.VelocidadeMedia
                 };
 
                 companhia.ListaJatos.Add(jato);
@@ -1179,7 +1187,6 @@ namespace AirUberProjeto.Controllers
         public bool EditarDisponibilidade(string Inicio, string Fim, int idDisp, int jatoId)
         {
 
-
             Jato jato = _context.Jato
                 .Where(j => j.JatoId == jatoId)
                 .Include(j => j.ListaDisponibilidade)
@@ -1234,7 +1241,15 @@ namespace AirUberProjeto.Controllers
         /// <returns>Retorna a view das viagens</returns>
         public IActionResult VerViagens()
         {
+
+
             Colaborador colaborador = (Colaborador)_userManager.GetUserAsync(this.User).Result;
+            if (colaborador == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+
             Companhia companhia = (_context.Companhia.Select(c => c).Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
 
 
@@ -1250,7 +1265,10 @@ namespace AirUberProjeto.Controllers
         }
 
 
-
+        /// <summary>
+        /// Responsável por redireccionar o colaborador para a página que apresenta as reservas que faltam validar
+        /// </summary>
+        /// <returns>Retorna a view ValidarReservas com as reservas por validar</returns>
         public IActionResult ValidarReservas()
         {
             IEnumerable<Reserva> reservas =_context.Reserva
@@ -1262,62 +1280,99 @@ namespace AirUberProjeto.Controllers
             return View(reservas);
         }
 
-
+        /// <summary>
+        /// Valida uma reserva através do seu id
+        /// </summary>
+        /// <param name="id">Id da reserva para validar</param>
+        /// <returns>Retorna true se for possível validar a reserva</returns>
         [HttpPost]
         public bool ValidarReserva(int id)
         {
-
-            Reserva reserva = _context.Reserva
-                .Single(r => r.Aprovada == false && r.ReservaId == id);
-
-            if (reserva == null)
-                return false;
-
-            Companhia companhia = _context.Companhia
-                .Include(c => c.ContaDeCreditos)
-                .Single(c => c.CompanhiaId == reserva.JatoId);
-
-            Cliente cliente = _context.Cliente
-                .Include(c => c.ContaDeCreditos)
-                .Single(c => c.Id == reserva.ApplicationUserId);
-
-            companhia.ContaDeCreditos.JetCashActual += reserva.Custo;
-            cliente.ContaDeCreditos.JetCashActual -= reserva.Custo;
-            reserva.Aprovada = true;
-            reserva.Paga = true;
-
-            Notificacao notificacao = new Notificacao()
+            //todo: validar se a reserva pertence à companhia
+            try
             {
-                UtilizadorId = cliente.Id,
-                Lida = false,
-                Tipo = Notificacao.TYPE_SUCCESS,
-                Mensagem = "A sua viagem foi aprovada e paga com sucesso."
-            };
+                Reserva reserva = _context.Reserva
+                    .Single(r => r.Aprovada == false && r.ReservaId == id);
 
-            _context.Notificacao.Add(notificacao);
-            _context.Update(reserva);
-            _context.Update(cliente);
-            _context.Update(companhia);
-            _context.SaveChanges();
+                if (reserva == null)
+                    return false;
 
+                Companhia companhia = _context.Companhia
+                    .Include(c => c.ContaDeCreditos)
+                    .Single(c => c.CompanhiaId == reserva.JatoId);
+
+                Cliente cliente = _context.Cliente
+                    .Include(c => c.ContaDeCreditos)
+                    .Single(c => c.Id == reserva.ApplicationUserId);
+
+                companhia.ContaDeCreditos.JetCashActual += reserva.Custo;
+                cliente.ContaDeCreditos.JetCashActual -= reserva.Custo;
+                reserva.Aprovada = true;
+                reserva.Paga = true;
+
+                Notificacao notificacao = new Notificacao()
+                {
+                    UtilizadorId = cliente.Id,
+                    Lida = false,
+                    Tipo = Notificacao.TYPE_SUCCESS,
+                    Mensagem = "A sua viagem foi aprovada e paga com sucesso."
+                };
+
+                _context.Notificacao.Add(notificacao);
+                _context.Update(reserva);
+                _context.Update(cliente);
+                _context.Update(companhia);
+                _context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
             return true;
 
         }
 
+
+        /// <summary>
+        /// Rejeita uma reservar
+        /// </summary>
+        /// <param name="id">Id da reserva para validar</param>
+        /// <returns>Retorna true se for possível rejeitar a reserva</returns>
         [HttpPost]
         public bool RejeitarReserva(int id)
         {
+            try
+            {
+ 
+                Colaborador colaborador = (Colaborador)_userManager.GetUserAsync(this.User).Result;
+                Companhia companhia =
+                    (_context.Companhia.Select(c => c).Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
 
-            Reserva reserva = _context.Reserva
-                .Single(r => r.Aprovada == false && r.ReservaId == id);
+                Reserva reserva = _context.Reserva
+                    .Include(r => r.Jato)
+                    .Single(r => r.Jato.CompanhiaId == companhia.CompanhiaId && r.Aprovada == false && r.ReservaId == id);
 
-            if (reserva == null)
+                if (reserva == null)
+                    return false;
+
+
+                //todo: notificar cliente
+                Notificacao notificacao = new Notificacao()
+                {
+                    UtilizadorId = reserva.ApplicationUserId,
+                    Lida = false,
+                    Tipo = Notificacao.TYPE_DANGER,
+                    Mensagem = "A sua reserva foi rejeitada."
+                };
+
+                _context.Reserva.Remove(reserva);
+                _context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
                 return false;
-
-            //todo: restaurar a disponibilidade ao jato
-
-            _context.Reserva.Remove(reserva);
-            _context.SaveChanges();
+            }
+           
 
             return true;
 

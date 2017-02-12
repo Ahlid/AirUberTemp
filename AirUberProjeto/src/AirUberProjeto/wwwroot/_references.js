@@ -30,6 +30,7 @@
 /// <reference path="../VSdoc/SyntaxHighlighter/src/shCore.js" />
 /// <reference path="../VSdoc/SyntaxHighlighter/src/shCore_helixoft.js" />
 /// <reference path="../VSdoc/SyntaxHighlighter/src/shLegacy.js" />
+/// <reference path="js/alertify.min.js" />
 /// <reference path="js/fullcalendar.js" />
 /// <reference path="js/jquery.payform.min.js" />
 /// <reference path="js/jquery-3.1.1.min.js" />

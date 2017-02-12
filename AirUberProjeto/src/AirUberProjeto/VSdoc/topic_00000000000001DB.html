@@ -3,7 +3,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="GENERATOR" content="VSdocman - documentation generator; http://www.helixoft.com" />
-	<title>TipoExtra.Nome Property</title>
+	<title>Jato.TempoPreparacao Property</title>
 
 	<link rel="stylesheet" type="text/css" href="msdn10_lightweight/msdn10_lightweight.css"></link>
 	<script src="msdn10_lightweight/msdn10_lightweight.js" type="text/javascript"></script>
@@ -59,7 +59,7 @@ function replaceTitleAndUrl(win, title, url) {
 <!--HEADER START-->
   <div id="header">
   	<div id="runningHeaderText">AirUberProjeto Reference</div>
-  	<h1 class="title">TipoExtra.Nome Property</h1>
+  	<h1 class="title">Jato.TempoPreparacao Property</h1>
   	<div id="headerLinks">
 
 	<a href="#seeAlsoSection">See Also</a>
@@ -73,11 +73,11 @@ function replaceTitleAndUrl(win, title, url) {
       <div id="mainBody">
         <p />
        
-        Propriedade responsável por guardar o nome do tipo de extra.
+        Distância máxima de deslocação em kilometros
 
 
         <p /><strong>Namespace:</strong>
-<a href="topic_0000000000000135.html">AirUberProjeto.Models</a>
+<a href="topic_0000000000000166.html">AirUberProjeto.Models</a>
 
 
 
@@ -132,7 +132,7 @@ function replaceTitleAndUrl(win, title, url) {
 				</div>
 				
 				<div class="codeSnippetCode codeVB">
-					<pre xml:space="preserve" class="brush: vb">&lt;Display(Name = &quot;Tipo Extra&quot;)&gt; _&nbsp;<br />&lt;Required()&gt; _&nbsp;<br />Public Property Nome() As <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a></pre>			
+					<pre xml:space="preserve" class="brush: vb">&lt;Display(Name = &quot;Tempo de preparação&quot;)&gt; _&nbsp;<br />Public Property TempoPreparacao() As <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.double.aspx">Double</a></pre>			
 				</div>
 				<div class="codeSnippetCode codeNA">
 					<pre xml:space="preserve">This language is not supported or no code example is available.</pre>			
@@ -168,7 +168,7 @@ function replaceTitleAndUrl(win, title, url) {
 				</div>
 				
 				<div class="codeSnippetCode codeCsharp">
-					<pre xml:space="preserve" class="brush: csharp">[Display(Name = &quot;Tipo Extra&quot;)]&nbsp;<br />[Required()]&nbsp;<br />public <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">string</a> Nome {get; set;}</pre>			
+					<pre xml:space="preserve" class="brush: csharp">[Display(Name = &quot;Tempo de preparação&quot;)]&nbsp;<br />public <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.double.aspx">double</a> TempoPreparacao {get; set;}</pre>			
 				</div>
 				<div class="codeSnippetCode codeNA">
 					<pre xml:space="preserve">This language is not supported or no code example is available.</pre>			
@@ -204,7 +204,7 @@ function replaceTitleAndUrl(win, title, url) {
 				</div>
 				
 				<div class="codeSnippetCode codeCpp">
-					<pre xml:space="preserve" class="brush: cpp">[Display(Name = &quot;Tipo Extra&quot;)]&nbsp;<br />[Required()]&nbsp;<br />public: &nbsp;<br />property <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a>^ Nome {&nbsp;<br /> <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a>^ get( );&nbsp;<br /> void set(&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a>^ value&nbsp;<br /> );&nbsp;<br />}</pre>			
+					<pre xml:space="preserve" class="brush: cpp">[Display(Name = &quot;Tempo de preparação&quot;)]&nbsp;<br />public: &nbsp;<br />property <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.double.aspx">double</a> TempoPreparacao {&nbsp;<br /> <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.double.aspx">double</a> get( );&nbsp;<br /> void set(&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.double.aspx">double</a> value&nbsp;<br /> );&nbsp;<br />}</pre>			
 				</div>
 				<div class="codeSnippetCode codeNA">
 					<pre xml:space="preserve">This language is not supported or no code example is available.</pre>			
@@ -240,7 +240,7 @@ function replaceTitleAndUrl(win, title, url) {
 				</div>
 				
 				<div class="codeSnippetCode codeJScript">
-					<pre xml:space="preserve" class="brush: js">public &nbsp;<br />   Display(Name = &quot;Tipo Extra&quot;)&nbsp;<br />   Required()&nbsp;<br />function get Nome() : <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a>;&nbsp;<br />public &nbsp;<br />   Display(Name = &quot;Tipo Extra&quot;)&nbsp;<br />   Required()&nbsp;<br />function set Nome(value : <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a>);</pre>			
+					<pre xml:space="preserve" class="brush: js">public &nbsp;<br />   Display(Name = &quot;Tempo de preparação&quot;)&nbsp;<br />function get TempoPreparacao() : <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.double.aspx">double</a>;&nbsp;<br />public &nbsp;<br />   Display(Name = &quot;Tempo de preparação&quot;)&nbsp;<br />function set TempoPreparacao(value : <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.double.aspx">double</a>);</pre>			
 				</div>
 				<div class="codeSnippetCode codeNA">
 					<pre xml:space="preserve">This language is not supported or no code example is available.</pre>			
@@ -349,12 +349,12 @@ function replaceTitleAndUrl(win, title, url) {
 		<div>
 			<h4 class="subHeading">
 				Reference</h4>
-			<a href="topic_00000000000001D9.html">TipoExtra Class</a><br />
-<a href="topic_00000000000001D9_members--.html">TipoExtra Members</a><br />
+			<a href="topic_00000000000001CF.html">Jato Class</a><br />
+<a href="topic_00000000000001CF_members--.html">Jato Members</a><br />
 
 
 
-<a href="topic_0000000000000135.html">AirUberProjeto.Models Namespace</a><br />
+<a href="topic_0000000000000166.html">AirUberProjeto.Models Namespace</a><br />
 
 
 			
