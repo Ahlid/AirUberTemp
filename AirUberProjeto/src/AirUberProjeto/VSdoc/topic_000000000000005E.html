@@ -3,7 +3,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="GENERATOR" content="VSdocman - documentation generator; http://www.helixoft.com" />
-	<title>HelpdeskController.getCompanhiaPorEstado Method</title>
+	<title>CompanhiaController.ApagarExtra Method</title>
 
 	<link rel="stylesheet" type="text/css" href="msdn10_lightweight/msdn10_lightweight.css"></link>
 	<script src="msdn10_lightweight/msdn10_lightweight.js" type="text/javascript"></script>
@@ -59,7 +59,7 @@ function replaceTitleAndUrl(win, title, url) {
 <!--HEADER START-->
   <div id="header">
   	<div id="runningHeaderText">AirUberProjeto Reference</div>
-  	<h1 class="title">HelpdeskController.getCompanhiaPorEstado Method</h1>
+  	<h1 class="title">CompanhiaController.ApagarExtra Method</h1>
   	<div id="headerLinks">
 
 	<a href="#seeAlsoSection">See Also</a>
@@ -73,10 +73,7 @@ function replaceTitleAndUrl(win, title, url) {
       <div id="mainBody">
         <p />
        
-        Retornar uma lista de companhias de acordo com o estado da companhia.
-Estado = 1 -&gt; Companhia Aceite
-Estado = 2 -&gt; Companhia Pendente
-Estado = 3 -&gt; Companhia Recusada
+        Apresenta a página para apagar um extra
 
 
         <p /><strong>Namespace:</strong>
@@ -135,7 +132,7 @@ Estado = 3 -&gt; Companhia Recusada
 				</div>
 				
 				<div class="codeSnippetCode codeVB">
-					<pre xml:space="preserve" class="brush: vb">Private Function getCompanhiaPorEstado( _&nbsp;<br />   ByVal <i>estado</i> As <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.int32.aspx">Integer</a> _&nbsp;<br />) As <a target="_top" href="http://msdn2.microsoft.com/en-us/library/5y536ey6.aspx">IList</a>(Of <a target="_top" href="topic_000000000000015E.html" onclick="this.target='';return true;">Companhia</a>)</pre>			
+					<pre xml:space="preserve" class="brush: vb">&lt;HttpGet()&gt; _&nbsp;<br />Public Function ApagarExtra( _&nbsp;<br />   ByVal <i>id</i> As <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.int32.aspx">Integer</a> _&nbsp;<br />) As <a target="_top" href="http://msdn2.microsoft.com/en-us/library/microsoft.aspnetcore.mvc.iactionresult.aspx">IActionResult</a></pre>			
 				</div>
 				<div class="codeSnippetCode codeNA">
 					<pre xml:space="preserve">This language is not supported or no code example is available.</pre>			
@@ -171,7 +168,7 @@ Estado = 3 -&gt; Companhia Recusada
 				</div>
 				
 				<div class="codeSnippetCode codeCsharp">
-					<pre xml:space="preserve" class="brush: csharp">private <a target="_top" href="http://msdn2.microsoft.com/en-us/library/5y536ey6.aspx">IList</a>&lt;<a target="_top" href="topic_000000000000015E.html" onclick="this.target='';return true;">Companhia</a>&gt; getCompanhiaPorEstado(&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.int32.aspx">int</a> <i>estado</i>&nbsp;<br />)</pre>			
+					<pre xml:space="preserve" class="brush: csharp">[HttpGet()]&nbsp;<br />public <a target="_top" href="http://msdn2.microsoft.com/en-us/library/microsoft.aspnetcore.mvc.iactionresult.aspx">IActionResult</a> ApagarExtra(&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.int32.aspx">int</a> <i>id</i>&nbsp;<br />)</pre>			
 				</div>
 				<div class="codeSnippetCode codeNA">
 					<pre xml:space="preserve">This language is not supported or no code example is available.</pre>			
@@ -207,7 +204,7 @@ Estado = 3 -&gt; Companhia Recusada
 				</div>
 				
 				<div class="codeSnippetCode codeCpp">
-					<pre xml:space="preserve" class="brush: cpp">private: &nbsp;<br /><a target="_top" href="http://msdn2.microsoft.com/en-us/library/5y536ey6.aspx">IList</a>&lt;<a target="_top" href="topic_000000000000015E.html" onclick="this.target='';return true;">Companhia</a>^&gt;^ getCompanhiaPorEstado(&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.int32.aspx">int</a> <i>estado</i>&nbsp;<br />) </pre>			
+					<pre xml:space="preserve" class="brush: cpp">[HttpGet()]&nbsp;<br />public: &nbsp;<br /><a target="_top" href="http://msdn2.microsoft.com/en-us/library/microsoft.aspnetcore.mvc.iactionresult.aspx">IActionResult</a>^ ApagarExtra(&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.int32.aspx">int</a> <i>id</i>&nbsp;<br />) </pre>			
 				</div>
 				<div class="codeSnippetCode codeNA">
 					<pre xml:space="preserve">This language is not supported or no code example is available.</pre>			
@@ -243,7 +240,7 @@ Estado = 3 -&gt; Companhia Recusada
 				</div>
 				
 				<div class="codeSnippetCode codeJScript">
-					<pre xml:space="preserve" class="brush: js">JScript does not support generic types and methods.</pre>			
+					<pre xml:space="preserve" class="brush: js">public &nbsp;<br />   HttpGet()&nbsp;<br />function ApagarExtra(&nbsp;<br />    <i>id</i> : <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.int32.aspx">int</a>&nbsp;<br />) : <a target="_top" href="http://msdn2.microsoft.com/en-us/library/microsoft.aspnetcore.mvc.iactionresult.aspx">IActionResult</a>;</pre>			
 				</div>
 				<div class="codeSnippetCode codeNA">
 					<pre xml:space="preserve">This language is not supported or no code example is available.</pre>			
@@ -255,10 +252,10 @@ Estado = 3 -&gt; Companhia Recusada
 
 
 <h4 class="subHeading">
-	Parameters</h4><dl paramName="estado">
+	Parameters</h4><dl paramName="id">
 	<dt>
 		<span class="parameter">
-			estado
+			id
 		</span>
 	</dt>
 	<dd>
@@ -266,7 +263,7 @@ Estado = 3 -&gt; Companhia Recusada
 			Type: <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.int32.aspx">int</a> 
 		</p>
 		<p>
-			estado de uma companhia 
+			id do extra 
 		</p>
 	</dd>
 </dl>
@@ -276,7 +273,7 @@ Estado = 3 -&gt; Companhia Recusada
 
 	<h4 class="subHeading">
 		Return Value</h4>
-  Lista de companhias de acordo com o estado
+  View para apagar um extra
 
 
 
@@ -374,8 +371,8 @@ Estado = 3 -&gt; Companhia Recusada
 		<div>
 			<h4 class="subHeading">
 				Reference</h4>
-			<a href="topic_0000000000000054.html">HelpdeskController Class</a><br />
-<a href="topic_0000000000000054_members--.html">HelpdeskController Members</a><br />
+			<a href="topic_0000000000000041.html">CompanhiaController Class</a><br />
+<a href="topic_0000000000000041_members--.html">CompanhiaController Members</a><br />
 
 
 

@@ -36,17 +36,35 @@ namespace AirUberProjeto.Models.CompanhiaViewModels
         /// </summary>
         public int AeroportoId { get; set; }
         /// <summary>
-        /// Preço base em créditos
-        /// </summary>
-        [Display(Name = "Preço base em créditos")]
-        public double CreditosBase { get; set; }
-        /// <summary>
         /// Preço em crédidos por Kilometro
         /// </summary>
         [Display(Name = "Preço em crédidos por Kilometro")]
         public double CreditosPorKilometro { get; set; }
 
-        
+        /// <summary>
+        /// Preço base em créditos
+        /// </summary>
+        [Display(Name = "Preço base em créditos")]
+        public double CreditosBase { get; set; }
+
+        /// <summary>
+        /// Distância máxima de deslocação em kilometros
+        /// </summary>
+        [Display(Name = "Distância máxima")]
+        public double DistanciaMaxima { get; set; }
+
+        /// <summary>
+        /// Velocidade média deslocação em metros/segundo
+        /// </summary>
+        [Display(Name = "Velocidade média")]
+        public double VelocidadeMedia { get; set; }
+
+        /// <summary>
+        /// Distância máxima de deslocação em kilometros
+        /// </summary>
+        [Display(Name = "Tempo de preparação")]
+        public double TempoPreparacao { get; set; }
+
 
     }
 }

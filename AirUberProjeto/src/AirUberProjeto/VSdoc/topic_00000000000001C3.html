@@ -3,7 +3,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="GENERATOR" content="VSdocman - documentation generator; http://www.helixoft.com" />
-	<title>Reserva.DataPartida Property</title>
+	<title>Extra.ExtraId Property</title>
 
 	<link rel="stylesheet" type="text/css" href="msdn10_lightweight/msdn10_lightweight.css"></link>
 	<script src="msdn10_lightweight/msdn10_lightweight.js" type="text/javascript"></script>
@@ -59,7 +59,7 @@ function replaceTitleAndUrl(win, title, url) {
 <!--HEADER START-->
   <div id="header">
   	<div id="runningHeaderText">AirUberProjeto Reference</div>
-  	<h1 class="title">Reserva.DataPartida Property</h1>
+  	<h1 class="title">Extra.ExtraId Property</h1>
   	<div id="headerLinks">
 
 	<a href="#seeAlsoSection">See Also</a>
@@ -73,11 +73,11 @@ function replaceTitleAndUrl(win, title, url) {
       <div id="mainBody">
         <p />
        
-        Propriedade responsável por guardar a data de partida da reserva.
+        Identificador unívoco de um extra, sendo chave primária na base de dados.
 
 
         <p /><strong>Namespace:</strong>
-<a href="topic_0000000000000135.html">AirUberProjeto.Models</a>
+<a href="topic_0000000000000166.html">AirUberProjeto.Models</a>
 
 
 
@@ -132,7 +132,7 @@ function replaceTitleAndUrl(win, title, url) {
 				</div>
 				
 				<div class="codeSnippetCode codeVB">
-					<pre xml:space="preserve" class="brush: vb">&lt;Display(Name = &quot;Data Partida&quot;)&gt; _&nbsp;<br />&lt;Required()&gt; _&nbsp;<br />Public Property DataPartida() As <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.datetime.aspx">Date</a></pre>			
+					<pre xml:space="preserve" class="brush: vb">Public Property ExtraId() As <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.int32.aspx">Integer</a></pre>			
 				</div>
 				<div class="codeSnippetCode codeNA">
 					<pre xml:space="preserve">This language is not supported or no code example is available.</pre>			
@@ -168,7 +168,7 @@ function replaceTitleAndUrl(win, title, url) {
 				</div>
 				
 				<div class="codeSnippetCode codeCsharp">
-					<pre xml:space="preserve" class="brush: csharp">[Display(Name = &quot;Data Partida&quot;)]&nbsp;<br />[Required()]&nbsp;<br />public <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.datetime.aspx">DateTime</a> DataPartida {get; set;}</pre>			
+					<pre xml:space="preserve" class="brush: csharp">public <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.int32.aspx">int</a> ExtraId {get; set;}</pre>			
 				</div>
 				<div class="codeSnippetCode codeNA">
 					<pre xml:space="preserve">This language is not supported or no code example is available.</pre>			
@@ -204,7 +204,7 @@ function replaceTitleAndUrl(win, title, url) {
 				</div>
 				
 				<div class="codeSnippetCode codeCpp">
-					<pre xml:space="preserve" class="brush: cpp">[Display(Name = &quot;Data Partida&quot;)]&nbsp;<br />[Required()]&nbsp;<br />public: &nbsp;<br />property <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.datetime.aspx">DateTime</a> DataPartida {&nbsp;<br /> <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.datetime.aspx">DateTime</a> get( );&nbsp;<br /> void set(&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.datetime.aspx">DateTime</a> value&nbsp;<br /> );&nbsp;<br />}</pre>			
+					<pre xml:space="preserve" class="brush: cpp">public: &nbsp;<br />property <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.int32.aspx">int</a> ExtraId {&nbsp;<br /> <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.int32.aspx">int</a> get( );&nbsp;<br /> void set(&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.int32.aspx">int</a> value&nbsp;<br /> );&nbsp;<br />}</pre>			
 				</div>
 				<div class="codeSnippetCode codeNA">
 					<pre xml:space="preserve">This language is not supported or no code example is available.</pre>			
@@ -240,7 +240,7 @@ function replaceTitleAndUrl(win, title, url) {
 				</div>
 				
 				<div class="codeSnippetCode codeJScript">
-					<pre xml:space="preserve" class="brush: js">public &nbsp;<br />   Display(Name = &quot;Data Partida&quot;)&nbsp;<br />   Required()&nbsp;<br />function get DataPartida() : <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.datetime.aspx">DateTime</a>;&nbsp;<br />public &nbsp;<br />   Display(Name = &quot;Data Partida&quot;)&nbsp;<br />   Required()&nbsp;<br />function set DataPartida(value : <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.datetime.aspx">DateTime</a>);</pre>			
+					<pre xml:space="preserve" class="brush: js">public function get ExtraId() : <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.int32.aspx">int</a>;&nbsp;<br />public function set ExtraId(value : <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.int32.aspx">int</a>);</pre>			
 				</div>
 				<div class="codeSnippetCode codeNA">
 					<pre xml:space="preserve">This language is not supported or no code example is available.</pre>			
@@ -349,12 +349,12 @@ function replaceTitleAndUrl(win, title, url) {
 		<div>
 			<h4 class="subHeading">
 				Reference</h4>
-			<a href="topic_00000000000001C1.html">Reserva Class</a><br />
-<a href="topic_00000000000001C1_members--.html">Reserva Members</a><br />
+			<a href="topic_00000000000001C2.html">Extra Class</a><br />
+<a href="topic_00000000000001C2_members--.html">Extra Members</a><br />
 
 
 
-<a href="topic_0000000000000135.html">AirUberProjeto.Models Namespace</a><br />
+<a href="topic_0000000000000166.html">AirUberProjeto.Models Namespace</a><br />
 
 
 			

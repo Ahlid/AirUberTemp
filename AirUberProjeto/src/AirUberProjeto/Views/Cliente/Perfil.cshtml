@@ -6,6 +6,7 @@
 }
 
 
+
 <div class="container" style="margin-top: 20px">
     <div class="row">
         <div class="col-md-2">
@@ -33,7 +34,7 @@
     </div>
 </div>
 <div style="margin-top: 20px">
-    <div class="col-md-4">
+    <div class="col-md-6">
 
         <div class="panel panel-default" style="margin-bottom: 20px">
             <div class="panel-body">
@@ -53,7 +54,7 @@
         </div>
 
     </div>
-    <div class="col-md-4">
+    <div class="col-md-6">
 
         <div class="panel panel-default">
             <div class="panel-body">
@@ -72,33 +73,25 @@
             </div>
         </div>
     </div>
-    <div class="col-md-4">
-
-        <div class="panel panel-default">
-            <div class="panel-body">
-                <h4 class="text-center">Notificações</h4>
-
-                @foreach (Notificacao notificacao in Model.Notificacoes)
-                {
-                    if (!notificacao.Lida)
-                    {
-                        <div class="alert alert-@notificacao.Tipo alert-dismissable  fade in" style="margin: 1px; padding-top: 3px; padding-bottom: 3px">
-                            @notificacao.Mensagem
-                            <a href="#" class="close" onclick="marcarLida(@notificacao.NotificacaoId);" data-dismiss="alert" aria-label="close">&times;</a>
-                        </div>
-                    }
-                }
-                
-               
-            </div>
-        </div>
-    </div>
+    
 </div>
 
 
 <script>
 
-    function marcarLida(id) {
+    @foreach (Notificacao notificacao in Model.Notificacoes)
+    {
+
+        if (!notificacao.Lida)
+        {
+           <text>
+                alertify.log('@notificacao.Mensagem', '@notificacao.Tipo', 0);
+           </text>
+        }
+    }
+
+
+        function marcarLida(id) {
 
 
         $.ajax({

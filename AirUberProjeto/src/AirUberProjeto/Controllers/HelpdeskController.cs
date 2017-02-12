@@ -84,14 +84,10 @@ namespace AirUberProjeto.Controllers
         /// <remarks>
         /// São apresentados todas as companhias pendentes (caso existam) e aceites
         /// </remarks>
-        /// <param name="id">id da companhia</param>
-        /// <param name="estadoId">id do estado da companhia</param>
+
         /// <returns>Retorna a view dos clientes</returns>
         public IActionResult Companhias()
         {
-            
-            
-
 
             var companhiasPendentes = _context.Companhia.Select(c => c).Include(p => p.Pais)
                                                                     .Include(p => p.ContaDeCreditos)

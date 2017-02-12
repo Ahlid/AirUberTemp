@@ -61,7 +61,23 @@ namespace AirUberProjeto.Models
         [Display(Name = "Preço base em créditos")]
         public double CreditosBase { get; set; }
 
+        /// <summary>
+        /// Distância máxima de deslocação em kilometros
+        /// </summary>
+        [Display(Name = "Distância máxima")]
+        public double DistanciaMaxima { get; set; }
 
+        /// <summary>
+        /// Velocidade média deslocação em metros/segundo
+        /// </summary>
+        [Display(Name = "Velocidade média")]
+        public double VelocidadeMedia { get; set; }
+
+        /// <summary>
+        /// Distância máxima de deslocação em kilometros
+        /// </summary>
+        [Display(Name = "Tempo de preparação")]
+        public double TempoPreparacao { get; set; }
 
         // Propriedades Virtuais
         /// <summary>
