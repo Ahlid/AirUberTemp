@@ -303,7 +303,7 @@
             </summary>
             <returns>A View de edição do perfil do cliente</returns>
         </member>
-        <member name="M:AirUberProjeto.Controllers.ClienteController.EditarPerfil(AirUberProjeto.Models.ClienteViewModels.EditarPerfilViewModel)">
+        <member name="M:AirUberProjeto.Controllers.ClienteController.EditarPerfil(AirUberProjeto.Models.ClienteViewModels.PerfilViewModel)">
             <summary>
             Trata de um pedido de alteração de dados de um cliente
             </summary>
@@ -439,17 +439,12 @@
             </summary>
             <returns>Retorna a view da procura de ofertas</returns>
         </member>
-<<<<<<< HEAD
-        <member name="M:AirUberProjeto.Controllers.ClienteController.VerOferta(System.Int32,System.DateTime,System.Double,System.Double,System.Int32)">
-=======
         <member name="M:AirUberProjeto.Controllers.ClienteController.VerOferta(System.Int32,System.Int32,System.DateTime,System.Int32)">
->>>>>>> 63e85c2b31ae5bd7b3d09fcb36f541d5c651a1ad
             <summary>
             Responsável por redireccionar o utilizador para a página que apresenta a informação de uma oferta
             </summary>
             <returns>Retorna a view das ofertas</returns>
         </member>
-<<<<<<< HEAD
         <member name="M:AirUberProjeto.Controllers.ClienteController.FiltrarExtras(AirUberProjeto.Models.Extra,System.Collections.Generic.List{System.Int32})">
             <summary>
             Verifica se um extra pertence à lista de ids de extras
@@ -462,13 +457,7 @@
             </summary>
             <returns>Custo da reserva</returns>
         </member>
-=======
-<<<<<<< HEAD
-        <member name="M:AirUberProjeto.Controllers.ClienteController.ReservaConcluida(System.Int32,System.DateTime,System.Double,System.Double)">
-=======
->>>>>>> a1f9c253a67da08ffcb06a2044dfce9fa01a2460
         <member name="M:AirUberProjeto.Controllers.ClienteController.ReservaConcluida(System.Int32,System.Int32,System.DateTime,System.Int32,System.Collections.Generic.List{System.Int32})">
->>>>>>> 63e85c2b31ae5bd7b3d09fcb36f541d5c651a1ad
             <summary>
             Responsável por redireccionar o utilizador para a página de reserva concluída
             </summary>

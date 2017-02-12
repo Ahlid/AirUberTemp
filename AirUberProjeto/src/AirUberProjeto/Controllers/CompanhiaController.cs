@@ -74,7 +74,20 @@ namespace AirUberProjeto.Controllers
         [HttpGet]
         public IActionResult Index()
         {
+            setupNav();
             return RedirectToAction("PerfilCompanhia");
+        }
+
+
+        public void setupNav()
+        {
+            string id = _userManager.GetUserAsync(this.User).Result.Id;
+            List<Notificacao> notificacoes = _context.Notificacao.Where((n) =>
+                           n.UtilizadorId == id
+                           && !n.Lida
+               ).ToList();
+            ViewBag.navegacao = true;
+            ViewBag.notificacoes = notificacoes;
         }
 
         /// <summary>
@@ -85,7 +98,7 @@ namespace AirUberProjeto.Controllers
         public IActionResult PerfilCompanhia()
         {
 
-
+            setupNav();
             Colaborador colaborador = (Colaborador) _userManager.GetUserAsync(this.User).Result;
 
             Companhia companhia = (_context.Companhia.Select(c => c).Include(c => c.Pais)
@@ -136,7 +149,7 @@ namespace AirUberProjeto.Controllers
         public IActionResult EditarPerfilCompanhia()
         {
             Colaborador colaborador = (Colaborador) _userManager.GetUserAsync(this.User).Result;
-
+            setupNav();
             Companhia companhia = (_context.Companhia.Select(c => c).Include(c => c.Pais)
                 .Include(c => c.Estado)
                 .Include(c => c.ContaDeCreditos)
@@ -157,7 +170,7 @@ namespace AirUberProjeto.Controllers
         [HttpPost]
         public IActionResult EditarPerfilCompanhia(EditarCompanhiaViewModel viewModel)
         {
-
+            setupNav();
             if (ModelState.IsValid) // se os dados forem válidos
             {
                 Colaborador colaborador = (Colaborador) _userManager.GetUserAsync(this.User).Result;
@@ -191,6 +204,7 @@ namespace AirUberProjeto.Controllers
         [HttpGet]
         public IActionResult VerJatos()
         {
+            setupNav();
             Colaborador colaborador = (Colaborador) _userManager.GetUserAsync(this.User).Result;
             Companhia companhia =
                 (_context.Companhia.Select(c => c).Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
@@ -212,7 +226,7 @@ namespace AirUberProjeto.Controllers
         [HttpGet]
         public IActionResult EditarJatos(int? id)
         {
-
+            setupNav();
             if (id != null) //se o id do jato existe, ou seja, se foi selecionado um jato
             {
                 Colaborador colaborador = (Colaborador) _userManager.GetUserAsync(this.User).Result;
@@ -257,6 +271,7 @@ namespace AirUberProjeto.Controllers
         [HttpPost]
         public IActionResult EditarJatos(EditarJatoViewModel viewModel)
         {
+            setupNav();
             if (ModelState.IsValid) // se os dados forem válidos
             {
                 Colaborador colaborador = (Colaborador) _userManager.GetUserAsync(this.User).Result;
@@ -293,6 +308,7 @@ namespace AirUberProjeto.Controllers
         [HttpGet]
         public IActionResult CriarJato()
         {
+            setupNav();
 
             Colaborador colaborador = (Colaborador) _userManager.GetUserAsync(this.User).Result;
             Companhia companhia =
@@ -324,6 +340,7 @@ namespace AirUberProjeto.Controllers
         [HttpPost]
         public IActionResult CriarJato(CriarJatoViewModel viewModel)
         {
+            setupNav();
             if (ModelState.IsValid) // se os dados forem válidos
             {
                 Colaborador colaborador = (Colaborador) _userManager.GetUserAsync(this.User).Result;
@@ -378,6 +395,7 @@ namespace AirUberProjeto.Controllers
         [HttpGet]
         public IActionResult ApagarJato(int? id)
         {
+            setupNav();
             if (id == null)
             {
                 return NotFound();
@@ -405,7 +423,7 @@ namespace AirUberProjeto.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult ApagarJatoConfirmacao(int? id)
         {
-
+            setupNav();
             Colaborador colaborador = (Colaborador)_userManager.GetUserAsync(this.User).Result;
 
             Companhia companhia = (_context.Companhia.Select(c => c).Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
@@ -437,6 +455,7 @@ namespace AirUberProjeto.Controllers
         [HttpGet]
         public IActionResult VerColaboradores()
         {
+            setupNav();
             Colaborador colaborador = (Colaborador) _userManager.GetUserAsync(this.User).Result;
             Companhia companhia = (_context.Companhia.Select(c => c)
                 .Include(c => c.ListaColaboradores)
@@ -452,6 +471,7 @@ namespace AirUberProjeto.Controllers
         [HttpGet]
         public IActionResult AdicionarColaborador()
         {
+            setupNav();
             Colaborador colaborador = (Colaborador) _userManager.GetUserAsync(this.User).Result;
 
             ViewData["CompanhiaId"] = new SelectList(_context.Companhia.Select(c => c)
@@ -468,6 +488,7 @@ namespace AirUberProjeto.Controllers
         [HttpPost]
         public async Task<IActionResult> AdicionarColaborador(CriarColaboradorViewModel viewModel)
         {
+            setupNav();
             if (ModelState.IsValid)
             {
                 Colaborador colaborador = (Colaborador) _userManager.GetUserAsync(this.User).Result;
@@ -538,6 +559,7 @@ namespace AirUberProjeto.Controllers
         [HttpGet]
         public IActionResult EditarColaborador(string id)
         {
+            setupNav();
             if (id != null)
             {
                 Colaborador colaborador = (Colaborador) _userManager.GetUserAsync(this.User).Result;
@@ -582,6 +604,7 @@ namespace AirUberProjeto.Controllers
         [HttpPost]
         public IActionResult EditarColaborador(EditarColaboradorViewModel viewModel)
         {
+            setupNav();
             if (ModelState.IsValid) // se os dados forem válidos
             {
                 Colaborador colaborador = (Colaborador) _userManager.GetUserAsync(this.User).Result;
@@ -618,6 +641,7 @@ namespace AirUberProjeto.Controllers
         [HttpGet]
         public IActionResult ApagarColaborador(string id)
         {
+            setupNav();
             if (id == null)
             {
                 return NotFound();
@@ -644,6 +668,7 @@ namespace AirUberProjeto.Controllers
         public IActionResult ApagarColaboradorConfirmacao(string id)
         {
 
+            setupNav();
             Colaborador colaborador = (Colaborador)_userManager.GetUserAsync(this.User).Result;
 
             Companhia companhia = (_context.Companhia.Select(c => c).Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
@@ -677,6 +702,7 @@ namespace AirUberProjeto.Controllers
         public IActionResult VerExtras()
         {
 
+            setupNav();
             Colaborador colaborador = (Colaborador) _userManager.GetUserAsync(this.User).Result;
 
             Companhia companhia = (_context.Companhia.Select(c => c)
@@ -698,6 +724,8 @@ namespace AirUberProjeto.Controllers
         [HttpGet]
         public IActionResult CriarExtra()
         {
+
+            setupNav();
             Colaborador colaborador = (Colaborador) _userManager.GetUserAsync(this.User).Result;
 
             Companhia companhia = (_context.Companhia.Select(c => c)
@@ -736,7 +764,7 @@ namespace AirUberProjeto.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult CriarExtra(CriarExtraViewModel viewModel)
         {
-
+            setupNav();
             if (ModelState.IsValid)
             {
 
@@ -777,6 +805,7 @@ namespace AirUberProjeto.Controllers
         [HttpGet]
         public IActionResult EditarExtra(int id)
         {
+            setupNav();
             var extra = _context.Extra.Single(e => e.ExtraId == id);
             if (extra != null)
             {
@@ -804,6 +833,7 @@ namespace AirUberProjeto.Controllers
         [HttpPost]
         public IActionResult EditarExtra(EditarExtraViewModel viewModel)
         {
+            setupNav();
             if (ModelState.IsValid) // se os dados forem válidos
             {
                 //Colaborador colaborador = (Colaborador)_userManager.GetUserAsync(this.User).Result;
@@ -836,6 +866,7 @@ namespace AirUberProjeto.Controllers
         [HttpGet]
         public IActionResult ApagarExtra(int id)
         {
+            setupNav();
 
             var extra = _context.Extra.Include(e => e.Companhia)
                 .Include(e => e.TipoExtra)
@@ -860,7 +891,7 @@ namespace AirUberProjeto.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult ApagarExtraConfirmacao(int id)
         {
-
+            setupNav();
             Colaborador colaborador = (Colaborador)_userManager.GetUserAsync(this.User).Result;
 
             Companhia companhia = (_context.Companhia.Select(c => c).Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
@@ -902,6 +933,8 @@ namespace AirUberProjeto.Controllers
         [HttpGet]
         public IActionResult VerModelos()
         {
+
+            setupNav();
             var modelos = _context.Modelo.Select(m => m)
                 .Include(m => m.TipoJato);
 
@@ -916,7 +949,7 @@ namespace AirUberProjeto.Controllers
         [HttpGet]
         public IActionResult AdicionarModelo()
         {
-
+            setupNav();
             ViewBag.tipos = new SelectList(_context.TipoJato, "TipoJatoId", "Nome");
             return View();
         }
@@ -930,6 +963,7 @@ namespace AirUberProjeto.Controllers
         [HttpPost]
         public IActionResult AdicionarModelo(CriarModeloViewModel viewModel)
         {
+            setupNav();
             if (ModelState.IsValid)
             {
 
@@ -970,6 +1004,7 @@ namespace AirUberProjeto.Controllers
         [HttpPost]
         public async Task<IActionResult> AlterarImagemPerfil(IFormFile file)
         {
+            setupNav();
             if (file == null)
             {
                 return RedirectToAction(nameof(CompanhiaController.EditarPerfilCompanhia), "Companhia");
@@ -1017,6 +1052,7 @@ namespace AirUberProjeto.Controllers
         [HttpPost]
         public async Task<IActionResult> AlterarImagemJato(IFormFile file, int id)
         {
+            setupNav();
             if (file == null)
             {
                 // permite ficar na mesma página, para alterar a imagem, pq não foi alterada
@@ -1072,6 +1108,7 @@ namespace AirUberProjeto.Controllers
         /// <param name="colaborador">colaborador</param>
         private void addAcaoColaborador (Acao acao, Colaborador colaborador)
         {
+            setupNav();
             colaborador.ListaAcoes.Add(acao);
         }
 
@@ -1084,6 +1121,7 @@ namespace AirUberProjeto.Controllers
         [HttpGet]
         public string VerDisponibilidade(int jatoId)
         {
+            setupNav();
 
             Jato jato = _context.Jato
                 .Where(j => j.JatoId == jatoId)
@@ -1130,6 +1168,7 @@ namespace AirUberProjeto.Controllers
         [HttpPost]
         public string AdicionarDisponibilidade(int IdJato, string Inicio, string Fim)
         {
+            setupNav();
 
             Jato jato = _context.Jato
                 .Where(j => j.JatoId == IdJato)
@@ -1155,7 +1194,7 @@ namespace AirUberProjeto.Controllers
         [HttpPost]
         public bool ApagarDisponibilidade(int idJato, int idDisp)
         {
-
+            setupNav();
             Jato jato = _context.Jato
                 .Where(j => j.JatoId == idJato)
                 .Include(j => j.ListaDisponibilidade)
@@ -1186,7 +1225,7 @@ namespace AirUberProjeto.Controllers
         [HttpPost]
         public bool EditarDisponibilidade(string Inicio, string Fim, int idDisp, int jatoId)
         {
-
+            setupNav();
             Jato jato = _context.Jato
                 .Where(j => j.JatoId == jatoId)
                 .Include(j => j.ListaDisponibilidade)
@@ -1224,6 +1263,7 @@ namespace AirUberProjeto.Controllers
                 notificacao.Lida = true;
                 _context.Notificacao.Update(notificacao);
                 _context.SaveChanges();
+
                 return true;
             }
             catch (Exception)
@@ -1242,7 +1282,7 @@ namespace AirUberProjeto.Controllers
         public IActionResult VerViagens()
         {
 
-
+            setupNav();
             Colaborador colaborador = (Colaborador)_userManager.GetUserAsync(this.User).Result;
             if (colaborador == null)
             {
@@ -1271,6 +1311,8 @@ namespace AirUberProjeto.Controllers
         /// <returns>Retorna a view ValidarReservas com as reservas por validar</returns>
         public IActionResult ValidarReservas()
         {
+
+            setupNav();
             IEnumerable<Reserva> reservas =_context.Reserva
                 .Where(r => r.Aprovada == false)
                 .Include(r => r.Jato)
@@ -1288,7 +1330,7 @@ namespace AirUberProjeto.Controllers
         [HttpPost]
         public bool ValidarReserva(int id)
         {
-            //todo: validar se a reserva pertence à companhia
+            setupNav();
             try
             {
                 Reserva reserva = _context.Reserva
@@ -1341,6 +1383,7 @@ namespace AirUberProjeto.Controllers
         [HttpPost]
         public bool RejeitarReserva(int id)
         {
+            setupNav();
             try
             {
  
@@ -1356,7 +1399,6 @@ namespace AirUberProjeto.Controllers
                     return false;
 
 
-                //todo: notificar cliente
                 Notificacao notificacao = new Notificacao()
                 {
                     UtilizadorId = reserva.ApplicationUserId,
@@ -1377,6 +1419,26 @@ namespace AirUberProjeto.Controllers
             return true;
 
         }
+
+
+
+        public IActionResult Notificacoes()
+        {
+
+            Colaborador colaborador = (Colaborador)_userManager.GetUserAsync(this.User).Result;
+            IEnumerable<Notificacao> notificacoes = _context.Notificacao.Where(n => n.UtilizadorId == colaborador.Id);
+            foreach (Notificacao notificacao in notificacoes)
+            {
+                notificacao.Lida = true;
+                _context.Notificacao.Update(notificacao);
+
+            }
+            _context.SaveChanges();
+            setupNav();
+            return View(notificacoes);
+
+        }
+
 
     }
 }
