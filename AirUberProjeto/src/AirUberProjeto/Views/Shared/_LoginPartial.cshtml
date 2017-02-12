@@ -16,24 +16,31 @@
             <li class="active">
                 <a asp-area="" asp-controller="Helpdesk" asp-action="Index">
                     <i class="pe-7s-graph"></i>
-                    <p>Dashboard</p>
+                    <p>DashBoard</p>
                 </a>
             </li>
             <li class="active">
                 <a asp-area="" asp-controller="Helpdesk" asp-action="Clientes">
-                    <i class="pe-7s-graph"></i>
+                    <i class="pe-7s-id"></i>
                     <p>Clientes</p>
                 </a>
             </li>
             <li class="active">
                 <a asp-area="" asp-controller="Helpdesk" asp-action="Companhias">
-                    <i class="pe-7s-graph"></i>
+                    <i class="pe-7s-id"></i>
                     <p>Companhias</p>
+                </a>
+            </li>
+
+            <li class="active">
+                <a asp-controller="Helpdesk" asp-action="RecuperarCompanhias">
+                    <i class="pe-7s-news-paper"></i>
+                    <p>Recuperar companhias</p>
                 </a>
             </li>
             <li class="active">
                 <a asp-area="" asp-controller="Helpdesk" asp-action="Viagens">
-                    <i class="pe-7s-graph"></i>
+                    <i class="pe-7s-plane"></i>
                     <p>Viagens</p>
                 </a>
             </li>
@@ -45,8 +52,8 @@
 
             <li class="active">
                 <a asp-controller="Cliente" asp-action="Creditos">
-                    <i class="pe-7s-graph"></i>
-                    <p>DashBoard</p>
+                    <i class="pe-7s-credit"></i>
+                    <p>Créditos</p>
                 </a>
             </li>
 
@@ -59,14 +66,14 @@
 
             <li class="active">
                 <a asp-controller="Cliente" asp-action="VerViagens">
-                    <i class="pe-7s-rocket"></i>
+                    <i class="pe-7s-cart"></i>
                     <p>Viagens</p>
                 </a>
             </li>
 
             <li class="active">
                 <a asp-controller="Cliente" asp-action="ProcurarOfertas">
-                    <i class="pe-7s-map-marker"></i>
+                    <i class="pe-7s-plane"></i>
                     <p>Viajar</p>
                 </a>
             </li>
@@ -81,8 +88,15 @@
         }
         
         @if (User.IsInRole(Roles.ROLE_COLABORADOR) ||
-           User.IsInRole(Roles.ROLE_COLABORADOR_ADMIN))
+                   User.IsInRole(Roles.ROLE_COLABORADOR_ADMIN))
         {
+            <li class="active">
+                <a asp-controller="Companhia" asp-action="Creditos">
+                    <i class="pe-7s-credit"></i>
+                    <p>Créditos</p>
+                </a>
+            </li>
+
             <li class="active">
                 <a asp-controller="Companhia" asp-action="PerfilCompanhia">
                     <i class="pe-7s-user"></i>
@@ -94,7 +108,7 @@
             { 
                  <li class="active">
                      <a asp-controller="Companhia" asp-action="VerViagens">
-                         <i class="pe-7s-rocket"></i>
+                         <i class="pe-7s-cart"></i>
                          <p>Viagens</p>
                      </a>
                  </li>
@@ -102,30 +116,32 @@
 
             <li class="active">
                 <a asp-controller="Companhia" asp-action="VerColaboradores">
-                    <i class="pe-7s-rocket"></i>
+                    <i class="pe-7s-users"></i>
                     <p>Colaboradores</p>
                 </a>
             </li>
 
             <li class="active">
                 <a asp-controller="Companhia" asp-action="VerJatos">
-                    <i class="pe-7s-rocket"></i>
+                    <i class="pe-7s-plane"></i>
                     <p>VerJatos</p>
                 </a>
             </li>
 
             <li class="active">
                 <a asp-controller="Companhia" asp-action="VerExtras">
-                    <i class="pe-7s-rocket"></i>
+                    <i class="pe-7s-box2"></i>
                     <p>Extras</p>
                 </a>
             </li>
             <li class="active">
                 <a asp-controller="Companhia" asp-action="ValidarReservas">
-                    <i class="pe-7s-rocket"></i>
+                    <i class="pe-7s-glasses"></i>
                     <p>Validar Reservas</p>
                 </a>
             </li>
+
+ 
 
             <li class="active">
                 <a asp-controller="Companhia" asp-action="Notificacoes">

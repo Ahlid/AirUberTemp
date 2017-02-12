@@ -4,61 +4,199 @@
     ViewBag.Title = "Helpdesk";
 }
 
-<div class="w3-center w3-row-padding">
-    <h1 class="w3-center">@ViewBag.Title</h1>
-    <hr />
-    <div class="w3-col l4 w3">
-        <div class="w3-col l12 w3-card-4 w3-margin w3-container" style="height: 400px">
-            <h2 class="w3-center">Companhias</h2>
-            <div class="w3-padding-32 w3-margin-top w3-border w3-border-blue w3-circle w3-center" style="width:33%; display:inline-block">
-                <p id="numeroCompanhias">@ViewBag.NumeroCompanhiasAceites</p>
-            </div>
-            <h3>Companhias no Total</h3>
-            <div class="w3-padding-16 w3-margin-top">
-                <div class="w3-padding-16 w3-border w3-border-blue w3-circle w3-container w3-center" style="width:22%; display:inline-block">
-                    <p id="numeroPedidosCompanhias">@ViewBag.NumeroCompanhiasPendentes</p>
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Companhia</h4>
+                        <p class="category">Últimos números</p>
+                    </div>
+                    <div class="content">
+                        <div id="chartCompanhia" class="ct-chart ct-perfect-fourth">
+
+                        </div>
+                        <div class="footer">
+                            <div class="legend">
+                                <i class="fa fa-circle text-info"></i> Aceites
+                                <i class="fa fa-circle text-danger"></i> Pendentes
+                                <i class="fa fa-circle text-warning"></i> Rejeitadas
+                            </div>
+                            <hr>
+                            <div class="stats">
+                                <i class="fa fa-clock-o"></i> A informação está atualizada
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <h3  class="w3-margin-left" style="display:inline-block">Pedidos</h3>
             </div>
-            <div class="w3-padding-24">
-                <button type="button" class="w3-btn w3-indigo" onclick="location.href='@Url.Action("Companhias", "Helpdesk")'" >Gerir Companhias</button>
-            </div>
-        </div>
-    </div>
-    <div class="w3-col l4 w3">
-        <div class="w3-col l12 w3-card-4 w3-margin w3-container" style="height: 400px">
-            <h2 class="w3-center">Clientes</h2>
-            <div class="w3-padding-32 w3-margin-top w3-border w3-border-blue w3-circle w3-center" style="width:33%; display:inline-block">
-                <p id="numeroClientes">@ViewBag.NumeroTotalClientes</p>
-            </div>
-            <h3>Clientes no Total</h3>
-            <div class="w3-padding-16 w3-margin-top">
-                <div class="w3-padding-16 w3-border w3-border-blue w3-circle w3-container w3-center" style="width:22%; display:inline-block">
-                    <p id="numeroClientesRegistados">@ViewBag.NumeroClientesRegistadosHoje</p>
-                </div>
-                <h3 class="w3-margin-left" style="display:inline-block">Registados Hoje</h3>
-            </div>
-            <div class="w3-padding-24">
-                <button type="button" class="w3-btn w3-indigo" onclick="location.href='@Url.Action("Clientes", "Helpdesk")'">Gerir Clientes</button>
-            </div>
-        </div>
-    </div>
-    <div class="w3-col l4 w3">
-        <div class="w3-col l12 w3-card-4 w3-margin w3-container" style="height: 400px">
-            <h2 class="w3-center">Viagens</h2>
-            <div class="w3-padding-32 w3-margin-top w3-border w3-border-blue w3-circle w3-center" style="width:33%; display:inline-block">
-                <p id="numeroViagens">@ViewBag.NumeroTotalViagens</p>
-            </div>
-            <h3>Viagens no Total</h3>
-            <div class="w3-padding-16 w3-margin-top">
-                <div class="w3-padding-16 w3-border w3-border-blue w3-circle w3-container w3-center" style="width:22%; display:inline-block">
-                    <p id="numeroCreditosMovidos">@ViewBag.CreditosMovidos<span>k</span></p>
-                </div>
-                <h3 class="w3-margin-left" style="display:inline-block">Créditos Movidos</h3>
-            </div>
-            <div class="w3-padding-24">
-                <button type="button" class="w3-btn w3-indigo" onclick="location.href='@Url.Action("Viagens", "Helpdesk")'">Gerir Viagens</button>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="header">
+                            <h4 class="title">Cliente</h4>
+                            <p class="category">Últimos números</p>
+                        </div>
+                        <div class="content">
+                            <div id="chartCliente" class="ct-chart ct-perfect-fourth">
+
+                            </div>
+                            <div class="footer">
+                                <div class="legend">
+                                    <i class="fa fa-circle text-info"></i> Registados
+                                    <i class="fa fa-circle text-danger"></i> Registados Hoje
+                                </div>
+                                <hr>
+                                <div class="stats">
+                                    <i class="fa fa-clock-o"></i> A informação está atualizada
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+               
             </div>
         </div>
     </div>
 </div>
+
+
+
+<script type="text/javascript">
+    
+    $(document).ready(function() {
+        (function() {
+            var data = {
+                labels: ['Companhias', 'Comp. aceites', 'Comp. rejeitadas'],
+                series: [
+                    {
+                        data: [
+                            @(ViewBag.NumeroCompanhiasAceites + ViewBag.NumeroCompanhiasPendentes),
+                            @ViewBag.NumeroCompanhiasAceites, @ViewBag.NumeroCompanhiasPendentes
+                        ]
+                    }
+                ]
+            };
+            var options = {
+        
+            };
+
+            var responsiveOptions = [
+                [
+                    'screen and (min-width: 641px) and (max-width: 1024px)', {
+                        showPoint: false,
+                        axisX: {
+                            labelInterpolationFnc: function(value) {
+                                switch (value) {
+                                case 0:
+                                    return 'Companhias';
+                                case 1:
+                                    return 'Comp. aceites';
+                                case 2:
+                                    return 'Comp. rejeitadas';
+                                }
+                            }
+                        }
+                    }
+                ],
+                [
+                    'screen and (max-width: 640px)', {
+                        showLine: false,
+                        axisX: {
+                            labelInterpolationFnc: function(value) {
+                                switch (value) {
+                                case 0:
+                                    return 'Companhias';
+                                case 1:
+                                    return 'Comp. aceites';
+                                case 2:
+                                    return 'Comp. rejeitadas';
+                                }
+                            }
+                        }
+                    }
+                ]
+            ];
+
+            new Chartist.Bar('#chartCompanhia', data, options, responsiveOptions).on('draw',
+                function(data) {
+                    if (data.type === 'bar') {
+
+                        switch (data.index) {
+                        case 0:
+                            data.element.attr({
+                                style: 'stroke-width: 30px;stroke: #1DC7EA;'
+
+                            });
+                            break;
+                        case 1:
+                            data.element.attr({
+                                style: 'stroke-width: 30px;stroke: #FF4A55;'
+
+                            });
+                            break;
+                        case 2:
+                            data.element.attr({
+                                style: 'stroke-width: 30px;stroke: #FF9500;'
+
+                            });
+                            break;
+                        }
+
+
+                    }
+                });
+        })();
+
+
+        (function() {
+            var data = {
+                labels: ['Cliente', 'Clientes Registados Hoje'],
+                series: [
+                    {
+                        data: [
+                            @ViewBag.NumeroTotalClientes,
+                            @ViewBag.NumeroClientesRegistadosHoje,
+                        ]
+                    }
+                ]
+            };
+            var options = {
+        
+            };
+
+            var responsiveOptions = [
+                
+            ];
+
+            new Chartist.Bar('#chartCliente', data, options, responsiveOptions).on('draw',
+                function(data) {
+                    if (data.type === 'bar') {
+
+                        switch (data.index) {
+                            case 0:
+                                data.element.attr({
+                                    style: 'stroke-width: 30px;stroke: #1DC7EA;'
+
+                                });
+                                break;
+                            case 1:
+                                data.element.attr({
+                                    style: 'stroke-width: 30px;stroke: #FF4A55;'
+
+                                });
+                                break;
+                            
+                        }
+
+
+                    }
+                });
+        })();
+
+
+
+
+
+    });
+</script>

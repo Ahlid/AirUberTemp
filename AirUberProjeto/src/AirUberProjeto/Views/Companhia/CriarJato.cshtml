@@ -1,93 +1,111 @@
 @model AirUberProjeto.Models.Jato
 
 @{
-    ViewData["Title"] = "View";
+    ViewData["Title"] = "Criar Jato";
     Layout = "_NovoLayout";
 }
 
-<h2>View</h2>
 
-<form asp-controller="Companhia" asp-action="CriarJato" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" class="form-vertical">
-        <div class="form-horizontal">
-            <h4>Jato</h4>
-            <hr />
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="AeroportoId" class="col-md-2 control-label"></label>
-                <div class="col-md-10">
-                    <select asp-for="AeroportoId" class="form-control" asp-items="ViewBag.aeroportos"></select>
-                </div>
-            </div>
-            <div class="form-group">
-                <label asp-for="CompanhiaId" class="col-md-2 control-label"></label>
-                <div class="col-md-10">
-                    <input asp-for="Nome" type="text" class="form-control" value=@ViewBag.companhia disabled />
-                </div>
-            </div>
-            <div class="form-group">
-                <label asp-for="ModeloId" class="col-md-2 control-label"></label>
-                <div class="col-md-10">
-                    <select asp-for="ModeloId" class="form-control" asp-items="ViewBag.modelos"></select>
-                </div>
-            </div>
-            <div class="form-group">
-                <label asp-for="Nome" class="col-md-2 control-label"></label>
-                <div class="col-md-10">
-                    <input asp-for="Nome" class="form-control" />
-                    <span asp-validation-for="Nome" class="text-danger" />
-                </div>
-            </div>
-            
-            <div class="form-group">
-                <label asp-for="CreditosPorKilometro" class="col-md-2 control-label"></label>
-                <div class="col-md-10">
-                    <input asp-for="CreditosPorKilometro" class="form-control" />
-                    <span asp-validation-for="CreditosPorKilometro" class="text-danger" />
-                </div>
-            </div>
-            
-            <div class="form-group">
-                <label asp-for="CreditosBase" class="col-md-2 control-label"></label>
-                <div class="col-md-10">
-                    <input asp-for="CreditosBase" class="form-control" />
-                    <span asp-validation-for="CreditosBase" class="text-danger" />
-                </div>
-            </div>
-            
-            <div class="form-group">
-                <label asp-for="DistanciaMaxima" class="col-md-2 control-label"></label>
-                <div class="col-md-10">
-                    <input asp-for="DistanciaMaxima" class="form-control" />
-                    <span asp-validation-for="DistanciaMaxima" class="text-danger" />
-                </div>
-            </div>
-            
-            <div class="form-group">
-                <label asp-for="TempoPreparacao" class="col-md-2 control-label"></label>
-                <div class="col-md-10">
-                    <input asp-for="TempoPreparacao" class="form-control" />
-                    <span asp-validation-for="TempoPreparacao" class="text-danger" />
-                </div>
-            </div>
-            
-            <div class="form-group">
-                <label asp-for="VelocidadeMedia" class="col-md-2 control-label"></label>
-                <div class="col-md-10">
-                    <input asp-for="VelocidadeMedia" class="form-control" />
-                    <span asp-validation-for="VelocidadeMedia" class="text-danger" />
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Create" class="btn btn-default" />
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Criar Jato</h4>
+                        <p class="category">Insira os dados do jato</p>
+                    </div>
+
+                    <div class="content">
+
+                        <form asp-controller="Companhia" asp-action="CriarJato" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" class="form-vertical">
+                            <div>
+                           
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                <div class="form-group">
+                                    <label asp-for="AeroportoId" class="col-md-2 control-label"></label>
+                                    <div class="col-md-10">
+                                        <select asp-for="AeroportoId" class="form-control" asp-items="ViewBag.aeroportos"></select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="CompanhiaId" class="col-md-2 control-label"></label>
+                                    <div class="col-md-10">
+                                        <input asp-for="Nome" type="text" class="form-control" value=@ViewBag.companhia disabled />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="ModeloId" class="col-md-2 control-label"></label>
+                                    <div class="col-md-10">
+                                        <select asp-for="ModeloId" class="form-control" asp-items="ViewBag.modelos"></select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Nome" class="col-md-2 control-label"></label>
+                                    <div class="col-md-10">
+                                        <input asp-for="Nome" class="form-control" />
+                                        <span asp-validation-for="Nome" class="text-danger" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label asp-for="CreditosPorKilometro" class="col-md-2 control-label"></label>
+                                    <div class="col-md-10">
+                                        <input asp-for="CreditosPorKilometro" class="form-control" />
+                                        <span asp-validation-for="CreditosPorKilometro" class="text-danger" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label asp-for="CreditosBase" class="col-md-2 control-label"></label>
+                                    <div class="col-md-10">
+                                        <input asp-for="CreditosBase" class="form-control" />
+                                        <span asp-validation-for="CreditosBase" class="text-danger" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label asp-for="DistanciaMaxima" class="col-md-2 control-label"></label>
+                                    <div class="col-md-10">
+                                        <input asp-for="DistanciaMaxima" class="form-control" />
+                                        <span asp-validation-for="DistanciaMaxima" class="text-danger" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label asp-for="TempoPreparacao" class="col-md-2 control-label"></label>
+                                    <div class="col-md-10">
+                                        <input asp-for="TempoPreparacao" class="form-control" />
+                                        <span asp-validation-for="TempoPreparacao" class="text-danger" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label asp-for="VelocidadeMedia" class="col-md-2 control-label"></label>
+                                    <div class="col-md-10">
+                                        <input asp-for="VelocidadeMedia" class="form-control" />
+                                        <span asp-validation-for="VelocidadeMedia" class="text-danger" />
+                                    </div>
+                                </div>
+                                
+                                <div class="content">
+                                    <input style="margin-right: 6px" type="submit" value="Criar" class="btn"/>
+                                    <a class="btn" asp-action="VerJatos">Ver Jatos</a>
+                                </div>
+
+                            </div>
+                        </form>
+
+                        <div>
+                            
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </form>
-
-<div>
-    <a asp-action="Index">Back to List</a>
+    </div>
 </div>
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

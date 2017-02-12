@@ -49,7 +49,7 @@ namespace AirUberProjeto.Controllers
         /// </summary>
         private readonly IEmailSender _emailSender;
 
-        
+
 
         /// <summary>
         /// Construtor do controlador Companhia
@@ -83,9 +83,9 @@ namespace AirUberProjeto.Controllers
         {
             string id = _userManager.GetUserAsync(this.User).Result.Id;
             List<Notificacao> notificacoes = _context.Notificacao.Where((n) =>
-                           n.UtilizadorId == id
-                           && !n.Lida
-               ).ToList();
+                    n.UtilizadorId == id
+                    && !n.Lida
+            ).ToList();
             ViewBag.navegacao = true;
             ViewBag.notificacoes = notificacoes;
         }
@@ -127,7 +127,7 @@ namespace AirUberProjeto.Controllers
              * 
              * Actualmente apenas o colaborador admin ve as notifiacções adicionadas
              * 
-             */ 
+             */
 
 
             List<Notificacao> notificacoes = _context.Notificacao.Where(n => n.UtilizadorId == colaborador.Id).ToList();
@@ -158,7 +158,7 @@ namespace AirUberProjeto.Controllers
                 .Include(c => c.ListaJatos)
                 .Include(c => c.ListaExtras)
                 .Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
-            return View(companhia);
+            return RedirectToAction("PerfilCompanhia");
         }
 
 
@@ -177,18 +177,17 @@ namespace AirUberProjeto.Controllers
                 Companhia companhia =
                     (_context.Companhia.Select(c => c).Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
 
-                companhia.Nome = viewModel.Nome;
-                companhia.Nif = viewModel.Nif;
-                companhia.Contact = viewModel.Contact;
-                companhia.Descricao = viewModel.Descricao;
-                
+                companhia.Nome = viewModel.companhia.Nome;
+                companhia.Morada = viewModel.companhia.Morada;
+                companhia.Descricao = viewModel.companhia.Descricao;
+
                 _context.Update(companhia);
                 _context.SaveChanges();
                 ViewData["Success"] = true;
-                return View(companhia);
+                return RedirectToAction("PerfilCompanhia");
             }
 
-            return RedirectToAction("EditarPerfilCompanhia");
+            return RedirectToAction("PerfilCompanhia");
         }
 
 
@@ -400,7 +399,7 @@ namespace AirUberProjeto.Controllers
             {
                 return NotFound();
             }
-            
+
             var jato = _context.Jato.Select(j => j)
                 .Include(j => j.Aeroporto)
                 .Include(j => j.Companhia)
@@ -424,13 +423,15 @@ namespace AirUberProjeto.Controllers
         public IActionResult ApagarJatoConfirmacao(int? id)
         {
             setupNav();
-            Colaborador colaborador = (Colaborador)_userManager.GetUserAsync(this.User).Result;
+            Colaborador colaborador = (Colaborador) _userManager.GetUserAsync(this.User).Result;
 
-            Companhia companhia = (_context.Companhia.Select(c => c).Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
+            Companhia companhia =
+                (_context.Companhia.Select(c => c).Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
 
             var jato = _context.Jato.SingleOrDefault(j => j.JatoId == id);
 
-            bool existe = companhia.ListaJatos.Any(c => c.JatoId == jato.JatoId);    // verifica se a companhia tem aquele aviao
+            bool existe = companhia.ListaJatos.Any(c => c.JatoId == jato.JatoId);
+                // verifica se a companhia tem aquele aviao
 
             if (existe)
             {
@@ -525,7 +526,7 @@ namespace AirUberProjeto.Controllers
                     await
                         _userManager.AddToRoleAsync(novoColaborador,
                             novoColaborador.IsAdministrador ? Roles.ROLE_COLABORADOR_ADMIN : Roles.ROLE_COLABORADOR);
-                        //atribui a role
+                    //atribui a role
 
 
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=532713
@@ -651,7 +652,7 @@ namespace AirUberProjeto.Controllers
                 .Include(c => c.Companhia)
                 .SingleOrDefault(c => c.Id == id);
             if (colaborador == null)
-            {   
+            {
                 return NotFound();
             }
             return View(colaborador);
@@ -669,13 +670,15 @@ namespace AirUberProjeto.Controllers
         {
 
             setupNav();
-            Colaborador colaborador = (Colaborador)_userManager.GetUserAsync(this.User).Result;
+            Colaborador colaborador = (Colaborador) _userManager.GetUserAsync(this.User).Result;
 
-            Companhia companhia = (_context.Companhia.Select(c => c).Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
+            Companhia companhia =
+                (_context.Companhia.Select(c => c).Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
 
             var colaboradorAEliminar = _context.Colaborador.SingleOrDefault(j => j.Id == id);
 
-            bool existe = companhia.ListaColaboradores.Any(c => c.Id == colaboradorAEliminar.Id);    // verifica se o colaborador a eliminar faz parte da companhia logada
+            bool existe = companhia.ListaColaboradores.Any(c => c.Id == colaboradorAEliminar.Id);
+                // verifica se o colaborador a eliminar faz parte da companhia logada
 
             if (existe)
             {
@@ -781,7 +784,7 @@ namespace AirUberProjeto.Controllers
                     Nome = viewModel.Nome,
                     TipoExtraId = viewModel.TipoExtraId,
                     Valor = Convert.ToDecimal(viewModel.Valor)
-                    
+
                 };
 
 
@@ -881,7 +884,7 @@ namespace AirUberProjeto.Controllers
             return View(extra);
         }
 
- 
+
         /// <summary>
         /// Trata de um pedido de eliminação de um extra
         /// </summary>
@@ -892,13 +895,15 @@ namespace AirUberProjeto.Controllers
         public IActionResult ApagarExtraConfirmacao(int id)
         {
             setupNav();
-            Colaborador colaborador = (Colaborador)_userManager.GetUserAsync(this.User).Result;
+            Colaborador colaborador = (Colaborador) _userManager.GetUserAsync(this.User).Result;
 
-            Companhia companhia = (_context.Companhia.Select(c => c).Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
+            Companhia companhia =
+                (_context.Companhia.Select(c => c).Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
 
             var extra = _context.Extra.Single(e => e.ExtraId == id);
 
-            bool existe = companhia.ListaExtras.Any(c => c.ExtraId == extra.ExtraId);    // verifica se o colaborador a eliminar faz parte da companhia logada
+            bool existe = companhia.ListaExtras.Any(c => c.ExtraId == extra.ExtraId);
+                // verifica se o colaborador a eliminar faz parte da companhia logada
 
             if (existe)
             {
@@ -1015,8 +1020,9 @@ namespace AirUberProjeto.Controllers
             if (extension != ".jpg" && extension != ".png")
                 return null;
 
-            Colaborador colaborador = (Colaborador)_userManager.GetUserAsync(this.User).Result;
-            Companhia companhia = (_context.Companhia.Select(c => c).Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
+            Colaborador colaborador = (Colaborador) _userManager.GetUserAsync(this.User).Result;
+            Companhia companhia =
+                (_context.Companhia.Select(c => c).Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
 
 
             string fileName = "imagem-perfil" + extension;
@@ -1056,7 +1062,7 @@ namespace AirUberProjeto.Controllers
             if (file == null)
             {
                 // permite ficar na mesma página, para alterar a imagem, pq não foi alterada
-                return RedirectToAction("EditarJatos", new { id = id });    
+                return RedirectToAction("EditarJatos", new {id = id});
             }
 
 
@@ -1065,14 +1071,15 @@ namespace AirUberProjeto.Controllers
                 return null;
 
 
-            Colaborador colaborador = (Colaborador)_userManager.GetUserAsync(this.User).Result;
-            Companhia companhia = (_context.Companhia.Select(c => c).Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
+            Colaborador colaborador = (Colaborador) _userManager.GetUserAsync(this.User).Result;
+            Companhia companhia =
+                (_context.Companhia.Select(c => c).Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
 
             Jato jato = (_context.Jato.Select(c => c).Include(c => c.Aeroporto)
-                                                     .Include(c => c.Companhia)
-                                                     .Include(c => c.Modelo)
-                                                     .Where(c => c.JatoId == id))
-                                                     .Single();
+                    .Include(c => c.Companhia)
+                    .Include(c => c.Modelo)
+                    .Where(c => c.JatoId == id))
+                .Single();
 
 
             string fileName = "imagem-jato-" + jato.Nome + extension;
@@ -1096,9 +1103,9 @@ namespace AirUberProjeto.Controllers
             _context.Update(jato);
             _context.SaveChanges();
 
-            return RedirectToAction(nameof(CompanhiaController.VerJatos), "Companhia"); 
+            return RedirectToAction(nameof(CompanhiaController.VerJatos), "Companhia");
         }
-        
+
 
 
         /// <summary>
@@ -1106,7 +1113,7 @@ namespace AirUberProjeto.Controllers
         /// </summary>
         /// <param name="acao">acao</param>
         /// <param name="colaborador">colaborador</param>
-        private void addAcaoColaborador (Acao acao, Colaborador colaborador)
+        private void addAcaoColaborador(Acao acao, Colaborador colaborador)
         {
             setupNav();
             colaborador.ListaAcoes.Add(acao);
@@ -1283,24 +1290,25 @@ namespace AirUberProjeto.Controllers
         {
 
             setupNav();
-            Colaborador colaborador = (Colaborador)_userManager.GetUserAsync(this.User).Result;
+            Colaborador colaborador = (Colaborador) _userManager.GetUserAsync(this.User).Result;
             if (colaborador == null)
             {
                 return RedirectToAction("Index", "Home");
             }
 
 
-            Companhia companhia = (_context.Companhia.Select(c => c).Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
+            Companhia companhia =
+                (_context.Companhia.Select(c => c).Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
 
 
             var viagens = _context.Reserva.Select(c => c)
-                                          .Include(a => a.AeroportoDestino)
-                                          .Include(a => a.AeroportoPartida)
-                                          .Include(a => a.Cliente)
-                                          .Include(a => a.Jato)
-                                          .Include(a => a.Jato.Companhia)
-                                          .Include(r => r.ListaExtras)
-                                          .Where(c => c.Jato.Companhia.CompanhiaId == companhia.CompanhiaId).ToList();
+                .Include(a => a.AeroportoDestino)
+                .Include(a => a.AeroportoPartida)
+                .Include(a => a.Cliente)
+                .Include(a => a.Jato)
+                .Include(a => a.Jato.Companhia)
+                .Include(r => r.ListaExtras)
+                .Where(c => c.Jato.Companhia.CompanhiaId == companhia.CompanhiaId).ToList();
             return View(viagens);
         }
 
@@ -1313,7 +1321,7 @@ namespace AirUberProjeto.Controllers
         {
 
             setupNav();
-            IEnumerable<Reserva> reservas =_context.Reserva
+            IEnumerable<Reserva> reservas = _context.Reserva
                 .Where(r => r.Aprovada == false)
                 .Include(r => r.Jato)
                 .Include(r => r.Cliente)
@@ -1386,8 +1394,8 @@ namespace AirUberProjeto.Controllers
             setupNav();
             try
             {
- 
-                Colaborador colaborador = (Colaborador)_userManager.GetUserAsync(this.User).Result;
+
+                Colaborador colaborador = (Colaborador) _userManager.GetUserAsync(this.User).Result;
                 Companhia companhia =
                     (_context.Companhia.Select(c => c).Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
 
@@ -1414,7 +1422,7 @@ namespace AirUberProjeto.Controllers
             {
                 return false;
             }
-           
+
 
             return true;
 
@@ -1425,7 +1433,7 @@ namespace AirUberProjeto.Controllers
         public IActionResult Notificacoes()
         {
 
-            Colaborador colaborador = (Colaborador)_userManager.GetUserAsync(this.User).Result;
+            Colaborador colaborador = (Colaborador) _userManager.GetUserAsync(this.User).Result;
             IEnumerable<Notificacao> notificacoes = _context.Notificacao.Where(n => n.UtilizadorId == colaborador.Id);
             foreach (Notificacao notificacao in notificacoes)
             {
@@ -1439,6 +1447,17 @@ namespace AirUberProjeto.Controllers
 
         }
 
+        public IActionResult Creditos()
+        {
+            setupNav();
+            Colaborador colaborador = (Colaborador) _userManager.GetUserAsync(this.User).Result;
+            ContaDeCreditos creditos = _context.ContaDeCreditoses
+                .Include(c => c.HistoricoTransacoeMonetarias)
+                .Include(c => c.HistoricoTransacoeMonetarias.MovimentosMonetarios)
+                .Single(n => n.ContaDeCreditosId == colaborador.CompanhiaId);
 
+            return View(creditos);
+
+        }
     }
 }

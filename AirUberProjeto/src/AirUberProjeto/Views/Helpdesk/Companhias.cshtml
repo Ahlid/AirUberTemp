@@ -3,104 +3,119 @@
 @{
     ViewBag.Title_Requests = "Pedidos";
     ViewBag.Title = "Companhias";
-    
+
 }
 
-@if (@ViewBag.NumeroCompanhiasRecusadas > 0)
-{
-    <a class="w3-btn w3-indigo" asp-action="RecuperarCompanhias">Recuperar Companhias</a>
-}
+<div class="content">
+    <div class="container-fluid">
 
-@if (@ViewBag.NumeroCompanhiasPendentes > 0) // verificar se é != null não resulta
-{
-    <h2>@ViewBag.Title_Requests</h2>
-    <div class="container">
-        <div class="w3-col w3 out">
-            @foreach (var companhia in ViewBag.CompanhiasPendentes)
-            {
-                <div class="w3-col w3-card-4 w3-margin w3-container in">
-                    <h2 class="w3-center">@companhia.Nome</h2>
-                    <div>
-                        <h4 style="font-weight:bold; display: inline; ">@Html.DisplayNameFor(model => (model.Take(1) as Companhia).Nif): </h4><span>@companhia.Nif</span>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Companhias</h4>
+
                     </div>
-                    <div>
-                        <h4 style="font-weight:bold; display: inline; ">@Html.DisplayNameFor(model => (model.Take(1) as Companhia).Pais): </h4><span>@companhia.Pais.Nome</span>
+                    <div class="content table-responsive table-full-width">
+
+                        <table class="table table-hover table-striped">
+
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => (model.Take(1) as Companhia).Nome)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => (model.Take(1) as Companhia).Contact)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => (model.Take(1) as Companhia).Email)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => (model.Take(1) as Companhia).Pais)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => (model.Take(1) as Companhia).Nif)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => (model.Take(1) as Companhia).ListaReservas)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => (model.Take(1) as Companhia).ContaDeCreditos.JetCashActual)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => (model.Take(1) as Companhia).DataCriacao)
+                                    </th>
+                                </tr>
+
+                            </thead>
+                            <tbody>
+
+                                @foreach (var companhia in ViewBag.CompanhiasAceites)
+                                {
+                                    <tr>
+                                        <td>@companhia.Nome</td>
+                                        <td>@companhia.Contact</td>
+                                        <td>@companhia.Email</td>
+                                        <td>@companhia.Pais.Nome</td>
+                                        <td>@companhia.Nif</td>
+                                        <td>@companhia.ListaReservas.Count</td>
+                                        <td>@companhia.ContaDeCreditos.JetCashActual</td>
+                                        <td>@companhia.DataCriacao</td>
+                                    </tr>
+                                }
+
+
+                            </tbody>
+
+                        </table>
+                        
+                        <div class="header">
+                            <h4 class="title">Companhias por validar</h4>
+
+                        </div>
+                        <table class="table table-hover table-striped">
+
+                            <thead>
+                                <tr>
+                                    <th>@Html.DisplayNameFor(model => (model.Take(1) as Companhia).Nif)</th>
+                                    <th>@Html.DisplayNameFor(model => (model.Take(1) as Companhia).Pais)</th>
+                                    <th>@Html.DisplayNameFor(model => (model.Take(1) as Companhia).ListaJatos)</th>
+                                    <th>@Html.DisplayNameFor(model => (model.Take(1) as Companhia).ListaColaboradores)</th>
+                                    <th>@Html.DisplayNameFor(model => (model.Take(1) as Companhia).Morada)</th>
+                                    <th>@Html.DisplayNameFor(model => (model.Take(1) as Companhia).Contact)</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                           
+                                @foreach (var companhia in ViewBag.CompanhiasPendentes)
+                                {
+                                    <tr>
+                                        <td>@companhia.Nif</td>
+                                        <td>@companhia.Pais</td>
+                                        <td>@companhia.ListaJatos.Count</td>
+                                        <td>@companhia.ListaColaboradores.Count</td>
+                                        <td>@companhia.Morada</td>
+                                        <td>@companhia.Contact</td>
+                                        <td>
+                                            <a class="link" asp-action="AlterarEstadoCompanhia" asp-route-id="@companhia.CompanhiaId" asp-route-estadoActualId="0" asp-route-estadoDestinoId="1">Aceitar</a>
+                                            <a class="link" asp-action="AlterarEstadoCompanhia" asp-route-id="@companhia.CompanhiaId" asp-route-estadoActualId="0" asp-route-estadoDestinoId="3">Recusar</a>
+                                        </td>
+                                    </tr>
+                                }
+                                    
+                            </tbody>
+                        </table>
+                        
+                        
+                        
+
+
                     </div>
-                    <div>
-                        <h4 style="font-weight:bold; display: inline; ">@Html.DisplayNameFor(model => (model.Take(1) as Companhia).ListaJatos): </h4><span>@companhia.ListaJatos.Count</span>
-                    </div>
-                    <div>
-                        <h4 style="font-weight:bold; display: inline; ">@Html.DisplayNameFor(model => (model.Take(1) as Companhia).ListaColaboradores): </h4><span>@companhia.ListaColaboradores.Count</span>
-                    </div>
-                    <div>
-                        <h4 style="font-weight:bold; display: inline; ">@Html.DisplayNameFor(model => (model.Take(1) as Companhia).Morada): </h4><span>@companhia.Morada</span>
-                    </div>
-                    <div>
-                        <h4 style="font-weight:bold; display: inline; ">@Html.DisplayNameFor(model => (model.Take(1) as Companhia).Contact): </h4><span>@companhia.Contact</span>
-                    </div>
-                    <div class="w3-padding-24">
-                        <a class="w3-btn w3-indigo" asp-action="AlterarEstadoCompanhia" asp-route-id="@companhia.CompanhiaId" asp-route-estadoActualId="0" asp-route-estadoDestinoId="1">Aceitar</a>
-                        <a class="w3-btn w3-indigo" asp-action="AlterarEstadoCompanhia" asp-route-id="@companhia.CompanhiaId" asp-route-estadoActualId="0" asp-route-estadoDestinoId="3">Recusar</a>
                     </div>
                 </div>
-            }
+            </div>
         </div>
     </div>
-}
 
-
-<h2>@ViewBag.Title</h2>
-    
-    <div class="table-responsive">
-        <table class="table">
-
-            <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => (model.Take(1) as Companhia).Nome)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => (model.Take(1) as Companhia).Contact)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => (model.Take(1) as Companhia).Email)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => (model.Take(1) as Companhia).Pais)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => (model.Take(1) as Companhia).Nif)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => (model.Take(1) as Companhia).ListaReservas)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => (model.Take(1) as Companhia).ContaDeCreditos.JetCashActual)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => (model.Take(1) as Companhia).DataCriacao)
-                </th>
-            </tr>
-
-            </thead>
-            <tbody>
-
-            @foreach (var companhia in ViewBag.CompanhiasAceites)
-            {
-                <tr>
-                    <td>@companhia.Nome</td>
-                    <td>@companhia.Contact</td>
-                    <td>@companhia.Email</td>
-                    <td>@companhia.Pais.Nome</td>
-                    <td>@companhia.Nif</td>
-                    <td>@companhia.ListaReservas.Count</td>
-                    <td>@companhia.ContaDeCreditos.JetCashActual</td>
-                    <td>@companhia.DataCriacao</td>
-                </tr>
-            }
-
-
-            </tbody>
-
-        </table>
-    </div>

@@ -5,84 +5,112 @@
 
 }
 
-<style>
-    
-    .reserva-card {
-        padding: 20px;
-        text-align: left;
-    }
-
-    .imagem-container {
-        padding-right: 50%;
-    }
-
-    .imagem {
-        background-color: aliceblue;
-        width: 100%;
-    }
-
-    .lista {
-        margin-top: 10px;
-    }
-    .botao {
-        float: left;
-    }
-
-</style>
 
 
-<div class="container" style="margin-top: 20px">
+<div class="content">
+    <div class="container-fluid">
 
-    <h1>Valide as reservas pendentes</h1>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Validar Reservas</h4>
 
-    <div class="w3-center w3-row-padding">
-
-        @foreach (Reserva reserva in Model)
-        {
-
-            <div id="reserva@(reserva.ReservaId)" class="w3-col l4 w3">
-                <div class="w3-col l12 w3-card-4 w3-margin w3-container reserva-card">
-
-                    <div class="imagem-container">
-                        <img class="img-rounded imagem" 
-                             src="..\..\@reserva.Jato.RelativePathImagemPerfil"  
-                             alt="airplane photo" />
                     </div>
+                    <div class="content table-responsive table-full-width">
+                        <table class="table table-hover table-striped">
 
-                    <ul class="list-unstyled lista">
-                        <li>
-                            <strong>ID jato: </strong>
-                            <span>@reserva.Jato.JatoId</span>
-                        </li>
-                        <li>
-                            <strong>Jato: </strong>
-                            <span>@reserva.Jato.Nome</span>
-                        </li>
-                    </ul>
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Jato.Companhia)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Cliente)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.AeroportoPartida)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.AeroportoDestino)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.DataPartida)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.DataChegada)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ListaExtras)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Jato)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Custo)
+                                    </th>
+                                    <th>
+                                        Ações
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (Reserva item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(model => item.Jato.Companhia.Nome)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Cliente.Nome)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.AeroportoPartida.Nome)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.AeroportoDestino.Nome)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.DataPartida)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.DataChegada)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ListaExtras.Count)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Jato.Nome)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Custo)
+                                        </td>
+                                        <td>
+                                            <input type="button"
+                                                   onclick="validarReserva(@item.ReservaId)"
+                                                   class="btn-link botao"
+                                                   value="Aceitar Reserva" />
 
-                    <input type="button" 
-                           onclick="validarReserva(@reserva.ReservaId)" 
-                           class="btn-link botao" 
-                           value="Aceitar Reserva"/>
+                                            <input type="button"
+                                                   onclick="rejeitarReserva(@item.ReservaId)"
+                                                   class="btn-link botao"
+                                                   value="Rejeitar Reserva" />
 
-                    <input type="button" 
-                           onclick="rejeitarReserva(@reserva.ReservaId)" 
-                           class="btn-link botao" 
-                           value="Rejeitar Reserva" />
-
-                    <input type="button" 
-                           onclick="verJato(@reserva.JatoId)" 
-                           class="btn-link botao" 
-                           value="Ver jato" />  
-                    
+                                            <input type="button"
+                                                   onclick="verJato(@item.JatoId)"
+                                                   class="btn-link botao"
+                                                   value="Ver jato" /> 
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
-
-        }
-
+        </div>
     </div>
 </div>
-
 
 
 <script>

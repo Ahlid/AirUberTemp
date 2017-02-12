@@ -16,7 +16,7 @@ namespace AirUberProjeto.Controllers
     /// <summary>
     /// Controlador responsável pela gestão de creditos
     /// </summary>
-    [Authorize(Roles = Roles.ROLE_CLIENTE)]
+    [Authorize(Roles = Roles.ROLE_CLIENTE + ", " + Roles.ROLE_COLABORADOR +", " + Roles.ROLE_COLABORADOR_ADMIN)]
     public class CreditosController : Controller
     {
 
@@ -47,11 +47,23 @@ namespace AirUberProjeto.Controllers
         /// </summary>
         /// <returns>Retorna a view retornada pela acção comprar</returns>
         [HttpGet]
+        [Authorize(Roles = Roles.ROLE_CLIENTE)]
         public IActionResult Index()
         {
+            setupNav();
             return RedirectToAction("Comprar");
         }
 
+        public void setupNav()
+        {
+            string id = _userManager.GetUserAsync(this.User).Result.Id;
+            List<Notificacao> notificacoes = _context.Notificacao.Where((n) =>
+                    n.UtilizadorId == id
+                    && !n.Lida
+            ).ToList();
+            ViewBag.navegacao = true;
+            ViewBag.notificacoes = notificacoes;
+        }
 
 
         /// <summary>
@@ -59,8 +71,10 @@ namespace AirUberProjeto.Controllers
         /// </summary>
         /// <returns>Retorna a view Comprar</returns>
         [HttpGet]
+        [Authorize(Roles = Roles.ROLE_CLIENTE)]
         public IActionResult Comprar()
         {
+            setupNav();
             return View();
         }
 
@@ -70,9 +84,10 @@ namespace AirUberProjeto.Controllers
         /// <param name="amount">O montante a carregar</param>
         /// <returns>Os creditos totais do utilizador</returns>
         [HttpPost]
+        [Authorize(Roles = Roles.ROLE_CLIENTE)]
         public string Carregar(int amount)
         {
-
+            setupNav();
             Cliente cliente = (Cliente) _userManager.GetUserAsync(this.User).Result;
 
             cliente = _context.Cliente.Select(c=>c).Include(c => c.ContaDeCreditos).Include(c => c.ContaDeCreditos.HistoricoTransacoeMonetarias).Single(c => c.Id == cliente.Id);
@@ -91,13 +106,36 @@ namespace AirUberProjeto.Controllers
         /// </summary>
         /// <returns>View</returns>
         [HttpGet]
+        [Authorize(Roles = Roles.ROLE_CLIENTE)]
         public IActionResult VerHistoricoTransacoes()
         {
+            setupNav();
             Cliente cliente = (Cliente)_userManager.GetUserAsync(this.User).Result;
 
             cliente = _context.Cliente.Select(c => c).Include(c => c.ContaDeCreditos).Include(c => c.ContaDeCreditos.HistoricoTransacoeMonetarias).Include(c=>c.ContaDeCreditos.HistoricoTransacoeMonetarias.MovimentosMonetarios).Single(c => c.Id == cliente.Id);
 
             return View(cliente.ContaDeCreditos.HistoricoTransacoeMonetarias.MovimentosMonetarios);
+        }
+
+        /// <summary>
+        /// Acao responsavel para devolver uma view com as transaçoes do utilizador
+        /// </summary>
+        /// <returns>View</returns>
+        [HttpGet]
+        [Authorize(Roles = Roles.ROLE_COLABORADOR_ADMIN + ", " + Roles.ROLE_COLABORADOR)]
+        public IActionResult VerHistoricoTransacoesCompanhia()
+        {
+            setupNav();
+            Colaborador colaborador = (Colaborador)_userManager.GetUserAsync(this.User).Result;
+
+            colaborador = _context.Colaborador.Select(c => c)
+                .Include(c => c.Companhia)
+                .Include(c => c.Companhia.ContaDeCreditos)
+                .Include(c => c.Companhia.ContaDeCreditos.HistoricoTransacoeMonetarias)
+                .Include(c => c.Companhia.ContaDeCreditos.HistoricoTransacoeMonetarias.MovimentosMonetarios)
+                .Single(c => c.Id == colaborador.Id);
+
+            return View(colaborador.Companhia.ContaDeCreditos.HistoricoTransacoeMonetarias.MovimentosMonetarios);
         }
 
     }

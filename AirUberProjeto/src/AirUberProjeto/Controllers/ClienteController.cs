@@ -15,6 +15,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore.ValueGeneration.Internal;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Remotion.Linq.Clauses;
@@ -291,7 +292,7 @@ namespace AirUberProjeto.Controllers
         /// <param name="aeroportoPartidaId">id do aeroporto de partida</param>
         /// <param name="aeroportoDestinoId">id do aeroporto de destino</param>
         /// <returns>Tempo de deslocação em ticks</returns>
-        private double CalcularTempoDeslocacaoTicks(int jatoId, int aeroportoPartidaId, int aeroportoDestinoId)
+        private long CalcularTempoDeslocacaoTicks(int jatoId, int aeroportoPartidaId, int aeroportoDestinoId)
         {
 
             Jato jato = _context.Jato
@@ -302,14 +303,14 @@ namespace AirUberProjeto.Controllers
             Aeroporto aeroportoDestino = _context.Aeroporto
                 .Single(j => j.AeroportoId == aeroportoDestinoId);
 
-            double distancia = DistanciaEntreCoordenadas(
+            long distancia = Convert.ToInt64(DistanciaEntreCoordenadas(
                 aeroportoPartida.Latitude,
                 aeroportoPartida.Longitude,
                 aeroportoDestino.Latitude,
                 aeroportoDestino.Longitude
-            );
+            ));
             //Metros por segundo
-            double velocidade = jato.VelocidadeMedia; 
+            long velocidade = Convert.ToInt64(jato.VelocidadeMedia); 
 
             return (distancia/velocidade)* TimeSpan.TicksPerSecond;
 
@@ -1010,7 +1011,8 @@ namespace AirUberProjeto.Controllers
                     aeroportoChegada.Longitude);
 
                 double custo = CalcularCusto(distancia, jato, extrasids);
-
+                long tempoDeViagem = CalcularTempoDeslocacaoTicks(jatoid, aeroportoPartida.AeroportoId, aeroportoChegada.AeroportoId);
+                DateTime chegada = new DateTime(tempoDeViagem + data.Ticks);
 
                 Cliente cliente = _context.Cliente.Include(c => c.ContaDeCreditos).Single(c => c.Id == idCliente);
 
@@ -1027,6 +1029,7 @@ namespace AirUberProjeto.Controllers
                     Aprovada = false,
                     Custo = decimal.Parse(custo.ToString()),
                     DataPartida = data,
+                    DataChegada = chegada,
                     JatoId = jatoid,
                     Paga = false,
                     Realizada = false,
@@ -1091,10 +1094,17 @@ namespace AirUberProjeto.Controllers
                 return false;
             }
 
+        }
 
+        public IActionResult Creditos()
+        {
+            setupNav();
+            Cliente cliente = (Cliente)_userManager.GetUserAsync(this.User).Result;
+            ContaDeCreditos creditos = _context.ContaDeCreditoses
+                .Include(c => c.HistoricoTransacoeMonetarias)
+                .Single(n => n.ContaDeCreditosId == cliente.ContaDeCreditos.ContaDeCreditosId);
 
-
-
+            return View(creditos);
         }
 
 

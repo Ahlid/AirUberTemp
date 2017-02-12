@@ -4,96 +4,104 @@
     ViewData["Title"] = "VerModelos";
 }
 
-<h2>Modelos</h2>
+<div class="content">
+    <div class="container-fluid">
 
-<p>
-    <a asp-action="AdicionarModelo">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.TipoJato)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Capacidade)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Alcance) <span> (Km)</span>
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.VelocidadeMaxima) <span> (Km/H)</span>
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PesoMaximaBagagens) <span> (Kg)</span>
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NumeroMotores)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AltitudeIdeal) <span> (Km)</span>
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AlturaCabine) <span> (m)</span>
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LarguraCabine) <span> (m)</span>
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ComprimentoCabine) <span> (m)</span>
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Descricao)
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TipoJato.Nome)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => item.Capacidade)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Alcance) 
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.VelocidadeMaxima) 
-                </td>
-                <td>
-                    @Html.DisplayFor(model => item.PesoMaximaBagagens) 
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NumeroMotores)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.AltitudeIdeal) 
-                </td>
-                <td>
-                    @Html.DisplayFor(model => item.AlturaCabine) 
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.LarguraCabine) 
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ComprimentoCabine) 
-                </td>
-                <td>
-                    @Html.DisplayFor(model => item.Descricao)
-                </td>
-                
-                <td>
-                    <a asp-action="EditarModelo" asp-route-id="@item.ModeloId">Editar</a> |
-                    <a asp-action="ApagarModelo" asp-route-id="@item.ModeloId">Apagar</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Modelos</h4>
+                    </div>
+                    <div class="content table-responsive table-full-width">
+                        <table class="table table-hover table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.TipoJato)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Capacidade)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Alcance) <span> (Km)</span>
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.VelocidadeMaxima) <span> (Km/H)</span>
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.PesoMaximaBagagens) <span> (Kg)</span>
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.NumeroMotores)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.AltitudeIdeal) <span> (Km)</span>
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.AlturaCabine) <span> (m)</span>
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.LarguraCabine) <span> (m)</span>
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.ComprimentoCabine) <span> (m)</span>
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Descricao)
+                                        </th>
+                                        
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.TipoJato.Nome)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(model => item.Capacidade)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Alcance)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.VelocidadeMaxima)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(model => item.PesoMaximaBagagens)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.NumeroMotores)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.AltitudeIdeal)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(model => item.AlturaCabine)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.LarguraCabine)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.ComprimentoCabine)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(model => item.Descricao)
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
 
-<div>
-    <a asp-action="VerJatos">Back to List</a>
+                        <div class="content">
+                            <a class="btn" style="margin-right: 8px" asp-action="AdicionarModelo">Adicionar Modelo</a>
+                            <a class="btn" asp-action="VerJatos">Ver Jatos</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

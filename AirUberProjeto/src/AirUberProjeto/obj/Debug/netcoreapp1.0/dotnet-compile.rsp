@@ -259,7 +259,7 @@ C:\Users\Ricardo Morais\Documents\AirUberTemp\AirUberProjeto\src\AirUberProjeto\
 C:\Users\Ricardo Morais\Documents\AirUberTemp\AirUberProjeto\src\AirUberProjeto\Models\Estado.cs
 C:\Users\Ricardo Morais\Documents\AirUberTemp\AirUberProjeto\src\AirUberProjeto\Models\Extra.cs
 C:\Users\Ricardo Morais\Documents\AirUberTemp\AirUberProjeto\src\AirUberProjeto\Models\Helpdesk.cs
-C:\Users\Ricardo Morais\Documents\AirUberTemp\AirUberProjeto\src\AirUberProjeto\Models\HistoricoTransacoeMonetarias.cs
+C:\Users\Ricardo Morais\Documents\AirUberTemp\AirUberProjeto\src\AirUberProjeto\Models\HistoricoTransacoes.cs
 C:\Users\Ricardo Morais\Documents\AirUberTemp\AirUberProjeto\src\AirUberProjeto\Models\Jato.cs
 C:\Users\Ricardo Morais\Documents\AirUberTemp\AirUberProjeto\src\AirUberProjeto\Models\Modelo.cs
 C:\Users\Ricardo Morais\Documents\AirUberTemp\AirUberProjeto\src\AirUberProjeto\Models\MovimentoMonetario.cs
@@ -282,6 +282,7 @@ C:\Users\Ricardo Morais\Documents\AirUberTemp\AirUberProjeto\src\AirUberProjeto\
 C:\Users\Ricardo Morais\Documents\AirUberTemp\AirUberProjeto\src\AirUberProjeto\Models\ClienteViewModels\PreReservaViewModel.cs
 C:\Users\Ricardo Morais\Documents\AirUberTemp\AirUberProjeto\src\AirUberProjeto\Models\ClienteViewModels\VerJatoViewModel.cs
 C:\Users\Ricardo Morais\Documents\AirUberTemp\AirUberProjeto\src\AirUberProjeto\Models\ClienteViewModels\VerOfertaViewModel.cs
+C:\Users\Ricardo Morais\Documents\AirUberTemp\AirUberProjeto\src\AirUberProjeto\Models\CompanhiaViewModels\CompanhiaViewModel.cs
 C:\Users\Ricardo Morais\Documents\AirUberTemp\AirUberProjeto\src\AirUberProjeto\Models\CompanhiaViewModels\CriarColaboradorViewModel.cs
 C:\Users\Ricardo Morais\Documents\AirUberTemp\AirUberProjeto\src\AirUberProjeto\Models\CompanhiaViewModels\CriarExtraViewModel.cs
 C:\Users\Ricardo Morais\Documents\AirUberTemp\AirUberProjeto\src\AirUberProjeto\Models\CompanhiaViewModels\CriarJatoViewModel.cs
