@@ -105,6 +105,14 @@ namespace AirUberProjeto.Controllers
             return View();
         }
 
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult AccessDenied(string returnUrl = null)
+        {
+            ViewData["ReturnUrl"] = returnUrl;
+            return View();
+        }
+
         //
         // POST: /Account/Login
         /// <summary>

@@ -5,56 +5,68 @@
 @model AirUberProjeto.Models.AutenticacaoViewModels.LoginViewModel
 @inject SignInManager<ApplicationUser> SignInManager
 
+@{
+    ViewBag.Title = "Login";
+}
 
-<div class="row">
-    <div class="col-md-12">
-        <section style="text-align: center;margin-top: 30px">
-            <form asp-controller="Autenticacao" asp-action="Login" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" class="form-horizontal" style="display:inline-block; min-width: 50%">
-                <br/>
-                <h4>AirUber</h4>
-                <hr />
-                <div asp-validation-summary="All" class="text-danger"></div>
-                <div class="form-group">
-                    
+<div class="content">
+    <div class="container-fluid">
+        <div class="card">
+            
+            <div class="content">
+                <div class="row">
                     <div class="col-md-12">
-                        <input asp-for="Email" class="form-control"  placeholder="Email" style="margin: auto"/>
-                        <span asp-validation-for="Email" class="text-danger"></span>
+                        <section style="text-align: center;margin-top: 30px">
+                            <form asp-controller="Autenticacao" asp-action="Login" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" class="form-horizontal" style="display:inline-block; min-width: 50%">
+                            
+                                <h4>AirUber</h4>
+                                <hr />
+                                <div asp-validation-summary="All" class="text-danger"></div>
+                                <div class="form-group">
+
+                                    <div class="col-md-12">
+                                        <input asp-for="Email" class="form-control" placeholder="Email" style="margin: auto" />
+                                        <span asp-validation-for="Email" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                        <input asp-for="Password" class="form-control" placeholder="Password" style="margin: auto" />
+                                        <span asp-validation-for="Password" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div>
+                                        <div class="checkbox">
+                                            <label asp-for="RememberMe">
+                                                <input asp-for="RememberMe" />
+                                                @Html.DisplayNameFor(m => m.RememberMe)
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div>
+                                        <button type="submit" class="btn btn-default">Entrar</button>
+                                    </div>
+                                </div>
+                                <hr />
+                                <p>
+                                    <a asp-action="ForgotPassword">Esqueci Senha</a>
+                                </p>
+                                <p>
+                                    Não tem uma conta? <a asp-action="Register" asp-route-returnurl="@ViewData["ReturnUrl"]">Cadastre-se</a>
+                                </p>
+
+                            </form>
+                        </section>
                     </div>
                 </div>
-                <div class="form-group">
-                    <div class="col-md-12">
-                        <input asp-for="Password" class="form-control" placeholder="Password" style="margin: auto" />
-                        <span asp-validation-for="Password" class="text-danger"></span>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div >
-                        <div class="checkbox">
-                            <label asp-for="RememberMe">
-                                <input asp-for="RememberMe" />
-                                @Html.DisplayNameFor(m => m.RememberMe)
-                            </label>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div >
-                        <button type="submit" class="btn btn-default">Entrar</button>
-                    </div>
-                </div>
-                <hr />
-                <p>
-                    <a asp-action="ForgotPassword">Esqueci Senha</a>
-                </p>
-                <p>
-                    Não tem uma conta?<a asp-action="Register" asp-route-returnurl="@ViewData["ReturnUrl"]">Cadastre-se</a>
-                </p>
-               
-            </form>
-        </section>
+            </div>
+        </div>
     </div>
 </div>
 
-@section Scripts {
-    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
-}
+                @section Scripts {
+                    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+                }

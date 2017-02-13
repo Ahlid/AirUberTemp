@@ -26,6 +26,8 @@
     <link href="~/assets/css/animate.min.css" rel="stylesheet"/>
     <!-- Light Bootstrap Table core CSS -->
     <link href="~/assets/css/light-bootstrap-dashboard.css" rel="stylesheet"/>
+    
+    <link href="~/assets/css/croppic.css" rel="stylesheet" />
 
     <!-- CSS for Demo Purpose, don't include it in your project -->
     <link href="~/assets/css/demo.css" rel="stylesheet"/>
@@ -52,7 +54,7 @@
     
     <script src="~/js/Moment.js"></script>
     <script src="~/js/fullcalendar.js"></script>
-    
+    <script src="~/assets/js/croppic.min.js"></script>
     
 
 </head>
@@ -112,16 +114,38 @@
                         <ul class="nav navbar-nav navbar-left">
                             
                             <li>
-                                <a asp-action="Notificacoes">
-                                    <i class="fa fa-globe"></i>
-                                    @if (ViewBag.notificacoes.Count > 0)
-                                    {
+                                
+                                 @if (User.IsInRole(Roles.ROLE_CLIENTE))
+                                 {
+
+                                    <a asp-controller="Cliente" asp-action="Notificacoes">
+                                        <i class="fa fa-globe"></i>
+                                        @if (ViewBag.notificacoes.Count > 0)
+                                        {
 
 
-                                        <span class="notification hidden-sm hidden-xs">@ViewBag.notificacoes.Count</span>
+                                            <span class="notification hidden-sm hidden-xs">@ViewBag.notificacoes.Count</span>
 
-                                    }
-                                </a>
+                                        }
+                                    </a>
+
+                                 } else if (User.IsInRole(Roles.ROLE_COLABORADOR) || User.IsInRole(Roles.ROLE_COLABORADOR_ADMIN))
+                                 {
+
+                                    <a asp-controller="Companhia" asp-action="Notificacoes">
+                                        <i class="fa fa-globe"></i>
+                                        @if (ViewBag.notificacoes.Count > 0)
+                                        {
+
+
+                                            <span class="notification hidden-sm hidden-xs">@ViewBag.notificacoes.Count</span>
+
+                                        }
+                                    </a>
+
+                                 }
+
+                                
 
                             </li>
 
@@ -130,6 +154,33 @@
                     @if (SignInManager.IsSignedIn(User))
                     {
                         <ul class="nav navbar-nav navbar-right">
+                            
+                            @if (User.IsInRole(Roles.ROLE_HELPDESK))
+                            {
+                                <li>
+                                    <a asp-area="" asp-controller="Helpdesk" asp-action="Index">
+                                        <p>Consola</p>
+                                    </a>
+                                </li>
+
+
+                            }
+                            else if (User.IsInRole(Roles.ROLE_CLIENTE))
+                            {
+                                <li>
+                                    <a asp-area="" asp-controller="Cliente" asp-action="Index">
+                                        <p>Perfil</p>
+                                    </a>
+                                </li>
+                            }
+                            else if (User.IsInRole(Roles.ROLE_COLABORADOR) || User.IsInRole(Roles.ROLE_COLABORADOR_ADMIN))
+                            {
+                                <li>
+                                    <a asp-area="" asp-controller="Companhia" asp-action="Index">
+                                        <p>Perfil</p>
+                                    </a>
+                                </li>
+                            }
 
                             <li>
                                 <a asp-area="" asp-controller="Autenticacao" asp-action="ChangePassword">
