@@ -2300,7 +2300,6 @@
             <summary>
             Descrição da companhia
             </summary>
-            [Required]
         </member>
         <member name="P:AirUberProjeto.Models.CompanhiaViewModels.CompanhiaViewModel.PaisId">
             <summary>

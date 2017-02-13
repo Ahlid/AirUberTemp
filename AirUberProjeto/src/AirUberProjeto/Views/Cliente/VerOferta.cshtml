@@ -15,7 +15,6 @@
                 <div class="card">
                     <div class="header">
                         <h4 class="title">Oferta</h4>
-
                     </div>
                     
                     <div class="content" style="margin-top: 20px">
@@ -33,10 +32,15 @@
 
                                 <label style="display: block; margin-bottom: 0">Avaliação</label>
                                 <ul id="el" class="c-rating"></ul>
-
-
+                                
                                 <label style="display: block; margin-bottom: 0">Informação</label>
                                 @Model.Jato.Companhia.Descricao
+                                
+                                <label style="display: block; margin-bottom: 0">Nome do jato</label>
+                                @Model.Jato.Nome
+
+                                <label style="display: block; margin-bottom: 0">Descrição do modelo do jato</label>
+                                @Model.Jato.Modelo.Descricao
 
                                 <label style="display: block; margin-bottom: 0">Créditos Base</label>
                                 @Model.Jato.CreditosBase
@@ -46,6 +50,15 @@
 
                                 <label style="display: block; margin-bottom: 0">Kilometros de viagem</label>
                                 @Math.Round(Model.Kilometros, 2)km
+                                
+                                
+                                <label style="display: block; margin-bottom: 0">Aeroporto de partida</label>
+                                @Model.AeroportoPartida.Nome, @Model.AeroportoPartida.Cidade.Nome, @Model.AeroportoPartida.Cidade.Pais.Nome
+                                
+                                <label style="display: block; margin-bottom: 0">Aeroporto de destino</label>
+                                @Model.AeroportoChegada.Nome, @Model.AeroportoChegada.Cidade.Nome, @Model.AeroportoChegada.Cidade.Pais.Nome
+                                
+                               
 
                                 <div class="col-md-12" style="margin-top: 30px; padding-left: 0">
 
