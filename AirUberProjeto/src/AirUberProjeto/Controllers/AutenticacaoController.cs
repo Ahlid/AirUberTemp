@@ -533,7 +533,7 @@ namespace AirUberProjeto.Controllers
         
         public async Task<IActionResult> ChangePassword(ChangePasswordViewModel model)
         {
-            //TODO: TIago acabar isto
+            
             if (!ModelState.IsValid)
             {
                 return View(model);
@@ -616,9 +616,6 @@ namespace AirUberProjeto.Controllers
             ViewBag.result = 0;
             return View();
         }
-
-
-
 
         #region Helpers
         /// <summary>

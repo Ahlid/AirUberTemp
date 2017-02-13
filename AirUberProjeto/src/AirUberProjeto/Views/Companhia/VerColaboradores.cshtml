@@ -4,52 +4,58 @@
     ViewData["Title"] = "VerColaboradores";
 }
 
+<div class="content">
+    <div class="container-fluid">
 
-<div class="container" style="margin-top: 20px">
-    <div class="row">
-        <div class="col-md-6">
-            <a asp-action="AdicionarColaborador"><img class="img-thumbnail" src="~/images/plus.png" width="40" alt="criar"></a>
-            <!--
-                <div >
-                    <form asp-controller="Companhia" asp-action="ProcurarExtras">
-                        <!-- search -->
-            <!--
-                    <input type=image src="~/images/aviao-default.svg" width="40" alt="Submit feedback">
-                    <input type="text" name="SearchString">
-                </form>
-            </div>-->
-        </div>
-        <div class="col-md-6">
-            <h1>Colaboradores</h1>
-        </div>
-    </div>
-    <div class="w3-center w3-row-padding">
-        @foreach (var item in Model)
-        {
-            <div class="w3-col l4 w3">
-                <div class="w3-col l12 w3-card-4 w3-margin w3-container" style="height: 360px">
-                    <div style="float: right; padding: 10px;">
-                        <!-- Adicionar aqui outro item, que faz o que?-->
-                        <a asp-action="EditarColaborador" asp-route-id="@item.Id"><img class="img-thumbnail" src="~/images/edit.png" width="40" alt="editar"></a>
-                        <a asp-action="ApagarColaborador" asp-route-id="@item.Id"><img class="img-thumbnail" src="~/images/delete.png" width="40" alt="apagar"></a>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Colaboradores</h4>
+
                     </div>
-                    <div style="clear: both;">
-                        <div>
-                            <img style="margin-bottom: 10px;" src="..\@item.Companhia.RelativePathImagemPerfil" width="100" alt="airplane photo" />
+                    <div class="content table-responsive table-full-width">
+                        <table class="table table-hover table-striped">
+                            <thead>
+                            <tr>
+                                <th>@Html.DisplayNameFor(model => model.Nome)</th>
+                                <th>@Html.DisplayNameFor(model => model.IsAdministrador)</th>
+                                <th>@Html.DisplayNameFor(model => model.Email)</th>
+                                <th>@Html.DisplayNameFor(model => model.DataCriacao)</th>
+                                <th>@Html.DisplayNameFor(model => model.Ativo)</th>
+                                <th>Ações</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            @foreach (Colaborador colaborador in Model)
+                            {
+                                <tr>
+                                    <td>@colaborador.Nome</td>
+                                    <td>@(colaborador.IsAdministrador ? "Sim" : "Não")</td>
+                                    <td>@colaborador.Email</td>
+                                    <td>@colaborador.DataCriacao</td>
+                                    <td>@(colaborador.Ativo ? "Sim" : "Não")</td>
+                                    <td>
+                                        <a class="link" asp-action="EditarColaborador" asp-route-id="@colaborador.Id">Editar</a><br />
+                                        <a class="link" asp-action="ApagarColaborador" asp-route-id="@colaborador.Id">Apagar</a>
+                                    </td>
+                                </tr>
+
+                            }
+
+                            </tbody>
+                        </table>
+                        <div class="content">
+                            <a class="btn" asp-action="AdicionarColaborador">Adicionar</a>
                         </div>
-                        <div>
-                            <h2 style="display: inline; padding-left: 15px; " class="w3-center"><strong>@item.Nome @item.Apelido</strong></h2>
-                        </div>
-                        <br />
-                        <div style="text-align:left">
-                            <h5><strong>Administrador: </strong><span>@(item.IsAdministrador ? "Sim" : "Não")</span></h5>
-                            <h5><strong>Email: </strong><span>@item.Email</span></h5>
-                            <h5><strong>Operacional: </strong><span>@(item.Ativo ? "Sim" : "Não")</span></h5>
-                            <h5><strong>Data Registo: </strong><span>@item.DataCriacao</span></h5>
-                        </div>
+                        
                     </div>
+                    
                 </div>
             </div>
-        }
+        </div>
     </div>
 </div>
+
+

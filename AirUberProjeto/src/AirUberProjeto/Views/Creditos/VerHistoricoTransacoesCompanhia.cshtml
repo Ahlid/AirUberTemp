@@ -1,0 +1,55 @@
+﻿
+
+@model ICollection<MovimentoMonetario>
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@{
+
+    ViewData["Title"] = "Histórico de Transações";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="header">
+                <h4 class="title">Transações</h4>
+
+            </div>
+            <div class="content">
+                <div class="content table-responsive table-full-width">
+                    <table class="table table-hover table-striped">
+                        <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Tipo</th>
+                            <th>Montante</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        @foreach (var c in Model)
+                        {
+                            <tr>
+                                <td>@c.MovimentoMonetarioId</td>
+                                <td>@c.TipoMovimento</td>
+                                <td>@c.Montante Creditos</td>
+
+                            </tr>
+                        }
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="content">
+                    <a class="btn" asp-controller="Companhia" asp-action="Creditos">Ver Créditos</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

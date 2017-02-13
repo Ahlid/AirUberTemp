@@ -15,6 +15,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore.ValueGeneration.Internal;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Remotion.Linq.Clauses;
@@ -70,6 +71,17 @@ namespace AirUberProjeto.Controllers
             return RedirectToAction("Perfil");
         }
 
+        public void setupNav()
+        {
+            string idCliente = _userManager.GetUserAsync(this.User).Result.Id;
+            List<Notificacao> notificacoes = _context.Notificacao.Where((n) =>
+                           n.UtilizadorId == idCliente
+                           && !n.Lida
+               ).ToList();
+
+            ViewBag.navegacao = true;
+            ViewBag.notificacoes = notificacoes;
+        }
 
 
         /// <summary>
@@ -79,32 +91,43 @@ namespace AirUberProjeto.Controllers
         [HttpGet]
         public IActionResult Perfil()
         {
-            string idCliente = _userManager.GetUserAsync(this.User).Result.Id;
 
-            Cliente cliente = (_context.Cliente
-                    .Include(c => c.ContaDeCreditos)
-                    .Include(c => c.ListaReservas)
-                    .Where(c => c.Id == idCliente)
-                    .Select(c => c))
+            try
+            {
+
+                string idCliente = _userManager.GetUserAsync(this.User).Result.Id;
+                setupNav();
+                Cliente cliente = (_context.Cliente
+                        .Include(c => c.ContaDeCreditos)
+                        .Include(c => c.ListaReservas)
+                        .Where(c => c.Id == idCliente)
+                        .Select(c => c))
                     .Single();
 
-            PerfilViewModel viewModel = new PerfilViewModel()
-            {
-                Cliente = cliente,
-                NumeroViagens = cliente.ListaReservas.Count
-            };
+                PerfilViewModel viewModel = new PerfilViewModel()
+                {
+                    Cliente = cliente,
+                    NumeroViagens = cliente.ListaReservas.Count
+                };
 
-            List<Notificacao> notificacoes = _context.Notificacao.Where((n) =>
-                        n.UtilizadorId == cliente.Id
-            ).ToList();
+                List<Notificacao> notificacoes = _context.Notificacao.Where((n) =>
+                            n.UtilizadorId == cliente.Id
+                ).ToList();
 
-            foreach (Notificacao notificacao in notificacoes)
+                foreach (Notificacao notificacao in notificacoes)
+                {
+                    viewModel.Notificacoes.Add(notificacao);
+                }
+                
+
+                return View(viewModel);
+            }
+            catch (Exception ex)
             {
-                viewModel.Notificacoes.Add(notificacao);
+                return RedirectToAction("Index","Home");
             }
 
-
-            return View(viewModel);
+            
         }
 
 
@@ -119,6 +142,7 @@ namespace AirUberProjeto.Controllers
         {
             try
             {
+                setupNav();
                 Notificacao notificacao = _context.Notificacao.First(n => n.NotificacaoId == id);
                 notificacao.Lida = true;
                 _context.Notificacao.Update(notificacao);
@@ -140,9 +164,10 @@ namespace AirUberProjeto.Controllers
         [HttpGet]
         public IActionResult EditarPerfil()
         {
+            setupNav();
             Cliente cliente = (Cliente) _userManager.GetUserAsync(this.User).Result;
 
-            return View(cliente);
+            return RedirectToAction("Perfil");
         }
 
 
@@ -152,21 +177,22 @@ namespace AirUberProjeto.Controllers
         /// <param name="viewModel">ViewModel do pedido de alteração de dados</param>
         /// <returns>A view de edição de perfil do cliente</returns>
         [HttpPost]
-        public IActionResult EditarPerfil(EditarPerfilViewModel viewModel)
+        public IActionResult EditarPerfil(PerfilViewModel viewModel)
         {
             if (ModelState.IsValid)
             {
+                setupNav();
                 Cliente cliente = (Cliente) _userManager.GetUserAsync(this.User).Result;
-                cliente.Nome = viewModel.Nome;
-                cliente.Apelido = viewModel.Apelido;
-                cliente.Contacto = viewModel.Contacto;
+                cliente.Nome = viewModel.Cliente.Nome;
+                cliente.Apelido = viewModel.Cliente.Apelido;
+                cliente.Contacto = viewModel.Cliente.Contacto;
                 _context.Update(cliente);
                 _context.SaveChanges();
                 ViewData["Success"] = true;
-                return View(cliente);
+                return RedirectToAction("Perfil");
             }
 
-            return RedirectToAction(nameof(ClienteController.EditarPerfil), "Cliente");
+            return RedirectToAction("Perfil");
 
         }
 
@@ -184,7 +210,7 @@ namespace AirUberProjeto.Controllers
                 return RedirectToAction(nameof(ClienteController.EditarPerfil), "Cliente");
             }
 
-
+            setupNav();
             string extension = Path.GetExtension(file.FileName);
             if (extension != ".jpg" && extension != ".png")
                 return null;
@@ -228,7 +254,14 @@ namespace AirUberProjeto.Controllers
             NaoDisponivel //nao disponivel
         }
 
-        //Verifica se o jato consegue executar a distância
+
+        /// <summary>
+        /// Verifica se o jato consegue executar a distância
+        /// </summary>
+        /// <param name="jatoId">id do jato</param>
+        /// <param name="aeroportoPartidaId">id do aeroporto de partida</param>
+        /// <param name="aeroportoDestinoId">id do aeroporto de destino</param>
+        /// <returns>true se conseguir, false senão</returns>
         private bool DistanciaDeslocaoValida(int jatoId, int aeroportoPartidaId, int aeroportoDestinoId)
         {
             Jato jato = _context.Jato
@@ -240,7 +273,7 @@ namespace AirUberProjeto.Controllers
                 .Single(j => j.AeroportoId == aeroportoDestinoId);
 
 
-            double distanciaMaxima = 5000;//todo = jato.DistanciaMaxima;
+            double distanciaMaxima = jato.DistanciaMaxima;
             double distancia = DistanciaEntreCoordenadas(
                 aeroportoPartida.Latitude,
                 aeroportoPartida.Longitude,
@@ -252,14 +285,15 @@ namespace AirUberProjeto.Controllers
 
         }
 
-        //calcula o tempo de deslocação de uma jato desde um aeroporto até outro em ticks
-        private double CalcularTempoDeslocacaoTicks(int jatoId, int aeroportoPartidaId, int aeroportoDestinoId)
+        /// <summary>
+        /// Calcula o tempo de deslocação de uma jato desde um aeroporto até outro em ticks
+        /// </summary>
+        /// <param name="jatoId">id do jato</param>
+        /// <param name="aeroportoPartidaId">id do aeroporto de partida</param>
+        /// <param name="aeroportoDestinoId">id do aeroporto de destino</param>
+        /// <returns>Tempo de deslocação em ticks</returns>
+        private long CalcularTempoDeslocacaoTicks(int jatoId, int aeroportoPartidaId, int aeroportoDestinoId)
         {
-            if (!DistanciaDeslocaoValida(jatoId, aeroportoPartidaId, aeroportoDestinoId))
-            {
-                throw new Exception("Deslocação inválida");
-            }
-
 
             Jato jato = _context.Jato
                 .Single(j => j.JatoId == jatoId);
@@ -269,40 +303,38 @@ namespace AirUberProjeto.Controllers
             Aeroporto aeroportoDestino = _context.Aeroporto
                 .Single(j => j.AeroportoId == aeroportoDestinoId);
 
-            double distancia = DistanciaEntreCoordenadas(
+            long distancia = Convert.ToInt64(DistanciaEntreCoordenadas(
                 aeroportoPartida.Latitude,
                 aeroportoPartida.Longitude,
                 aeroportoDestino.Latitude,
                 aeroportoDestino.Longitude
-            );
+            ));
             //Metros por segundo
-            double velocidade = 5; //todo: jato.Velocidade; 
+            long velocidade = Convert.ToInt64(jato.VelocidadeMedia); 
 
             return (distancia/velocidade)* TimeSpan.TicksPerSecond;
 
         }
+
+
         /// <summary>
-        /// 
+        /// Verifica se um jato está disponível para a partida de um aeroporto numa data
         /// </summary>
-        /// <param name="jatoId"></param>
-        /// <param name="aeroportoPartidaId"></param>
-        /// <param name="dataReserva"></param>
-        /// <returns></returns>
+        /// <param name="jatoId">id do jato</param>
+        /// <param name="aeroportoPartidaId">id do aeroporto de partida</param>
+        /// <param name="dataReserva">data de partida do jato do aeroporto</param>
+        /// <returns>True se o jato está disponivel no aeroporto de partida na data de partida</returns>
         private TipoDisponibilidade JatoDisponivelPontual(int jatoId, int aeroportoPartidaId, DateTime dataReserva)
         {
-
-            //todo verificar se a data é posterior a hoje + offset
-            if(dataReserva.Ticks < DateTime.Now.Ticks)
-                return TipoDisponibilidade.NaoDisponivel;
-
+   
             Jato jato = _context.Jato
                 .Include(j => j.ListaDisponibilidade)
                 .Include(j => j.Companhia)
                 .Include(j => j.Companhia.ListaReservas)
                 .Single(j => j.JatoId == jatoId);
 
-            Aeroporto aeroporto = _context.Aeroporto
-                .Single(j => j.AeroportoId == aeroportoPartidaId);
+            if (dataReserva.Ticks < DateTime.Now.Ticks + jato.TempoPreparacao)
+                return TipoDisponibilidade.NaoDisponivel;
 
             foreach (Disponibilidade disponibilidade in jato.ListaDisponibilidade)
             {
@@ -315,14 +347,23 @@ namespace AirUberProjeto.Controllers
                 //Data enquadra-se na disponibilidade
                 if (p1 && p2)
                 {
+                    bool existeReserva = jato.Companhia.ListaReservas
+                        .Where(r => r.JatoId == jatoId)
+                        .Any(r => r.DataChegada.Ticks >= dataReserva.Ticks &&
+                                r.DataPartida.Ticks <= dataReserva.Ticks);
+
+                    if (existeReserva)
+                    {
+                        return TipoDisponibilidade.NaoDisponivel;
+                    }
 
                     //Última reserva antes da data
                     Reserva reserva = jato.Companhia.ListaReservas
-                    .Where(r => r.DataChegada.Ticks < dataReserva.Ticks)
-                    .OrderByDescending(r => r.DataChegada.Ticks).FirstOrDefault();
-
- 
-                    double tempoDePreparacao = 0; //todo: = jato.TempoPreparacao;
+                        .Where(r => r.JatoId == jatoId)
+                        .Where(r => r.DataChegada.Ticks < dataReserva.Ticks)
+                        .OrderByDescending(r => r.DataChegada.Ticks).FirstOrDefault();
+                    
+                    double tempoDePreparacao = jato.TempoPreparacao;
                     double tempoDeDeslocacao;
                     double tempoTotalDispendido;
 
@@ -381,26 +422,26 @@ namespace AirUberProjeto.Controllers
                     {
                         return TipoDisponibilidade.DisponivelDeslocacao;
                     }
-
                 }
-
-
             }
 
             return TipoDisponibilidade.NaoDisponivel;
         }
+
+
         /// <summary>
-        /// 
+        /// Verifica se um jato está disponível para a partida de um aeroporto para outro numa data
+        /// tendo em conta o tempo calculado da viagem, isto implica que é possível conjugar com as restantes reservas
         /// </summary>
-        /// <param name="jatoId"></param>
-        /// <param name="aeroportoPartidaId"></param>
-        /// <param name="aeroportoDestinoId"></param>
-        /// <param name="dataReserva"></param>
-        /// <returns></returns>
+        /// <param name="jatoId">id do jato</param>
+        /// <param name="aeroportoPartidaId">id do aeroporto de partida</param>
+        /// /// <param name="aeroportoDestinoId">id do aeroporto de destino</param>
+        /// <param name="dataReserva">data de partida do jato do aeroporto</param>
+        /// <returns>True se o jato está disponivel no aeroporto de partida na data de partida e consegue efetuar o voo</returns>
         private TipoDisponibilidade JatoDisponivelIntervalo(int jatoId, int aeroportoPartidaId, int aeroportoDestinoId, DateTime dataReserva)
         {
 
-            //todo verificar se a data é posterior a hoje + offset
+            
 
             Jato jato = _context.Jato
                 .Include(j => j.ListaDisponibilidade)
@@ -408,12 +449,17 @@ namespace AirUberProjeto.Controllers
                 .Include(j => j.Companhia.ListaReservas)
                 .Single(j => j.JatoId == jatoId);
 
+
+            if (dataReserva.Ticks < DateTime.Now.Ticks + jato.TempoPreparacao)
+                return TipoDisponibilidade.NaoDisponivel;
+
+
             Aeroporto aeroportoPartida = _context.Aeroporto
                 .Single(j => j.AeroportoId == aeroportoPartidaId);
             Aeroporto aeroportoDestino = _context.Aeroporto
                 .Single(j => j.AeroportoId == aeroportoDestinoId);
 
-            double tempoDePreparacao = 0; //todo: = jato.TempoPreparacao; 
+            double tempoDePreparacao = jato.TempoPreparacao; 
             double tempoDeDeslocacao = CalcularTempoDeslocacaoTicks(jatoId, aeroportoPartidaId, aeroportoDestinoId);
             double tempoTotalDispendido = tempoDePreparacao + tempoDeDeslocacao;
 
@@ -432,12 +478,24 @@ namespace AirUberProjeto.Controllers
                 }
 
 
-                //todo verificar se interseta uma reserva
+                bool existeReserva = jato.Companhia.ListaReservas
+                         .Where(r => r.JatoId == jatoId)
+                         .Any(r => 
+                                (r.DataChegada.Ticks >= dataReserva.Ticks &&
+                                 r.DataPartida.Ticks <= dataReserva.Ticks) ||
+                                 (r.DataChegada.Ticks >= dataReserva.Ticks + tempoTotalDispendido &&
+                                 r.DataPartida.Ticks <= dataReserva.Ticks + tempoTotalDispendido)
+                         );
 
+                if (existeReserva)
+                {
+                    return TipoDisponibilidade.NaoDisponivel;
+                }
 
 
                 //Última reserva antes da data
                 Reserva reservaAnterior = jato.Companhia.ListaReservas
+                    .Where(r => r.JatoId == jatoId)
                     .Where(r => r.DataChegada.Ticks < dataReserva.Ticks)
                     .OrderByDescending(r => r.DataChegada.Ticks).FirstOrDefault();
 
@@ -546,12 +604,14 @@ namespace AirUberProjeto.Controllers
 
             return TipoDisponibilidade.NaoDisponivel;
         }
+
+
         /// <summary>
-        /// 
+        /// Verifica se um aeroporto está disponível como ponto de partida para a data de reserva
         /// </summary>
-        /// <param name="aeroportoId"></param>
-        /// <param name="dataReserva"></param>
-        /// <returns></returns>
+        /// <param name="aeroportoId">id do aeroporto de partida</param>
+        /// <param name="dataReserva">data de partida do jato do aeroporto</param>
+        /// <returns>true se está disponivel, false senao</returns>
         private bool AeroportoDisponivel(int aeroportoId, DateTime dataReserva)
         {
             IEnumerable<Jato> jatos = _context.Jato
@@ -574,13 +634,13 @@ namespace AirUberProjeto.Controllers
 
             return false;
         }
+
         /// <summary>
-        /// 
+        /// Verifica se um aeroporto está disponível como ponto de partida para a data de reserva
         /// </summary>
-        /// <param name="aeroportoId"></param>
-        /// <param name="aeroportoDestinoId"></param>
-        /// <param name="dataReserva"></param>
-        /// <returns></returns>
+        /// <param name="aeroportoId">id do aeroporto de partida</param>
+        /// <param name="dataReserva">data de partida do jato do aeroporto</param>
+        /// <returns>true se está disponivel, false senao</returns>
         private bool AeroportoDestinoDisponivel(int aeroportoId, int aeroportoDestinoId, DateTime dataReserva)
         {
             IEnumerable<Jato> jatos = _context.Jato
@@ -604,57 +664,34 @@ namespace AirUberProjeto.Controllers
             return false;
         }
 
-
         /// <summary>
-        /// Verifica a disponibilidade de um jato numa data
+        /// Converte de graus para radianos
         /// </summary>
-        /// <returns>true se o jato estiver disponível na data, false senão</returns>
-        private bool jatoDisponivel(Jato jato, DateTime dataReserva)
-        {
-            foreach (Disponibilidade disponibilidade in jato.ListaDisponibilidade)
-            {
-
-                DateTime d1 = Convert.ToDateTime(disponibilidade.Inicio);
-                DateTime d2 = Convert.ToDateTime(disponibilidade.Fim);
-
-                if (dataReserva.Ticks > d1.Ticks && dataReserva.Ticks < d2.Ticks)
-                {
-                    return true;
-                }
-
-            }
-            
-            return false;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="angle"></param>
-        /// <returns></returns>
+        /// <param name="angle">angulo em graus</param>
+        /// <returns>angulo em radianos</returns>
         private double DegreesToRadians(double angle)
         {
             return Math.PI * angle / 180.0;
         }
 
         /// <summary>
-        /// 
+        /// Converte de radianos para graus
         /// </summary>
-        /// <param name="angle"></param>
-        /// <returns></returns>
+        /// <param name="angle">angulo em radianos</param>
+        /// <returns>angulo em graus</returns>
         private double RadiansToDegrees(double angle)
         {
             return angle * (180.0 / Math.PI);
         }
 
         /// <summary>
-        /// 
+        /// Devolve a distância entre dois pontos no globo em kilometros
         /// </summary>
-        /// <param name="lat1"></param>
-        /// <param name="lng1"></param>
-        /// <param name="lat2"></param>
-        /// <param name="lng2"></param>
-        /// <returns></returns>
+        /// <param name="lat1">Latitude da posicao 1</param>
+        /// <param name="lng1">Longitude da posicao 1</param>
+        /// <param name="lat2">Latitude da posicao 1</param>
+        /// <param name="lng2">Longitude da posicao 2</param>
+        /// <returns>angulo em graus</returns>
         private double DistanciaEntreCoordenadas(double lat1, double lng1, double lat2, double lng2)
         {
             double earthRadius = 3958.75;
@@ -670,11 +707,12 @@ namespace AirUberProjeto.Controllers
             return dist;
         }
 
+
         /// <summary>
-        /// 
+        /// Devolve os aeroportos disponíveis para uma data
         /// </summary>
-        /// <param name="data"></param>
-        /// <returns></returns>
+        /// <param name="data">Data de partida</param>
+        /// <returns>Lista de aeroportos disponiveis</returns>
         public IEnumerable<Aeroporto> AeroportosDisponiveis(DateTime data)
         {
             IEnumerable<Aeroporto> aeroportos = _context.Aeroporto
@@ -691,14 +729,16 @@ namespace AirUberProjeto.Controllers
             return aeroportos;
         }
 
+
         /// <summary>
-        /// 
+        /// Devolve os aeroportos de destino disponíveis para uma data tendo em conta um aeroporto de partida
         /// </summary>
-        /// <param name="id"></param>
-        /// <param name="data"></param>
-        /// <returns></returns>
+        /// <param name="id">Aeroporto partida</param>
+        /// <param name="data">Data de partida</param>
+        /// <returns>Lista de aeroportos disponiveis</returns>
         public IEnumerable<Aeroporto> AeroportosDestinoDisponiveis(int id, DateTime data)
         {
+
             IEnumerable<Aeroporto> aeroportos = _context.Aeroporto
                 .Select(a => new Aeroporto
                 {
@@ -723,7 +763,7 @@ namespace AirUberProjeto.Controllers
         /// <returns>Retorna a view das viagens</returns>
         public IActionResult VerViagens()
         {
-
+            setupNav();
             Cliente cliente = (Cliente) _userManager.GetUserAsync(this.User).Result;
 
             IEnumerable<Reserva> viagens = _context.Reserva.Select(c => c)
@@ -746,23 +786,12 @@ namespace AirUberProjeto.Controllers
         /// <returns>Retorna a view da procura de ofertas</returns>
         public IActionResult ProcurarOfertas()
         {
-
+            setupNav();
             return View();
 
         }
 
-
-        public IActionResult SelecionarDestino(int id, DateTime data)
-        {
-
-            //todo validar
-
-            ViewData["id"] = id;
-            ViewData["data"] = data;
-
-            return View();
-
-        }
+        
 
         /// <summary>
         /// Responsável por redireccionar o utilizador para a página de pesquisa de ofertas
@@ -771,6 +800,7 @@ namespace AirUberProjeto.Controllers
         [HttpPost]
         public IActionResult ProcurarOfertas(int id)
         {
+            setupNav();
             //TODO: verificar se o o id existe, redirecionar para a lista de jatos disponíveis.
 
             var viagens = _context.Aeroporto.Select(c => c).ToList();
@@ -786,34 +816,65 @@ namespace AirUberProjeto.Controllers
         [HttpGet]
         public IActionResult VerJatos(int idpartida, int iddestino, DateTime data)
         {
-            //todo: validar dados
-
-            IEnumerable<Jato> jatos = _context.Jato.Include(c => c.ListaDisponibilidade)
-                .Include(c => c.Modelo)
-                .Include(c => c.Modelo.TipoJato)
-                .Include(c => c.Companhia)
-                .Include(c => c.Aeroporto).ToList();
-            jatos = jatos
-                .Where(c => JatoDisponivelIntervalo(c.JatoId, idpartida, iddestino , data) != TipoDisponibilidade.NaoDisponivel).ToList();
-
-            Aeroporto aeroportoPartida = _context.Aeroporto
-                .Single(a => a.AeroportoId == idpartida);
-
-            Aeroporto aeroportoDestino = _context.Aeroporto
-                .Single(a => a.AeroportoId == iddestino);
-
-            VerJatoViewModel viewModel = new VerJatoViewModel()
+            try
             {
-                AeroportoPartidaId = aeroportoPartida.AeroportoId,
-                AeroportoDestinoId = aeroportoDestino.AeroportoId,
-                DataPartida = data,
-                JatodDisponiveis = jatos
-            };
 
-            return View(viewModel);
+                setupNav();
+                IEnumerable<Jato> jatos = _context.Jato.Include(c => c.ListaDisponibilidade)
+                    .Include(c => c.Modelo)
+                    .Include(c => c.Modelo.TipoJato)
+                    .Include(c => c.Companhia)
+                    .Include(c => c.Aeroporto).ToList();
+                jatos = jatos
+                    .Where(
+                        c =>
+                            JatoDisponivelIntervalo(c.JatoId, idpartida, iddestino, data) !=
+                            TipoDisponibilidade.NaoDisponivel).ToList();
+
+                Aeroporto aeroportoPartida = _context.Aeroporto
+                    .Single(a => a.AeroportoId == idpartida);
+
+                Aeroporto aeroportoDestino = _context.Aeroporto
+                    .Single(a => a.AeroportoId == iddestino);
+
+                VerJatoViewModel viewModel = new VerJatoViewModel()
+                {
+                    AeroportoPartidaId = aeroportoPartida.AeroportoId,
+                    AeroportoDestinoId = aeroportoDestino.AeroportoId,
+                    DataPartida = data,
+                    JatodDisponiveis = jatos
+                };
+
+                return View(viewModel);
+            }
+            catch (Exception ex)
+            {
+                return RedirectToAction("ProcurarOfertas");
+            }
+
 
         }
-        
+
+
+        public IActionResult Notificacoes()
+        {
+            
+            Cliente cliente = (Cliente)_userManager.GetUserAsync(this.User).Result;
+            IEnumerable<Notificacao> notificacoes = _context.Notificacao.Where(n => n.UtilizadorId == cliente.Id);
+            foreach (Notificacao notificacao in notificacoes)
+            {
+                notificacao.Lida = true;
+                _context.Notificacao.Update(notificacao);
+                
+            }
+            _context.SaveChanges();
+            setupNav();
+            return View(notificacoes);
+
+        }
+
+
+
 
         /// <summary>
         /// Responsável por redireccionar o utilizador para a página que apresenta a informação de uma oferta
@@ -824,6 +885,7 @@ namespace AirUberProjeto.Controllers
 
             try
             {
+                setupNav();
                 Aeroporto aeroportoPartida = _context.Aeroporto.Single(a => a.AeroportoId == idpartida);
                 Aeroporto aeroportoChegada = _context.Aeroporto.Single(a => a.AeroportoId == iddestino);
 
@@ -879,13 +941,12 @@ namespace AirUberProjeto.Controllers
 
         }
 
+
         /// <summary>
-        /// 
+        /// Verifica se um extra pertence à lista de ids de extras
         /// </summary>
-        /// <param name="extra"></param>
-        /// <param name="extrasids"></param>
-        /// <returns></returns>
-        private bool filtrarExtras(Extra extra, List<int> extrasids)
+        /// <returns>true se pertencer, false senao</returns>
+        private static bool FiltrarExtras(Extra extra, List<int> extrasids)
         {
             foreach (int id in extrasids)
             {
@@ -898,16 +959,14 @@ namespace AirUberProjeto.Controllers
 
         }
 
+
         /// <summary>
-        /// 
+        /// Devolve o custo de uma reserva tendo em conta a distância, o jato e os extras
         /// </summary>
-        /// <param name="distancia"></param>
-        /// <param name="jato"></param>
-        /// <param name="extrasids"></param>
-        /// <returns></returns>
-        private double calcularCusto(double distancia, Jato jato, List<int> extrasids)
+        /// <returns>Custo da reserva</returns>
+        private double CalcularCusto(double distancia, Jato jato, List<int> extrasids)
         {
-            ICollection<Extra> extras = _context.Extra.Where(e => filtrarExtras(e, extrasids)).ToList();
+            ICollection<Extra> extras = _context.Extra.Where(e => FiltrarExtras(e, extrasids)).ToList();
 
             double custo = jato.CreditosBase + 
                 jato.CreditosPorKilometro * distancia + 
@@ -927,9 +986,7 @@ namespace AirUberProjeto.Controllers
         {
             try
             {
-                //TODO: remover disponibilidades
-                
-
+                setupNav();
                 //Aeroporto partida = _context.Aeroporto.Single(a => a.AeroportoId == id);
                 string idCliente = _userManager.GetUserAsync(this.User).Result.Id;
 
@@ -953,12 +1010,13 @@ namespace AirUberProjeto.Controllers
                     aeroportoChegada.Latitude,
                     aeroportoChegada.Longitude);
 
-                double custo = calcularCusto(distancia, jato, extrasids);
-
+                double custo = CalcularCusto(distancia, jato, extrasids);
+                long tempoDeViagem = CalcularTempoDeslocacaoTicks(jatoid, aeroportoPartida.AeroportoId, aeroportoChegada.AeroportoId);
+                DateTime chegada = new DateTime(tempoDeViagem + data.Ticks);
 
                 Cliente cliente = _context.Cliente.Include(c => c.ContaDeCreditos).Single(c => c.Id == idCliente);
 
-                //todo: subtrair aos creditos dos cliente todos os custos das reservas nao pagas associadas a  este
+                
                 if (double.Parse(cliente.ContaDeCreditos.JetCashActual.ToString()) < custo)
                 {
                     throw new Exception("Os créditos não são suficientes");
@@ -971,6 +1029,7 @@ namespace AirUberProjeto.Controllers
                     Aprovada = false,
                     Custo = decimal.Parse(custo.ToString()),
                     DataPartida = data,
+                    DataChegada = chegada,
                     JatoId = jatoid,
                     Paga = false,
                     Realizada = false,
@@ -1000,6 +1059,56 @@ namespace AirUberProjeto.Controllers
                 return View("ReservaNaoConcluida");
             }
         }
+
+        [HttpPost]
+        public bool AvaliarViagem(int id, int estrelas)
+        {
+           
+            try
+            {
+                setupNav();
+                string idCliente = _userManager.GetUserAsync(this.User).Result.Id;
+
+                if (estrelas < 0 || estrelas > 5)
+                {
+                    return false;
+                }
+                Reserva reserva = _context.Reserva
+                        .Where(r => r.ApplicationUserId == idCliente)
+                        .Single(r => r.ReservaId == id);
+
+                if (reserva == null)
+                {
+                    return false;
+                }
+
+                reserva.Avaliacao = estrelas;
+                _context.Update(reserva);
+                _context.SaveChanges();
+
+                return true;
+
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+
+        }
+
+        public IActionResult Creditos()
+        {
+            setupNav();
+            Cliente cliente = (Cliente)_userManager.GetUserAsync(this.User).Result;
+            ContaDeCreditos creditos = _context.ContaDeCreditoses
+                .Include(c => c.HistoricoTransacoeMonetarias)
+                .Single(n => n.ContaDeCreditosId == cliente.ContaDeCreditos.ContaDeCreditosId);
+
+            return View(creditos);
+        }
+
+
+
     }
 
 }

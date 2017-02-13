@@ -2,91 +2,137 @@
 
 @{
     ViewBag.Title = "Viagens";
-    Layout = "_Layout";
+    Layout = "_NovoLayout";
 }
 
-<h2>@ViewBag.Title</h2>
 
-<div class="table-responsive">
-    <table class="table">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Jato.Companhia)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Cliente)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.AeroportoPartida)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.AeroportoDestino)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.DataPartida)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.DataChegada)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.ListaExtras)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Jato)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Custo)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Avaliacao)
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(model => item.Jato.Companhia.Nome)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Cliente.Nome)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.AeroportoPartida.Nome)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.AeroportoDestino.Nome)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DataPartida)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DataChegada)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ListaExtras.Count)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Jato.Nome)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Custo)
-                    </td>
-                    <td>
-                        @if (item.Avaliacao < 0)
-                        {
-                            @Html.Raw("Por avaliar")
-                        }
-                        else
-                        {
-                            @Html.DisplayFor(modelItem => item.Avaliacao)
-                        }
 
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
+<script src="~/js/rating.min.js"></script>
+
+
+<div class="content">
+    <div class="container-fluid">
+        
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Viagens efetuadas</h4>
+
+                    </div>
+                    <div class="content table-responsive table-full-width">
+                        <table class="table table-hover table-striped">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Jato.Companhia)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Cliente)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.AeroportoPartida)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.AeroportoDestino)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.DataPartida)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.DataChegada)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ListaExtras)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Jato)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Custo)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Avaliacao)
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(model => item.Jato.Companhia.Nome)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Cliente.Nome)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.AeroportoPartida.Nome)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.AeroportoDestino.Nome)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.DataPartida)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.DataChegada)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ListaExtras.Count)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Jato.Nome)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Custo)
+                                        </td>
+                                        <td>
+
+                                            <div id="Viagem@(item.ReservaId)" class="c-rating"></div>
+
+                                            <script>
+                            ///https://github.com/callmenick/five-star-rating
+                            // target element
+                            var el = document.querySelector('#Viagem@(item.ReservaId)');
+
+                            // current rating, or initial rating
+                            var currentRating = @(item.Avaliacao >= 0 ? item.Avaliacao : 0);
+
+                            // max rating, i.e. number of stars you want
+                            var maxRating = 5;
+
+                            // callback to run after setting the rating
+                            var callback = function(rating) {
+
+                                $.post("AvaliarViagem",
+                                {
+                                    id: @(item.ReservaId),
+                                    estrelas: rating
+                                },
+                                function (data, status) {
+                                    alert("Data: " + data + "\nStatus: " + status);
+                                    rating(el, rating, maxRating, callback, true);
+                                });
+
+                            };
+
+                            // rating instance
+                            var myRating = rating(el, currentRating, maxRating, callback, @(item.Avaliacao >= 0 ? "true" : "false"));
+
+                                            </script>
+
+                                        </td>
+                                    </tr>
+
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
 </div>

@@ -2,26 +2,13 @@
 
 @{
     ViewBag.Title = "Viajar";
-    Layout = "_Layout";
+    Layout = "_NovoLayout";
 }
 
 <style>
     /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
-    #map {
-        height: 100%;
-    }
-    /* Optional: Makes the sample page fill the window. */
-    html, body, #MasterContainer {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-        width: 100%;
-    }
 
-    body {
-        padding: 50px 0 0 0;
-    }
 
     
 </style>
@@ -44,7 +31,7 @@
 
 <div id="map" />
 
-
+<script src="~/lib/jquery/dist/jquery.js"></script>
 <script>
 
     var aeroportos = [];

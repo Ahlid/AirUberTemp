@@ -3,7 +3,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="GENERATOR" content="VSdocman - documentation generator; http://www.helixoft.com" />
-	<title>ManageController.RemoveLogin Method</title>
+	<title>CreditosController Class</title>
 
 	<link rel="stylesheet" type="text/css" href="msdn10_lightweight/msdn10_lightweight.css"></link>
 	<script src="msdn10_lightweight/msdn10_lightweight.js" type="text/javascript"></script>
@@ -59,8 +59,9 @@ function replaceTitleAndUrl(win, title, url) {
 <!--HEADER START-->
   <div id="header">
   	<div id="runningHeaderText">AirUberProjeto Reference</div>
-  	<h1 class="title">ManageController.RemoveLogin Method</h1>
+  	<h1 class="title">CreditosController Class</h1>
   	<div id="headerLinks">
+<a href="topic_000000000000006F_members--.html">Members</a>
 
 	<a href="#seeAlsoSection">See Also</a>
 
@@ -73,6 +74,7 @@ function replaceTitleAndUrl(win, title, url) {
       <div id="mainBody">
         <p />
        
+        Controlador responsável pela gestão de creditos
 
 
         <p /><strong>Namespace:</strong>
@@ -131,7 +133,7 @@ function replaceTitleAndUrl(win, title, url) {
 				</div>
 				
 				<div class="codeSnippetCode codeVB">
-					<pre xml:space="preserve" class="brush: vb">&lt;HttpPost()&gt; _&nbsp;<br />&lt;ValidateAntiForgeryToken()&gt; _&nbsp;<br />Public Function RemoveLogin( _&nbsp;<br />   ByVal <i>account</i> As <a target="_top" href="topic_000000000000012C.html" onclick="this.target='';return true;">RemoveLoginViewModel</a> _&nbsp;<br />) As <a target="_top" href="http://msdn2.microsoft.com/en-us/library/dd321424.aspx">Task</a>(Of <a target="_top" href="http://msdn2.microsoft.com/en-us/library/microsoft.aspnetcore.mvc.iactionresult.aspx">IActionResult</a>)</pre>			
+					<pre xml:space="preserve" class="brush: vb">&lt;Authorize(Roles = Roles.ROLE_CLIENTE)&gt; _&nbsp;<br />Public Class CreditosController&nbsp;<br />    Inherits <a target="_top" href="http://msdn2.microsoft.com/en-us/library/microsoft.aspnetcore.mvc.controller.aspx">Controller</a></pre>			
 				</div>
 				<div class="codeSnippetCode codeNA">
 					<pre xml:space="preserve">This language is not supported or no code example is available.</pre>			
@@ -167,7 +169,7 @@ function replaceTitleAndUrl(win, title, url) {
 				</div>
 				
 				<div class="codeSnippetCode codeCsharp">
-					<pre xml:space="preserve" class="brush: csharp">[HttpPost()]&nbsp;<br />[ValidateAntiForgeryToken()]&nbsp;<br />public <a target="_top" href="http://msdn2.microsoft.com/en-us/library/dd321424.aspx">Task</a>&lt;<a target="_top" href="http://msdn2.microsoft.com/en-us/library/microsoft.aspnetcore.mvc.iactionresult.aspx">IActionResult</a>&gt; RemoveLogin(&nbsp;<br />   <a target="_top" href="topic_000000000000012C.html" onclick="this.target='';return true;">RemoveLoginViewModel</a> <i>account</i>&nbsp;<br />)</pre>			
+					<pre xml:space="preserve" class="brush: csharp">[Authorize(Roles = Roles.ROLE_CLIENTE)]&nbsp;<br />public class CreditosController : <a target="_top" href="http://msdn2.microsoft.com/en-us/library/microsoft.aspnetcore.mvc.controller.aspx">Controller</a></pre>			
 				</div>
 				<div class="codeSnippetCode codeNA">
 					<pre xml:space="preserve">This language is not supported or no code example is available.</pre>			
@@ -203,7 +205,7 @@ function replaceTitleAndUrl(win, title, url) {
 				</div>
 				
 				<div class="codeSnippetCode codeCpp">
-					<pre xml:space="preserve" class="brush: cpp">[HttpPost()]&nbsp;<br />[ValidateAntiForgeryToken()]&nbsp;<br />public: &nbsp;<br /><a target="_top" href="http://msdn2.microsoft.com/en-us/library/dd321424.aspx">Task</a>&lt;<a target="_top" href="http://msdn2.microsoft.com/en-us/library/microsoft.aspnetcore.mvc.iactionresult.aspx">IActionResult</a>^&gt;^ RemoveLogin(&nbsp;<br />   <a target="_top" href="topic_000000000000012C.html" onclick="this.target='';return true;">RemoveLoginViewModel</a>^ <i>account</i>&nbsp;<br />) </pre>			
+					<pre xml:space="preserve" class="brush: cpp">[Authorize(Roles = Roles.ROLE_CLIENTE)]&nbsp;<br />public ref class CreditosController : public <a target="_top" href="http://msdn2.microsoft.com/en-us/library/microsoft::aspnetcore::mvc::controller.aspx">Controller</a>^</pre>			
 				</div>
 				<div class="codeSnippetCode codeNA">
 					<pre xml:space="preserve">This language is not supported or no code example is available.</pre>			
@@ -239,7 +241,7 @@ function replaceTitleAndUrl(win, title, url) {
 				</div>
 				
 				<div class="codeSnippetCode codeJScript">
-					<pre xml:space="preserve" class="brush: js">JScript does not support generic types and methods.</pre>			
+					<pre xml:space="preserve" class="brush: js">public &nbsp;<br />   Authorize(Roles = Roles.ROLE_CLIENTE)&nbsp;<br />class CreditosController&nbsp;<br />   extends <a target="_top" href="http://msdn2.microsoft.com/en-us/library/microsoft.aspnetcore.mvc.controller.aspx">Controller</a></pre>			
 				</div>
 				<div class="codeSnippetCode codeNA">
 					<pre xml:space="preserve">This language is not supported or no code example is available.</pre>			
@@ -250,25 +252,6 @@ function replaceTitleAndUrl(win, title, url) {
 	</div>
 
 
-<h4 class="subHeading">
-	Parameters</h4><dl paramName="account">
-	<dt>
-		<span class="parameter">
-			account
-		</span>
-	</dt>
-	<dd>
-		<p>
-			Type: <a target="_top" href="topic_000000000000012C.html" onclick="this.target='';return true;">RemoveLoginViewModel</a> 
-		</p>
-		<p>
-			 
-		</p>
-	</dd>
-</dl>
-
-<p />
-<p />
 
 
 
@@ -357,6 +340,7 @@ function replaceTitleAndUrl(win, title, url) {
 	</div>					
 </div>
 
+
 <div class="section_container">
 	<div class="section_heading">
 		<span><a href="javascript:void(0)" title="Collapse" onclick="toggleSection(this);">See Also</a></span>
@@ -367,15 +351,11 @@ function replaceTitleAndUrl(win, title, url) {
 		<div>
 			<h4 class="subHeading">
 				Reference</h4>
-			<a href="topic_0000000000000067.html">ManageController Class</a><br />
-<a href="topic_0000000000000067_members--.html">ManageController Members</a><br />
+			<a href="topic_000000000000006F_members--.html">CreditosController Members</a><br />
+	<a href="topic_0000000000000000.html">AirUberProjeto.Controllers Namespace</a><br />
 
 
-
-<a href="topic_0000000000000000.html">AirUberProjeto.Controllers Namespace</a><br />
-
-
-			
+	
 
 		</div>
 	</div>					

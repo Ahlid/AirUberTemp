@@ -9,79 +9,163 @@
 
 @if (SignInManager.IsSignedIn(User))
 {
-    <ul class="nav navbar-nav navbar-left">
+    <ul class="nav">
         
         @if (User.IsInRole(Roles.ROLE_HELPDESK))
         {
-            <li><a asp-area="" asp-controller="Helpdesk" asp-action="Index" class="w3-hover-white w3-hover-text-indigo w3-text-white">Consola</a></li>
-            <li><a asp-area="" asp-controller="Helpdesk" asp-action="Clientes" class="w3-hover-white w3-hover-text-indigo w3-text-white">Clientes</a></li>
-            <li><a asp-area="" asp-controller="Helpdesk" asp-action="Companhias" class="w3-hover-white w3-hover-text-indigo w3-text-white">Companhias</a></li>
-            <li><a asp-area="" asp-controller="Helpdesk" asp-action="Viagens" class="w3-hover-white w3-hover-text-indigo w3-text-white">Viagens</a></li>
+            <li class="active">
+                <a asp-area="" asp-controller="Helpdesk" asp-action="Index">
+                    <i class="pe-7s-graph"></i>
+                    <p>DashBoard</p>
+                </a>
+            </li>
+            <li class="active">
+                <a asp-area="" asp-controller="Helpdesk" asp-action="Clientes">
+                    <i class="pe-7s-id"></i>
+                    <p>Clientes</p>
+                </a>
+            </li>
+            <li class="active">
+                <a asp-area="" asp-controller="Helpdesk" asp-action="Companhias">
+                    <i class="pe-7s-id"></i>
+                    <p>Companhias</p>
+                </a>
+            </li>
+
+            <li class="active">
+                <a asp-controller="Helpdesk" asp-action="RecuperarCompanhias">
+                    <i class="pe-7s-news-paper"></i>
+                    <p>Recuperar companhias</p>
+                </a>
+            </li>
+            <li class="active">
+                <a asp-area="" asp-controller="Helpdesk" asp-action="Viagens">
+                    <i class="pe-7s-plane"></i>
+                    <p>Viagens</p>
+                </a>
+            </li>
+
         } 
        
         @if (User.IsInRole(Roles.ROLE_CLIENTE))
         {
-            <li><a class="w3-hover-white w3-hover-text-indigo w3-text-white" asp-area="" asp-controller="Cliente" asp-action="Perfil">Ver perfil</a></li>
-            <!-- <li><a class="w3-hover-white w3-hover-text-indigo w3-text-white" asp-area="" asp-controller="Cliente" asp-action="EditarPerfil">Editar perfil</a></li> -->
-            <li><a class="w3-hover-white w3-hover-text-indigo w3-text-white" asp-area="" asp-controller="Cliente" asp-action="VerViagens">Viagens</a></li>
-            <li><a class="w3-hover-white w3-hover-text-indigo w3-text-white" asp-area="" asp-controller="Cliente" asp-action="ProcurarOfertas">Viajar</a></li>
+
+            <li class="active">
+                <a asp-controller="Cliente" asp-action="Creditos">
+                    <i class="pe-7s-credit"></i>
+                    <p>Créditos</p>
+                </a>
+            </li>
+
+            <li class="active">
+                <a asp-controller="Cliente" asp-action="Perfil">
+                    <i class="pe-7s-user"></i>
+                    <p>Perfil</p>
+                </a>
+            </li>
+
+            <li class="active">
+                <a asp-controller="Cliente" asp-action="VerViagens">
+                    <i class="pe-7s-cart"></i>
+                    <p>Viagens</p>
+                </a>
+            </li>
+
+            <li class="active">
+                <a asp-controller="Cliente" asp-action="ProcurarOfertas">
+                    <i class="pe-7s-plane"></i>
+                    <p>Viajar</p>
+                </a>
+            </li>
+
+            <li class="active">
+                <a asp-controller="Cliente" asp-action="Notificacoes">
+                    <i class="pe-7s-bell"></i>
+                    <p>Notificações</p>
+                </a>
+            </li>
+
         }
         
-        @if (User.IsInRole(Roles.ROLE_COLABORADOR_ADMIN))
+        @if (User.IsInRole(Roles.ROLE_COLABORADOR) ||
+                   User.IsInRole(Roles.ROLE_COLABORADOR_ADMIN))
         {
-            <li><a class="w3-hover-white w3-hover-text-indigo w3-text-white" asp-area="" asp-controller="Companhia" asp-action="Index">Ver perfil</a></li>
-            <li><a class="w3-hover-white w3-hover-text-indigo w3-text-white" asp-area="" asp-controller="Companhia" asp-action="VerViagens">Viagens</a></li>
-            <li><a class="w3-hover-white w3-hover-text-indigo w3-text-white" asp-area="" asp-controller="Companhia" asp-action="VerColaboradores">Colaboradores</a></li>
-            <li><a class="w3-hover-white w3-hover-text-indigo w3-text-white" asp-area="" asp-controller="Companhia" asp-action="VerJatos">Aviões</a></li>
-            <li><a class="w3-hover-white w3-hover-text-indigo w3-text-white" asp-area="" asp-controller="Companhia" asp-action="VerExtras">Extras</a></li>
-            <li><a class="w3-hover-white w3-hover-text-indigo w3-text-white" asp-area="" asp-controller="Companhia" asp-action="ValidarReservas">Validar reservas</a></li>
-            <li><a class="w3-hover-white w3-hover-text-indigo w3-text-white" asp-area="" asp-controller="Companhia" asp-action="Transacoes">Transações</a></li>
+            <li class="active">
+                <a asp-controller="Companhia" asp-action="Creditos">
+                    <i class="pe-7s-credit"></i>
+                    <p>Créditos</p>
+                </a>
+            </li>
+
+            <li class="active">
+                <a asp-controller="Companhia" asp-action="PerfilCompanhia">
+                    <i class="pe-7s-user"></i>
+                    <p>Perfil</p>
+                </a>
+            </li>
+
+            if(User.IsInRole(Roles.ROLE_COLABORADOR_ADMIN))
+            { 
+                 <li class="active">
+                     <a asp-controller="Companhia" asp-action="VerViagens">
+                         <i class="pe-7s-cart"></i>
+                         <p>Viagens</p>
+                     </a>
+                 </li>
+            }
+
+            <li class="active">
+                <a asp-controller="Companhia" asp-action="VerColaboradores">
+                    <i class="pe-7s-users"></i>
+                    <p>Colaboradores</p>
+                </a>
+            </li>
+
+            <li class="active">
+                <a asp-controller="Companhia" asp-action="VerJatos">
+                    <i class="pe-7s-plane"></i>
+                    <p>VerJatos</p>
+                </a>
+            </li>
+
+            <li class="active">
+                <a asp-controller="Companhia" asp-action="VerExtras">
+                    <i class="pe-7s-box2"></i>
+                    <p>Extras</p>
+                </a>
+            </li>
+            <li class="active">
+                <a asp-controller="Companhia" asp-action="ValidarReservas">
+                    <i class="pe-7s-glasses"></i>
+                    <p>Validar Reservas</p>
+                </a>
+            </li>
+
+ 
+
+            <li class="active">
+                <a asp-controller="Companhia" asp-action="Notificacoes">
+                    <i class="pe-7s-bell"></i>
+                    <p>Notificações</p>
+                </a>
+            </li>
         }
 
-        @if (User.IsInRole(Roles.ROLE_COLABORADOR))
-        {
-            <li><a class="w3-hover-white w3-hover-text-indigo w3-text-white" asp-area="" asp-controller="Companhia" asp-action="Index">Ver perfil</a></li>
-            <li><a class="w3-hover-white w3-hover-text-indigo w3-text-white" asp-area="" asp-controller="Companhia" asp-action="VerViagens">Viagens</a></li>
-            <li><a class="w3-hover-white w3-hover-text-indigo w3-text-white" asp-area="" asp-controller="Companhia" asp-action="VerJatos">Aviões</a></li>
-            <li><a class="w3-hover-white w3-hover-text-indigo w3-text-white" asp-area="" asp-controller="Companhia" asp-action="VerExtras">Extras</a></li>
-            <li><a class="w3-hover-white w3-hover-text-indigo w3-text-white" asp-area="" asp-controller="Companhia" asp-action="Transacoes">Transações</a></li>
-        }
-
-        @if (!User.IsInRole(Roles.ROLE_HELPDESK))
-        {
-            <li><a class="w3-hover-white w3-hover-text-indigo w3-text-white" asp-area="" asp-controller="Home" asp-action="About">Sobre Nos</a></li>
-        }
     </ul>
 
-
-    <form asp-area="" asp-controller="Autenticacao" asp-action="LogOff" method="post" id="logoutForm" class="navbar-right">
-        <ul class="nav navbar-nav navbar-right">
-            <li><a asp-area="" asp-controller="Autenticacao" asp-action="ChangePassword" class="w3-hover-white w3-hover-text-indigo w3-text-white">Mudar Password</a></li>
-            <li>
-                <button type="submit" class="btn btn-link navbar-btn" style="color: white">Sair <i class="glyphicon glyphicon-log-out"></i></button>
-            </li>
-        </ul>
-    </form>
 }
 else
 {
-    <ul class="nav navbar-nav navbar-left">
-        <li><a class="w3-hover-white w3-hover-text-indigo w3-text-white" asp-area="" asp-controller="Home" asp-action="About">Sobre Nos</a></li>
-    </ul>
-
-    <ul class="nav navbar-nav navbar-right" style="color: white">
-
-        <!-- <li class="w3-dropdown-hover">-->
-        <li>
-            <a class="w3-hover-white w3-hover-text-indigo w3-text-white" asp-area="" asp-controller="Autenticacao" asp-action="Register">Registar</a>
-        </li>
-        <!-- <div class="w3-dropdown-content w3-white w3-card-4">
-                <a asp-area="" asp-controller="Autenticacao" asp-action="RegisterCliente">Registo Cliente</a>
-                <a asp-area="" asp-controller="Autenticacao" asp-action="RegisterCompanhia">Registo Companhia</a>
-            </div>-->
-        <!-- </li>-->
-        <li><a class="w3-hover-white w3-hover-text-indigo w3-text-white" asp-area="" asp-controller="Autenticacao" asp-action="Login">Entrar </a></li>
-    </ul>
+    <li class="active">
+        <a asp-controller="Autenticacao" asp-action="Register">
+            <i class="pe-7s-bell"></i>
+            <p>Registar</p>
+        </a>
+        <a asp-controller="Autenticacao" asp-action="Login">
+            <i class="pe-7s-bell"></i>
+            <p>Entrar</p>
+        </a>
+    </li>
 }
 
 

@@ -5,43 +5,55 @@
 }
 
 
-<div class="container" style="margin-top: 20px">
+<div class="content">
+    <div class="container-fluid">
+
         <div class="row">
-            <div class="col-md-6">
-                <a asp-action="CriarExtra"><img class="img-thumbnail" src="~/images/plus.png" width="40" alt="criar"></a>
-                <!--
-                    <div >
-                        <form asp-controller="Companhia" asp-action="ProcurarExtras">
-                            <!-- search --><!--
-                            <input type=image src="~/images/aviao-default.svg" width="40" alt="Submit feedback">
-                            <input type="text" name="SearchString">
-                        </form>
-                    </div>-->
-            </div>
-            <div class="col-md-6">
-                <h1>Extras</h1>
-            </div>
-        </div>
-    <div class="w3-center w3-row-padding">
-        @foreach (var item in Model)
-        {
-            <div class="w3-col l4 w3">
-                <div class="w3-col l12 w3-card-4 w3-margin w3-container" style="height: 220px">
-                    <div style="float: right; padding: 10px;">
-                        <a asp-action="EditarExtra" asp-route-id="@item.ExtraId"><img class="img-thumbnail" src="~/images/edit.png" width="40" alt="editar"></a>
-                        <a asp-action="ApagarExtra" asp-route-id="@item.ExtraId"><img class="img-thumbnail" src="~/images/delete.png" width="40" alt="apagar"></a>
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Extras</h4>
+
                     </div>
-                    <div style="clear: both;">
-                            <h2 class="w3-center">@item.Nome</h2>
-                            <h3 class="w3-center"><strong>Preço: </strong>@item.Valor € <span>(x Créditos)</span></h3>
-                            <h5 class="w3-center"><strong>Tipo de extra: </strong> @item.TipoExtra.Nome</h5>
-                        <div>
-                            <img class="img-thumbnail" src="~/images/aviao-default.svg" width="40" alt="plus">
-                            <!-- Lista de aviões que suportam o extra -->
+                    <div class="content table-responsive table-full-width">
+                        <table class="table table-hover table-striped">
+                            <thead>
+                                <tr>
+                                    <th>@Html.DisplayNameFor(model => model.ExtraId)</th>
+                                    <th>@Html.DisplayNameFor(model => model.Nome)</th>
+                                    <th>@Html.DisplayNameFor(model => model.TipoExtra.Nome)</th>
+                                    <th>@Html.DisplayNameFor(model => model.Valor)</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                @foreach (Extra extra in Model)
+                                {
+                                    <tr>
+                                        <td>@extra.ExtraId</td>
+                                        <td>@extra.Nome</td>
+                                        <td>@extra.TipoExtra.Nome</td>
+                                        <td>@extra.Valor</td>
+                                        <td>
+                                            <a class="link" asp-action="EditarExtra" asp-route-id="@extra.ExtraId">Editar</a><br />
+                                            <a class="link" asp-action="ApagarExtra" asp-route-id="@extra.ExtraId">Apagar</a>
+                                        </td>
+                                    </tr>
+
+                                }
+
+                            </tbody>
+                        </table>
+                        <div class="content">
+                            <a class="btn" asp-action="CriarExtra">Adicionar</a>
                         </div>
+
                     </div>
+
                 </div>
             </div>
-        }
+        </div>
     </div>
 </div>
+

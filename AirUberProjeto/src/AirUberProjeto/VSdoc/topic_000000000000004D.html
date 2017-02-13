@@ -3,7 +3,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="GENERATOR" content="VSdocman - documentation generator; http://www.helixoft.com" />
-	<title>CompanhiaController.AlterarImagemJato Method</title>
+	<title>CompanhiaController.EditarJatos (EditarJatoViewModel) Method</title>
 
 	<link rel="stylesheet" type="text/css" href="msdn10_lightweight/msdn10_lightweight.css"></link>
 	<script src="msdn10_lightweight/msdn10_lightweight.js" type="text/javascript"></script>
@@ -59,7 +59,7 @@ function replaceTitleAndUrl(win, title, url) {
 <!--HEADER START-->
   <div id="header">
   	<div id="runningHeaderText">AirUberProjeto Reference</div>
-  	<h1 class="title">CompanhiaController.AlterarImagemJato Method</h1>
+  	<h1 class="title">CompanhiaController.EditarJatos (EditarJatoViewModel) Method</h1>
   	<div id="headerLinks">
 
 	<a href="#seeAlsoSection">See Also</a>
@@ -73,7 +73,7 @@ function replaceTitleAndUrl(win, title, url) {
       <div id="mainBody">
         <p />
        
-        Permite alterar a imagem do jato
+        Trata de um pedido de alteração de dados de um jato
 
 
         <p /><strong>Namespace:</strong>
@@ -132,7 +132,7 @@ function replaceTitleAndUrl(win, title, url) {
 				</div>
 				
 				<div class="codeSnippetCode codeVB">
-					<pre xml:space="preserve" class="brush: vb">&lt;HttpPost()&gt; _&nbsp;<br />Public Function AlterarImagemJato( _&nbsp;<br />   ByVal <i>file</i> As <a target="_top" href="http://msdn2.microsoft.com/en-us/library/microsoft.aspnetcore.http.iformfile.aspx">IFormFile</a>, _&nbsp;<br />   ByVal <i>id</i> As <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.int32.aspx">Integer</a> _&nbsp;<br />) As <a target="_top" href="http://msdn2.microsoft.com/en-us/library/dd321424.aspx">Task</a>(Of <a target="_top" href="http://msdn2.microsoft.com/en-us/library/microsoft.aspnetcore.mvc.iactionresult.aspx">IActionResult</a>)</pre>			
+					<pre xml:space="preserve" class="brush: vb">&lt;HttpPost()&gt; _&nbsp;<br />Public Function EditarJatos( _&nbsp;<br />   ByVal <i>viewModel</i> As <a target="_top" href="topic_000000000000013A.html" onclick="this.target='';return true;">EditarJatoViewModel</a> _&nbsp;<br />) As <a target="_top" href="http://msdn2.microsoft.com/en-us/library/microsoft.aspnetcore.mvc.iactionresult.aspx">IActionResult</a></pre>			
 				</div>
 				<div class="codeSnippetCode codeNA">
 					<pre xml:space="preserve">This language is not supported or no code example is available.</pre>			
@@ -168,7 +168,7 @@ function replaceTitleAndUrl(win, title, url) {
 				</div>
 				
 				<div class="codeSnippetCode codeCsharp">
-					<pre xml:space="preserve" class="brush: csharp">[HttpPost()]&nbsp;<br />public <a target="_top" href="http://msdn2.microsoft.com/en-us/library/dd321424.aspx">Task</a>&lt;<a target="_top" href="http://msdn2.microsoft.com/en-us/library/microsoft.aspnetcore.mvc.iactionresult.aspx">IActionResult</a>&gt; AlterarImagemJato(&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/microsoft.aspnetcore.http.iformfile.aspx">IFormFile</a> <i>file</i>,&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.int32.aspx">int</a> <i>id</i>&nbsp;<br />)</pre>			
+					<pre xml:space="preserve" class="brush: csharp">[HttpPost()]&nbsp;<br />public <a target="_top" href="http://msdn2.microsoft.com/en-us/library/microsoft.aspnetcore.mvc.iactionresult.aspx">IActionResult</a> EditarJatos(&nbsp;<br />   <a target="_top" href="topic_000000000000013A.html" onclick="this.target='';return true;">EditarJatoViewModel</a> <i>viewModel</i>&nbsp;<br />)</pre>			
 				</div>
 				<div class="codeSnippetCode codeNA">
 					<pre xml:space="preserve">This language is not supported or no code example is available.</pre>			
@@ -204,7 +204,7 @@ function replaceTitleAndUrl(win, title, url) {
 				</div>
 				
 				<div class="codeSnippetCode codeCpp">
-					<pre xml:space="preserve" class="brush: cpp">[HttpPost()]&nbsp;<br />public: &nbsp;<br /><a target="_top" href="http://msdn2.microsoft.com/en-us/library/dd321424.aspx">Task</a>&lt;<a target="_top" href="http://msdn2.microsoft.com/en-us/library/microsoft.aspnetcore.mvc.iactionresult.aspx">IActionResult</a>^&gt;^ AlterarImagemJato(&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/microsoft.aspnetcore.http.iformfile.aspx">IFormFile</a>^ <i>file</i>,&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.int32.aspx">int</a> <i>id</i>&nbsp;<br />) </pre>			
+					<pre xml:space="preserve" class="brush: cpp">[HttpPost()]&nbsp;<br />public: &nbsp;<br /><a target="_top" href="http://msdn2.microsoft.com/en-us/library/microsoft.aspnetcore.mvc.iactionresult.aspx">IActionResult</a>^ EditarJatos(&nbsp;<br />   <a target="_top" href="topic_000000000000013A.html" onclick="this.target='';return true;">EditarJatoViewModel</a>^ <i>viewModel</i>&nbsp;<br />) </pre>			
 				</div>
 				<div class="codeSnippetCode codeNA">
 					<pre xml:space="preserve">This language is not supported or no code example is available.</pre>			
@@ -240,7 +240,7 @@ function replaceTitleAndUrl(win, title, url) {
 				</div>
 				
 				<div class="codeSnippetCode codeJScript">
-					<pre xml:space="preserve" class="brush: js">JScript does not support generic types and methods.</pre>			
+					<pre xml:space="preserve" class="brush: js">public &nbsp;<br />   HttpPost()&nbsp;<br />function EditarJatos(&nbsp;<br />    <i>viewModel</i> : <a target="_top" href="topic_000000000000013A.html" onclick="this.target='';return true;">EditarJatoViewModel</a>&nbsp;<br />) : <a target="_top" href="http://msdn2.microsoft.com/en-us/library/microsoft.aspnetcore.mvc.iactionresult.aspx">IActionResult</a>;</pre>			
 				</div>
 				<div class="codeSnippetCode codeNA">
 					<pre xml:space="preserve">This language is not supported or no code example is available.</pre>			
@@ -252,33 +252,18 @@ function replaceTitleAndUrl(win, title, url) {
 
 
 <h4 class="subHeading">
-	Parameters</h4><dl paramName="file">
+	Parameters</h4><dl paramName="viewModel">
 	<dt>
 		<span class="parameter">
-			file
+			viewModel
 		</span>
 	</dt>
 	<dd>
 		<p>
-			Type: <a target="_top" href="http://msdn2.microsoft.com/en-us/library/microsoft.aspnetcore.http.iformfile.aspx">IFormFile</a> 
+			Type: <a target="_top" href="topic_000000000000013A.html" onclick="this.target='';return true;">EditarJatoViewModel</a> 
 		</p>
 		<p>
-			ficheiro de imagem que irá substituir a imagem do jato 
-		</p>
-	</dd>
-</dl>
-<dl paramName="id">
-	<dt>
-		<span class="parameter">
-			id
-		</span>
-	</dt>
-	<dd>
-		<p>
-			Type: <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.int32.aspx">int</a> 
-		</p>
-		<p>
-			id do jato a que a se irá alterar a foto 
+			ViewModel do pedido de alteração de dados 
 		</p>
 	</dd>
 </dl>
@@ -288,7 +273,7 @@ function replaceTitleAndUrl(win, title, url) {
 
 	<h4 class="subHeading">
 		Return Value</h4>
-  Um redirecionamento para a ação editar jato
+  A view de edição de um jato da companhia
 
 
 
@@ -386,8 +371,8 @@ function replaceTitleAndUrl(win, title, url) {
 		<div>
 			<h4 class="subHeading">
 				Reference</h4>
-			<a href="topic_000000000000002A.html">CompanhiaController Class</a><br />
-<a href="topic_000000000000002A_members--.html">CompanhiaController Members</a><br />
+			<a href="topic_0000000000000041.html">CompanhiaController Class</a><br />
+<a href="topic_0000000000000041_members--.html">CompanhiaController Members</a><br />
 
 
 
