@@ -281,7 +281,13 @@ namespace AirUberProjeto.Controllers
             return (distancia/velocidade)* TimeSpan.TicksPerSecond;
 
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="jatoId"></param>
+        /// <param name="aeroportoPartidaId"></param>
+        /// <param name="dataReserva"></param>
+        /// <returns></returns>
         private TipoDisponibilidade JatoDisponivelPontual(int jatoId, int aeroportoPartidaId, DateTime dataReserva)
         {
 
@@ -383,7 +389,14 @@ namespace AirUberProjeto.Controllers
 
             return TipoDisponibilidade.NaoDisponivel;
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="jatoId"></param>
+        /// <param name="aeroportoPartidaId"></param>
+        /// <param name="aeroportoDestinoId"></param>
+        /// <param name="dataReserva"></param>
+        /// <returns></returns>
         private TipoDisponibilidade JatoDisponivelIntervalo(int jatoId, int aeroportoPartidaId, int aeroportoDestinoId, DateTime dataReserva)
         {
 
@@ -533,7 +546,12 @@ namespace AirUberProjeto.Controllers
 
             return TipoDisponibilidade.NaoDisponivel;
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="aeroportoId"></param>
+        /// <param name="dataReserva"></param>
+        /// <returns></returns>
         private bool AeroportoDisponivel(int aeroportoId, DateTime dataReserva)
         {
             IEnumerable<Jato> jatos = _context.Jato
@@ -556,7 +574,13 @@ namespace AirUberProjeto.Controllers
 
             return false;
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="aeroportoId"></param>
+        /// <param name="aeroportoDestinoId"></param>
+        /// <param name="dataReserva"></param>
+        /// <returns></returns>
         private bool AeroportoDestinoDisponivel(int aeroportoId, int aeroportoDestinoId, DateTime dataReserva)
         {
             IEnumerable<Jato> jatos = _context.Jato
@@ -603,16 +627,34 @@ namespace AirUberProjeto.Controllers
             return false;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="angle"></param>
+        /// <returns></returns>
         private double DegreesToRadians(double angle)
         {
             return Math.PI * angle / 180.0;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="angle"></param>
+        /// <returns></returns>
         private double RadiansToDegrees(double angle)
         {
             return angle * (180.0 / Math.PI);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="lat1"></param>
+        /// <param name="lng1"></param>
+        /// <param name="lat2"></param>
+        /// <param name="lng2"></param>
+        /// <returns></returns>
         private double DistanciaEntreCoordenadas(double lat1, double lng1, double lat2, double lng2)
         {
             double earthRadius = 3958.75;
@@ -628,6 +670,11 @@ namespace AirUberProjeto.Controllers
             return dist;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
         public IEnumerable<Aeroporto> AeroportosDisponiveis(DateTime data)
         {
             IEnumerable<Aeroporto> aeroportos = _context.Aeroporto
@@ -644,6 +691,12 @@ namespace AirUberProjeto.Controllers
             return aeroportos;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="data"></param>
+        /// <returns></returns>
         public IEnumerable<Aeroporto> AeroportosDestinoDisponiveis(int id, DateTime data)
         {
             IEnumerable<Aeroporto> aeroportos = _context.Aeroporto
@@ -826,6 +879,12 @@ namespace AirUberProjeto.Controllers
 
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="extra"></param>
+        /// <param name="extrasids"></param>
+        /// <returns></returns>
         private bool filtrarExtras(Extra extra, List<int> extrasids)
         {
             foreach (int id in extrasids)
@@ -839,6 +898,13 @@ namespace AirUberProjeto.Controllers
 
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="distancia"></param>
+        /// <param name="jato"></param>
+        /// <param name="extrasids"></param>
+        /// <returns></returns>
         private double calcularCusto(double distancia, Jato jato, List<int> extrasids)
         {
             ICollection<Extra> extras = _context.Extra.Where(e => filtrarExtras(e, extrasids)).ToList();

@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace AirUberProjeto.Migrations
 {
-    public partial class historico4 : Migration
+    public partial class nomeQualquer : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -518,12 +518,15 @@ namespace AirUberProjeto.Migrations
                     AeroportoDestinoId = table.Column<int>(nullable: false),
                     AeroportoPartidaId = table.Column<int>(nullable: false),
                     ApplicationUserId = table.Column<string>(nullable: false),
+                    Aprovada = table.Column<bool>(nullable: false),
                     Avaliacao = table.Column<int>(nullable: false),
                     CompanhiaId = table.Column<int>(nullable: true),
                     Custo = table.Column<decimal>(nullable: false),
                     DataChegada = table.Column<DateTime>(nullable: false),
                     DataPartida = table.Column<DateTime>(nullable: false),
-                    JatoId = table.Column<int>(nullable: false)
+                    JatoId = table.Column<int>(nullable: false),
+                    Paga = table.Column<bool>(nullable: false),
+                    Realizada = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {

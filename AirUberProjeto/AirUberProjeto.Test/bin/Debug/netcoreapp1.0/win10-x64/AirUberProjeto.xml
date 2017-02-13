@@ -317,11 +317,91 @@
             <param name="file">ficheiro de imagem que irá substituir a imagem de perfil</param>
             <returns>Um redirecionamento para a ação editar perfil</returns>
         </member>
+        <member name="T:AirUberProjeto.Controllers.ClienteController.TipoDisponibilidade">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.ClienteController.JatoDisponivelPontual(System.Int32,System.Int32,System.DateTime)">
+            <summary>
+            
+            </summary>
+            <param name="jatoId"></param>
+            <param name="aeroportoPartidaId"></param>
+            <param name="dataReserva"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.ClienteController.JatoDisponivelIntervalo(System.Int32,System.Int32,System.Int32,System.DateTime)">
+            <summary>
+            
+            </summary>
+            <param name="jatoId"></param>
+            <param name="aeroportoPartidaId"></param>
+            <param name="aeroportoDestinoId"></param>
+            <param name="dataReserva"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.ClienteController.AeroportoDisponivel(System.Int32,System.DateTime)">
+            <summary>
+            
+            </summary>
+            <param name="aeroportoId"></param>
+            <param name="dataReserva"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.ClienteController.AeroportoDestinoDisponivel(System.Int32,System.Int32,System.DateTime)">
+            <summary>
+            
+            </summary>
+            <param name="aeroportoId"></param>
+            <param name="aeroportoDestinoId"></param>
+            <param name="dataReserva"></param>
+            <returns></returns>
+        </member>
         <member name="M:AirUberProjeto.Controllers.ClienteController.jatoDisponivel(AirUberProjeto.Models.Jato,System.DateTime)">
             <summary>
             Verifica a disponibilidade de um jato numa data
             </summary>
             <returns>true se o jato estiver disponível na data, false senão</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.ClienteController.DegreesToRadians(System.Double)">
+            <summary>
+            
+            </summary>
+            <param name="angle"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.ClienteController.RadiansToDegrees(System.Double)">
+            <summary>
+            
+            </summary>
+            <param name="angle"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.ClienteController.DistanciaEntreCoordenadas(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            
+            </summary>
+            <param name="lat1"></param>
+            <param name="lng1"></param>
+            <param name="lat2"></param>
+            <param name="lng2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.ClienteController.AeroportosDisponiveis(System.DateTime)">
+            <summary>
+            
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.ClienteController.AeroportosDestinoDisponiveis(System.Int32,System.DateTime)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <param name="data"></param>
+            <returns></returns>
         </member>
         <member name="M:AirUberProjeto.Controllers.ClienteController.VerViagens">
             <summary>
@@ -341,23 +421,40 @@
             </summary>
             <returns>Retorna a view da procura de ofertas</returns>
         </member>
-        <member name="M:AirUberProjeto.Controllers.ClienteController.VerJatos(System.Int32,System.DateTime,System.Double,System.Double)">
+        <member name="M:AirUberProjeto.Controllers.ClienteController.VerJatos(System.Int32,System.Int32,System.DateTime)">
             <summary>
             Responsável por redireccionar o utilizador para a página de pesquisa de ofertas
             </summary>
             <returns>Retorna a view da procura de ofertas</returns>
         </member>
-        <member name="M:AirUberProjeto.Controllers.ClienteController.VerOferta(System.Int32,System.DateTime,System.Double,System.Double,System.Int32)">
+        <member name="M:AirUberProjeto.Controllers.ClienteController.VerOferta(System.Int32,System.Int32,System.DateTime,System.Int32)">
             <summary>
             Responsável por redireccionar o utilizador para a página que apresenta a informação de uma oferta
             </summary>
             <returns>Retorna a view das ofertas</returns>
         </member>
-        <member name="M:AirUberProjeto.Controllers.ClienteController.ReservaConcluida(System.Int32,System.DateTime,System.Double,System.Double)">
+        <member name="M:AirUberProjeto.Controllers.ClienteController.filtrarExtras(AirUberProjeto.Models.Extra,System.Collections.Generic.List{System.Int32})">
             <summary>
-            Responsável por redireccionar o utilizador para a página de pesquisa de ofertas
+            
             </summary>
-            <returns>Retorna a view da procura de ofertas</returns>
+            <param name="extra"></param>
+            <param name="extrasids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.ClienteController.calcularCusto(System.Double,AirUberProjeto.Models.Jato,System.Collections.Generic.List{System.Int32})">
+            <summary>
+            
+            </summary>
+            <param name="distancia"></param>
+            <param name="jato"></param>
+            <param name="extrasids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.ClienteController.ReservaConcluida(System.Int32,System.Int32,System.DateTime,System.Int32,System.Collections.Generic.List{System.Int32})">
+            <summary>
+            Responsável por redireccionar o utilizador para a página de reserva concluída
+            </summary>
+            <returns>Retorna de reserva concluída</returns>
         </member>
         <member name="T:AirUberProjeto.Controllers.CompanhiaController">
             <summary>
@@ -1774,6 +1871,21 @@
             Propriedade responsável por guardar a data de chegada da reserva.
             </summary>
         </member>
+        <member name="P:AirUberProjeto.Models.Reserva.Aprovada">
+            <summary>
+            Propriedade que indica se a reserva foi aprovada.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Reserva.Paga">
+            <summary>
+            Propriedade que indica se a reserva foi paga.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.Reserva.Realizada">
+            <summary>
+            Propriedade que indica se a reserva foi realizada
+            </summary>
+        </member>
         <member name="P:AirUberProjeto.Models.Reserva.AeroportoPartidaId">
             <summary>
             Identificador unívoco do aeroporto de partida da reserva.
@@ -1870,7 +1982,7 @@
         </member>
         <member name="P:AirUberProjeto.Models.TipoAcao.TipoAcaoId">
             <summary>
-            Identificador unívoco de um tipo de extra
+            Identificador unívoco de um tipo de uma ação
             </summary>
         </member>
         <member name="P:AirUberProjeto.Models.TipoAcao.Nome">

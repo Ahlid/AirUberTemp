@@ -8,8 +8,8 @@ using AirUberProjeto.Data;
 namespace AirUberProjeto.Migrations
 {
     [DbContext(typeof(AirUberDbContext))]
-    [Migration("20170211024227_historico4")]
-    partial class historico4
+    [Migration("20170211184632_nomeQualquer")]
+    partial class nomeQualquer
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -399,6 +399,8 @@ namespace AirUberProjeto.Migrations
                     b.Property<string>("ApplicationUserId")
                         .IsRequired();
 
+                    b.Property<bool>("Aprovada");
+
                     b.Property<int>("Avaliacao");
 
                     b.Property<int?>("CompanhiaId");
@@ -410,6 +412,10 @@ namespace AirUberProjeto.Migrations
                     b.Property<DateTime>("DataPartida");
 
                     b.Property<int>("JatoId");
+
+                    b.Property<bool>("Paga");
+
+                    b.Property<bool>("Realizada");
 
                     b.HasKey("ReservaId");
 

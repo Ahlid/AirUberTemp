@@ -1307,14 +1307,13 @@ namespace AirUberProjeto.Controllers
         [HttpPost]
         public bool RejeitarReserva(int id)
         {
-
+            
             Reserva reserva = _context.Reserva
                 .Single(r => r.Aprovada == false && r.ReservaId == id);
 
             if (reserva == null)
                 return false;
 
-            //todo: restaurar a disponibilidade ao jato
 
             _context.Reserva.Remove(reserva);
             _context.SaveChanges();
