@@ -21,62 +21,60 @@
                     <div class="content table-responsive table-full-width">
                         <table class="table table-hover table-striped">
                             <thead>
-                                <tr>
-                                    <th>Imagem</th>
-                                    <th>@Html.DisplayNameFor(model => new Jato().JatoId)</th>
-                                    <th>@Html.DisplayNameFor(model => new Jato().CreditosBase)</th>
-                                    <th>@Html.DisplayNameFor(model => new Jato().CreditosPorKilometro)</th>
-                                    <th>@Html.DisplayNameFor(model => new Jato().DistanciaMaxima)</th>
-                                    <th>@Html.DisplayNameFor(model => new Modelo().Descricao)</th>
-                                    <th>@Html.DisplayNameFor(model => new Jato().Nome)</th>
-                                    <th>@Html.DisplayNameFor(model => new Jato().Aeroporto.Nome)</th>
-                                    <th>@Html.DisplayNameFor(model => new Jato().VelocidadeMedia)</th>
-                                    <th>Ações</th>
-                                </tr>
+                            <tr>
+                                <th>Imagem</th>
+                                <th>@Html.DisplayNameFor(model => new Jato().JatoId)</th>
+                                <th>@Html.DisplayNameFor(model => new Jato().CreditosBase)</th>
+                                <th>@Html.DisplayNameFor(model => new Jato().CreditosPorKilometro)</th>
+                                <th>@Html.DisplayNameFor(model => new Jato().DistanciaMaxima)</th>
+                                <th>@Html.DisplayNameFor(model => new Modelo().Descricao)</th>
+                                <th>@Html.DisplayNameFor(model => new Jato().Nome)</th>
+                                <th>@Html.DisplayNameFor(model => new Jato().Aeroporto.Nome)</th>
+                                <th>@Html.DisplayNameFor(model => new Jato().VelocidadeMedia)</th>
+                                <th>Ações</th>
+                            </tr>
                             </thead>
                             <tbody>
 
-                                @foreach (Jato jato in Model.JatodDisponiveis)
-                                {
-                                    <tr>
-                                        <td><img class="img-rounded img-responsive" style="max-width: 80px" src="..\@jato.RelativePathImagemPerfil" alt="airplane photo" /></td>
-                                        <td>@jato.AeroportoId</td>
-                                        <td>@jato.CreditosBase</td>
-                                        <td>@jato.CreditosPorKilometro</td>
-                                        <td>@jato.DistanciaMaxima</td>
-                                        <td>@jato.Modelo.Descricao</td>
-                                        <td>@jato.Nome</td>
-                                        <td>@jato.Aeroporto.Nome</td>
-                                        <td>@jato.VelocidadeMedia</td>
+                            @foreach (Jato jato in Model.JatodDisponiveis)
+                            {
+                                <tr>
+                                    <td><img class="img-rounded img-responsive" style="max-width: 80px" src="..\@jato.RelativePathImagemPerfil" alt="airplane photo" /></td>
+                                    <td>@jato.AeroportoId</td>
+                                    <td>@jato.CreditosBase</td>
+                                    <td>@jato.CreditosPorKilometro</td>
+                                    <td>@jato.DistanciaMaxima</td>
+                                    <td>@jato.Modelo.Descricao</td>
+                                    <td>@jato.Nome</td>
+                                    <td>@jato.Aeroporto.Nome</td>
+                                    <td>@jato.VelocidadeMedia</td>
                                         
-                                        <td>
-                                            <script>
+                                    <td>
+                                        <script>
 
                                             function verOferta() {
                                                 window.location.replace('VerOferta?iddestino=@Model.AeroportoDestinoId' +
-                                                                                '&idpartida=@Model.AeroportoPartidaId' +
-                                                                                '&data=@Html.Raw(Model.DataPartida.ToString("yyyy'/'MM'/'dd"))&jatoId=@jato.JatoId');
+                                                    '&idpartida=@Model.AeroportoPartidaId' +
+                                                    '&data=@Html.Raw(Model.DataPartida.ToString("yyyy'/'MM'/'dd"))&jatoId=@jato.JatoId');
                                             }
 
-                                            </script>
+                                        </script>
 
-                                            <a href="#" onclick="verOferta()" class="link">Ver Oferta</a>
+                                        <a href="#" onclick="verOferta()" class="link">Ver Oferta</a>
 
-                                        </td>
-                                    </tr>
+                                    </td>
+                                </tr>
                                         
 
 
-                                }
+                            }
 
                             </tbody>
                         </table>
 
-                        <div class="container">
-                            <a class="btn" asp-action="ProcurarOfertas">Voltar</a>
-                        </div>
-
                     </div>
+                    <div class="content"><a class="btn" asp-action="ProcurarOfertas">Voltar</a></div>
+                    
                 </div>
             </div>
         </div>
