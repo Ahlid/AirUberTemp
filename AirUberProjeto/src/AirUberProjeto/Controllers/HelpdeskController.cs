@@ -34,12 +34,19 @@ namespace AirUberProjeto.Controllers
             _context = context;
         }
 
+        public void setupNav()
+        {
+           
+            ViewBag.navegacao = true;
+        }
+
         /// <summary>
         /// Responsável por redireccionar o utilizador de helpdesk para a página inicial do helpdesk.
         /// </summary>
         /// <returns>Retorna a view da página inicial do helpdesk</returns>
         public IActionResult Index()
         {
+            setupNav();
             // Informação Companhia
             ViewBag.NumeroCompanhiasAceites = _context.Companhia.Select(p => p).Where(p => p.EstadoId == 1).Count();
             ViewBag.NumeroCompanhiasPendentes = _context.Companhia.Select(c => c).Where(p => p.EstadoId == 2).Count();
@@ -70,7 +77,7 @@ namespace AirUberProjeto.Controllers
         /// <returns>Retorna a view dos clientes</returns>
         public IActionResult Clientes()
         {
-
+            setupNav();
             var clientes = _context.Cliente.Select(p => p)
                                                    .Include(p => p.ContaDeCreditos)
                                                    .Include(r => r.ListaReservas);   // Este r.ListaReservas carrega a lista de reservas. Necessário fazê-lo sempre que existe uma coleção!
@@ -88,7 +95,7 @@ namespace AirUberProjeto.Controllers
         /// <returns>Retorna a view dos clientes</returns>
         public IActionResult Companhias()
         {
-
+            setupNav();
             var companhiasPendentes = _context.Companhia.Select(c => c).Include(p => p.Pais)
                                                                     .Include(p => p.ContaDeCreditos)
                                                                     .Include(p => p.ListaReservas)
@@ -122,6 +129,7 @@ namespace AirUberProjeto.Controllers
         /// <returns>Retorna a view das companhias recusadas</returns>
         public IActionResult RecuperarCompanhias()
         {
+            setupNav();
             var companhiasRecusadas = getCompanhiaPorEstado(3);
             ViewBag.CompanhiasRecusadas = companhiasRecusadas;
             ViewBag.NumeroCompanhiasRecusadas = companhiasRecusadas.Count();
@@ -139,7 +147,7 @@ namespace AirUberProjeto.Controllers
         /// localização do utilizador de helpdesk</returns>
         public IActionResult AlterarEstadoCompanhia(int id, int estadoActualId, int estadoDestinoId)
         {
-
+            setupNav();
             var comp = _context.Companhia.Select(c => c).Where(i => (i.CompanhiaId == id)).First();
             Companhia companhia = (Companhia)comp;
 
@@ -166,6 +174,7 @@ namespace AirUberProjeto.Controllers
         /// <returns>Retorna a view das viagens</returns>
         public IActionResult Viagens()
         {
+            setupNav();
             var viagens = _context.Reserva.Select(c => c)
                                           .Include(a => a.AeroportoDestino)
                                           .Include(a => a.AeroportoPartida)
@@ -188,6 +197,8 @@ namespace AirUberProjeto.Controllers
         /// <returns>Retorna View Modal caso email seja valido e ccontenha viagens, NotFound caso contratio</returns>
         public IActionResult ModalViagens(string email, int? count)
         {
+
+            setupNav();
             if (email != null && count != null && count > 0)
             {
                 var listaViagens = _context.Reserva.Select(c => c)
@@ -216,6 +227,7 @@ namespace AirUberProjeto.Controllers
         /// <returns>Lista de companhias de acordo com o estado</returns>
         private IList<Companhia> getCompanhiaPorEstado(int estado)
         {
+            setupNav();
             return _context.Companhia.Select(c => c).Include(p => p.Pais)
                                                                     .Include(p => p.ContaDeCreditos)
                                                                     .Include(p => p.ListaReservas)

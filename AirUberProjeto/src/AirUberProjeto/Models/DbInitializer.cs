@@ -376,7 +376,7 @@ namespace AirUberProjeto.Models
                     HistoricoTransacoeMonetarias = h1,
                     JetCashActual = 1000000
                 };
-                 HistoricoTransacoeMonetarias h2 = new HistoricoTransacoeMonetarias();
+                HistoricoTransacoeMonetarias h2 = new HistoricoTransacoeMonetarias();
                 ContaDeCreditos conta2 = new ContaDeCreditos()
                 {
                     HistoricoTransacoeMonetarias =  h2,

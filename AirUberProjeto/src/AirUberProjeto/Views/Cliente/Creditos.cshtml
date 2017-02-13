@@ -1,0 +1,36 @@
+﻿@model ContaDeCreditos
+
+    @{
+        ViewBag.Title = "Créditos";
+    }
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Créditos</h4>
+                        <p class="category">Consulte os seus dados monetários</p>
+                    </div>
+                    <div class="content">
+                  
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <span class="badge">@Html.Raw(Model.JetCashActual.ToString()) JC</span>
+                                Créditos atuais
+                            </li>
+                        </ul>
+
+                        
+                            <a class="btn" style="margin-right: 6px" asp-area="" asp-controller="Creditos" asp-action="Comprar">Comprar créditos</a>
+                            <a class="btn" asp-area="" asp-controller="Creditos" asp-action="VerHistoricoTransacoesCompanhia">Ver transações</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

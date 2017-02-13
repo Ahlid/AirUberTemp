@@ -3,71 +3,72 @@
 @{
     ViewBag.Title_Requests = "Companhias Recusadas";
     ViewBag.Title = "Companhias";
-    Layout = "_Layout";
 
 
 }
 
+<div class="content">
+    <div class="container-fluid">
 
-<h2>@ViewBag.Title_Requests</h2>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Recuperar Companhias</h4>
 
-@if (@ViewBag.NumeroCompanhiasRecusadas > 0) 
-{
-    <div style="display:inline-block">
-        <table class="table">
+                    </div>
+                    <div class="content table-responsive table-full-width">
 
-            <thead>
-                <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => (model.Take(1) as Companhia).Nome)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => (model.Take(1) as Companhia).Contact)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => (model.Take(1) as Companhia).Email)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => (model.Take(1) as Companhia).Pais)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => (model.Take(1) as Companhia).Nif)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => (model.Take(1) as Companhia).DataCriacao)
-                    </th>
-                </tr>
+                        <table class="table table-hover table-striped">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => (model.Take(1) as Companhia).Nome)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => (model.Take(1) as Companhia).Contact)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => (model.Take(1) as Companhia).Email)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => (model.Take(1) as Companhia).Pais)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => (model.Take(1) as Companhia).Nif)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => (model.Take(1) as Companhia).DataCriacao)
+                                    </th>
+                                </tr>
 
-            </thead>
-            <tbody>
+                            </thead>
+                            <tbody>
 
-                @foreach (var companhia in ViewBag.CompanhiasRecusadas)
-                {
-                    <tr>
-                        <td>@companhia.Nome</td>
-                        <td>@companhia.Contact</td>
-                        <td>@companhia.Email</td>
-                        <td>@companhia.Pais.Nome</td>
-                        <td>@companhia.Nif</td>
-                        <td>@companhia.DataCriacao</td>
-                        <td><a class="w3-btn w3-indigo" asp-action="AlterarEstadoCompanhia" asp-route-id = "@companhia.CompanhiaId" asp-route-estadoActualId="@companhia.EstadoId" asp-route-estadoDestinoId="1">Aceitar</a></td>
-                        <td><a class="w3-btn w3-indigo" asp-action="AlterarEstadoCompanhia" asp-route-id="@companhia.CompanhiaId" asp-route-estadoActualId="@companhia.EstadoId" asp-route-estadoDestinoId="2">Pendente</a></td>   
-                    </tr>                      
-                }
+                                @foreach (var companhia in ViewBag.CompanhiasRecusadas)
+                                {
+                                    <tr>
+                                        <td>@companhia.Nome</td>
+                                        <td>@companhia.Contact</td>
+                                        <td>@companhia.Email</td>
+                                        <td>@companhia.Pais.Nome</td>
+                                        <td>@companhia.Nif</td>
+                                        <td>@companhia.DataCriacao</td>
+                                        <td><a class="link" asp-action="AlterarEstadoCompanhia" asp-route-id="@companhia.CompanhiaId" asp-route-estadoActualId="@companhia.EstadoId" asp-route-estadoDestinoId="1">Aceitar</a></td>
+                                        <td><a class="link" asp-action="AlterarEstadoCompanhia" asp-route-id="@companhia.CompanhiaId" asp-route-estadoActualId="@companhia.EstadoId" asp-route-estadoDestinoId="2">Pendente</a></td>
+                                    </tr>
+                                }
 
 
-            </tbody>
+                            </tbody>
 
-        </table>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+</div>
 
 
 
-
-}
-else
-{
-    // Não existem companhias Recusadas
-
-    <h3>Não existem companhias recusadas</h3>
-}

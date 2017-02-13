@@ -303,7 +303,7 @@
             </summary>
             <returns>A View de edição do perfil do cliente</returns>
         </member>
-        <member name="M:AirUberProjeto.Controllers.ClienteController.EditarPerfil(AirUberProjeto.Models.ClienteViewModels.EditarPerfilViewModel)">
+        <member name="M:AirUberProjeto.Controllers.ClienteController.EditarPerfil(AirUberProjeto.Models.ClienteViewModels.PerfilViewModel)">
             <summary>
             Trata de um pedido de alteração de dados de um cliente
             </summary>
@@ -813,6 +813,12 @@
             <returns>Os creditos totais do utilizador</returns>
         </member>
         <member name="M:AirUberProjeto.Controllers.CreditosController.VerHistoricoTransacoes">
+            <summary>
+            Acao responsavel para devolver uma view com as transaçoes do utilizador
+            </summary>
+            <returns>View</returns>
+        </member>
+        <member name="M:AirUberProjeto.Controllers.CreditosController.VerHistoricoTransacoesCompanhia">
             <summary>
             Acao responsavel para devolver uma view com as transaçoes do utilizador
             </summary>
@@ -2280,6 +2286,32 @@
             Criar uma instância da classe PerfilViewModel.
             </summary>
         </member>
+        <member name="P:AirUberProjeto.Models.CompanhiaViewModels.CompanhiaViewModel.Morada">
+            <summary>
+            Propriedade responsável por guardar a morada da companhia.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.CompanhiaViewModels.CompanhiaViewModel.Contact">
+            <summary>
+            Propriedade responsável por guardar o contacto da companhia.
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.CompanhiaViewModels.CompanhiaViewModel.Descricao">
+            <summary>
+            Descrição da companhia
+            </summary>
+            [Required]
+        </member>
+        <member name="P:AirUberProjeto.Models.CompanhiaViewModels.CompanhiaViewModel.PaisId">
+            <summary>
+            Identificador único do pais a que pertence a companhia
+            </summary>
+        </member>
+        <member name="P:AirUberProjeto.Models.CompanhiaViewModels.CompanhiaViewModel.Nif">
+            <summary>
+            Número de identificação fiscal da companhia
+            </summary>
+        </member>
         <member name="T:AirUberProjeto.Models.CompanhiaViewModels.CriarColaboradorViewModel">
             <summary>
             View Model Responsavel por criar um colaborador
@@ -2504,36 +2536,6 @@
         <member name="T:AirUberProjeto.Models.CompanhiaViewModels.EditarCompanhiaViewModel">
             <summary>
             View Model Responsavel por editar o perfil da companhia
-            </summary>
-        </member>
-        <member name="P:AirUberProjeto.Models.CompanhiaViewModels.EditarCompanhiaViewModel.Nome">
-            <summary>
-            Nome da companhia
-            </summary>
-        </member>
-        <member name="P:AirUberProjeto.Models.CompanhiaViewModels.EditarCompanhiaViewModel.Morada">
-            <summary>
-            Morada da companhia
-            </summary>
-        </member>
-        <member name="P:AirUberProjeto.Models.CompanhiaViewModels.EditarCompanhiaViewModel.Descricao">
-            <summary>
-            Descrição da companhia
-            </summary>
-        </member>
-        <member name="P:AirUberProjeto.Models.CompanhiaViewModels.EditarCompanhiaViewModel.Contact">
-            <summary>
-            Contacto da companhia
-            </summary>
-        </member>
-        <member name="P:AirUberProjeto.Models.CompanhiaViewModels.EditarCompanhiaViewModel.PaisId">
-            <summary>
-            Identificador único do pais a que pertence a companhia
-            </summary>
-        </member>
-        <member name="P:AirUberProjeto.Models.CompanhiaViewModels.EditarCompanhiaViewModel.Nif">
-            <summary>
-            Número de identificação fiscal da companhia
             </summary>
         </member>
         <member name="T:AirUberProjeto.Models.CompanhiaViewModels.EditarExtraViewModel">

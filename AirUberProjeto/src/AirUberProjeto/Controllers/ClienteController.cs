@@ -15,6 +15,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore.ValueGeneration.Internal;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Remotion.Linq.Clauses;
@@ -70,6 +71,17 @@ namespace AirUberProjeto.Controllers
             return RedirectToAction("Perfil");
         }
 
+        public void setupNav()
+        {
+            string idCliente = _userManager.GetUserAsync(this.User).Result.Id;
+            List<Notificacao> notificacoes = _context.Notificacao.Where((n) =>
+                           n.UtilizadorId == idCliente
+                           && !n.Lida
+               ).ToList();
+
+            ViewBag.navegacao = true;
+            ViewBag.notificacoes = notificacoes;
+        }
 
 
         /// <summary>
@@ -79,32 +91,43 @@ namespace AirUberProjeto.Controllers
         [HttpGet]
         public IActionResult Perfil()
         {
-            string idCliente = _userManager.GetUserAsync(this.User).Result.Id;
 
-            Cliente cliente = (_context.Cliente
-                    .Include(c => c.ContaDeCreditos)
-                    .Include(c => c.ListaReservas)
-                    .Where(c => c.Id == idCliente)
-                    .Select(c => c))
+            try
+            {
+
+                string idCliente = _userManager.GetUserAsync(this.User).Result.Id;
+                setupNav();
+                Cliente cliente = (_context.Cliente
+                        .Include(c => c.ContaDeCreditos)
+                        .Include(c => c.ListaReservas)
+                        .Where(c => c.Id == idCliente)
+                        .Select(c => c))
                     .Single();
 
-            PerfilViewModel viewModel = new PerfilViewModel()
-            {
-                Cliente = cliente,
-                NumeroViagens = cliente.ListaReservas.Count
-            };
+                PerfilViewModel viewModel = new PerfilViewModel()
+                {
+                    Cliente = cliente,
+                    NumeroViagens = cliente.ListaReservas.Count
+                };
 
-            List<Notificacao> notificacoes = _context.Notificacao.Where((n) =>
-                        n.UtilizadorId == cliente.Id
-            ).ToList();
+                List<Notificacao> notificacoes = _context.Notificacao.Where((n) =>
+                            n.UtilizadorId == cliente.Id
+                ).ToList();
 
-            foreach (Notificacao notificacao in notificacoes)
+                foreach (Notificacao notificacao in notificacoes)
+                {
+                    viewModel.Notificacoes.Add(notificacao);
+                }
+                
+
+                return View(viewModel);
+            }
+            catch (Exception ex)
             {
-                viewModel.Notificacoes.Add(notificacao);
+                return RedirectToAction("Index","Home");
             }
 
-
-            return View(viewModel);
+            
         }
 
 
@@ -119,6 +142,7 @@ namespace AirUberProjeto.Controllers
         {
             try
             {
+                setupNav();
                 Notificacao notificacao = _context.Notificacao.First(n => n.NotificacaoId == id);
                 notificacao.Lida = true;
                 _context.Notificacao.Update(notificacao);
@@ -140,9 +164,10 @@ namespace AirUberProjeto.Controllers
         [HttpGet]
         public IActionResult EditarPerfil()
         {
+            setupNav();
             Cliente cliente = (Cliente) _userManager.GetUserAsync(this.User).Result;
 
-            return View(cliente);
+            return RedirectToAction("Perfil");
         }
 
 
@@ -152,21 +177,22 @@ namespace AirUberProjeto.Controllers
         /// <param name="viewModel">ViewModel do pedido de alteração de dados</param>
         /// <returns>A view de edição de perfil do cliente</returns>
         [HttpPost]
-        public IActionResult EditarPerfil(EditarPerfilViewModel viewModel)
+        public IActionResult EditarPerfil(PerfilViewModel viewModel)
         {
             if (ModelState.IsValid)
             {
+                setupNav();
                 Cliente cliente = (Cliente) _userManager.GetUserAsync(this.User).Result;
-                cliente.Nome = viewModel.Nome;
-                cliente.Apelido = viewModel.Apelido;
-                cliente.Contacto = viewModel.Contacto;
+                cliente.Nome = viewModel.Cliente.Nome;
+                cliente.Apelido = viewModel.Cliente.Apelido;
+                cliente.Contacto = viewModel.Cliente.Contacto;
                 _context.Update(cliente);
                 _context.SaveChanges();
                 ViewData["Success"] = true;
-                return View(cliente);
+                return RedirectToAction("Perfil");
             }
 
-            return RedirectToAction(nameof(ClienteController.EditarPerfil), "Cliente");
+            return RedirectToAction("Perfil");
 
         }
 
@@ -184,7 +210,7 @@ namespace AirUberProjeto.Controllers
                 return RedirectToAction(nameof(ClienteController.EditarPerfil), "Cliente");
             }
 
-
+            setupNav();
             string extension = Path.GetExtension(file.FileName);
             if (extension != ".jpg" && extension != ".png")
                 return null;
@@ -266,7 +292,7 @@ namespace AirUberProjeto.Controllers
         /// <param name="aeroportoPartidaId">id do aeroporto de partida</param>
         /// <param name="aeroportoDestinoId">id do aeroporto de destino</param>
         /// <returns>Tempo de deslocação em ticks</returns>
-        private double CalcularTempoDeslocacaoTicks(int jatoId, int aeroportoPartidaId, int aeroportoDestinoId)
+        private long CalcularTempoDeslocacaoTicks(int jatoId, int aeroportoPartidaId, int aeroportoDestinoId)
         {
 
             Jato jato = _context.Jato
@@ -277,14 +303,14 @@ namespace AirUberProjeto.Controllers
             Aeroporto aeroportoDestino = _context.Aeroporto
                 .Single(j => j.AeroportoId == aeroportoDestinoId);
 
-            double distancia = DistanciaEntreCoordenadas(
+            long distancia = Convert.ToInt64(DistanciaEntreCoordenadas(
                 aeroportoPartida.Latitude,
                 aeroportoPartida.Longitude,
                 aeroportoDestino.Latitude,
                 aeroportoDestino.Longitude
-            );
+            ));
             //Metros por segundo
-            double velocidade = jato.VelocidadeMedia; 
+            long velocidade = Convert.ToInt64(jato.VelocidadeMedia); 
 
             return (distancia/velocidade)* TimeSpan.TicksPerSecond;
 
@@ -712,6 +738,7 @@ namespace AirUberProjeto.Controllers
         /// <returns>Lista de aeroportos disponiveis</returns>
         public IEnumerable<Aeroporto> AeroportosDestinoDisponiveis(int id, DateTime data)
         {
+
             IEnumerable<Aeroporto> aeroportos = _context.Aeroporto
                 .Select(a => new Aeroporto
                 {
@@ -736,7 +763,7 @@ namespace AirUberProjeto.Controllers
         /// <returns>Retorna a view das viagens</returns>
         public IActionResult VerViagens()
         {
-
+            setupNav();
             Cliente cliente = (Cliente) _userManager.GetUserAsync(this.User).Result;
 
             IEnumerable<Reserva> viagens = _context.Reserva.Select(c => c)
@@ -759,7 +786,7 @@ namespace AirUberProjeto.Controllers
         /// <returns>Retorna a view da procura de ofertas</returns>
         public IActionResult ProcurarOfertas()
         {
-
+            setupNav();
             return View();
 
         }
@@ -773,6 +800,7 @@ namespace AirUberProjeto.Controllers
         [HttpPost]
         public IActionResult ProcurarOfertas(int id)
         {
+            setupNav();
             //TODO: verificar se o o id existe, redirecionar para a lista de jatos disponíveis.
 
             var viagens = _context.Aeroporto.Select(c => c).ToList();
@@ -791,7 +819,7 @@ namespace AirUberProjeto.Controllers
             try
             {
 
-
+                setupNav();
                 IEnumerable<Jato> jatos = _context.Jato.Include(c => c.ListaDisponibilidade)
                     .Include(c => c.Modelo)
                     .Include(c => c.Modelo.TipoJato)
@@ -826,7 +854,27 @@ namespace AirUberProjeto.Controllers
 
 
         }
-        
+
+
+        public IActionResult Notificacoes()
+        {
+            
+            Cliente cliente = (Cliente)_userManager.GetUserAsync(this.User).Result;
+            IEnumerable<Notificacao> notificacoes = _context.Notificacao.Where(n => n.UtilizadorId == cliente.Id);
+            foreach (Notificacao notificacao in notificacoes)
+            {
+                notificacao.Lida = true;
+                _context.Notificacao.Update(notificacao);
+                
+            }
+            _context.SaveChanges();
+            setupNav();
+            return View(notificacoes);
+
+        }
+
+
+
 
         /// <summary>
         /// Responsável por redireccionar o utilizador para a página que apresenta a informação de uma oferta
@@ -837,6 +885,7 @@ namespace AirUberProjeto.Controllers
 
             try
             {
+                setupNav();
                 Aeroporto aeroportoPartida = _context.Aeroporto.Single(a => a.AeroportoId == idpartida);
                 Aeroporto aeroportoChegada = _context.Aeroporto.Single(a => a.AeroportoId == iddestino);
 
@@ -937,7 +986,7 @@ namespace AirUberProjeto.Controllers
         {
             try
             {
-
+                setupNav();
                 //Aeroporto partida = _context.Aeroporto.Single(a => a.AeroportoId == id);
                 string idCliente = _userManager.GetUserAsync(this.User).Result.Id;
 
@@ -962,7 +1011,8 @@ namespace AirUberProjeto.Controllers
                     aeroportoChegada.Longitude);
 
                 double custo = CalcularCusto(distancia, jato, extrasids);
-
+                long tempoDeViagem = CalcularTempoDeslocacaoTicks(jatoid, aeroportoPartida.AeroportoId, aeroportoChegada.AeroportoId);
+                DateTime chegada = new DateTime(tempoDeViagem + data.Ticks);
 
                 Cliente cliente = _context.Cliente.Include(c => c.ContaDeCreditos).Single(c => c.Id == idCliente);
 
@@ -979,6 +1029,7 @@ namespace AirUberProjeto.Controllers
                     Aprovada = false,
                     Custo = decimal.Parse(custo.ToString()),
                     DataPartida = data,
+                    DataChegada = chegada,
                     JatoId = jatoid,
                     Paga = false,
                     Realizada = false,
@@ -1015,6 +1066,7 @@ namespace AirUberProjeto.Controllers
            
             try
             {
+                setupNav();
                 string idCliente = _userManager.GetUserAsync(this.User).Result.Id;
 
                 if (estrelas < 0 || estrelas > 5)
@@ -1042,10 +1094,17 @@ namespace AirUberProjeto.Controllers
                 return false;
             }
 
+        }
 
+        public IActionResult Creditos()
+        {
+            setupNav();
+            Cliente cliente = (Cliente)_userManager.GetUserAsync(this.User).Result;
+            ContaDeCreditos creditos = _context.ContaDeCreditoses
+                .Include(c => c.HistoricoTransacoeMonetarias)
+                .Single(n => n.ContaDeCreditosId == cliente.ContaDeCreditos.ContaDeCreditosId);
 
-
-
+            return View(creditos);
         }
 
 

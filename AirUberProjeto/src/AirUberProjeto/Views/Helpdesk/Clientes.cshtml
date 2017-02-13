@@ -2,80 +2,92 @@
 
 @{
     ViewBag.Title = "Clientes";
-    Layout = "_Layout";
 }
 
-<h2>@ViewBag.Title</h2>
+<div class="content">
+    <div class="container-fluid">
 
-<div class="table-responsive">
-    <table class="table">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Clientes</h4>
 
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => (model.Take(1) as Cliente).Nome)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => (model.Take(1) as Cliente).Contacto)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => (model.Take(1) as Cliente).Email)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => (model.Take(1) as Cliente).ContaDeCreditos.JetCashActual)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => (model.Take(1) as Cliente).ListaReservas)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => (model.Take(1) as Cliente).DataCriacao)
-                </th>
-                <th></th>
-            </tr>
+                    </div>
+                    <div class="content table-responsive table-full-width">
+                        <table class="table table-hover table-striped">
 
-        </thead>
-        <tbody>
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => (model.Take(1) as Cliente).Nome)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => (model.Take(1) as Cliente).Contacto)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => (model.Take(1) as Cliente).Email)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => (model.Take(1) as Cliente).ContaDeCreditos.JetCashActual)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => (model.Take(1) as Cliente).ListaReservas)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => (model.Take(1) as Cliente).DataCriacao)
+                                    </th>
+                                    <th></th>
+                                </tr>
+
+                            </thead>
+                            <tbody>
 
 
-            @foreach (var item in Model)
+                                @foreach (var item in Model)
             {
                 if (item is Cliente)
                 {
                     string nomeCompleto = item.Nome + " " + item.Apelido;
-                    <tr>
-                        <td>
-                            @nomeCompleto
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => (item.Contacto))
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => (item.Email))
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => (item.ContaDeCreditos.JetCashActual))
-                        </td>
-                        <td>
-                            <a asp-action="ModalViagens" asp-route-email="@item.Email" asp-route-count="@item.ListaReservas.Count">@Html.DisplayFor(modelItem => (item.ListaReservas.Count))</a>
+                                        <tr>
+                                            <td>
+                                                @nomeCompleto
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => (item.Contacto))
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => (item.Email))
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => (item.ContaDeCreditos.JetCashActual))
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => (item.ListaReservas.Count))
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => (item.DataCriacao))
+                                            </td>
+                                            <td>
 
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => (item.DataCriacao))
-                        </td>
-                        <td>
+                                                <form asp-controller="Autenticacao" asp-action="ConfirmReset" method="get">
 
-                            <form asp-controller="Autenticacao" asp-action="ConfirmReset" method="get">
+                                                    <input  type="hidden" name="email" value="@Html.DisplayFor(modelItem => (item.Email))" />
+                                                    <input  class="btn-link" type="submit" value="Reset Password" />
+                                                    
+                                                </form>
+                                            </td>
+                                        </tr>
 
-                                <input type="hidden" name="email" value="@Html.DisplayFor(modelItem => (item.Email))" />
-                                <input type="submit" value="Reset Password" />
-                            </form>
-                        </td>
-                    </tr>
+                                    }
+                                }
 
-                }
-            }
+                            </tbody>
 
-        </tbody>
-
-    </table>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
