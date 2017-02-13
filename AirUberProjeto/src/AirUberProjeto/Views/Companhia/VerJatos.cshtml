@@ -260,12 +260,12 @@
 
     }
 
-
+   
 
 </script>
 
 
-<div id="disp" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="disp" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="background-color: rgba(0,0,0,0.2)">
     <div class="modal-dialog">
         <div class="modal-body row" style="background: white;">
 
@@ -273,3 +273,10 @@
         </div>
     </div>
 </div>
+
+
+<script> $('#disp')
+      .on('shown.bs.modal',
+          function () {
+              $(".modal-backdrop").hide();
+          });</script>
