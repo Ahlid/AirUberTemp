@@ -52,6 +52,46 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label asp-for="@Model.Companhia.Contact" class="control-label"></label>
+                                        <div>
+                                            <input asp-for="@Model.Companhia.Contact" class="form-control" />
+                                            <span asp-validation-for="@Model.Companhia.Contact" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label asp-for="@Model.Companhia.Nif" class="control-label"></label>
+                                        <div>
+                                            <input asp-for="@Model.Companhia.Nif" class="form-control" />
+                                            <span asp-validation-for="@Model.Companhia.Nif" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label asp-for="@Model.Companhia.PaisId" class="control-label"></label>
+                                        <div>
+                                            <select asp-for="@Model.Companhia.PaisId" class="form-control" asp-items="ViewBag.paises"></select>
+                                            <span asp-validation-for="@Model.Companhia.PaisId" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            
+
+
+
                             <button type="submit" class="btn btn-info btn-fill pull-right">Atualizar Perfil</button>
                             <div class="clearfix"></div>
                         </form>
@@ -66,7 +106,7 @@
                     <div class="content">
                         <div class="author">
 
-                            <img class="avatar border-gray" src="..\@Model.Companhia.RelativePathImagemPerfil" alt="..." />
+                            <img id="perfil-img" class="avatar border-gray" src="..\@Model.Companhia.RelativePathImagemPerfil" alt="..." />
                             <h4 class="title">
                                 @Model.Colaborador.Nome <br />
                                 <small>Companhia</small>
@@ -82,8 +122,8 @@
 
                             <label>Estado da conta</label>
                             @Html.Raw(Model.Colaborador.EmailConfirmed ?
-                        "<span class=\"label label-success\">Confirmada</span>" :
-                        "<span class=\"label label-warning\" data-placement=\"top\" data-toggle=\"tooltip\" title=\"Um e-mail foi enviado para a sua conta de utilizador. Verifique a sua caixa de correio-eletrónico\">Por confirmar</span>")
+                                "<span class=\"label label-success\">Confirmada</span>" :
+                                "<span class=\"label label-warning\" data-placement=\"top\" data-toggle=\"tooltip\" title=\"Um e-mail foi enviado para a sua conta de utilizador. Verifique a sua caixa de correio-eletrónico\">Por confirmar</span>")
                             <br />
 
                         </p>
@@ -95,3 +135,33 @@
         </div>
     </div>
 </div>
+
+<div style="display: none;">
+    <form id="upload" asp-controller="Companhia" asp-action="AlterarImagemPerfil" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" class="form-vertical" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="file">Imagem de perfil:</label>
+            <input type="file" accept=".jpg,.png" name="file" id="file" />
+            <input type="submit" value="Alterar" />
+        </div>
+    </form>
+</div>
+
+<script>
+    
+    $('#perfil-img').click(function () {
+
+
+        $('input[type=file]').trigger('click');
+
+    });
+
+    $('input[type=file]').change(function () {
+        
+        document.getElementById("upload").submit();
+    });
+
+
+</script>
+
+
+

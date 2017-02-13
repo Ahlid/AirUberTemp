@@ -110,6 +110,8 @@ namespace AirUberProjeto.Controllers
                 .Include(c => c.ListaExtras)
                 .Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
 
+            ViewBag.paises = new SelectList(_context.Pais.ToList(), "PaisId", "Nome");
+
             PerfilCompanhiaViewModel perfilViewModel = new PerfilCompanhiaViewModel()
             {
                 Colaborador = colaborador,
@@ -180,6 +182,10 @@ namespace AirUberProjeto.Controllers
                 companhia.Nome = viewModel.companhia.Nome;
                 companhia.Morada = viewModel.companhia.Morada;
                 companhia.Descricao = viewModel.companhia.Descricao;
+                companhia.Nif = viewModel.companhia.Nif;
+                companhia.Contact = viewModel.companhia.Contact;
+                companhia.PaisId = viewModel.companhia.PaisId;
+                companhia.Nif = viewModel.companhia.Nif;
 
                 _context.Update(companhia);
                 _context.SaveChanges();

@@ -19,25 +19,27 @@ namespace AirUberProjeto.Models.CompanhiaViewModels
         /// <summary>
         /// Propriedade responsável por guardar o contacto da companhia.
         /// </summary>
-        
+        [Required]
         public string Contact { get; set; }
 
         /// <summary>
         /// Descrição da companhia
         /// </summary>
-        /// [Required]
+        [Required]
         public string Descricao { get; set; }
 
-       
+
 
         /// <summary>
         /// Identificador único do pais a que pertence a companhia
         /// </summary>
-        public string PaisId { get; set; }
+        [Required]
+        public int PaisId { get; set; }
 
         /// <summary>
         /// Número de identificação fiscal da companhia
         /// </summary>
+        [Required]
         public string Nif { get; set; }
 
     }

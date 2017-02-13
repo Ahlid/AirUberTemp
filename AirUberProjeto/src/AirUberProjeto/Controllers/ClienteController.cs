@@ -886,8 +886,8 @@ namespace AirUberProjeto.Controllers
             try
             {
                 setupNav();
-                Aeroporto aeroportoPartida = _context.Aeroporto.Single(a => a.AeroportoId == idpartida);
-                Aeroporto aeroportoChegada = _context.Aeroporto.Single(a => a.AeroportoId == iddestino);
+                Aeroporto aeroportoPartida = _context.Aeroporto.Include(a => a.Cidade).Include(a => a.Cidade.Pais).Single(a => a.AeroportoId == idpartida);
+                Aeroporto aeroportoChegada = _context.Aeroporto.Include(a => a.Cidade).Include(a => a.Cidade.Pais).Single(a => a.AeroportoId == iddestino);
 
                 Jato Jato = _context.Jato
                     .Select(c => c)

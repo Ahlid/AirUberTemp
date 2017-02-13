@@ -65,7 +65,7 @@
                     <div class="content">
                         <div class="author">
                         
-                                <img class="avatar border-gray" src="..\@Model.Cliente.RelativePathImagemPerfil" alt="..." />
+                                <img id="perfil-img" class="avatar border-gray" src="..\@Model.Cliente.RelativePathImagemPerfil" alt="..." />
                                 <h4 class="title">
                                     @Model.Cliente.Nome @Model.Cliente.Apelido<br />
                                     <small>Cliente</small>
@@ -95,6 +95,33 @@
     </div>
 </div>
 
+
+<div style="display: none;">
+    <form id="upload" asp-controller="Cliente" asp-action="AlterarImagemPerfil" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" class="form-vertical" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="file">Imagem de perfil:</label>
+            <input type="file" accept=".jpg,.png" name="file" id="file" />
+            <input type="submit" value="Alterar" />
+        </div>
+    </form>
+</div>
+
+<script>
+
+    $('#perfil-img').click(function () {
+
+
+        $('input[type=file]').trigger('click');
+
+    });
+
+    $('input[type=file]').change(function () {
+
+        document.getElementById("upload").submit();
+    });
+
+
+</script>
 
 
 
