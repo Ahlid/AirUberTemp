@@ -53,7 +53,7 @@ namespace AirUberProjeto.Test.Controllers
                 .WithModelOfType<Cliente>()
                 .Passing(model => Assert.Equal(model,clienteTest));
 
-        [Fact]
+     /*   [Fact]
         public void EditarPerfilPostTest()
             => MyController<ClienteController>
                 .Instance()
@@ -64,7 +64,7 @@ namespace AirUberProjeto.Test.Controllers
                 .ShouldReturn()
                 .View();
 
-
+    */
         [Fact]
         public void UploadImageShouldReturnRedirectTest()
             => MyController<ClienteController>

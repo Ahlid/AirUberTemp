@@ -29,6 +29,6 @@ namespace AirUberBackoffice
         /// <summary>
         /// Propriedade navegacional de um tipo de acão
         /// </summary>
-        public TipoAcao TipoAcao { get; set; }
+        public T TipoAcao { get; set; }
     }
 }

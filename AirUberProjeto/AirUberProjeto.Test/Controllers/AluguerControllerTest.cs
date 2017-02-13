@@ -249,7 +249,7 @@ namespace AirUberProjeto.Test.Controllers
                 CreditosPorKilometro = 1.1,
                 DistanciaMaxima = 1000000,
                 TempoPreparacao = 1,
-                VelocidadeMedia = 0
+                VelocidadeMedia = 1
             };
 
             Disponibilidade disponibilidade1 = new Disponibilidade()
@@ -261,7 +261,7 @@ namespace AirUberProjeto.Test.Controllers
 
             jato1.ListaDisponibilidade.Add(disponibilidade1);
 
-            DateTime dataPartida = new DateTime(2017, 9, 23);
+            DateTime dataPartida = new DateTime(2017, 9, 29);
 
             MyController<ClienteController>
                .Instance()

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AirUberBackoffice
 {
-    public class TipoAcao
+    public class T
     {
 
             /// <summary>

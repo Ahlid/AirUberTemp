@@ -997,7 +997,7 @@ namespace AirUberBackoffice
             string sqlInsert = "INSERT INTO [Modelo] ([Capacidade], [Alcance], [VelocidadeMaxima], [PesoMaximaBagagens], [NumeroMotores], [AltitudeIdeal], [AlturaCabine], [LarguraCabine], [ComprimentoCabine], [Descricao], [TipoJatoId]) VALUES ('" + modelo.Capacidade.ToString() + "', '" + modelo.Alcance.ToString() + "', '" + modelo.VelocidadeMaxima.ToString() + "', '" + modelo.PesoMaximaBagagens.ToString() + "', '" + modelo.NumeroMotores.ToString() + "', '" + modelo.AltitudeIdeal.ToString() + "', '" + modelo.AlturaCabine.ToString() + "', '" + modelo.LarguraCabine.ToString() + "', '" + modelo.ComprimentoCabine.ToString() + "', '" + modelo.Descricao + "', '" + modelo.TipoJatoId.ToString() + "')";
             cmd.CommandText = sqlInsert;
 
-            string sqlSelect = "SELECT [Capacidade] FROM Modelo WHERE (ModeloId = SCOPE_IDENTITY())";
+            //string sqlSelect = "SELECT [Capacidade] FROM Modelo WHERE (ModeloId = SCOPE_IDENTITY())";
 
             int regs = 0;
 

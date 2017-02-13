@@ -1,20 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="AirUberBackoffice.AirUberDB" Collapsed="true">
+  <Class Name="AirUberBackoffice.AirUberDB">
     <Position X="8.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AeIgAAAAQAACCwgABSgiAQAAEACAAQAIIgAUAAAEABA=</HashCode>
       <FileName>AirUberDB.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="AirUberBackoffice.App" Collapsed="true">
+  <Class Name="AirUberBackoffice.App">
     <Position X="10.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAgAAAAAAAA=</HashCode>
       <FileName>App.xaml.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="AirUberBackoffice.MainWindow" Collapsed="true" BaseTypeListCollapsed="true">
+  <Class Name="AirUberBackoffice.MainWindow" BaseTypeListCollapsed="true">
     <Position X="5.25" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>GiAGACAALAQIQCAQsAYABAgQBYCAIoSCAEABQASEoQg=</HashCode>
@@ -22,14 +22,14 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="AirUberBackoffice.Acao" Collapsed="true">
+  <Class Name="AirUberBackoffice.Acao">
     <Position X="5.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAACAAAAAAABAAAAAAAACEAAAAAAAAAAAAAAAACAAA=</HashCode>
       <FileName>Modelo\Acao.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="AirUberBackoffice.Aeroporto" Collapsed="true" BaseTypeListCollapsed="true">
+  <Class Name="AirUberBackoffice.Aeroporto" BaseTypeListCollapsed="true">
     <Position X="7" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AQBBQAAAAEAAAAAAIABIAACAiAAABAAAAAAAACEAAQA=</HashCode>
@@ -44,7 +44,7 @@
       <FileName>Modelo\ApplicationUser.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="AirUberBackoffice.Cidade" Collapsed="true">
+  <Class Name="AirUberBackoffice.Cidade">
     <Position X="12.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>gABAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
@@ -65,14 +65,14 @@
       <FileName>Modelo\Colaborador.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="AirUberBackoffice.Companhia" Collapsed="true">
-    <Position X="14" Y="0.5" Width="1.5" />
+  <Class Name="AirUberBackoffice.Companhia">
+    <Position X="16.5" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>gAACAABEICQAAAAAigBwQAAAAAAAQAAAAAAgAAEAAAg=</HashCode>
       <FileName>Modelo\Companhia.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="AirUberBackoffice.ContaDeCreditos" Collapsed="true">
+  <Class Name="AirUberBackoffice.ContaDeCreditos">
     <Position X="5.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAIAAAAAAAAAAAAQAAAAAAAAAAAAAA=</HashCode>
@@ -101,14 +101,14 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="AirUberBackoffice.Jato" Collapsed="true">
-    <Position X="14" Y="2.5" Width="1.5" />
+  <Class Name="AirUberBackoffice.Jato">
+    <Position X="14.75" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAABAQAAAAAAAAAgACAAQAAQBAAAAAAAAgggAAEAAAA=</HashCode>
       <FileName>Modelo\Jato.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="AirUberBackoffice.Modelo" Collapsed="true" BaseTypeListCollapsed="true">
+  <Class Name="AirUberBackoffice.Modelo" BaseTypeListCollapsed="true">
     <Position X="7" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAIAIAZABgBBAAYAIQCAABAAhAgQAgRIAgAAAEAABCA=</HashCode>
@@ -130,14 +130,14 @@
       <FileName>Modelo\Reserva.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="AirUberBackoffice.TipoAcao" Collapsed="true">
+  <Class Name="AirUberBackoffice.TipoAcao">
     <Position X="5.25" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
       <FileName>Modelo\TipoAcao.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="AirUberBackoffice.TipoExtra" Collapsed="true" BaseTypeListCollapsed="true">
+  <Class Name="AirUberBackoffice.TipoExtra" BaseTypeListCollapsed="true">
     <Position X="7" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AQAAAAAAAAAEAAAAIAAAAAAAgAAAAAAAAAAAAAUAAAA=</HashCode>
@@ -145,7 +145,7 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="AirUberBackoffice.TipoJato" Collapsed="true" BaseTypeListCollapsed="true">
+  <Class Name="AirUberBackoffice.TipoJato" BaseTypeListCollapsed="true">
     <Position X="8.75" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AQAAAAAAAAAAAAAAIAAAAAAAgAgAAAAIAAAAAAEAAAA=</HashCode>
@@ -185,7 +185,7 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="AirUberBackoffice.AlteracoesModelo.EditarModeloDialog" Collapsed="true" BaseTypeListCollapsed="true">
+  <Class Name="AirUberBackoffice.AlteracoesModelo.EditarModeloDialog" BaseTypeListCollapsed="true">
     <Position X="5.25" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAAAAABABAAAAAAAAAAAAAQAAgQAAAAAAA=</HashCode>
