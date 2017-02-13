@@ -8,7 +8,7 @@ using AirUberProjeto.Data;
 namespace AirUberProjeto.Migrations
 {
     [DbContext(typeof(AirUberDbContext))]
-    [Migration("20170211182621_in")]
+    [Migration("20170212040543_in")]
     partial class @in
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -278,6 +278,8 @@ namespace AirUberProjeto.Migrations
 
                     b.Property<double>("CreditosPorKilometro");
 
+                    b.Property<double>("DistanciaMaxima");
+
                     b.Property<bool>("EmFuncionamento");
 
                     b.Property<int>("ModeloId");
@@ -286,6 +288,10 @@ namespace AirUberProjeto.Migrations
                         .IsRequired();
 
                     b.Property<string>("RelativePathImagemPerfil");
+
+                    b.Property<double>("TempoPreparacao");
+
+                    b.Property<double>("VelocidadeMedia");
 
                     b.HasKey("JatoId");
 

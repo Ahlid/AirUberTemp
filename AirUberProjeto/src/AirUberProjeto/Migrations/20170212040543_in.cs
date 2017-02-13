@@ -345,10 +345,13 @@ namespace AirUberProjeto.Migrations
                     CompanhiaId = table.Column<int>(nullable: false),
                     CreditosBase = table.Column<double>(nullable: false),
                     CreditosPorKilometro = table.Column<double>(nullable: false),
+                    DistanciaMaxima = table.Column<double>(nullable: false),
                     EmFuncionamento = table.Column<bool>(nullable: false),
                     ModeloId = table.Column<int>(nullable: false),
                     Nome = table.Column<string>(nullable: false),
-                    RelativePathImagemPerfil = table.Column<string>(nullable: true)
+                    RelativePathImagemPerfil = table.Column<string>(nullable: true),
+                    TempoPreparacao = table.Column<double>(nullable: false),
+                    VelocidadeMedia = table.Column<double>(nullable: false)
                 },
                 constraints: table =>
                 {
