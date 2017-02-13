@@ -8,38 +8,40 @@
 
 <link rel="stylesheet" type="text/css" href="~/css/styles.css">
 <link rel="stylesheet" type="text/css" href="~/css/demo.css">
-
+<link rel="stylesheet" type="text/css" href="http://www.w3schools.com/lib/w3.css" />
 
 
 <div class="content">
     <div class="container-fluid">
         <div class="card">
             <div class="header">
-                <h4 class="title">Carregar Conta</h4>
-                <span class="description">Escolha um dos seguintes pacotes</span>
+                <h4 class="title w3-center">Carregar Conta</h4>
+                <p class="w3-center"><span class="description">Escolha um dos seguintes pacotes</span></p>
                 <div id="callback-payment"></div>
             </div>
             <div class="container-fluid text-center" style="margin-top:20px">
   
                 <div class="card col-md-3" style="padding:20px">
 
-                            <h2 class="w3-text-red">RED PACKAGE</h2>
+                    <h2 class="w3-text-red">RED</h2>
+                    <h2 class="w3-text-red">PACKAGE</h2>
                             <h3>
                                 830<img style="height: 40px; margin-bottom: 2px" src="~/images/cash.png" />
                             </h3>
 
                             <p> 10000€ <span class="w3-tiny">(12€ by credit)</span></p>
-                            <button onclick="clickBuy(10000, 830)" style="padding: 10px 80px" class="btn" data-toggle="modal" data-target="#myModal">Buy</button>
+                            <button onclick="clickBuy(10000, 830)" style="padding: 10px 80px" class="btn w3-border" data-toggle="modal" data-target="#myModal">Buy</button>
                      
                 </div>
                 
                 <div class="card col-md-3  col-md-offset-1"style="padding:20px">
 
                       
-                            <h2 class="w3-text-grey">SILVER PACKAGE</h2>
+                    <h2 class="w3-text-grey">SILVER</h2>
+                    <h2 class="w3-text-grey">PACKAGE</h2>
                             <h3>1820<img style="height: 40px; margin-bottom: 2px" src="~/images/cash.png" /></h3>
                             <p> 20000€ <span class="w3-tiny">(11€ by credit)</span></p>
-                            <button onclick="clickBuy(20000,1820)" style="padding: 10px 80px" class="btn" data-toggle="modal" data-target="#myModal">Buy</button>
+                            <button onclick="clickBuy(20000,1820)" style="padding: 10px 80px" class="btn w3-border" data-toggle="modal" data-target="#myModal">Buy</button>
                      
                    
                 </div>
@@ -47,14 +49,15 @@
                 <div class="card col-md-3  col-md-offset-1"style="padding:20px">
 
                    
-                            <h2 class="w3-text-amber">GOLD PACKAGE</h2>
+                    <h2 class="w3-text-amber">GOLD</h2>
+                    <h2 class="w3-text-amber">PACKAGE</h2>
                             <h3>3000<img style="height: 40px; margin-bottom: 2px" src="~/images/cash.png" /></h3>
                             <p> 30000€ <span class="w3-tiny">(10€ by credit)</span></p>
-                            <button onclick="clickBuy(30000,3000)" style="padding: 10px 80px" class="btn data-toggle="modal" data-target="#myModal">Buy</button>
+                            <button onclick="clickBuy(30000,3000)" style="padding: 10px 80px" class="btn w3-border" data-toggle="modal" data-target="#myModal">Buy</button>
                    
                 </div>
                 
-                <div id="myModal" class="modal" role="dialog">
+                <div id="myModal" class="modal" role="dialog" style="background-color: rgba(0,0,0,0.2)">
                     <div class="modal-dialog modal-lg">
 
                         <!-- Modal content-->
@@ -99,7 +102,7 @@
                                                         <option value="12">December</option>
                                                     </select>
                                                     <select>
-                                                        <option value="16"> 2016</option>
+                                                     
                                                         <option value="17"> 2017</option>
                                                         <option value="18"> 2018</option>
                                                         <option value="19"> 2019</option>
@@ -145,10 +148,18 @@
 <script src="~/js/script.js"></script>
 <script>
 
+    $('#myModal')
+        .on('shown.bs.modal',
+            function() {
+                $(".modal-backdrop").hide();
+            });
+
     function clickBuy(amount, credits) {
         window.__AMOUNT__ = amount;
         window.__CREDITS__ = credits;
         document.getElementById("amount").textContent = amount + "€";
+
+       
     }
 
 </script>
