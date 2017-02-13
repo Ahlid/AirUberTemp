@@ -64,8 +64,30 @@
 
 @RenderSection("scripts", required: false)
 <body>
+    
 
-    <div class="wrapper">
+    @if (SignInManager.IsSignedIn(User))
+    {
+
+        if (!User.IsInRole("Helpesk"))
+        {
+            <script type="text/javascript">
+            var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+            (function() {
+                var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+                s1.async = true;
+                s1.src = 'https://embed.tawk.to/58599d0fddb8373fd2b15edc/default';
+                s1.charset = 'UTF-8';
+                s1.setAttribute('crossorigin', '*');
+                s0.parentNode.insertBefore(s1, s0);
+            })();
+            </script>
+
+        <!--End of Tawk.to Script-->
+        }
+    }
+
+<div class="wrapper">
         @if (SignInManager.IsSignedIn(User) && ViewBag.navegacao != null)
         {
             <div class="sidebar" data-color="blue" data-image="/assets/img/nav-image.jpg" style="background-color: white">
