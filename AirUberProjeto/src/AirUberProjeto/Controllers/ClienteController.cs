@@ -314,7 +314,7 @@ namespace AirUberProjeto.Controllers
             if (velocidade == 0)
                 return long.MaxValue;
 
-            return (distancia/velocidade)* TimeSpan.TicksPerSecond;
+            return ((distancia * 1000)/velocidade)* TimeSpan.TicksPerSecond;
 
         }
 
