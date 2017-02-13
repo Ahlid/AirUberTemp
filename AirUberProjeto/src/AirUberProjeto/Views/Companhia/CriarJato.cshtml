@@ -18,86 +18,120 @@
 
                     <div class="content">
 
-                        <form asp-controller="Companhia" asp-action="CriarJato" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" class="form-vertical">
-                            <div>
+                        <form asp-controller="Companhia" asp-action="CriarJato" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" class="form-vertical" style="height: 500px">
+                            <div class="row" style="margin: 20px">
                            
                                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                                <div class="form-group">
-                                    <label asp-for="AeroportoId" class="col-md-2 control-label"></label>
-                                    <div class="col-md-10">
-                                        <select asp-for="AeroportoId" class="form-control" asp-items="ViewBag.aeroportos"></select>
+                                
+                                <div class="row">
+                                    <div class="form-group">
+                                        <label asp-for="AeroportoId" class="col-md-2 control-label"></label>
+                                        <div class="col-md-10">
+                                            <select asp-for="AeroportoId" class="form-control" asp-items="ViewBag.aeroportos"></select>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <label asp-for="CompanhiaId" class="col-md-2 control-label"></label>
-                                    <div class="col-md-10">
-                                        <input asp-for="Nome" type="text" class="form-control" value=@ViewBag.companhia disabled />
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label asp-for="ModeloId" class="col-md-2 control-label"></label>
-                                    <div class="col-md-10">
-                                        <select asp-for="ModeloId" class="form-control" asp-items="ViewBag.modelos"></select>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label asp-for="Nome" class="col-md-2 control-label"></label>
-                                    <div class="col-md-10">
-                                        <input asp-for="Nome" class="form-control" />
-                                        <span asp-validation-for="Nome" class="text-danger" />
-                                    </div>
-                                </div>
 
-                                <div class="form-group">
-                                    <label asp-for="CreditosPorKilometro" class="col-md-2 control-label"></label>
-                                    <div class="col-md-10">
-                                        <input asp-for="CreditosPorKilometro" class="form-control" />
-                                        <span asp-validation-for="CreditosPorKilometro" class="text-danger" />
+                                </div>
+                                <div class="row">
+                                    
+                                    <div class="form-group">
+                                        <label asp-for="CompanhiaId" class="col-md-2 control-label"></label>
+                                        <div class="col-md-10">
+                                            <input asp-for="Nome" type="text" class="form-control" value=@ViewBag.companhia disabled />
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+
+                                    <div class="form-group">
+                                        <label asp-for="ModeloId" class="col-md-2 control-label"></label>
+                                        <div class="col-md-10">
+                                            <select asp-for="ModeloId" class="form-control" asp-items="ViewBag.modelos"></select>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    
+                                    <div class="form-group">
+                                        <label asp-for="Nome" class="col-md-2 control-label"></label>
+                                        <div class="col-md-10">
+                                            <input asp-for="Nome" class="form-control" />
+                                            <span asp-validation-for="Nome" class="text-danger" />
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    
+                                    <div class="form-group">
+                                        <label asp-for="CreditosPorKilometro" class="col-md-2 control-label"></label>
+                                        <div class="col-md-10">
+                                            <input asp-for="CreditosPorKilometro" class="form-control" />
+                                            <span asp-validation-for="CreditosPorKilometro" class="text-danger" />
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="form-group">
+                                        <label asp-for="CreditosBase" class="col-md-2 control-label"></label>
+                                        <div class="col-md-10">
+                                            <input asp-for="CreditosBase" class="form-control" />
+                                            <span asp-validation-for="CreditosBase" class="text-danger" />
+                                        </div>
+                                    </div>
+                                    </div>
+                                <div class="row">
+                                    <div class="form-group">
+                                        <label asp-for="DistanciaMaxima" class="col-md-2 control-label"></label>
+                                        <div class="col-md-10">
+                                            <input asp-for="DistanciaMaxima" class="form-control" />
+                                            <span asp-validation-for="DistanciaMaxima" class="text-danger" />
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    
+
+                                    <div class="form-group">
+                                        <label asp-for="TempoPreparacao" class="col-md-2 control-label"></label>
+                                        <div class="col-md-10">
+                                            <input asp-for="TempoPreparacao" class="form-control" />
+                                            <span asp-validation-for="TempoPreparacao" class="text-danger" />
+                                        </div>
                                     </div>
                                 </div>
+                                <div class="row">
+                                    
 
-                                <div class="form-group">
-                                    <label asp-for="CreditosBase" class="col-md-2 control-label"></label>
-                                    <div class="col-md-10">
-                                        <input asp-for="CreditosBase" class="form-control" />
-                                        <span asp-validation-for="CreditosBase" class="text-danger" />
+
+                                    <div class="form-group">
+                                        <label asp-for="VelocidadeMedia" class="col-md-2 control-label"></label>
+                                        <div class="col-md-10">
+                                            <input asp-for="VelocidadeMedia" class="form-control" />
+                                            <span asp-validation-for="VelocidadeMedia" class="text-danger" />
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div class="form-group">
-                                    <label asp-for="DistanciaMaxima" class="col-md-2 control-label"></label>
-                                    <div class="col-md-10">
-                                        <input asp-for="DistanciaMaxima" class="form-control" />
-                                        <span asp-validation-for="DistanciaMaxima" class="text-danger" />
-                                    </div>
                                 </div>
-
-                                <div class="form-group">
-                                    <label asp-for="TempoPreparacao" class="col-md-2 control-label"></label>
-                                    <div class="col-md-10">
-                                        <input asp-for="TempoPreparacao" class="form-control" />
-                                        <span asp-validation-for="TempoPreparacao" class="text-danger" />
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label asp-for="VelocidadeMedia" class="col-md-2 control-label"></label>
-                                    <div class="col-md-10">
-                                        <input asp-for="VelocidadeMedia" class="form-control" />
-                                        <span asp-validation-for="VelocidadeMedia" class="text-danger" />
+                                <div class="row">
+                                    
+                                    <div class="content">
+                                        <input style="margin-right: 6px" type="submit" value="Criar" class="btn" />
+                                        <a class="btn" asp-action="VerJatos">Ver Jatos</a>
                                     </div>
                                 </div>
                                 
-                                <div class="content">
-                                    <input style="margin-right: 6px" type="submit" value="Criar" class="btn"/>
-                                    <a class="btn" asp-action="VerJatos">Ver Jatos</a>
-                                </div>
+
 
                             </div>
                         </form>
 
                         <div>
-                            
+                           
                         </div>
                     </div>
                 </div>
