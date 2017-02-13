@@ -5,146 +5,152 @@
 
 @{
     ViewBag.Title = "Oferta";
-    Layout = "_Layout";
 
 }
+<div class="content">
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Oferta</h4>
+
+                    </div>
+                    
+                    <div class="content" style="margin-top: 20px">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img class="img-thumbnail" src="..\..\@Model.Jato.RelativePathImagemPerfil" alt="...">
+
+                                <div style="padding: 20px; height: 200px">
+                                    <div id="map" style="height: 100%"></div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-8">
+                                <h1 class="media-heading">Companhia</h1>
+
+                                <label style="display: block; margin-bottom: 0">Avaliação</label>
+                                <ul id="el" class="c-rating"></ul>
 
 
-<div class="container" style="margin-top: 20px">
-    <div class="row">
-        <div class="col-md-4">
-            <img class="img-thumbnail" src="..\..\@Model.Jato.RelativePathImagemPerfil" alt="...">
-            
-            <div style="padding: 20px; height: 200px">
-                <div id="map" style="height: 100%"></div>
-            </div>
+                                <label style="display: block; margin-bottom: 0">Informação</label>
+                                @Model.Jato.Companhia.Descricao
 
-        </div>
-        <div class="col-md-8">
-            <h1 class="media-heading">Companhia</h1>
-            
-            <label style="display: block; margin-bottom: 0">Avaliação</label>
-            <ul id="el" class="c-rating"></ul>
-            
-   
-            <label style="display: block; margin-bottom: 0">Informação</label>
-            @Model.Jato.Companhia.Descricao
-            
-            <label style="display: block; margin-bottom: 0">Créditos Base</label>
-            @Model.Jato.CreditosBase
-            
-            <label style="display: block; margin-bottom: 0">Créditos Por kilometro</label>
-            @Model.Jato.CreditosPorKilometro
-            
-            <label style="display: block; margin-bottom: 0">Kilometros de viagem</label>
-            @Math.Round(Model.Kilometros, 2)km
-            
-            <div class="col-md-12" style="margin-top: 30px; padding-left: 0">
-                
-                <script>
-                    var extras = {};
+                                <label style="display: block; margin-bottom: 0">Créditos Base</label>
+                                @Model.Jato.CreditosBase
 
-                    @foreach (Extra extra in Model.Jato.Companhia.ListaExtras)
-                    {
-                        <text>
-                            extras["CheckBox @extra.ExtraId"] = {
-                                id: @extra.ExtraId,
-                                nome: "@extra.Nome",
-                                valor: parseFloat("@extra.Valor".replace(',', '.'))
-                            };
-                        </text>
-                    }
+                                <label style="display: block; margin-bottom: 0">Créditos Por kilometro</label>
+                                @Model.Jato.CreditosPorKilometro
 
-                    function calcularCreditos() {
+                                <label style="display: block; margin-bottom: 0">Kilometros de viagem</label>
+                                @Math.Round(Model.Kilometros, 2)km
 
-                        var creditos = parseFloat("@Model.Jato.CreditosBase".replace(',', '.'));
+                                <div class="col-md-12" style="margin-top: 30px; padding-left: 0">
 
-                        creditos += parseFloat("@(Model.Kilometros * Model.Jato.CreditosPorKilometro)"
-                            .replace(',', '.'));
+                                    <script>
+                                        var extras = {};
 
-                        for (var key in extras){
+                                        @foreach (Extra extra in Model.Jato.Companhia.ListaExtras)
+                                        {
+                                            <text>
+                                                extras["CheckBox @extra.ExtraId"] = {
+                                                    id: @extra.ExtraId,
+                                                    nome: "@extra.Nome",
+                                                    valor: parseFloat("@extra.Valor".replace(',', '.'))
+                                                };
+                                             </text>
+                                        }
 
-                            if (document.getElementById(key).checked) {
-                                creditos += extras[key].valor;
-                            }
-                        }
+                                        function calcularCreditos() {
 
-                        document.getElementById("TotalAPagar").innerHTML = creditos.toFixed(2) + "€";
+                                            var creditos = parseFloat("@Model.Jato.CreditosBase".replace(',', '.'));
 
-                    }
+                                            creditos += parseFloat("@(Model.Kilometros * Model.Jato.CreditosPorKilometro)"
+                                                .replace(',', '.'));
 
-                </script>
+                                            for (var key in extras){
 
-                
+                                                if (document.getElementById(key).checked) {
+                                                    creditos += extras[key].valor;
+                                                }
+                                            }
 
-                <div>
-                        <div>
-                            @if (Model.Jato.Companhia.ListaExtras.Count > 0)
-                            {
-                                <h4 class="media-heading">Selecione os extras que pretende:</h4>
-                            }
-                            else
-                            {
-                                <h4 class="media-heading">A oferta não incluí extras.</h4>
-                            }
-
-                            <ul class="list-group">
-
-                                @foreach (Extra extra in Model.Jato.Companhia.ListaExtras)
-                                {
-
-                                    <li class="col-md-12 list-group-item">
-                                        <label>@extra.Nome</label>
-                                        <input id="CheckBox @extra.ExtraId" style="margin-left: 20px; float: right" type="checkbox" onclick="calcularCreditos()"/>
-                                        <span class="badge">@extra.Valor€</span>
-                                    </li>
-                                }
-
-
-                            </ul>
-                            <label style="padding-left: 0">Observações</label><br/>
-                            <textarea name="Text1" cols="40" rows="5"></textarea><br/>
-
-                            <label style="padding-left: 0">Crédito total</label> <span id="TotalAPagar" class="badge">@Model.Jato.CreditosBase.ToString().Replace(',', '.')</span><br/>
-                            
-                            <script>
-                                function reservar() {
-                                    var query =
-                                        'ReservaConcluida?iddestino=@Model.AeroportoChegada.AeroportoId'+
-                                                            '&idpartida=@Model.AeroportoPartida.AeroportoId' +
-                                                            '&data=@Html.Raw(Model.DataPartida.ToString("yyyy'/'MM'/'dd"))'+
-                                                            '&jatoId=@Model.Jato.JatoId';
-
-
-                                    for (var key in extras){
-
-                                        if (document.getElementById(key).checked) {
-                                            query += '&extrasids=' + extras[key].id;
+                                            document.getElementById("TotalAPagar").innerHTML = creditos.toFixed(2) + "JC";
 
                                         }
-                                    }
+
+                                    </script>
 
 
 
-                                    window.location.replace(query);
-                                }
-                            </script>
-                            
+                                    <div>
+                                        <div>
+                                            @if (Model.Jato.Companhia.ListaExtras.Count > 0)
+                                            {
+                                                <h4 class="media-heading">Selecione os extras que pretende:</h4>
+                                            }
+                                            else
+                                            {
+                                                <h4 class="media-heading">A oferta não incluí extras.</h4>
+                                            }
 
-                            <input style="margin-top: 20px" onclick="reservar()" type="submit" value="Reservar" class="btn btn-default"/>
+                                            <ul class="list-group">
 
+                                                @foreach (Extra extra in Model.Jato.Companhia.ListaExtras)
+                                                {
+                                                    <li class="col-md-12 list-group-item">
+                                                        <label>@extra.Nome</label>
+                                                        <input id="CheckBox @extra.ExtraId" style="margin-left: 20px; float: right" type="checkbox" onclick="calcularCreditos()" />
+                                                        <span class="badge">@extra.Valor€</span>
+                                                    </li>
+                                                }
+
+
+                                            </ul>
+                                            <label style="padding-left: 0">Observações</label><br />
+                                            <textarea name="Text1" cols="40" rows="5"></textarea><br />
+
+                                            <label style="padding-left: 0">Crédito total</label> <span id="TotalAPagar" class="badge">@Model.Jato.CreditosBase.ToString().Replace(',', '.')</span><br />
+
+                                            <script>
+                                                function reservar() {
+                                                    var query =
+                                                        'ReservaConcluida?iddestino=@Model.AeroportoChegada.AeroportoId'+
+                                                                            '&idpartida=@Model.AeroportoPartida.AeroportoId' +
+                                                                            '&data=@Html.Raw(Model.DataPartida.ToString("yyyy'/'MM'/'dd"))'+
+                                                                            '&jatoId=@Model.Jato.JatoId';
+
+
+                                                    for (var key in extras){
+
+                                                        if (document.getElementById(key).checked) {
+                                                            query += '&extrasids=' + extras[key].id;
+
+                                                        }
+                                                    }
+
+
+
+                                                    window.location.replace(query);
+                                                }
+                                            </script>
+
+
+                                            <input style="margin-top: 20px" onclick="reservar()" type="submit" value="Reservar" class="btn btn-default" />
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-
+                    </div>
                 </div>
-
             </div>
-        
         </div>
-
     </div>
-
 </div>
-
 
 <script>
 
@@ -163,10 +169,10 @@
         });
 
         directionsService.route({
-                origin: "@Html.Raw(Model.AeroportoPartida.Latitude.ToString().Replace(',', '.') + "," + Model.AeroportoPartida.Longitude.ToString().Replace(',', '.'))",
-                destination: "@Html.Raw(Model.AeroportoChegada.Latitude.ToString().Replace(',', '.') + "," + Model.AeroportoChegada.Longitude.ToString().Replace(',', '.'))",
-                travelMode: 'WALKING'
-            },
+            origin: "@Html.Raw(Model.AeroportoPartida.Latitude.ToString().Replace(',', '.') + "," + Model.AeroportoPartida.Longitude.ToString().Replace(',', '.'))",
+            destination: "@Html.Raw(Model.AeroportoChegada.Latitude.ToString().Replace(',', '.') + "," + Model.AeroportoChegada.Longitude.ToString().Replace(',', '.'))",
+            travelMode: 'WALKING'
+        },
             function(response, status) {
                 if (status === 'OK') {
                     directionsDisplay.setDirections(response);

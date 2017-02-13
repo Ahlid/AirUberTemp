@@ -22,9 +22,7 @@
 
                             <thead>
                                 <tr>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.Jato.Companhia)
-                                    </th>
+                                    
                                     <th>
                                         @Html.DisplayNameFor(model => model.Cliente)
                                     </th>
@@ -57,10 +55,8 @@
                             <tbody>
                                 @foreach (Reserva item in Model)
                                 {
-                                    <tr>
-                                        <td>
-                                            @Html.DisplayFor(model => item.Jato.Companhia.Nome)
-                                        </td>
+                                    <tr id="reserva@(item.ReservaId)">
+                                        
                                         <td>
                                             @Html.DisplayFor(modelItem => item.Cliente.Nome)
                                         </td>
@@ -127,8 +123,8 @@
             url: "/Companhia/ValidarReserva",
             data: { id: id },
             dataType: "json",
-            success: function () { removerReserva(id); },
-            error: function () { alert("failed"); }
+            success: function () { removerReserva(id); $.notify("Reserva aceite com sucesso"); },
+            error: function () { $.notify("Falha a aceitar a reserva"); }
         });
     }
 
@@ -138,8 +134,8 @@
             url: "/Companhia/RejeitarReserva",
             data: { id: id },
             dataType: "json",
-            success: function () { removerReserva(id); },
-            error: function () { alert("failed"); }
+            success: function () { removerReserva(id); $.notify("Reserva rejeitada com sucesso"); },
+            error: function () { $.notify("Falha a rejeitar a reserva"); }
         });
     }
 
