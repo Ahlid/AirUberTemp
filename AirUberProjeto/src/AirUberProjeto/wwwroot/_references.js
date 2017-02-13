@@ -35,6 +35,7 @@
 /// <reference path="assets/js/bootstrap-notify.js" />
 /// <reference path="assets/js/bootstrap-select.js" />
 /// <reference path="assets/js/chartist.min.js" />
+/// <reference path="assets/js/croppic.min.js" />
 /// <reference path="assets/js/demo.js" />
 /// <reference path="assets/js/jquery-1.10.2.js" />
 /// <reference path="assets/js/light-bootstrap-dashboard.js" />

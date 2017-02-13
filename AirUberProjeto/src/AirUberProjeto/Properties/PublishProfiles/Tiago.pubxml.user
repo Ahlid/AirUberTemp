@@ -11,1120 +11,1426 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="AirUberProjeto.deps.json">
-      <publishTime>10/02/2017 18:47:55</publishTime>
+      <publishTime>02/13/2017 04:21:54</publishTime>
     </File>
     <File Include="AirUberProjeto.dll">
-      <publishTime>10/02/2017 17:18:51</publishTime>
+      <publishTime>02/13/2017 04:21:40</publishTime>
     </File>
     <File Include="AirUberProjeto.pdb">
-      <publishTime>10/02/2017 17:18:51</publishTime>
+      <publishTime>02/13/2017 04:21:40</publishTime>
     </File>
     <File Include="AirUberProjeto.runtimeconfig.json">
-      <publishTime>10/02/2017 18:47:55</publishTime>
+      <publishTime>02/13/2017 04:21:54</publishTime>
     </File>
     <File Include="AirUberProjeto.xml">
-      <publishTime>10/02/2017 17:18:51</publishTime>
+      <publishTime>02/13/2017 04:21:40</publishTime>
     </File>
     <File Include="appsettings.json">
-      <publishTime>10/02/2017 16:08:39</publishTime>
+      <publishTime>02/13/2017 04:18:42</publishTime>
     </File>
     <File Include="crypto.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>06/29/2016 09:11:24</publishTime>
     </File>
     <File Include="MailKit.dll">
-      <publishTime>04/12/2016 12:37:46</publishTime>
+      <publishTime>12/04/2016 12:37:46</publishTime>
     </File>
     <File Include="Microsoft.ApplicationInsights.AspNetCore.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>06/22/2016 12:35:54</publishTime>
     </File>
     <File Include="Microsoft.ApplicationInsights.dll">
       <publishTime>06/06/2016 10:42:24</publishTime>
     </File>
     <File Include="Microsoft.AspNetCore.Antiforgery.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>08/31/2016 17:26:18</publishTime>
     </File>
     <File Include="Microsoft.AspNetCore.Authentication.Cookies.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>06/22/2016 09:14:50</publishTime>
     </File>
     <File Include="Microsoft.AspNetCore.Authentication.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>06/22/2016 09:14:50</publishTime>
     </File>
     <File Include="Microsoft.AspNetCore.Authorization.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>06/22/2016 09:14:52</publishTime>
     </File>
     <File Include="Microsoft.AspNetCore.Cors.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>06/22/2016 09:14:52</publishTime>
     </File>
     <File Include="Microsoft.AspNetCore.Cryptography.Internal.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>06/22/2016 09:14:52</publishTime>
     </File>
     <File Include="Microsoft.AspNetCore.Cryptography.KeyDerivation.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>06/22/2016 09:14:52</publishTime>
     </File>
     <File Include="Microsoft.AspNetCore.DataProtection.Abstractions.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>06/22/2016 09:14:52</publishTime>
     </File>
     <File Include="Microsoft.AspNetCore.DataProtection.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>06/22/2016 09:14:52</publishTime>
     </File>
     <File Include="Microsoft.AspNetCore.Diagnostics.Abstractions.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>06/22/2016 09:14:52</publishTime>
     </File>
     <File Include="Microsoft.AspNetCore.Diagnostics.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>06/22/2016 09:14:52</publishTime>
     </File>
     <File Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>06/22/2016 09:14:52</publishTime>
     </File>
     <File Include="Microsoft.AspNetCore.Hosting.Abstractions.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>06/22/2016 09:14:52</publishTime>
     </File>
     <File Include="Microsoft.AspNetCore.Hosting.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>06/22/2016 09:14:52</publishTime>
     </File>
     <File Include="Microsoft.AspNetCore.Hosting.Server.Abstractions.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>06/22/2016 09:14:52</publishTime>
     </File>
     <File Include="Microsoft.AspNetCore.Html.Abstractions.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>06/22/2016 09:14:52</publishTime>
     </File>
     <File Include="Microsoft.AspNetCore.Http.Abstractions.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>06/22/2016 09:14:52</publishTime>
     </File>
     <File Include="Microsoft.AspNetCore.Http.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>06/22/2016 09:14:52</publishTime>
     </File>
     <File Include="Microsoft.AspNetCore.Http.Extensions.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>06/22/2016 09:14:52</publishTime>
     </File>
     <File Include="Microsoft.AspNetCore.Http.Features.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>06/22/2016 09:14:52</publishTime>
     </File>
     <File Include="Microsoft.AspNetCore.HttpOverrides.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>06/22/2016 09:14:52</publishTime>
     </File>
     <File Include="Microsoft.AspNetCore.Identity.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>06/22/2016 09:14:52</publishTime>
     </File>
     <File Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>06/22/2016 09:14:52</publishTime>
     </File>
     <File Include="Microsoft.AspNetCore.JsonPatch.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>06/22/2016 09:14:52</publishTime>
     </File>
     <File Include="Microsoft.AspNetCore.Localization.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>06/22/2016 09:14:52</publishTime>
     </File>
     <File Include="Microsoft.AspNetCore.Mvc.Abstractions.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>08/31/2016 17:26:18</publishTime>
     </File>
     <File Include="Microsoft.AspNetCore.Mvc.ApiExplorer.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>08/31/2016 17:26:18</publishTime>
     </File>
     <File Include="Microsoft.AspNetCore.Mvc.Core.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>08/31/2016 17:26:18</publishTime>
     </File>
     <File Include="Microsoft.AspNetCore.Mvc.Cors.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>08/31/2016 17:26:18</publishTime>
     </File>
     <File Include="Microsoft.AspNetCore.Mvc.DataAnnotations.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>08/31/2016 17:26:18</publishTime>
     </File>
     <File Include="Microsoft.AspNetCore.Mvc.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>08/31/2016 17:26:18</publishTime>
     </File>
     <File Include="Microsoft.AspNetCore.Mvc.Formatters.Json.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>08/31/2016 17:26:18</publishTime>
     </File>
     <File Include="Microsoft.AspNetCore.Mvc.Localization.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>08/31/2016 17:26:18</publishTime>
     </File>
     <File Include="Microsoft.AspNetCore.Mvc.Razor.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>08/31/2016 17:26:18</publishTime>
     </File>
     <File Include="Microsoft.AspNetCore.Mvc.Razor.Host.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>08/31/2016 17:26:18</publishTime>
     </File>
     <File Include="Microsoft.AspNetCore.Mvc.TagHelpers.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>08/31/2016 17:26:18</publishTime>
     </File>
     <File Include="Microsoft.AspNetCore.Mvc.ViewFeatures.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>08/31/2016 17:26:18</publishTime>
     </File>
     <File Include="Microsoft.AspNetCore.Razor.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>06/22/2016 09:14:54</publishTime>
     </File>
     <File Include="Microsoft.AspNetCore.Razor.Runtime.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>06/22/2016 09:14:54</publishTime>
     </File>
     <File Include="Microsoft.AspNetCore.Routing.Abstractions.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>08/31/2016 17:26:18</publishTime>
     </File>
     <File Include="Microsoft.AspNetCore.Routing.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>08/31/2016 17:26:18</publishTime>
     </File>
     <File Include="Microsoft.AspNetCore.Server.IISIntegration.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>06/22/2016 09:14:54</publishTime>
     </File>
     <File Include="Microsoft.AspNetCore.Server.Kestrel.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>08/31/2016 17:26:18</publishTime>
     </File>
     <File Include="Microsoft.AspNetCore.StaticFiles.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>06/22/2016 09:14:54</publishTime>
     </File>
     <File Include="Microsoft.AspNetCore.WebUtilities.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>06/22/2016 09:14:54</publishTime>
     </File>
     <File Include="Microsoft.DotNet.InternalAbstractions.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>06/21/2016 21:04:54</publishTime>
     </File>
     <File Include="Microsoft.EntityFrameworkCore.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>08/31/2016 17:26:18</publishTime>
     </File>
     <File Include="Microsoft.EntityFrameworkCore.Relational.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>08/31/2016 17:26:18</publishTime>
     </File>
     <File Include="Microsoft.EntityFrameworkCore.SqlServer.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>08/31/2016 17:26:18</publishTime>
     </File>
     <File Include="Microsoft.Extensions.Caching.Abstractions.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>06/22/2016 09:14:56</publishTime>
     </File>
     <File Include="Microsoft.Extensions.Caching.Memory.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>06/22/2016 09:14:56</publishTime>
     </File>
     <File Include="Microsoft.Extensions.Configuration.Abstractions.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>06/22/2016 09:14:56</publishTime>
     </File>
     <File Include="Microsoft.Extensions.Configuration.Binder.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>06/22/2016 09:14:56</publishTime>
     </File>
     <File Include="Microsoft.Extensions.Configuration.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>06/22/2016 09:14:56</publishTime>
     </File>
     <File Include="Microsoft.Extensions.Configuration.EnvironmentVariables.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>06/22/2016 09:14:56</publishTime>
     </File>
     <File Include="Microsoft.Extensions.Configuration.FileExtensions.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>06/22/2016 09:14:56</publishTime>
     </File>
     <File Include="Microsoft.Extensions.Configuration.Json.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>06/22/2016 09:14:56</publishTime>
     </File>
     <File Include="Microsoft.Extensions.Configuration.UserSecrets.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>06/22/2016 09:14:56</publishTime>
     </File>
     <File Include="Microsoft.Extensions.DependencyInjection.Abstractions.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>06/22/2016 09:14:56</publishTime>
     </File>
     <File Include="Microsoft.Extensions.DependencyInjection.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>06/22/2016 09:14:56</publishTime>
     </File>
     <File Include="Microsoft.Extensions.DependencyModel.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>06/21/2016 21:04:56</publishTime>
     </File>
     <File Include="Microsoft.Extensions.DiagnosticAdapter.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>06/22/2016 09:14:56</publishTime>
     </File>
     <File Include="Microsoft.Extensions.FileProviders.Abstractions.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>06/22/2016 09:14:56</publishTime>
     </File>
     <File Include="Microsoft.Extensions.FileProviders.Composite.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>06/22/2016 09:14:56</publishTime>
     </File>
     <File Include="Microsoft.Extensions.FileProviders.Physical.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>06/22/2016 09:14:56</publishTime>
     </File>
     <File Include="Microsoft.Extensions.FileSystemGlobbing.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>06/22/2016 09:14:56</publishTime>
     </File>
     <File Include="Microsoft.Extensions.Globalization.CultureInfoCache.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>06/22/2016 09:14:56</publishTime>
     </File>
     <File Include="Microsoft.Extensions.Localization.Abstractions.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>06/22/2016 09:14:56</publishTime>
     </File>
     <File Include="Microsoft.Extensions.Localization.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>06/22/2016 09:14:56</publishTime>
     </File>
     <File Include="Microsoft.Extensions.Logging.Abstractions.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>06/22/2016 09:14:56</publishTime>
     </File>
     <File Include="Microsoft.Extensions.Logging.Console.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>06/22/2016 09:14:56</publishTime>
     </File>
     <File Include="Microsoft.Extensions.Logging.Debug.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>06/22/2016 09:14:56</publishTime>
     </File>
     <File Include="Microsoft.Extensions.Logging.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>06/22/2016 09:14:56</publishTime>
     </File>
     <File Include="Microsoft.Extensions.ObjectPool.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>06/22/2016 09:14:56</publishTime>
     </File>
     <File Include="Microsoft.Extensions.Options.ConfigurationExtensions.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>06/22/2016 09:14:56</publishTime>
     </File>
     <File Include="Microsoft.Extensions.Options.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>06/22/2016 09:14:56</publishTime>
     </File>
     <File Include="Microsoft.Extensions.PlatformAbstractions.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>06/22/2016 09:14:56</publishTime>
     </File>
     <File Include="Microsoft.Extensions.Primitives.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>06/22/2016 09:14:56</publishTime>
     </File>
     <File Include="Microsoft.Extensions.WebEncoders.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>06/22/2016 09:14:56</publishTime>
     </File>
     <File Include="Microsoft.Net.Http.Headers.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>06/22/2016 09:14:56</publishTime>
     </File>
     <File Include="Microsoft.VisualStudio.Web.BrowserLink.Loader.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>06/22/2016 09:14:56</publishTime>
     </File>
     <File Include="MimeKit.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>10/30/2016 20:24:32</publishTime>
+    </File>
+    <File Include="Models/AutenticacaoViewModels/AccessDenied.cshtml">
+      <publishTime>02/13/2017 01:01:01</publishTime>
     </File>
     <File Include="Newtonsoft.Json.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>06/13/2016 23:06:14</publishTime>
     </File>
     <File Include="refs/Microsoft.CSharp.dll">
-      <publishTime>11/06/2016 23:13:10</publishTime>
+      <publishTime>06/11/2016 23:13:10</publishTime>
     </File>
     <File Include="refs/Microsoft.VisualBasic.dll">
-      <publishTime>11/06/2016 23:13:10</publishTime>
+      <publishTime>06/11/2016 23:13:10</publishTime>
     </File>
     <File Include="refs/Microsoft.Win32.Primitives.dll">
-      <publishTime>11/06/2016 23:13:34</publishTime>
+      <publishTime>06/11/2016 23:13:34</publishTime>
     </File>
     <File Include="refs/Microsoft.Win32.Registry.dll">
-      <publishTime>11/06/2016 23:13:18</publishTime>
+      <publishTime>06/11/2016 23:13:18</publishTime>
     </File>
     <File Include="refs/System.AppContext.dll">
-      <publishTime>11/06/2016 23:13:20</publishTime>
+      <publishTime>06/11/2016 23:13:20</publishTime>
     </File>
     <File Include="refs/System.Collections.Concurrent.dll">
-      <publishTime>11/06/2016 23:13:16</publishTime>
+      <publishTime>06/11/2016 23:13:16</publishTime>
     </File>
     <File Include="refs/System.Collections.dll">
-      <publishTime>11/06/2016 23:13:22</publishTime>
+      <publishTime>06/11/2016 23:13:22</publishTime>
     </File>
     <File Include="refs/System.Collections.NonGeneric.dll">
-      <publishTime>11/06/2016 23:13:22</publishTime>
+      <publishTime>06/11/2016 23:13:22</publishTime>
     </File>
     <File Include="refs/System.ComponentModel.Annotations.dll">
-      <publishTime>11/06/2016 23:13:22</publishTime>
+      <publishTime>06/11/2016 23:13:22</publishTime>
     </File>
     <File Include="refs/System.ComponentModel.dll">
-      <publishTime>11/06/2016 23:13:24</publishTime>
+      <publishTime>06/11/2016 23:13:24</publishTime>
     </File>
     <File Include="refs/System.ComponentModel.Primitives.dll">
-      <publishTime>11/06/2016 23:13:22</publishTime>
+      <publishTime>06/11/2016 23:13:22</publishTime>
     </File>
     <File Include="refs/System.ComponentModel.TypeConverter.dll">
-      <publishTime>11/06/2016 23:13:28</publishTime>
+      <publishTime>06/11/2016 23:13:28</publishTime>
     </File>
     <File Include="refs/System.Console.dll">
-      <publishTime>11/06/2016 23:13:26</publishTime>
+      <publishTime>06/11/2016 23:13:26</publishTime>
     </File>
     <File Include="refs/System.Data.Common.dll">
-      <publishTime>11/06/2016 23:13:32</publishTime>
+      <publishTime>06/11/2016 23:13:32</publishTime>
     </File>
     <File Include="refs/System.Data.SqlClient.dll">
-      <publishTime>11/06/2016 23:13:34</publishTime>
+      <publishTime>06/11/2016 23:13:34</publishTime>
     </File>
     <File Include="refs/System.Diagnostics.Contracts.dll">
-      <publishTime>11/06/2016 23:13:28</publishTime>
+      <publishTime>06/11/2016 23:13:28</publishTime>
     </File>
     <File Include="refs/System.Diagnostics.Debug.dll">
-      <publishTime>11/06/2016 23:13:28</publishTime>
+      <publishTime>06/11/2016 23:13:28</publishTime>
     </File>
     <File Include="refs/System.Diagnostics.Process.dll">
-      <publishTime>11/06/2016 23:13:36</publishTime>
+      <publishTime>06/11/2016 23:13:36</publishTime>
     </File>
     <File Include="refs/System.Diagnostics.StackTrace.dll">
-      <publishTime>11/06/2016 23:13:36</publishTime>
+      <publishTime>06/11/2016 23:13:36</publishTime>
     </File>
     <File Include="refs/System.Diagnostics.Tools.dll">
-      <publishTime>11/06/2016 23:13:34</publishTime>
+      <publishTime>06/11/2016 23:13:34</publishTime>
     </File>
     <File Include="refs/System.Diagnostics.Tracing.dll">
-      <publishTime>11/06/2016 23:13:42</publishTime>
+      <publishTime>06/11/2016 23:13:42</publishTime>
     </File>
     <File Include="refs/System.Dynamic.Runtime.dll">
-      <publishTime>11/06/2016 23:13:42</publishTime>
+      <publishTime>06/11/2016 23:13:42</publishTime>
     </File>
     <File Include="refs/System.Globalization.Calendars.dll">
-      <publishTime>11/06/2016 23:13:44</publishTime>
+      <publishTime>06/11/2016 23:13:44</publishTime>
     </File>
     <File Include="refs/System.Globalization.dll">
-      <publishTime>11/06/2016 23:13:52</publishTime>
+      <publishTime>06/11/2016 23:13:52</publishTime>
     </File>
     <File Include="refs/System.Globalization.Extensions.dll">
-      <publishTime>11/06/2016 23:13:40</publishTime>
+      <publishTime>06/11/2016 23:13:40</publishTime>
     </File>
     <File Include="refs/System.IO.Compression.dll">
-      <publishTime>11/06/2016 23:13:46</publishTime>
+      <publishTime>06/11/2016 23:13:46</publishTime>
     </File>
     <File Include="refs/System.IO.Compression.ZipFile.dll">
-      <publishTime>11/06/2016 23:13:42</publishTime>
+      <publishTime>06/11/2016 23:13:42</publishTime>
     </File>
     <File Include="refs/System.IO.dll">
-      <publishTime>11/06/2016 23:13:56</publishTime>
+      <publishTime>06/11/2016 23:13:56</publishTime>
     </File>
     <File Include="refs/System.IO.FileSystem.dll">
-      <publishTime>11/06/2016 23:13:50</publishTime>
+      <publishTime>06/11/2016 23:13:50</publishTime>
     </File>
     <File Include="refs/System.IO.FileSystem.Primitives.dll">
-      <publishTime>11/06/2016 23:13:46</publishTime>
+      <publishTime>06/11/2016 23:13:46</publishTime>
     </File>
     <File Include="refs/System.IO.FileSystem.Watcher.dll">
-      <publishTime>11/06/2016 23:13:48</publishTime>
+      <publishTime>06/11/2016 23:13:48</publishTime>
     </File>
     <File Include="refs/System.IO.MemoryMappedFiles.dll">
-      <publishTime>11/06/2016 23:13:54</publishTime>
+      <publishTime>06/11/2016 23:13:54</publishTime>
     </File>
     <File Include="refs/System.IO.UnmanagedMemoryStream.dll">
-      <publishTime>11/06/2016 23:13:50</publishTime>
+      <publishTime>06/11/2016 23:13:50</publishTime>
     </File>
     <File Include="refs/System.Linq.dll">
-      <publishTime>11/06/2016 23:14:02</publishTime>
+      <publishTime>06/11/2016 23:14:02</publishTime>
     </File>
     <File Include="refs/System.Linq.Expressions.dll">
-      <publishTime>11/06/2016 23:13:56</publishTime>
+      <publishTime>06/11/2016 23:13:56</publishTime>
     </File>
     <File Include="refs/System.Linq.Parallel.dll">
-      <publishTime>11/06/2016 23:13:52</publishTime>
+      <publishTime>06/11/2016 23:13:52</publishTime>
     </File>
     <File Include="refs/System.Linq.Queryable.dll">
-      <publishTime>11/06/2016 23:13:58</publishTime>
+      <publishTime>06/11/2016 23:13:58</publishTime>
     </File>
     <File Include="refs/System.Net.Http.dll">
-      <publishTime>11/06/2016 23:13:58</publishTime>
+      <publishTime>06/11/2016 23:13:58</publishTime>
     </File>
     <File Include="refs/System.Net.NameResolution.dll">
-      <publishTime>11/06/2016 23:13:58</publishTime>
+      <publishTime>06/11/2016 23:13:58</publishTime>
     </File>
     <File Include="refs/System.Net.NetworkInformation.dll">
-      <publishTime>11/06/2016 23:14:04</publishTime>
+      <publishTime>06/11/2016 23:14:04</publishTime>
     </File>
     <File Include="refs/System.Net.Primitives.dll">
-      <publishTime>11/06/2016 23:14:08</publishTime>
+      <publishTime>06/11/2016 23:14:08</publishTime>
     </File>
     <File Include="refs/System.Net.Requests.dll">
-      <publishTime>11/06/2016 23:14:02</publishTime>
+      <publishTime>06/11/2016 23:14:02</publishTime>
     </File>
     <File Include="refs/System.Net.Security.dll">
-      <publishTime>11/06/2016 23:14:06</publishTime>
+      <publishTime>06/11/2016 23:14:06</publishTime>
     </File>
     <File Include="refs/System.Net.Sockets.dll">
-      <publishTime>11/06/2016 23:14:14</publishTime>
+      <publishTime>06/11/2016 23:14:14</publishTime>
     </File>
     <File Include="refs/System.Net.WebHeaderCollection.dll">
-      <publishTime>11/06/2016 23:14:08</publishTime>
+      <publishTime>06/11/2016 23:14:08</publishTime>
     </File>
     <File Include="refs/System.Net.WebSockets.dll">
-      <publishTime>11/06/2016 23:14:08</publishTime>
+      <publishTime>06/11/2016 23:14:08</publishTime>
     </File>
     <File Include="refs/System.Numerics.Vectors.dll">
-      <publishTime>11/06/2016 23:14:10</publishTime>
+      <publishTime>06/11/2016 23:14:10</publishTime>
     </File>
     <File Include="refs/System.ObjectModel.dll">
-      <publishTime>11/06/2016 23:14:10</publishTime>
+      <publishTime>06/11/2016 23:14:10</publishTime>
     </File>
     <File Include="refs/System.Reflection.DispatchProxy.dll">
-      <publishTime>11/06/2016 23:14:14</publishTime>
+      <publishTime>06/11/2016 23:14:14</publishTime>
     </File>
     <File Include="refs/System.Reflection.dll">
-      <publishTime>11/06/2016 23:14:34</publishTime>
+      <publishTime>06/11/2016 23:14:34</publishTime>
     </File>
     <File Include="refs/System.Reflection.Emit.dll">
-      <publishTime>11/06/2016 23:14:16</publishTime>
+      <publishTime>06/11/2016 23:14:16</publishTime>
     </File>
     <File Include="refs/System.Reflection.Emit.ILGeneration.dll">
-      <publishTime>11/06/2016 23:14:14</publishTime>
+      <publishTime>06/11/2016 23:14:14</publishTime>
     </File>
     <File Include="refs/System.Reflection.Emit.Lightweight.dll">
-      <publishTime>11/06/2016 23:14:16</publishTime>
+      <publishTime>06/11/2016 23:14:16</publishTime>
     </File>
     <File Include="refs/System.Reflection.Extensions.dll">
-      <publishTime>11/06/2016 23:14:18</publishTime>
+      <publishTime>06/11/2016 23:14:18</publishTime>
     </File>
     <File Include="refs/System.Reflection.Primitives.dll">
-      <publishTime>11/06/2016 23:14:22</publishTime>
+      <publishTime>06/11/2016 23:14:22</publishTime>
     </File>
     <File Include="refs/System.Reflection.TypeExtensions.dll">
-      <publishTime>11/06/2016 23:14:22</publishTime>
+      <publishTime>06/11/2016 23:14:22</publishTime>
     </File>
     <File Include="refs/System.Resources.ResourceManager.dll">
-      <publishTime>11/06/2016 23:14:24</publishTime>
+      <publishTime>06/11/2016 23:14:24</publishTime>
     </File>
     <File Include="refs/System.Runtime.dll">
-      <publishTime>11/06/2016 23:14:50</publishTime>
+      <publishTime>06/11/2016 23:14:50</publishTime>
     </File>
     <File Include="refs/System.Runtime.Extensions.dll">
-      <publishTime>11/06/2016 23:14:28</publishTime>
+      <publishTime>06/11/2016 23:14:28</publishTime>
     </File>
     <File Include="refs/System.Runtime.Handles.dll">
-      <publishTime>11/06/2016 23:14:28</publishTime>
+      <publishTime>06/11/2016 23:14:28</publishTime>
     </File>
     <File Include="refs/System.Runtime.InteropServices.dll">
-      <publishTime>11/06/2016 23:14:26</publishTime>
+      <publishTime>06/11/2016 23:14:26</publishTime>
     </File>
     <File Include="refs/System.Runtime.InteropServices.RuntimeInformation.dll">
-      <publishTime>11/06/2016 23:14:28</publishTime>
+      <publishTime>06/11/2016 23:14:28</publishTime>
     </File>
     <File Include="refs/System.Runtime.Loader.dll">
-      <publishTime>11/06/2016 23:14:24</publishTime>
+      <publishTime>06/11/2016 23:14:24</publishTime>
     </File>
     <File Include="refs/System.Runtime.Numerics.dll">
-      <publishTime>11/06/2016 23:14:30</publishTime>
+      <publishTime>06/11/2016 23:14:30</publishTime>
     </File>
     <File Include="refs/System.Runtime.Serialization.Primitives.dll">
-      <publishTime>11/06/2016 23:14:32</publishTime>
+      <publishTime>06/11/2016 23:14:32</publishTime>
     </File>
     <File Include="refs/System.Security.Claims.dll">
-      <publishTime>11/06/2016 23:14:40</publishTime>
+      <publishTime>06/11/2016 23:14:40</publishTime>
     </File>
     <File Include="refs/System.Security.Cryptography.Algorithms.dll">
-      <publishTime>11/06/2016 23:14:42</publishTime>
+      <publishTime>06/11/2016 23:14:42</publishTime>
     </File>
     <File Include="refs/System.Security.Cryptography.Encoding.dll">
-      <publishTime>11/06/2016 23:14:38</publishTime>
+      <publishTime>06/11/2016 23:14:38</publishTime>
     </File>
     <File Include="refs/System.Security.Cryptography.Primitives.dll">
-      <publishTime>11/06/2016 23:14:42</publishTime>
+      <publishTime>06/11/2016 23:14:42</publishTime>
     </File>
     <File Include="refs/System.Security.Cryptography.X509Certificates.dll">
-      <publishTime>11/06/2016 23:14:46</publishTime>
+      <publishTime>06/11/2016 23:14:46</publishTime>
     </File>
     <File Include="refs/System.Security.Principal.dll">
-      <publishTime>11/06/2016 23:14:46</publishTime>
+      <publishTime>06/11/2016 23:14:46</publishTime>
     </File>
     <File Include="refs/System.Security.Principal.Windows.dll">
-      <publishTime>11/06/2016 23:14:48</publishTime>
+      <publishTime>06/11/2016 23:14:48</publishTime>
     </File>
     <File Include="refs/System.Text.Encoding.CodePages.dll">
-      <publishTime>11/06/2016 23:14:46</publishTime>
+      <publishTime>06/11/2016 23:14:46</publishTime>
     </File>
     <File Include="refs/System.Text.Encoding.dll">
-      <publishTime>11/06/2016 23:14:52</publishTime>
+      <publishTime>06/11/2016 23:14:52</publishTime>
     </File>
     <File Include="refs/System.Text.Encoding.Extensions.dll">
-      <publishTime>11/06/2016 23:14:52</publishTime>
+      <publishTime>06/11/2016 23:14:52</publishTime>
     </File>
     <File Include="refs/System.Text.RegularExpressions.dll">
-      <publishTime>11/06/2016 23:14:52</publishTime>
+      <publishTime>06/11/2016 23:14:52</publishTime>
     </File>
     <File Include="refs/System.Threading.dll">
-      <publishTime>11/06/2016 23:15:00</publishTime>
+      <publishTime>06/11/2016 23:15:00</publishTime>
     </File>
     <File Include="refs/System.Threading.Tasks.dll">
-      <publishTime>11/06/2016 23:15:08</publishTime>
+      <publishTime>06/11/2016 23:15:08</publishTime>
     </File>
     <File Include="refs/System.Threading.Tasks.Parallel.dll">
-      <publishTime>11/06/2016 23:14:54</publishTime>
+      <publishTime>06/11/2016 23:14:54</publishTime>
     </File>
     <File Include="refs/System.Threading.Thread.dll">
-      <publishTime>11/06/2016 23:14:58</publishTime>
+      <publishTime>06/11/2016 23:14:58</publishTime>
     </File>
     <File Include="refs/System.Threading.ThreadPool.dll">
-      <publishTime>11/06/2016 23:14:58</publishTime>
+      <publishTime>06/11/2016 23:14:58</publishTime>
     </File>
     <File Include="refs/System.Threading.Timer.dll">
-      <publishTime>11/06/2016 23:15:00</publishTime>
+      <publishTime>06/11/2016 23:15:00</publishTime>
     </File>
     <File Include="refs/System.Xml.ReaderWriter.dll">
-      <publishTime>11/06/2016 23:15:00</publishTime>
+      <publishTime>06/11/2016 23:15:00</publishTime>
     </File>
     <File Include="refs/System.Xml.XDocument.dll">
-      <publishTime>11/06/2016 23:15:02</publishTime>
+      <publishTime>06/11/2016 23:15:02</publishTime>
     </File>
     <File Include="Remotion.Linq.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>06/14/2016 23:16:46</publishTime>
     </File>
     <File Include="runtimes/linux/lib/netstandard1.3/System.Net.NetworkInformation.dll">
-      <publishTime>11/06/2016 23:14:04</publishTime>
+      <publishTime>06/11/2016 23:14:04</publishTime>
     </File>
     <File Include="runtimes/osx/lib/netstandard1.3/System.Net.NetworkInformation.dll">
-      <publishTime>11/06/2016 23:14:04</publishTime>
+      <publishTime>06/11/2016 23:14:04</publishTime>
     </File>
     <File Include="runtimes/unix/lib/netstandard1.3/System.Data.SqlClient.dll">
-      <publishTime>11/06/2016 23:13:34</publishTime>
+      <publishTime>06/11/2016 23:13:34</publishTime>
     </File>
     <File Include="runtimes/unix/lib/netstandard1.3/System.IO.Pipes.dll">
-      <publishTime>11/06/2016 23:13:50</publishTime>
+      <publishTime>06/11/2016 23:13:50</publishTime>
     </File>
     <File Include="runtimes/win/lib/netstandard1.3/System.Data.SqlClient.dll">
-      <publishTime>11/06/2016 23:13:34</publishTime>
+      <publishTime>06/11/2016 23:13:34</publishTime>
     </File>
     <File Include="runtimes/win/lib/netstandard1.3/System.IO.Pipes.dll">
-      <publishTime>11/06/2016 23:13:50</publishTime>
+      <publishTime>06/11/2016 23:13:50</publishTime>
     </File>
     <File Include="runtimes/win/lib/netstandard1.3/System.Net.NetworkInformation.dll">
-      <publishTime>11/06/2016 23:14:04</publishTime>
+      <publishTime>06/11/2016 23:14:04</publishTime>
     </File>
     <File Include="runtimes/win7-x64/native/sni.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>06/13/2016 21:46:18</publishTime>
     </File>
     <File Include="runtimes/win7-x86/native/sni.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>06/13/2016 21:51:30</publishTime>
     </File>
     <File Include="System.Collections.NonGeneric.dll">
-      <publishTime>11/06/2016 23:13:22</publishTime>
+      <publishTime>06/11/2016 23:13:22</publishTime>
     </File>
     <File Include="System.Collections.Specialized.dll">
-      <publishTime>11/06/2016 23:13:22</publishTime>
+      <publishTime>06/11/2016 23:13:22</publishTime>
     </File>
     <File Include="System.ComponentModel.Primitives.dll">
-      <publishTime>11/06/2016 23:13:22</publishTime>
+      <publishTime>06/11/2016 23:13:22</publishTime>
     </File>
     <File Include="System.ComponentModel.TypeConverter.dll">
-      <publishTime>11/06/2016 23:13:28</publishTime>
+      <publishTime>06/11/2016 23:13:28</publishTime>
     </File>
     <File Include="System.Data.Common.dll">
-      <publishTime>11/06/2016 23:13:32</publishTime>
+      <publishTime>06/11/2016 23:13:32</publishTime>
     </File>
     <File Include="System.Diagnostics.Contracts.dll">
-      <publishTime>11/06/2016 23:13:28</publishTime>
+      <publishTime>06/11/2016 23:13:28</publishTime>
     </File>
     <File Include="System.Interactive.Async.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>06/21/2016 21:47:14</publishTime>
     </File>
     <File Include="System.Net.WebSockets.dll">
-      <publishTime>11/06/2016 23:14:08</publishTime>
+      <publishTime>06/11/2016 23:14:08</publishTime>
     </File>
     <File Include="System.Runtime.Serialization.Primitives.dll">
-      <publishTime>11/06/2016 23:14:32</publishTime>
+      <publishTime>06/11/2016 23:14:32</publishTime>
     </File>
     <File Include="System.Text.Encodings.Web.dll">
-      <publishTime>11/06/2016 23:14:48</publishTime>
+      <publishTime>06/11/2016 23:14:48</publishTime>
     </File>
     <File Include="Views/Autenticacao/ChangePassword.cshtml">
-      <publishTime>09/01/2017 18:28:28</publishTime>
+      <publishTime>02/13/2017 01:01:01</publishTime>
     </File>
     <File Include="Views/Autenticacao/ConfirmEmail.cshtml">
-      <publishTime>09/01/2017 18:28:28</publishTime>
+      <publishTime>02/13/2017 01:01:01</publishTime>
     </File>
     <File Include="Views/Autenticacao/ConfirmReset.cshtml">
-      <publishTime>09/01/2017 18:28:28</publishTime>
+      <publishTime>02/13/2017 01:01:01</publishTime>
     </File>
     <File Include="Views/Autenticacao/ForgotPassword.cshtml">
-      <publishTime>09/01/2017 18:28:28</publishTime>
+      <publishTime>02/13/2017 01:01:01</publishTime>
     </File>
     <File Include="Views/Autenticacao/ForgotPasswordConfirmation.cshtml">
-      <publishTime>09/01/2017 18:28:28</publishTime>
+      <publishTime>02/13/2017 01:01:01</publishTime>
     </File>
     <File Include="Views/Autenticacao/GenerateNewPassword.cshtml">
-      <publishTime>09/01/2017 18:28:28</publishTime>
+      <publishTime>02/13/2017 01:01:01</publishTime>
     </File>
     <File Include="Views/Autenticacao/Login.cshtml">
-      <publishTime>09/01/2017 18:28:28</publishTime>
+      <publishTime>02/13/2017 01:01:01</publishTime>
     </File>
     <File Include="Views/Autenticacao/Register.cshtml">
-      <publishTime>09/01/2017 18:28:28</publishTime>
+      <publishTime>02/13/2017 03:21:31</publishTime>
     </File>
     <File Include="Views/Autenticacao/RegisterCliente.cshtml">
-      <publishTime>12/01/2017 18:33:13</publishTime>
+      <publishTime>02/13/2017 01:01:01</publishTime>
     </File>
     <File Include="Views/Autenticacao/RegisterCompanhia.cshtml">
-      <publishTime>09/01/2017 18:28:28</publishTime>
+      <publishTime>02/13/2017 01:01:01</publishTime>
     </File>
     <File Include="Views/Autenticacao/ResetPassword.cshtml">
-      <publishTime>09/01/2017 18:28:28</publishTime>
+      <publishTime>02/13/2017 01:01:01</publishTime>
     </File>
     <File Include="Views/Autenticacao/ResetPasswordConfirmation.cshtml">
-      <publishTime>09/01/2017 18:28:28</publishTime>
+      <publishTime>02/13/2017 01:01:01</publishTime>
+    </File>
+    <File Include="Views/Cliente/Creditos.cshtml">
+      <publishTime>02/13/2017 01:01:01</publishTime>
     </File>
     <File Include="Views/Cliente/EditarPerfil.cshtml">
-      <publishTime>12/01/2017 18:33:13</publishTime>
+      <publishTime>01/12/2017 18:33:13</publishTime>
+    </File>
+    <File Include="Views/Cliente/JatoIndisponivel.cshtml">
+      <publishTime>02/12/2017 03:55:43</publishTime>
+    </File>
+    <File Include="Views/Cliente/Notificacoes.cshtml">
+      <publishTime>02/13/2017 00:27:23</publishTime>
     </File>
     <File Include="Views/Cliente/Perfil.cshtml">
-      <publishTime>10/02/2017 11:54:25</publishTime>
+      <publishTime>02/13/2017 02:35:12</publishTime>
     </File>
     <File Include="Views/Cliente/ProcurarOfertas.cshtml">
-      <publishTime>10/02/2017 11:44:08</publishTime>
+      <publishTime>02/13/2017 03:24:49</publishTime>
     </File>
     <File Include="Views/Cliente/ReservaConcluida.cshtml">
-      <publishTime>10/02/2017 11:44:08</publishTime>
+      <publishTime>02/13/2017 01:01:01</publishTime>
+    </File>
+    <File Include="Views/Cliente/ReservaNaoConcluida.cshtml">
+      <publishTime>02/13/2017 01:01:01</publishTime>
+    </File>
+    <File Include="Views/Cliente/SaldoInsuficiente.cshtml">
+      <publishTime>02/13/2017 01:01:01</publishTime>
     </File>
     <File Include="Views/Cliente/SelecionarDestino.cshtml">
       <publishTime>10/02/2017 11:44:08</publishTime>
     </File>
     <File Include="Views/Cliente/VerJatos.cshtml">
-      <publishTime>10/02/2017 11:44:08</publishTime>
+      <publishTime>02/13/2017 04:13:48</publishTime>
     </File>
     <File Include="Views/Cliente/VerOferta.cshtml">
-      <publishTime>10/02/2017 11:44:08</publishTime>
+      <publishTime>02/13/2017 02:35:12</publishTime>
     </File>
     <File Include="Views/Cliente/VerViagens.cshtml">
-      <publishTime>10/02/2017 04:02:04</publishTime>
+      <publishTime>02/13/2017 01:01:01</publishTime>
     </File>
     <File Include="Views/Companhia/AdicionarColaborador.cshtml">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>02/13/2017 00:27:23</publishTime>
     </File>
     <File Include="Views/Companhia/AdicionarModelo.cshtml">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>02/13/2017 01:01:01</publishTime>
     </File>
     <File Include="Views/Companhia/ApagarColaborador.cshtml">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>02/13/2017 00:27:23</publishTime>
     </File>
     <File Include="Views/Companhia/ApagarExtra.cshtml">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>02/13/2017 00:27:23</publishTime>
     </File>
     <File Include="Views/Companhia/ApagarJato.cshtml">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>02/13/2017 00:27:23</publishTime>
+    </File>
+    <File Include="Views/Companhia/Creditos.cshtml">
+      <publishTime>02/13/2017 00:27:23</publishTime>
     </File>
     <File Include="Views/Companhia/CriarExtra.cshtml">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>02/13/2017 01:01:01</publishTime>
     </File>
     <File Include="Views/Companhia/CriarJato.cshtml">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>02/13/2017 02:56:29</publishTime>
     </File>
     <File Include="Views/Companhia/EditarColaborador.cshtml">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>02/13/2017 00:27:23</publishTime>
     </File>
     <File Include="Views/Companhia/EditarExtra.cshtml">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>02/13/2017 00:27:23</publishTime>
     </File>
     <File Include="Views/Companhia/EditarJatos.cshtml">
-      <publishTime>10/02/2017 11:44:08</publishTime>
+      <publishTime>02/13/2017 01:01:01</publishTime>
     </File>
     <File Include="Views/Companhia/EditarPerfilCompanhia.cshtml">
-      <publishTime>10/02/2017 11:44:08</publishTime>
+      <publishTime>02/13/2017 00:27:23</publishTime>
+    </File>
+    <File Include="Views/Companhia/Notificacoes.cshtml">
+      <publishTime>02/13/2017 00:27:23</publishTime>
     </File>
     <File Include="Views/Companhia/PerfilCompanhia.cshtml">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>02/13/2017 02:35:12</publishTime>
+    </File>
+    <File Include="Views/Companhia/ValidarReservas.cshtml">
+      <publishTime>02/13/2017 01:01:01</publishTime>
     </File>
     <File Include="Views/Companhia/VerColaboradores.cshtml">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>02/13/2017 00:27:23</publishTime>
     </File>
     <File Include="Views/Companhia/VerExtras.cshtml">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>02/13/2017 00:27:23</publishTime>
     </File>
     <File Include="Views/Companhia/VerJatos.cshtml">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>02/13/2017 04:13:48</publishTime>
     </File>
     <File Include="Views/Companhia/VerModelos.cshtml">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>02/13/2017 00:27:23</publishTime>
     </File>
     <File Include="Views/Companhia/VerViagens.cshtml">
-      <publishTime>10/02/2017 04:02:04</publishTime>
+      <publishTime>02/13/2017 00:27:23</publishTime>
     </File>
     <File Include="Views/Creditos/Comprar.cshtml">
-      <publishTime>10/02/2017 15:28:27</publishTime>
+      <publishTime>02/13/2017 02:37:31</publishTime>
+    </File>
+    <File Include="Views/Creditos/VerHistoricoTransacoes.cshtml">
+      <publishTime>02/13/2017 01:01:01</publishTime>
+    </File>
+    <File Include="Views/Creditos/VerHistoricoTransacoesCompanhia.cshtml">
+      <publishTime>02/13/2017 00:27:23</publishTime>
     </File>
     <File Include="Views/Helpdesk/Clientes.cshtml">
-      <publishTime>12/01/2017 18:33:13</publishTime>
+      <publishTime>02/13/2017 00:27:23</publishTime>
     </File>
     <File Include="Views/Helpdesk/Companhias.cshtml">
-      <publishTime>12/01/2017 18:33:13</publishTime>
+      <publishTime>02/13/2017 00:27:23</publishTime>
     </File>
     <File Include="Views/Helpdesk/Index.cshtml">
-      <publishTime>12/01/2017 18:33:13</publishTime>
+      <publishTime>02/13/2017 00:27:24</publishTime>
     </File>
     <File Include="Views/Helpdesk/ModalViagens.cshtml">
-      <publishTime>12/01/2017 18:33:13</publishTime>
+      <publishTime>01/12/2017 18:33:13</publishTime>
     </File>
     <File Include="Views/Helpdesk/RecuperarCompanhias.cshtml">
-      <publishTime>12/01/2017 18:33:14</publishTime>
+      <publishTime>02/13/2017 00:27:24</publishTime>
     </File>
     <File Include="Views/Helpdesk/Viagens.cshtml">
-      <publishTime>12/01/2017 18:33:14</publishTime>
+      <publishTime>02/13/2017 00:27:24</publishTime>
     </File>
     <File Include="Views/Home/About.cshtml">
-      <publishTime>10/02/2017 02:48:47</publishTime>
+      <publishTime>02/13/2017 02:06:08</publishTime>
     </File>
     <File Include="Views/Home/Contact.cshtml">
-      <publishTime>09/01/2017 18:28:28</publishTime>
+      <publishTime>01/09/2017 18:28:28</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>09/01/2017 18:28:28</publishTime>
+      <publishTime>02/13/2017 03:26:33</publishTime>
     </File>
     <File Include="Views/Manage/AddPhoneNumber.cshtml">
-      <publishTime>09/01/2017 18:28:28</publishTime>
+      <publishTime>01/09/2017 18:28:28</publishTime>
     </File>
     <File Include="Views/Manage/ChangePassword.cshtml">
-      <publishTime>09/01/2017 18:28:28</publishTime>
+      <publishTime>01/09/2017 18:28:28</publishTime>
     </File>
     <File Include="Views/Manage/Index.cshtml">
-      <publishTime>09/01/2017 18:28:28</publishTime>
+      <publishTime>01/09/2017 18:28:28</publishTime>
     </File>
     <File Include="Views/Manage/ManageLogins.cshtml">
-      <publishTime>09/01/2017 18:28:28</publishTime>
+      <publishTime>01/09/2017 18:28:28</publishTime>
     </File>
     <File Include="Views/Manage/SetPassword.cshtml">
-      <publishTime>09/01/2017 18:28:28</publishTime>
+      <publishTime>01/09/2017 18:28:28</publishTime>
     </File>
     <File Include="Views/Manage/VerifyPhoneNumber.cshtml">
-      <publishTime>09/01/2017 18:28:28</publishTime>
+      <publishTime>01/09/2017 18:28:28</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
-      <publishTime>09/01/2017 18:28:28</publishTime>
+      <publishTime>01/09/2017 18:28:28</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>10/02/2017 11:44:08</publishTime>
+      <publishTime>02/12/2017 03:55:43</publishTime>
     </File>
     <File Include="Views/Shared/_LoginPartial.cshtml">
-      <publishTime>10/02/2017 11:44:08</publishTime>
+      <publishTime>02/13/2017 00:27:24</publishTime>
+    </File>
+    <File Include="Views/Shared/_NovoLayout.cshtml">
+      <publishTime>02/13/2017 03:26:07</publishTime>
     </File>
     <File Include="Views/Shared/_ValidationScriptsPartial.cshtml">
-      <publishTime>09/01/2017 18:28:28</publishTime>
+      <publishTime>01/09/2017 18:28:28</publishTime>
     </File>
     <File Include="Views/_ViewImports.cshtml">
-      <publishTime>09/01/2017 18:28:28</publishTime>
+      <publishTime>01/09/2017 18:28:28</publishTime>
     </File>
     <File Include="Views/_ViewStart.cshtml">
-      <publishTime>09/01/2017 18:28:28</publishTime>
+      <publishTime>02/13/2017 00:27:24</publishTime>
     </File>
     <File Include="web.config">
-      <publishTime>10/02/2017 18:47:57</publishTime>
+      <publishTime>02/13/2017 04:21:56</publishTime>
+    </File>
+    <File Include="wwwroot/assets/css/animate.min.css">
+      <publishTime>02/13/2017 00:27:24</publishTime>
+    </File>
+    <File Include="wwwroot/assets/css/bootstrap.min.css">
+      <publishTime>02/13/2017 00:27:24</publishTime>
+    </File>
+    <File Include="wwwroot/assets/css/croppic.css">
+      <publishTime>02/13/2017 01:01:02</publishTime>
+    </File>
+    <File Include="wwwroot/assets/css/demo.css">
+      <publishTime>02/13/2017 00:27:24</publishTime>
+    </File>
+    <File Include="wwwroot/assets/css/full-width-pics.css">
+      <publishTime>02/13/2017 02:35:12</publishTime>
+    </File>
+    <File Include="wwwroot/assets/css/light-bootstrap-dashboard.css">
+      <publishTime>02/13/2017 01:42:45</publishTime>
+    </File>
+    <File Include="wwwroot/assets/css/pe-icon-7-stroke.css">
+      <publishTime>02/13/2017 00:27:24</publishTime>
+    </File>
+    <File Include="wwwroot/assets/fonts/glyphicons-halflings-regular.eot">
+      <publishTime>02/13/2017 02:35:12</publishTime>
+    </File>
+    <File Include="wwwroot/assets/fonts/glyphicons-halflings-regular.svg">
+      <publishTime>02/13/2017 02:35:12</publishTime>
+    </File>
+    <File Include="wwwroot/assets/fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>02/13/2017 02:35:12</publishTime>
+    </File>
+    <File Include="wwwroot/assets/fonts/glyphicons-halflings-regular.woff">
+      <publishTime>02/13/2017 02:35:12</publishTime>
+    </File>
+    <File Include="wwwroot/assets/fonts/glyphicons-halflings-regular.woff2">
+      <publishTime>02/13/2017 02:35:12</publishTime>
+    </File>
+    <File Include="wwwroot/assets/fonts/Pe-icon-7-stroke.eot">
+      <publishTime>02/13/2017 00:27:24</publishTime>
+    </File>
+    <File Include="wwwroot/assets/fonts/Pe-icon-7-stroke.svg">
+      <publishTime>02/13/2017 00:27:24</publishTime>
+    </File>
+    <File Include="wwwroot/assets/fonts/Pe-icon-7-stroke.ttf">
+      <publishTime>02/13/2017 00:27:24</publishTime>
+    </File>
+    <File Include="wwwroot/assets/fonts/Pe-icon-7-stroke.woff">
+      <publishTime>02/13/2017 00:27:24</publishTime>
+    </File>
+    <File Include="wwwroot/assets/img/default-avatar.png">
+      <publishTime>02/13/2017 00:27:24</publishTime>
+    </File>
+    <File Include="wwwroot/assets/img/faces/face-0.jpg">
+      <publishTime>02/13/2017 00:27:24</publishTime>
+    </File>
+    <File Include="wwwroot/assets/img/faces/face-1.jpg">
+      <publishTime>02/13/2017 00:27:24</publishTime>
+    </File>
+    <File Include="wwwroot/assets/img/faces/face-2.jpg">
+      <publishTime>02/13/2017 00:27:24</publishTime>
+    </File>
+    <File Include="wwwroot/assets/img/faces/face-3.jpg">
+      <publishTime>02/13/2017 00:27:24</publishTime>
+    </File>
+    <File Include="wwwroot/assets/img/faces/face-4.jpg">
+      <publishTime>02/13/2017 00:27:24</publishTime>
+    </File>
+    <File Include="wwwroot/assets/img/faces/face-5.jpg">
+      <publishTime>02/13/2017 00:27:24</publishTime>
+    </File>
+    <File Include="wwwroot/assets/img/faces/face-6.jpg">
+      <publishTime>02/13/2017 00:27:24</publishTime>
+    </File>
+    <File Include="wwwroot/assets/img/faces/face-7.jpg">
+      <publishTime>02/13/2017 00:27:24</publishTime>
+    </File>
+    <File Include="wwwroot/assets/img/faces/tim_vector.jpe">
+      <publishTime>02/13/2017 00:27:24</publishTime>
+    </File>
+    <File Include="wwwroot/assets/img/favicon.ico">
+      <publishTime>02/13/2017 00:27:24</publishTime>
+    </File>
+    <File Include="wwwroot/assets/img/loading-bubbles.svg">
+      <publishTime>02/13/2017 00:27:24</publishTime>
+    </File>
+    <File Include="wwwroot/assets/img/mask.png">
+      <publishTime>02/13/2017 00:27:24</publishTime>
+    </File>
+    <File Include="wwwroot/assets/img/nav-image.jpg">
+      <publishTime>02/13/2017 01:01:02</publishTime>
+    </File>
+    <File Include="wwwroot/assets/img/new_logo.png">
+      <publishTime>02/13/2017 00:27:24</publishTime>
+    </File>
+    <File Include="wwwroot/assets/img/sidebar-1.jpg">
+      <publishTime>02/13/2017 00:27:24</publishTime>
+    </File>
+    <File Include="wwwroot/assets/img/sidebar-2.jpg">
+      <publishTime>02/13/2017 00:27:24</publishTime>
+    </File>
+    <File Include="wwwroot/assets/img/sidebar-3.jpg">
+      <publishTime>02/13/2017 00:27:24</publishTime>
+    </File>
+    <File Include="wwwroot/assets/img/sidebar-4.jpg">
+      <publishTime>02/13/2017 00:27:24</publishTime>
+    </File>
+    <File Include="wwwroot/assets/img/sidebar-5.jpg">
+      <publishTime>02/13/2017 00:27:24</publishTime>
+    </File>
+    <File Include="wwwroot/assets/img/tim_80x80.png">
+      <publishTime>02/13/2017 00:27:24</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/bootstrap-checkbox-radio-switch.js">
+      <publishTime>02/13/2017 00:27:24</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/bootstrap-notify.js">
+      <publishTime>02/13/2017 00:27:24</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/bootstrap-select.js">
+      <publishTime>02/13/2017 00:27:24</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/bootstrap.min.js">
+      <publishTime>02/13/2017 00:27:24</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/chartist.min.js">
+      <publishTime>02/13/2017 00:27:24</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/croppic.min.js">
+      <publishTime>02/13/2017 01:01:02</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/demo.js">
+      <publishTime>02/13/2017 00:27:24</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/jquery-1.10.2.js">
+      <publishTime>02/13/2017 00:27:24</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/light-bootstrap-dashboard.js">
+      <publishTime>02/13/2017 00:27:24</publishTime>
+    </File>
+    <File Include="wwwroot/assets/sass/lbd/mixins/_buttons.scss">
+      <publishTime>02/13/2017 00:27:24</publishTime>
+    </File>
+    <File Include="wwwroot/assets/sass/lbd/mixins/_cards.scss">
+      <publishTime>02/13/2017 00:27:24</publishTime>
+    </File>
+    <File Include="wwwroot/assets/sass/lbd/mixins/_chartist.scss">
+      <publishTime>02/13/2017 00:27:24</publishTime>
+    </File>
+    <File Include="wwwroot/assets/sass/lbd/mixins/_icons.scss">
+      <publishTime>02/13/2017 00:27:24</publishTime>
+    </File>
+    <File Include="wwwroot/assets/sass/lbd/mixins/_inputs.scss">
+      <publishTime>02/13/2017 00:27:24</publishTime>
+    </File>
+    <File Include="wwwroot/assets/sass/lbd/mixins/_labels.scss">
+      <publishTime>02/13/2017 00:27:24</publishTime>
+    </File>
+    <File Include="wwwroot/assets/sass/lbd/mixins/_morphing-buttons.scss">
+      <publishTime>02/13/2017 00:27:24</publishTime>
+    </File>
+    <File Include="wwwroot/assets/sass/lbd/mixins/_navbars.scss">
+      <publishTime>02/13/2017 00:27:24</publishTime>
+    </File>
+    <File Include="wwwroot/assets/sass/lbd/mixins/_social-buttons.scss">
+      <publishTime>02/13/2017 00:27:24</publishTime>
+    </File>
+    <File Include="wwwroot/assets/sass/lbd/mixins/_tabs.scss">
+      <publishTime>02/13/2017 00:27:24</publishTime>
+    </File>
+    <File Include="wwwroot/assets/sass/lbd/mixins/_transparency.scss">
+      <publishTime>02/13/2017 00:27:24</publishTime>
+    </File>
+    <File Include="wwwroot/assets/sass/lbd/mixins/_vendor-prefixes.scss">
+      <publishTime>02/13/2017 00:27:24</publishTime>
+    </File>
+    <File Include="wwwroot/assets/sass/lbd/_alerts.scss">
+      <publishTime>02/13/2017 00:27:24</publishTime>
+    </File>
+    <File Include="wwwroot/assets/sass/lbd/_buttons.scss">
+      <publishTime>02/13/2017 00:27:24</publishTime>
+    </File>
+    <File Include="wwwroot/assets/sass/lbd/_cards.scss">
+      <publishTime>02/13/2017 00:27:24</publishTime>
+    </File>
+    <File Include="wwwroot/assets/sass/lbd/_chartist.scss">
+      <publishTime>02/13/2017 00:27:24</publishTime>
+    </File>
+    <File Include="wwwroot/assets/sass/lbd/_checkbox-radio-switch.scss">
+      <publishTime>02/13/2017 00:27:24</publishTime>
+    </File>
+    <File Include="wwwroot/assets/sass/lbd/_dropdown.scss">
+      <publishTime>02/13/2017 00:27:24</publishTime>
+    </File>
+    <File Include="wwwroot/assets/sass/lbd/_footers.scss">
+      <publishTime>02/13/2017 00:27:24</publishTime>
+    </File>
+    <File Include="wwwroot/assets/sass/lbd/_inputs.scss">
+      <publishTime>02/13/2017 00:27:24</publishTime>
+    </File>
+    <File Include="wwwroot/assets/sass/lbd/_misc.scss">
+      <publishTime>02/13/2017 00:27:24</publishTime>
+    </File>
+    <File Include="wwwroot/assets/sass/lbd/_mixins.scss">
+      <publishTime>02/13/2017 00:27:24</publishTime>
+    </File>
+    <File Include="wwwroot/assets/sass/lbd/_navbars.scss">
+      <publishTime>02/13/2017 00:27:24</publishTime>
+    </File>
+    <File Include="wwwroot/assets/sass/lbd/_responsive.scss">
+      <publishTime>02/13/2017 00:27:24</publishTime>
+    </File>
+    <File Include="wwwroot/assets/sass/lbd/_sidebar-and-main-panel.scss">
+      <publishTime>02/13/2017 00:27:24</publishTime>
+    </File>
+    <File Include="wwwroot/assets/sass/lbd/_tables.scss">
+      <publishTime>02/13/2017 00:27:24</publishTime>
+    </File>
+    <File Include="wwwroot/assets/sass/lbd/_typography.scss">
+      <publishTime>02/13/2017 00:27:24</publishTime>
+    </File>
+    <File Include="wwwroot/assets/sass/lbd/_variables.scss">
+      <publishTime>02/13/2017 00:27:24</publishTime>
+    </File>
+    <File Include="wwwroot/assets/sass/light-bootstrap-dashboard.scss">
+      <publishTime>02/13/2017 00:27:24</publishTime>
     </File>
     <File Include="wwwroot/clientes/client-artm%40m.c/imagem-perfil.jpg">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>01/23/2017 16:19:09</publishTime>
+    </File>
+    <File Include="wwwroot/clientes/client-moraispgsi%40gmail.com/imagem-perfil.jpg">
+      <publishTime>02/13/2017 04:13:48</publishTime>
+    </File>
+    <File Include="wwwroot/clientes/client-moraispgsi%40gmail.com/imagem-perfil.png">
+      <publishTime>02/13/2017 02:35:12</publishTime>
     </File>
     <File Include="wwwroot/clientes/client-tiagoasmont%40gmail.com/imagem-perfil.jpg">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>01/16/2017 16:49:42</publishTime>
     </File>
     <File Include="wwwroot/companhias/company-123%40dasdasd.com/imagem-jato-Ylo.jpg">
-      <publishTime>10/02/2017 02:22:44</publishTime>
+      <publishTime>02/10/2017 02:22:44</publishTime>
     </File>
     <File Include="wwwroot/companhias/company-123%40dasdasd.com/imagem-jato-Ylo.png">
-      <publishTime>10/02/2017 02:22:54</publishTime>
+      <publishTime>02/10/2017 02:22:54</publishTime>
+    </File>
+    <File Include="wwwroot/companhias/company-companhia%40teste.pt/imagem-perfil.jpg">
+      <publishTime>02/13/2017 04:13:48</publishTime>
     </File>
     <File Include="wwwroot/companhias/company-companhia.1%40gm.com/imagem-perfil.jpg">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>01/23/2017 16:19:09</publishTime>
     </File>
     <File Include="wwwroot/companhias/company-t%40t.pt/imagem-jato-Aviao1.jpg">
-      <publishTime>10/02/2017 11:44:08</publishTime>
+      <publishTime>02/10/2017 11:44:08</publishTime>
+    </File>
+    <File Include="wwwroot/companhias/company-t%40t.pt/imagem-jato-gasdgds.jpg">
+      <publishTime>02/13/2017 00:27:24</publishTime>
+    </File>
+    <File Include="wwwroot/companhias/company-t%40t.pt/imagem-jato-gasdgds.png">
+      <publishTime>02/13/2017 01:01:02</publishTime>
+    </File>
+    <File Include="wwwroot/companhias/company-t%40t.pt/imagem-jato-Ricardo.png">
+      <publishTime>02/13/2017 01:01:02</publishTime>
+    </File>
+    <File Include="wwwroot/companhias/company-t%40t.pt/imagem-perfil.jpg">
+      <publishTime>02/13/2017 02:35:12</publishTime>
+    </File>
+    <File Include="wwwroot/companhias/company-t%40t.pt/imagem-perfil.png">
+      <publishTime>02/13/2017 02:35:12</publishTime>
+    </File>
+    <File Include="wwwroot/companhias/company-tiagoasmont%40gmail.com/imagem-jato-Jato 1.jpg">
+      <publishTime>02/13/2017 04:02:40</publishTime>
     </File>
     <File Include="wwwroot/companhias/company-tiagoasmont23%40gmail.com/imagem-jato-teste.jpg">
-      <publishTime>10/02/2017 18:11:11</publishTime>
+      <publishTime>02/10/2017 18:11:11</publishTime>
+    </File>
+    <File Include="wwwroot/css/alertify.core.css">
+      <publishTime>02/12/2017 03:55:43</publishTime>
+    </File>
+    <File Include="wwwroot/css/alertify.default.css">
+      <publishTime>02/12/2017 03:55:43</publishTime>
     </File>
     <File Include="wwwroot/css/demo.css">
-      <publishTime>10/02/2017 12:43:50</publishTime>
+      <publishTime>02/10/2017 12:43:50</publishTime>
     </File>
     <File Include="wwwroot/css/fullcalendar.css">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>01/22/2017 17:58:56</publishTime>
     </File>
     <File Include="wwwroot/css/fullcalendar.min.css">
-      <publishTime>05/12/2016 00:26:14</publishTime>
+      <publishTime>12/05/2016 00:26:14</publishTime>
     </File>
     <File Include="wwwroot/css/horizontalcards.css">
-      <publishTime>09/01/2017 18:28:29</publishTime>
+      <publishTime>01/09/2017 18:28:29</publishTime>
     </File>
     <File Include="wwwroot/css/rating.min.css">
-      <publishTime>10/02/2017 04:02:04</publishTime>
+      <publishTime>02/10/2017 04:02:04</publishTime>
     </File>
     <File Include="wwwroot/css/site.css">
-      <publishTime>09/01/2017 18:28:29</publishTime>
+      <publishTime>01/09/2017 18:28:29</publishTime>
     </File>
     <File Include="wwwroot/css/site.min.css">
-      <publishTime>10/02/2017 18:47:53</publishTime>
+      <publishTime>02/13/2017 04:21:52</publishTime>
     </File>
     <File Include="wwwroot/css/styles.css">
-      <publishTime>10/02/2017 12:42:45</publishTime>
+      <publishTime>02/10/2017 12:42:45</publishTime>
     </File>
     <File Include="wwwroot/favicon.ico">
-      <publishTime>09/01/2017 18:28:29</publishTime>
+      <publishTime>01/09/2017 18:28:29</publishTime>
+    </File>
+    <File Include="wwwroot/images/16708240_1256715161060923_779565788904994072_n.jpg">
+      <publishTime>02/11/2017 22:37:45</publishTime>
     </File>
     <File Include="wwwroot/images/7098575-World-map-of-airline-airplane-flight-travel-plans--Stock-Vector-routes.jpg">
-      <publishTime>09/01/2017 18:28:29</publishTime>
+      <publishTime>01/09/2017 18:28:29</publishTime>
     </File>
     <File Include="wwwroot/images/amex.jpg">
-      <publishTime>03/11/2016 16:01:40</publishTime>
+      <publishTime>11/03/2016 16:01:40</publishTime>
     </File>
     <File Include="wwwroot/images/aviao-default.svg">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>01/23/2017 16:19:09</publishTime>
     </File>
     <File Include="wwwroot/images/banner1.svg">
-      <publishTime>09/01/2017 18:28:29</publishTime>
+      <publishTime>01/09/2017 18:28:29</publishTime>
     </File>
     <File Include="wwwroot/images/banner2.svg">
-      <publishTime>09/01/2017 18:28:29</publishTime>
+      <publishTime>01/09/2017 18:28:29</publishTime>
     </File>
     <File Include="wwwroot/images/banner3.svg">
-      <publishTime>09/01/2017 18:28:29</publishTime>
+      <publishTime>01/09/2017 18:28:29</publishTime>
     </File>
     <File Include="wwwroot/images/banner4.svg">
-      <publishTime>09/01/2017 18:28:29</publishTime>
+      <publishTime>01/09/2017 18:28:29</publishTime>
     </File>
     <File Include="wwwroot/images/calendar.png">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>01/23/2017 16:19:09</publishTime>
     </File>
     <File Include="wwwroot/images/cash.png">
-      <publishTime>10/02/2017 12:06:37</publishTime>
+      <publishTime>02/10/2017 12:06:37</publishTime>
     </File>
     <File Include="wwwroot/images/delete.png">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>01/23/2017 16:19:09</publishTime>
+    </File>
+    <File Include="wwwroot/images/download.jpg">
+      <publishTime>02/11/2017 22:21:38</publishTime>
     </File>
     <File Include="wwwroot/images/edit.png">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>01/23/2017 16:19:09</publishTime>
     </File>
     <File Include="wwwroot/images/Gulfstream-GV-Exterior.jpg">
-      <publishTime>09/01/2017 18:28:29</publishTime>
+      <publishTime>01/09/2017 18:28:29</publishTime>
     </File>
     <File Include="wwwroot/images/home.gif">
-      <publishTime>09/01/2017 18:28:29</publishTime>
+      <publishTime>01/09/2017 18:28:29</publishTime>
+    </File>
+    <File Include="wwwroot/images/img-fundo1.jpg">
+      <publishTime>02/13/2017 02:35:12</publishTime>
     </File>
     <File Include="wwwroot/images/jet.jpg">
-      <publishTime>09/01/2017 18:28:29</publishTime>
+      <publishTime>01/09/2017 18:28:29</publishTime>
     </File>
     <File Include="wwwroot/images/loader.gif">
-      <publishTime>10/02/2017 13:37:40</publishTime>
+      <publishTime>02/10/2017 13:37:40</publishTime>
     </File>
     <File Include="wwwroot/images/Logo-White.png">
-      <publishTime>09/01/2017 18:28:29</publishTime>
+      <publishTime>01/09/2017 18:28:29</publishTime>
     </File>
     <File Include="wwwroot/images/logo.png">
-      <publishTime>09/01/2017 18:28:29</publishTime>
+      <publishTime>01/09/2017 18:28:29</publishTime>
     </File>
     <File Include="wwwroot/images/mastercard.jpg">
-      <publishTime>03/11/2016 16:01:40</publishTime>
+      <publishTime>11/03/2016 16:01:40</publishTime>
     </File>
     <File Include="wwwroot/images/perfil-default.jpg">
-      <publishTime>12/01/2017 18:33:14</publishTime>
+      <publishTime>01/12/2017 18:33:14</publishTime>
     </File>
     <File Include="wwwroot/images/plus.png">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>01/23/2017 16:19:09</publishTime>
     </File>
     <File Include="wwwroot/images/stars.svg">
-      <publishTime>10/02/2017 04:02:04</publishTime>
+      <publishTime>02/10/2017 04:02:04</publishTime>
     </File>
     <File Include="wwwroot/images/timetravel.jpg">
-      <publishTime>09/01/2017 18:28:29</publishTime>
+      <publishTime>01/09/2017 18:28:29</publishTime>
     </File>
     <File Include="wwwroot/images/tutorial/clientes_helpdesk.png">
-      <publishTime>09/01/2017 18:28:29</publishTime>
+      <publishTime>01/09/2017 18:28:29</publishTime>
     </File>
     <File Include="wwwroot/images/tutorial/clientes_helpdesk_viagem.png">
-      <publishTime>09/01/2017 18:28:29</publishTime>
+      <publishTime>01/09/2017 18:28:29</publishTime>
     </File>
     <File Include="wwwroot/images/tutorial/Cliente_Editar_Perfil.png">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>01/21/2017 22:17:23</publishTime>
     </File>
     <File Include="wwwroot/images/tutorial/Cliente_Modificar_Password.png">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>01/21/2017 22:17:23</publishTime>
     </File>
     <File Include="wwwroot/images/tutorial/Cliente_Visualizar_Perfil.png">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>01/21/2017 22:17:23</publishTime>
     </File>
     <File Include="wwwroot/images/tutorial/Companhia/EditarPeril.png">
-      <publishTime>10/02/2017 02:21:05</publishTime>
+      <publishTime>02/10/2017 02:21:05</publishTime>
     </File>
     <File Include="wwwroot/images/tutorial/Companhia/gerir avioes/create.png">
-      <publishTime>10/02/2017 02:23:04</publishTime>
+      <publishTime>02/10/2017 02:23:04</publishTime>
     </File>
     <File Include="wwwroot/images/tutorial/Companhia/gerir avioes/disp.png">
-      <publishTime>10/02/2017 02:27:15</publishTime>
+      <publishTime>02/10/2017 02:27:15</publishTime>
     </File>
     <File Include="wwwroot/images/tutorial/Companhia/gerir avioes/main.png">
-      <publishTime>10/02/2017 02:46:31</publishTime>
+      <publishTime>02/10/2017 02:46:31</publishTime>
     </File>
     <File Include="wwwroot/images/tutorial/Companhia/Gerir Colaboradores/create.png">
-      <publishTime>10/02/2017 02:21:27</publishTime>
+      <publishTime>02/10/2017 02:21:27</publishTime>
     </File>
     <File Include="wwwroot/images/tutorial/Companhia/Gerir Colaboradores/main.png">
-      <publishTime>10/02/2017 02:41:30</publishTime>
+      <publishTime>02/10/2017 02:41:30</publishTime>
     </File>
     <File Include="wwwroot/images/tutorial/Companhia/gerir extras/create.png">
-      <publishTime>10/02/2017 02:23:14</publishTime>
+      <publishTime>02/10/2017 02:23:14</publishTime>
     </File>
     <File Include="wwwroot/images/tutorial/Companhia/gerir extras/main.png">
-      <publishTime>10/02/2017 02:26:33</publishTime>
+      <publishTime>02/10/2017 02:26:33</publishTime>
     </File>
     <File Include="wwwroot/images/tutorial/Companhia/VerPeril.png">
-      <publishTime>10/02/2017 02:20:42</publishTime>
+      <publishTime>02/10/2017 02:20:42</publishTime>
     </File>
     <File Include="wwwroot/images/tutorial/companhias_helpdesk.png">
-      <publishTime>09/01/2017 18:28:29</publishTime>
+      <publishTime>01/09/2017 18:28:29</publishTime>
     </File>
     <File Include="wwwroot/images/tutorial/HelpDesk.png">
-      <publishTime>09/01/2017 18:28:29</publishTime>
+      <publishTime>01/09/2017 18:28:29</publishTime>
     </File>
     <File Include="wwwroot/images/tutorial/helpdesk_aceitar.png">
-      <publishTime>09/01/2017 18:28:29</publishTime>
+      <publishTime>01/09/2017 18:28:29</publishTime>
     </File>
     <File Include="wwwroot/images/tutorial/helpdesk_aceitar_resultado.png">
-      <publishTime>09/01/2017 18:28:29</publishTime>
+      <publishTime>01/09/2017 18:28:29</publishTime>
     </File>
     <File Include="wwwroot/images/tutorial/Home.png">
-      <publishTime>09/01/2017 18:28:29</publishTime>
+      <publishTime>01/09/2017 18:28:29</publishTime>
     </File>
     <File Include="wwwroot/images/tutorial/Login.png">
-      <publishTime>09/01/2017 18:28:29</publishTime>
+      <publishTime>01/09/2017 18:28:29</publishTime>
     </File>
     <File Include="wwwroot/images/tutorial/Recuperar senha confirmação.png">
-      <publishTime>09/01/2017 18:28:29</publishTime>
+      <publishTime>01/09/2017 18:28:29</publishTime>
     </File>
     <File Include="wwwroot/images/tutorial/Recuperar senha.png">
-      <publishTime>09/01/2017 18:28:29</publishTime>
+      <publishTime>01/09/2017 18:28:29</publishTime>
     </File>
     <File Include="wwwroot/images/tutorial/Registar.png">
-      <publishTime>09/01/2017 18:28:29</publishTime>
+      <publishTime>01/09/2017 18:28:29</publishTime>
     </File>
     <File Include="wwwroot/images/tutorial/RegisterClient.png">
-      <publishTime>09/01/2017 18:28:29</publishTime>
+      <publishTime>01/09/2017 18:28:29</publishTime>
     </File>
     <File Include="wwwroot/images/tutorial/RegisterCompany.png">
-      <publishTime>09/01/2017 18:28:29</publishTime>
+      <publishTime>01/09/2017 18:28:29</publishTime>
     </File>
     <File Include="wwwroot/images/tutorial/Reset Password.png">
-      <publishTime>09/01/2017 18:28:29</publishTime>
+      <publishTime>01/09/2017 18:28:29</publishTime>
     </File>
     <File Include="wwwroot/images/tutorial/viagem_cliente_helpdesk.png">
-      <publishTime>09/01/2017 18:28:29</publishTime>
+      <publishTime>01/09/2017 18:28:29</publishTime>
     </File>
     <File Include="wwwroot/images/tutorial/viagens_helpdesk.png">
-      <publishTime>09/01/2017 18:28:29</publishTime>
+      <publishTime>01/09/2017 18:28:29</publishTime>
     </File>
     <File Include="wwwroot/images/visa.jpg">
-      <publishTime>03/11/2016 16:01:40</publishTime>
+      <publishTime>11/03/2016 16:01:40</publishTime>
     </File>
     <File Include="wwwroot/jatos/airplaine-2131/imagem-jato.jpg">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>01/23/2017 16:19:09</publishTime>
     </File>
     <File Include="wwwroot/jatos/airplaine-243wqeda/imagem-jato.jpg">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>01/23/2017 16:19:09</publishTime>
     </File>
     <File Include="wwwroot/jatos/airplaine-asd/imagem-jato.jpg">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>01/23/2017 16:19:09</publishTime>
     </File>
     <File Include="wwwroot/jatos/airplaine-er3egtsrefwda/imagem-jato.jpg">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>01/23/2017 16:19:09</publishTime>
     </File>
     <File Include="wwwroot/jatos/airplaine-JatoPaneleiro/imagem-jato.jpg">
-      <publishTime>10/02/2017 04:02:04</publishTime>
+      <publishTime>02/10/2017 04:02:04</publishTime>
+    </File>
+    <File Include="wwwroot/js/alertify.min.js">
+      <publishTime>02/12/2017 03:55:43</publishTime>
     </File>
     <File Include="wwwroot/js/fullcalendar.js">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>01/22/2017 17:58:42</publishTime>
     </File>
     <File Include="wwwroot/js/fullcalendar.min.js">
-      <publishTime>05/12/2016 00:26:12</publishTime>
+      <publishTime>12/05/2016 00:26:12</publishTime>
     </File>
     <File Include="wwwroot/js/jquery-3.1.1.min.js">
-      <publishTime>09/01/2017 18:28:29</publishTime>
+      <publishTime>01/09/2017 18:28:29</publishTime>
     </File>
     <File Include="wwwroot/js/jquery.payform.min.js">
-      <publishTime>03/11/2016 16:01:40</publishTime>
+      <publishTime>11/03/2016 16:01:40</publishTime>
     </File>
     <File Include="wwwroot/js/Moment.js">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>01/22/2017 19:30:51</publishTime>
     </File>
     <File Include="wwwroot/js/pesquisa-jatos.js">
-      <publishTime>10/02/2017 11:44:08</publishTime>
+      <publishTime>02/10/2017 11:44:08</publishTime>
     </File>
     <File Include="wwwroot/js/rating.min.js">
-      <publishTime>10/02/2017 04:02:04</publishTime>
+      <publishTime>02/10/2017 04:02:04</publishTime>
     </File>
     <File Include="wwwroot/js/script.js">
-      <publishTime>10/02/2017 13:42:03</publishTime>
+      <publishTime>02/10/2017 13:42:03</publishTime>
     </File>
     <File Include="wwwroot/js/site.js">
-      <publishTime>09/01/2017 18:28:29</publishTime>
+      <publishTime>01/09/2017 18:28:29</publishTime>
     </File>
     <File Include="wwwroot/js/site.min.js">
-      <publishTime>10/02/2017 03:05:02</publishTime>
+      <publishTime>02/10/2017 03:05:02</publishTime>
     </File>
     <File Include="wwwroot/lib/bootstrap/.bower.json">
-      <publishTime>09/01/2017 18:28:29</publishTime>
+      <publishTime>01/09/2017 18:28:29</publishTime>
     </File>
     <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-theme.css">
-      <publishTime>09/01/2017 18:28:29</publishTime>
+      <publishTime>01/09/2017 18:28:29</publishTime>
     </File>
     <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-theme.css.map">
-      <publishTime>09/01/2017 18:28:29</publishTime>
+      <publishTime>01/09/2017 18:28:29</publishTime>
     </File>
     <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-theme.min.css">
-      <publishTime>09/01/2017 18:28:29</publishTime>
+      <publishTime>01/09/2017 18:28:29</publishTime>
     </File>
     <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-theme.min.css.map">
-      <publishTime>09/01/2017 18:28:29</publishTime>
+      <publishTime>01/09/2017 18:28:29</publishTime>
     </File>
     <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.css">
-      <publishTime>09/01/2017 18:28:29</publishTime>
+      <publishTime>01/09/2017 18:28:29</publishTime>
     </File>
     <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.css.map">
-      <publishTime>09/01/2017 18:28:29</publishTime>
+      <publishTime>01/09/2017 18:28:29</publishTime>
     </File>
     <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.min.css">
-      <publishTime>09/01/2017 18:28:29</publishTime>
+      <publishTime>01/09/2017 18:28:29</publishTime>
     </File>
     <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.min.css.map">
-      <publishTime>09/01/2017 18:28:29</publishTime>
+      <publishTime>01/09/2017 18:28:29</publishTime>
     </File>
     <File Include="wwwroot/lib/bootstrap/dist/fonts/glyphicons-halflings-regular.eot">
-      <publishTime>09/01/2017 18:28:29</publishTime>
+      <publishTime>01/09/2017 18:28:29</publishTime>
     </File>
     <File Include="wwwroot/lib/bootstrap/dist/fonts/glyphicons-halflings-regular.svg">
-      <publishTime>09/01/2017 18:28:29</publishTime>
+      <publishTime>01/09/2017 18:28:29</publishTime>
     </File>
     <File Include="wwwroot/lib/bootstrap/dist/fonts/glyphicons-halflings-regular.ttf">
-      <publishTime>09/01/2017 18:28:29</publishTime>
+      <publishTime>01/09/2017 18:28:29</publishTime>
     </File>
     <File Include="wwwroot/lib/bootstrap/dist/fonts/glyphicons-halflings-regular.woff">
-      <publishTime>09/01/2017 18:28:29</publishTime>
+      <publishTime>01/09/2017 18:28:29</publishTime>
     </File>
     <File Include="wwwroot/lib/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2">
-      <publishTime>09/01/2017 18:28:29</publishTime>
+      <publishTime>01/09/2017 18:28:29</publishTime>
     </File>
     <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.js">
-      <publishTime>09/01/2017 18:28:29</publishTime>
+      <publishTime>01/09/2017 18:28:29</publishTime>
     </File>
     <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.min.js">
-      <publishTime>09/01/2017 18:28:29</publishTime>
+      <publishTime>01/09/2017 18:28:29</publishTime>
     </File>
     <File Include="wwwroot/lib/bootstrap/dist/js/npm.js">
-      <publishTime>09/01/2017 18:28:29</publishTime>
+      <publishTime>01/09/2017 18:28:29</publishTime>
     </File>
     <File Include="wwwroot/lib/bootstrap/LICENSE">
-      <publishTime>09/01/2017 18:28:29</publishTime>
+      <publishTime>01/09/2017 18:28:29</publishTime>
     </File>
     <File Include="wwwroot/lib/jquery-validation-unobtrusive/.bower.json">
-      <publishTime>09/01/2017 18:28:29</publishTime>
+      <publishTime>01/09/2017 18:28:29</publishTime>
     </File>
     <File Include="wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js">
-      <publishTime>09/01/2017 18:28:29</publishTime>
+      <publishTime>01/09/2017 18:28:29</publishTime>
     </File>
     <File Include="wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js">
-      <publishTime>09/01/2017 18:28:29</publishTime>
+      <publishTime>01/09/2017 18:28:29</publishTime>
     </File>
     <File Include="wwwroot/lib/jquery-validation/.bower.json">
-      <publishTime>09/01/2017 18:28:29</publishTime>
+      <publishTime>01/09/2017 18:28:29</publishTime>
     </File>
     <File Include="wwwroot/lib/jquery-validation/dist/additional-methods.js">
-      <publishTime>09/01/2017 18:28:29</publishTime>
+      <publishTime>01/09/2017 18:28:29</publishTime>
     </File>
     <File Include="wwwroot/lib/jquery-validation/dist/additional-methods.min.js">
-      <publishTime>09/01/2017 18:28:29</publishTime>
+      <publishTime>01/09/2017 18:28:29</publishTime>
     </File>
     <File Include="wwwroot/lib/jquery-validation/dist/jquery.validate.js">
-      <publishTime>09/01/2017 18:28:29</publishTime>
+      <publishTime>01/09/2017 18:28:29</publishTime>
     </File>
     <File Include="wwwroot/lib/jquery-validation/dist/jquery.validate.min.js">
-      <publishTime>09/01/2017 18:28:29</publishTime>
+      <publishTime>01/09/2017 18:28:29</publishTime>
     </File>
     <File Include="wwwroot/lib/jquery-validation/LICENSE.md">
-      <publishTime>09/01/2017 18:28:29</publishTime>
+      <publishTime>01/09/2017 18:28:29</publishTime>
     </File>
     <File Include="wwwroot/lib/jquery/.bower.json">
-      <publishTime>09/01/2017 18:28:29</publishTime>
+      <publishTime>01/09/2017 18:28:29</publishTime>
     </File>
     <File Include="wwwroot/lib/jquery/dist/jquery.js">
-      <publishTime>09/01/2017 18:28:29</publishTime>
+      <publishTime>01/09/2017 18:28:29</publishTime>
     </File>
     <File Include="wwwroot/lib/jquery/dist/jquery.min.js">
-      <publishTime>09/01/2017 18:28:29</publishTime>
+      <publishTime>01/09/2017 18:28:29</publishTime>
     </File>
     <File Include="wwwroot/lib/jquery/dist/jquery.min.map">
-      <publishTime>09/01/2017 18:28:29</publishTime>
+      <publishTime>01/09/2017 18:28:29</publishTime>
     </File>
     <File Include="wwwroot/lib/jquery/LICENSE.txt">
-      <publishTime>09/01/2017 18:28:29</publishTime>
+      <publishTime>01/09/2017 18:28:29</publishTime>
     </File>
     <File Include="wwwroot/_references.js">
-      <publishTime>10/02/2017 12:36:35</publishTime>
+      <publishTime>02/13/2017 01:01:02</publishTime>
     </File>
   </ItemGroup>
 </Project>

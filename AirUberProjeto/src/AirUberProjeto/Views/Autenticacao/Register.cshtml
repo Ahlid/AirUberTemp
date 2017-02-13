@@ -1,35 +1,78 @@
 ﻿
-<div class="row">
-    <div class="col-md-12">
-        <section style="text-align: center; margin-top: 30px">
-            <br />
-            <h4>AirUber</h4>
-            <hr />
-            <div class="w3-row-padding">
-                <div class="w3-col m4 l6">
-                    <div class="w3-hover-shadow w3-center w3-padding-128 w3-theme-light w3-margin">
-                        <p>Quero encontrar os melhores jatos</p>
-                        <a class="w3-text-blue" asp-action="RegisterCliente"> Sign up</a>
+
+
+
+@{
+    ViewBag.Title = "Registar";
+}
+
+
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="card">
+            
+            <div class="content">
+                <div class="row">
+                    <div class="col-md-12">
+                        <section style="text-align: center">
+                            <br />
+                            <h4>AirUber</h4>
+                            <hr />
+                            <div class="w3-row-padding">
+                                <div class="col-md-6 l6">
+                                    <div class="card" style="padding: 10px; background-color: rgba(0, 0, 0, 0.01); width: 80%; margin: auto">
+                                        <div style="background-image: url(http://crisscrosstvl.com/wp-content/uploads/2016/05/sunset-plane.png);
+    background-size: 100%; height: 200px">
+
+                                        </div>
+
+                                        <h4>Quero encontrar os melhores jatos</h4>
+                                        <br/>
+                                        <br />
+                                        
+
+                                        <a style="font-size: 16px" asp-action="RegisterCliente"> Registar Como Cliente</a>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 m4 l6">
+                                    <div class="card" style="padding: 10px; background-color: rgba(0, 0, 0, 0.01); width: 80%; margin: auto">
+                                        <div style="background-image: url(http://addicted-pilots.com/wp-content/uploads/2015/12/pilot-stress.jpg);
+    background-size: 100%; height: 200px"> </div>
+
+                                            <h4>Quero fazer crescer a minha companhia</h4>
+
+                                            <br />
+                                            <br />
+                                            <a style="font-size: 16px" asp-action="RegisterCompanhia"> Registar Como Companhia</a>
+
+                                        </div>
+                                </div>
+
+
+                            </div>
+
+                            <hr />
+                            <br/>
+                            <br/>
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br /><br />
+<br />
+                            <p style="padding: 20px; margin: 80px">Já tem conta? <a class="w3-text-blue" asp-action="Login">Login</a></p>
+                        </section>
                     </div>
                 </div>
-                    <div class="w3-col m4 l6">
-                        <div class="w3-hover-shadow w3-center w3-padding-128 w3-theme-light w3-margin">
-                            <p>Quero fazer crescer a minha companhia</p>
-                            <a class="w3-text-blue" asp-action="RegisterCompanhia"> Sign up as an company</a>
-
-                        </div>
-                    </div>
-
-
-                </div>
-
-                <hr />
-
-                <p class="w3-padding-12 w3-col m12 l12">Já tem conta? <a class="w3-text-blue" asp-action="Login">Login</a></p>
-</section>
+            </div>
+        </div>
     </div>
 </div>
-
 @section Scripts {
     @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
 }

@@ -110,6 +110,8 @@ namespace AirUberProjeto.Controllers
                 .Include(c => c.ListaExtras)
                 .Where(c => c.CompanhiaId == colaborador.CompanhiaId)).Single();
 
+            ViewBag.paises = new SelectList(_context.Pais.ToList(), "PaisId", "Nome");
+
             PerfilCompanhiaViewModel perfilViewModel = new PerfilCompanhiaViewModel()
             {
                 Colaborador = colaborador,
@@ -180,6 +182,10 @@ namespace AirUberProjeto.Controllers
                 companhia.Nome = viewModel.companhia.Nome;
                 companhia.Morada = viewModel.companhia.Morada;
                 companhia.Descricao = viewModel.companhia.Descricao;
+                companhia.Nif = viewModel.companhia.Nif;
+                companhia.Contact = viewModel.companhia.Contact;
+                companhia.PaisId = viewModel.companhia.PaisId;
+                companhia.Nif = viewModel.companhia.Nif;
 
                 _context.Update(companhia);
                 _context.SaveChanges();
@@ -1325,6 +1331,8 @@ namespace AirUberProjeto.Controllers
                 .Where(r => r.Aprovada == false)
                 .Include(r => r.Jato)
                 .Include(r => r.Cliente)
+                .Include(r => r.AeroportoPartida)
+                .Include(r => r.AeroportoDestino)
                 .Include(r => r.Jato.Aeroporto);
 
             return View(reservas);
@@ -1357,6 +1365,26 @@ namespace AirUberProjeto.Controllers
 
                 companhia.ContaDeCreditos.JetCashActual += reserva.Custo;
                 cliente.ContaDeCreditos.JetCashActual -= reserva.Custo;
+
+                MovimentoMonetario movimentoCliente = new MovimentoMonetario
+                {
+                    Montante = -double.Parse(reserva.Custo.ToString()),
+                    TipoMovimento = TipoMovimento.Transferencia,
+                    HistoricoTransacoeMonetariasId = cliente.ContaDeCreditos.HistoricoTransacoeMonetariasId
+                };
+
+                MovimentoMonetario movimentoCompanhia = new MovimentoMonetario
+                {
+                    Montante = double.Parse(reserva.Custo.ToString()),
+                    TipoMovimento = TipoMovimento.Transferencia,
+                    HistoricoTransacoeMonetariasId = companhia.ContaDeCreditos.HistoricoTransacoeMonetariasId
+                };
+
+                _context.MovimentoMonetarios.Add(movimentoCliente);
+                _context.MovimentoMonetarios.Add(movimentoCompanhia);
+                _context.SaveChanges();
+
+
                 reserva.Aprovada = true;
                 reserva.Paga = true;
 
@@ -1403,9 +1431,26 @@ namespace AirUberProjeto.Controllers
                     .Include(r => r.Jato)
                     .Single(r => r.Jato.CompanhiaId == companhia.CompanhiaId && r.Aprovada == false && r.ReservaId == id);
 
+                Cliente cliente = _context.Cliente
+                   .Include(c => c.ContaDeCreditos)
+                   .Single(c => c.Id == reserva.ApplicationUserId);
+
                 if (reserva == null)
                     return false;
 
+                MovimentoMonetario movimentoCliente = new MovimentoMonetario
+                {
+                    Montante = double.Parse(reserva.Custo.ToString()),
+                    TipoMovimento = TipoMovimento.Reembolso,
+                    HistoricoTransacoeMonetariasId = cliente.ContaDeCreditos.HistoricoTransacoeMonetariasId
+                };
+
+                _context.MovimentoMonetarios.Add(movimentoCliente);
+                _context.SaveChanges();
+
+
+
+                _context.Reserva.Remove(reserva);
 
                 Notificacao notificacao = new Notificacao()
                 {
@@ -1434,7 +1479,8 @@ namespace AirUberProjeto.Controllers
         {
 
             Colaborador colaborador = (Colaborador) _userManager.GetUserAsync(this.User).Result;
-            IEnumerable<Notificacao> notificacoes = _context.Notificacao.Where(n => n.UtilizadorId == colaborador.Id);
+            IEnumerable<Notificacao> notificacoes = _context.Notificacao.Where(n => n.UtilizadorId == colaborador.Id)
+                .OrderByDescending(n => n.NotificacaoId);
             foreach (Notificacao notificacao in notificacoes)
             {
                 notificacao.Lida = true;

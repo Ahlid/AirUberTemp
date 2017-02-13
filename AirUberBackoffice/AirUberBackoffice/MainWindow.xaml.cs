@@ -112,7 +112,7 @@ namespace AirUberBackoffice
             FormReservas.Visibility = Visibility.Visible;
             ListBoxReservas.ItemsSource = App.AirUberDB.GetReservas();
             ListBoxReservas.SelectedValuePath = "ReservaId";
-            ListBoxReservas.DisplayMemberPath = "DataChegada";   // mostrar mais!, conseguido com o to string
+           // ListBoxReservas.DisplayMemberPath = "DataChegada";   // mostrar mais!, conseguido com o to string
             ListBoxReservas.SelectedIndex = 0;
             ListBoxReservas.IsSynchronizedWithCurrentItem = true;
         }
@@ -136,7 +136,7 @@ namespace AirUberBackoffice
             FormAeroportos.Visibility = Visibility.Visible;
             ListBoxAeroportos.ItemsSource = App.AirUberDB.GetAeroportos();
             ListBoxAeroportos.SelectedValuePath = "AeroportoId";
-            ListBoxAeroportos.DisplayMemberPath = "Nome";   // mostrar mais!, conseguido com o to string
+          //  ListBoxAeroportos.DisplayMemberPath = "Nome";   // mostrar mais!, conseguido com o to string
             ListBoxAeroportos.SelectedIndex = 0;
             ListBoxAeroportos.IsSynchronizedWithCurrentItem = true;
         }
@@ -184,7 +184,7 @@ namespace AirUberBackoffice
             FormPaises.Visibility = Visibility.Visible;
             ListBoxPaises.ItemsSource = App.AirUberDB.GetPaises();
             ListBoxPaises.SelectedValuePath = "PaisId";
-            ListBoxPaises.DisplayMemberPath = "Nome";   // mostrar mais!, conseguido com o to string
+           // ListBoxPaises.DisplayMemberPath = "Nome";   // mostrar mais!, conseguido com o to string
             ListBoxPaises.SelectedIndex = 0;
             ListBoxPaises.IsSynchronizedWithCurrentItem = true;
         }
@@ -207,7 +207,7 @@ namespace AirUberBackoffice
             FormCidades.Visibility = Visibility.Visible;
             ListBoxCidades.ItemsSource = App.AirUberDB.GetCidades();
             ListBoxCidades.SelectedValuePath = "CidadeId";
-            ListBoxCidades.DisplayMemberPath = "Nome";   // mostrar mais!, conseguido com o to string
+           // ListBoxCidades.DisplayMemberPath = "Nome";   // mostrar mais!, conseguido com o to string
             ListBoxCidades.SelectedIndex = 0;
             ListBoxCidades.IsSynchronizedWithCurrentItem = true;
         }
@@ -233,7 +233,7 @@ namespace AirUberBackoffice
             FormClientes.Visibility = Visibility.Visible;
             ListBoxClientes.ItemsSource = App.AirUberDB.GetClientes();
             ListBoxClientes.SelectedValuePath = "ApplicationUserId";
-            ListBoxClientes.DisplayMemberPath = "Nome";   // mostrar mais!, conseguido com o to string
+           // ListBoxClientes.DisplayMemberPath = "Nome";   // mostrar mais!, conseguido com o to string
             ListBoxClientes.SelectedIndex = 0;
             ListBoxClientes.IsSynchronizedWithCurrentItem = true;
         }
@@ -309,7 +309,7 @@ namespace AirUberBackoffice
             FormCompanhias.Visibility = Visibility.Visible;
             ListBoxCompanhias.ItemsSource = App.AirUberDB.GetCompanhias();
             ListBoxCompanhias.SelectedValuePath = "CidadeId";
-            ListBoxCompanhias.DisplayMemberPath = "Nome";   // mostrar mais!, conseguido com o to string
+           // ListBoxCompanhias.DisplayMemberPath = "Nome";   // mostrar mais!, conseguido com o to string
             ListBoxCompanhias.SelectedIndex = 0;
             ListBoxCompanhias.IsSynchronizedWithCurrentItem = true;
 
@@ -365,7 +365,7 @@ namespace AirUberBackoffice
 
             ListBoxColaboradores.ItemsSource = App.AirUberDB.GetColaboradores(companhiaActual.CompanhiaId);
             ListBoxColaboradores.SelectedValuePath = "ApplicationUserId";
-            ListBoxColaboradores.DisplayMemberPath = "Nome";   // mostrar mais!, conseguido com o to string
+           // ListBoxColaboradores.DisplayMemberPath = "Nome";   // mostrar mais!, conseguido com o to string
             ListBoxColaboradores.SelectedIndex = 0;
             ListBoxColaboradores.IsSynchronizedWithCurrentItem = true;
         }
@@ -409,7 +409,7 @@ namespace AirUberBackoffice
 
             ListBoxExtras.ItemsSource = App.AirUberDB.GetExtras();
             ListBoxExtras.SelectedValuePath = "ExtrasId";
-            ListBoxExtras.DisplayMemberPath = "Nome";   // mostrar mais!, conseguido com o to string
+           // ListBoxExtras.DisplayMemberPath = "Nome";   // mostrar mais!, conseguido com o to string
             ListBoxExtras.SelectedIndex = 0;
             ListBoxExtras.IsSynchronizedWithCurrentItem = true;
         }
@@ -492,7 +492,7 @@ namespace AirUberBackoffice
 
             ListBoxTipoExtras.ItemsSource = App.AirUberDB.GetTipoExtras();
             ListBoxTipoExtras.SelectedValuePath = "TipoExtrasId";
-            ListBoxTipoExtras.DisplayMemberPath = "Nome";   // mostrar mais!, conseguido com o to string
+            //ListBoxTipoExtras.DisplayMemberPath = "Nome";   // mostrar mais!, conseguido com o to string
             ListBoxTipoExtras.SelectedIndex = 0;
             ListBoxTipoExtras.IsSynchronizedWithCurrentItem = true;
         }
@@ -572,7 +572,7 @@ namespace AirUberBackoffice
 
             ListBoxTodosJatos.ItemsSource = App.AirUberDB.GetJatos();
             ListBoxTodosJatos.SelectedValuePath = "JatoId";
-            ListBoxTodosJatos.DisplayMemberPath = "Nome";   // mostrar mais!, conseguido com o to string
+           // ListBoxTodosJatos.DisplayMemberPath = "Nome";   // mostrar mais!, conseguido com o to string
             ListBoxTodosJatos.SelectedIndex = 0;
             ListBoxTodosJatos.IsSynchronizedWithCurrentItem = true;
         }
@@ -609,7 +609,7 @@ namespace AirUberBackoffice
 
             ListBoxModelos.ItemsSource = App.AirUberDB.GetModelos();
             ListBoxModelos.SelectedValuePath = "ModeloId";
-            ListBoxModelos.DisplayMemberPath = "TipoJato.Nome";   // mostrar mais!, conseguido com o to string
+           // ListBoxModelos.DisplayMemberPath = "TipoJato.Nome";   // mostrar mais!, conseguido com o to string
             ListBoxModelos.SelectedIndex = 0;
             ListBoxModelos.IsSynchronizedWithCurrentItem = true;
         }
@@ -710,7 +710,7 @@ namespace AirUberBackoffice
 
             ListBoxTipoJatos.ItemsSource = App.AirUberDB.GetTipoJatos();
             ListBoxTipoJatos.SelectedValuePath = "TipoModeloId";
-            ListBoxTipoJatos.DisplayMemberPath = "Nome";   // mostrar mais!, conseguido com o to string
+           // ListBoxTipoJatos.DisplayMemberPath = "Nome";   // mostrar mais!, conseguido com o to string
             ListBoxTipoJatos.SelectedIndex = 0;
             ListBoxTipoJatos.IsSynchronizedWithCurrentItem = true;
         }

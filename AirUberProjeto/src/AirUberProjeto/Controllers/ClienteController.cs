@@ -310,9 +310,11 @@ namespace AirUberProjeto.Controllers
                 aeroportoDestino.Longitude
             ));
             //Metros por segundo
-            long velocidade = Convert.ToInt64(jato.VelocidadeMedia); 
+            long velocidade = Convert.ToInt64(jato.VelocidadeMedia);
+            if (velocidade == 0)
+                return long.MaxValue;
 
-            return (distancia/velocidade)* TimeSpan.TicksPerSecond;
+            return ((distancia * 1000)/velocidade)* TimeSpan.TicksPerSecond;
 
         }
 
@@ -440,8 +442,6 @@ namespace AirUberProjeto.Controllers
         /// <returns>True se o jato está disponivel no aeroporto de partida na data de partida e consegue efetuar o voo</returns>
         private TipoDisponibilidade JatoDisponivelIntervalo(int jatoId, int aeroportoPartidaId, int aeroportoDestinoId, DateTime dataReserva)
         {
-
-            
 
             Jato jato = _context.Jato
                 .Include(j => j.ListaDisponibilidade)
@@ -692,19 +692,19 @@ namespace AirUberProjeto.Controllers
         /// <param name="lat2">Latitude da posicao 1</param>
         /// <param name="lng2">Longitude da posicao 2</param>
         /// <returns>angulo em graus</returns>
-        private double DistanciaEntreCoordenadas(double lat1, double lng1, double lat2, double lng2)
+        private double DistanciaEntreCoordenadas(double lat1, double lon1, double lat2, double lon2)
         {
-            double earthRadius = 3958.75;
-            double dLat = DegreesToRadians(lat2 - lat1);
-            double dLng = DegreesToRadians(lng2 - lng1);
-            double sindLat = Math.Sin(dLat / 2);
-            double sindLng = Math.Sin(dLng / 2);
-            double a = Math.Pow(sindLat, 2) + Math.Pow(sindLng, 2)
-                    * Math.Cos(DegreesToRadians(lat1)) * Math.Cos(DegreesToRadians(lat2));
-            double c = 2 * Math.Atan2(Math.Sqrt(a), Math.Sqrt(1 - a));
-            double dist = earthRadius * c;
-
-            return dist;
+            double theta = lon1 - lon2;
+            double dist = Math.Sin(DegreesToRadians(lat1)) * Math.Sin(DegreesToRadians(lat2)) +
+                          Math.Cos(DegreesToRadians(lat1)) * Math.Cos(DegreesToRadians(lat2)) *
+                          Math.Cos(DegreesToRadians(theta));
+            dist = Math.Acos(dist);
+            dist = RadiansToDegrees(dist);
+            dist = dist * 60 * 1.1515;
+            dist = dist * 1.609344;
+            
+           
+            return (dist);
         }
 
 
@@ -860,7 +860,7 @@ namespace AirUberProjeto.Controllers
         {
             
             Cliente cliente = (Cliente)_userManager.GetUserAsync(this.User).Result;
-            IEnumerable<Notificacao> notificacoes = _context.Notificacao.Where(n => n.UtilizadorId == cliente.Id);
+            IEnumerable<Notificacao> notificacoes = _context.Notificacao.Where(n => n.UtilizadorId == cliente.Id).OrderByDescending(n => n.NotificacaoId);
             foreach (Notificacao notificacao in notificacoes)
             {
                 notificacao.Lida = true;
@@ -886,8 +886,8 @@ namespace AirUberProjeto.Controllers
             try
             {
                 setupNav();
-                Aeroporto aeroportoPartida = _context.Aeroporto.Single(a => a.AeroportoId == idpartida);
-                Aeroporto aeroportoChegada = _context.Aeroporto.Single(a => a.AeroportoId == iddestino);
+                Aeroporto aeroportoPartida = _context.Aeroporto.Include(a => a.Cidade).Include(a => a.Cidade.Pais).Single(a => a.AeroportoId == idpartida);
+                Aeroporto aeroportoChegada = _context.Aeroporto.Include(a => a.Cidade).Include(a => a.Cidade.Pais).Single(a => a.AeroportoId == iddestino);
 
                 Jato Jato = _context.Jato
                     .Select(c => c)
@@ -1102,7 +1102,7 @@ namespace AirUberProjeto.Controllers
             Cliente cliente = (Cliente)_userManager.GetUserAsync(this.User).Result;
             ContaDeCreditos creditos = _context.ContaDeCreditoses
                 .Include(c => c.HistoricoTransacoeMonetarias)
-                .Single(n => n.ContaDeCreditosId == cliente.ContaDeCreditos.ContaDeCreditosId);
+                .Single(n => n.ContaDeCreditosId == cliente.ContaDeCreditosId);
 
             return View(creditos);
         }

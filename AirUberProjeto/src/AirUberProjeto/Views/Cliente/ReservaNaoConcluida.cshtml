@@ -2,9 +2,23 @@
 
 @{
     ViewBag.Title = "Reserva";
-    Layout = "_Layout";
 }
 
-<h2>A sua reserva não foi efetuada com sucesso</h2>
-<h5>Algo correu mal no ato da reserva tente novamente ou contacte o helpdesk através da janela de pedido de informação</h5>
-<h6>@ViewData["erro"]</h6>
+<div class="content">
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">A sua reserva foi efetuada com sucesso</h4>
+                    </div>
+                    <div class="content">
+                        <h5>Deverá aguardar a validação pela companhia selecionada para aprovação e disponibilização do pagamento.</h5>
+                        <a class="btn" href="@ViewData["ReturnUrl"]">Voltar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

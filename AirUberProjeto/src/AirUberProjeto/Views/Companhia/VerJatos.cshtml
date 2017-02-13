@@ -60,7 +60,7 @@
                             </tbody>
                         </table>
                         
-                        <div class="container">
+                        <div class="content">
                             <a class="btn" style="margin-right: 6px" asp-action="CriarJato">Criar Jato</a>
                             <a class="btn" asp-action="VerModelos">Ver Modelos</a>
                         </div>
@@ -260,12 +260,12 @@
 
     }
 
-
+   
 
 </script>
 
 
-<div id="disp" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="disp" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="background-color: rgba(0,0,0,0.2)">
     <div class="modal-dialog">
         <div class="modal-body row" style="background: white;">
 
@@ -273,3 +273,10 @@
         </div>
     </div>
 </div>
+
+
+<script> $('#disp')
+      .on('shown.bs.modal',
+          function () {
+              $(".modal-backdrop").hide();
+          });</script>

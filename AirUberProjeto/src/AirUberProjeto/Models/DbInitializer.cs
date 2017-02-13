@@ -105,6 +105,7 @@ namespace AirUberProjeto.Models
 
         private static void inicializarTiposAcoes(AirUberDbContext context)
         {
+
             if (!context.TipoAcao.Any())
             {
                 context.TipoAcao.Add(new TipoAcao { Nome = "CREATE" });

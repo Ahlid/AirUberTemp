@@ -2,8 +2,23 @@
 
 @{
     ViewBag.Title = "Reserva";
-    Layout = "_Layout";
 }
 
-<h2>A sua reserva foi efetuada com sucesso</h2>
-<h5>Deverá aguardar a validação pela companhia selecionada para aprovação e disponibilização do pagamento.</h5>
+<div class="content">
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">A sua reserva foi efetuada com sucesso</h4>
+                    </div>
+                    <div class="content">
+                        <h5>Deverá aguardar a validação pela companhia selecionada para aprovação e disponibilização do pagamento.</h5>
+                        <a class="btn" asp-controller="Cliente" asp-action="VerViagens">Ver viagem</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

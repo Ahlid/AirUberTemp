@@ -12,10 +12,10 @@ namespace AirUberBackoffice
     public class AirUberDB
     {
         //localhost
-        private string connectionString = ("Server=(localdb)\\mssqllocaldb;Database=aspnet-AirUberProjeto-66c8e40e-5470-4ac9-82b2-19ea78947f30;Trusted_Connection=True;MultipleActiveResultSets=true");
+       // private string connectionString = ("Server=(localdb)\\mssqllocaldb;Database=aspnet-AirUberProjeto-66c8e40e-5470-4ac9-82b2-19ea78947f30;Trusted_Connection=True;MultipleActiveResultSets=true");
 
         // cons online
-        //private string connectionString = ("Data Source=SQL5031.myASP.NET;Initial Catalog=DB_A1835C_AirUber;User Id=DB_A1835C_AirUber_admin;Password=12345678A");
+        private string connectionString = ("Data Source=SQL5031.myASP.NET;Initial Catalog=DB_A185E3_eswmelhor;User Id=DB_A185E3_eswmelhor_admin;Password=12345678A;");
         
             //NÃO
         //private string connectionString = ("Provider=SQLOLEDB;Data Source=SQL5031.myASP.NET;Initial Catalog=DB_A1835C_Airuberesw;User Id=DB_A1835C_Airuberesw_admin;Password=12345678A");
